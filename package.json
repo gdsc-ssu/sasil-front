@@ -11,6 +11,12 @@
     "common": "yarn workspace @sasil/common",
     "mobile": "yarn workspace @sasil/mobile",
     "web": "yarn workspace @sasil/web",
-    "build:web": "yarn workspace @sasil/common build && yarn workspace @sasil/web build"
+    "build:web": "yarn workspace @sasil/common build && yarn workspace @sasil/web build",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "husky": "7.0.0"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "eslint.workingDirectories": [
+    "projects/common",
+    "projects/sasil-mobile",
+    "projects/sasil-web"
+  ]
+}
