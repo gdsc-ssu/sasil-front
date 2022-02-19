@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "pflannery.vscode-versionlens",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "aaron-bond.better-comments"
+  ]
+}
