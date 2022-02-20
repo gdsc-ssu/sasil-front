@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "yarn workspace @sasil/common build && expo start",
+    "build:all": "yarn workspace @sasil/common build && eas build --profile development --platform all",
+    "build:ios": "yarn workspace @sasil/common build && eas build --profile development --platform ios",
+    "build:android": "yarn workspace @sasil/common build && eas build --profile development --platform android",
+    "start": "yarn workspace @sasil/common build && expo start --dev-client",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
     "storybook": "yarn workspace @sasil/common build && start-storybook -p 7007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "postinstall": "yarn workspace @sasil/common build"
   },
   "dependencies": {
     "@emotion/native": "11.0.0",
@@ -17,6 +21,7 @@
     "@react-navigation/native": "6.0.8",
     "@sasil/common": "1.0.0",
     "expo": "44.0.0",
+    "expo-dev-client": "0.8.4",
     "expo-status-bar": "1.2.0",
     "jotai": "1.6.0",
     "react": "17.0.1",
