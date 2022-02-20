@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sasil-mobile",
-    "slug": "sasil-mobile",
+    "name": "Sasil",
+    "slug": "sasil",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
