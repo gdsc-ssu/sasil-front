@@ -1,6 +1,8 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    // for supporting some global methods (like `fetch`)
+    "browser": true
   },
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
