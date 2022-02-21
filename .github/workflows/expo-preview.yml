@@ -3,7 +3,7 @@ name: Expo-Preview
 on:
   push:
     branches:
-      - main
+      - release/**
 jobs:
   build:
     runs-on: ubuntu-latest
