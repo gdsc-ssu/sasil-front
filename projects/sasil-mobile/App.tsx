@@ -2,6 +2,9 @@ import { useCallback } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { testFetch } from '@sasil/common';
+import StorybookUIRoot from './storybook';
+
+const STORYBOOK_ENABLED = true;
 
 const COLOR = '#fff';
 
@@ -14,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function App() {
+const App = () => {
   const onPress = useCallback(async () => {
     const result = await testFetch(2);
     Alert.alert(result.data.email);
@@ -28,4 +31,6 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
   );
-}
+};
+
+export default STORYBOOK_ENABLED ? StorybookUIRoot : App;
