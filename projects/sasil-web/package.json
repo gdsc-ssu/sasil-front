@@ -7,8 +7,7 @@
     "build": "yarn workspace @sasil/common build && next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 -s ./public"
   },
   "dependencies": {
     "@emotion/react": "11.7.1",

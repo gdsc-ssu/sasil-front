@@ -9,7 +9,7 @@ export interface ReturnType {
   support: {
     url: string;
     text: string;
-  }
+  };
 }
 
 export async function testFetch(userId: number) {
