@@ -28,6 +28,9 @@
       }
     }
   },
+  "globals": {
+    "__DEV__": true
+  },
   "rules": {
     "react/jsx-filename-extension": [
       1,
