@@ -13,9 +13,8 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
+    "plugins": ["expo-community-flipper"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.sasil.sasil"

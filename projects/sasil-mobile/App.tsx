@@ -4,7 +4,16 @@ import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { testFetch } from '@sasil/common';
 import StorybookUIRoot from './storybook';
 
-const STORYBOOK_ENABLED = true;
+const { connectToDevTools } = require('react-devtools-core');
+
+if (__DEV__) {
+  connectToDevTools({
+    host: 'localhost',
+    port: 8097,
+  });
+}
+
+const STORYBOOK_ENABLED = false;
 
 const COLOR = '#fff';
 
