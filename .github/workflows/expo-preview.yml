@@ -29,4 +29,4 @@ jobs:
         run: yarn install
 
       - name: 🚀 Build app
-        run: yarn mobile build:preview
+        run: yarn mobile build:preview --non-interactive
