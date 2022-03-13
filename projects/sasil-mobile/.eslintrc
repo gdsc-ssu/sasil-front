@@ -12,6 +12,13 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "directory": "./tsconfig.json"
+      }
+    }
+  },
   "rules": {
     "react/jsx-filename-extension": [
       1,
