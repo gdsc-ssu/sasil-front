@@ -1,8 +1,6 @@
 {
   "env": {
-    "node": true,
-    // for supporting some global methods (like `fetch`)
-    "browser": true
+    "react-native/react-native": true
   },
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
@@ -15,21 +13,11 @@
     "sourceType": "module"
   },
   "settings": {
-    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
-    },
     "import/resolver": {
       "typescript": {
         "directory": "./tsconfig.json"
-      },
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
-  },
-  "globals": {
-    "__DEV__": true
   },
   "rules": {
     "react/jsx-filename-extension": [

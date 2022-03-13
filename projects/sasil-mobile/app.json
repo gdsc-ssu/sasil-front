@@ -4,6 +4,7 @@
     "slug": "sasil",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "sasil",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -17,13 +18,15 @@
     "plugins": ["expo-community-flipper"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.sasil.sasil"
+      "bundleIdentifier": "com.sasil.sasil",
+      "icon": "./assets/icon.png"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundImage": "./assets/adaptive-background.png"
       },
+      "softwareKeyboardLayoutMode": "pan",
       "package": "com.sasil.sasil"
     },
     "web": {

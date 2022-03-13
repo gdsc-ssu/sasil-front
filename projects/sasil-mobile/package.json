@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:dev": "yarn workspace @sasil/common build && eas build --profile development --platform all",
-    "build:preview": "yarn workspace @sasil/common build && eas build --profile preview --platform all",
-    "build:production": "yarn workspace @sasil/common build && eas build --profile production --platform all",
+    "build:dev": "eas build --profile development --platform all",
+    "build:preview": "eas build --profile preview --platform all",
+    "build:production": "eas build --profile production --platform all",
     "start": "yarn workspace @sasil/common build && expo start --dev-client",
     "storybook": "yarn workspace @sasil/common build && start-storybook -p 7007",
     "prestorybook": "rnstl --pattern '**/*.stories.tsx'",
