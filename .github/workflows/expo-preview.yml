@@ -34,9 +34,4 @@ jobs:
         run: yarn install
 
       - name: 🚀 Build app
-        run: yarn mobile build:preview --release-channel=preview-pr-${{ github.event.number }} --non-interactive
-
-      - name: 💬 Comment in preview
-        uses: expo/expo-github-action/preview-comment@v7
-        with:
-          channel: preview-pr-${{ github.event.number }}
+        run: yarn mobile build:preview --non-interactive
