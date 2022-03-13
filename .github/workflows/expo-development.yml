@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: Preview
+    environment: Development
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v2
