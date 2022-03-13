@@ -7,8 +7,8 @@ on:
       - main
       - develop
     paths:
-      - "/projects/sasil-mobile/**"
-      - "/projects/common/**"
+      - "projects/sasil-mobile/**"
+      - "projects/common/**"
 jobs:
   build:
     runs-on: ubuntu-latest
