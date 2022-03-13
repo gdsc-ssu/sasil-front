@@ -1,11 +1,8 @@
-name: Expo-Preview
+name: Expo-Development
 
 on:
   pull_request:
     types: [opened, synchronize]
-    branches:
-      - main
-      - develop
     paths:
       - "/projects/sasil-mobile/**"
       - "/projects/common/**"
@@ -34,9 +31,9 @@ jobs:
         run: yarn install
 
       - name: 🚀 Build app
-        run: yarn mobile build:preview --release-channel=preview-pr-${{ github.event.number }} --non-interactive
+        run: yarn mobile build:dev --release-channel=dev-pr-${{ github.event.number }} --non-interactive
 
       - name: 💬 Comment in preview
         uses: expo/expo-github-action/preview-comment@v7
         with:
-          channel: preview-pr-${{ github.event.number }}
+          channel: dev-pr-${{ github.event.number }}
