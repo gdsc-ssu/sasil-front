@@ -4,5 +4,7 @@
     "projects/sasil-mobile",
     "projects/sasil-web"
   ],
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2
 }

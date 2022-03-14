@@ -3,6 +3,11 @@
     "pflannery.vscode-versionlens",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "aaron-bond.better-comments"
+    "aaron-bond.better-comments",
+    "styled-components.vscode-styled-components",
+    "eamodio.gitlens",
+    "bycedric.vscode-expo",
+    "usernamehw.errorlens",
+    "vivaxy.vscode-conventional-commits"
   ]
 }
