@@ -1,49 +1,55 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-import Button from './LoginButton.style';
+import AppleLogo from '@/assets/icons/AppleLogo.svg';
+import GoogleLogo from '@/assets/icons/GoogleLogo.svg';
+import KakaoLogo from '@/assets/icons/KakaoLogo.svg';
+
+import * as styles from './LoginButton.style';
 
 interface socialThemesType {
   [key: string]: {
     label: string;
-    border: string;
     backgroundColor: string;
     color: string;
+    logo: ReactElement;
   };
 }
 
-interface LoginButtonProps {
+export interface LoginButtonProps {
   social: string;
+  onClick: () => void;
 }
 
 const socialStyle: socialThemesType = {
   kakao: {
     label: '카카오 로그인',
-    border: 'none',
     backgroundColor: '#FEE500',
     color: '#000',
+    logo: <KakaoLogo width="18" />,
   },
   apple: {
     label: 'Apple로 계속하기',
-    border: 'none',
     backgroundColor: '#0a0a0a',
     color: '#fff',
+    logo: <AppleLogo width="18" />,
   },
   google: {
     label: 'Google로 계속하기',
-    border: '1px solid #000',
     backgroundColor: '#fff',
     color: '000',
+    logo: <GoogleLogo width="18" />,
   },
 };
 
-const LoginButton = ({ social }: LoginButtonProps) => (
-  <Button
+const LoginButton = ({ social, onClick }: LoginButtonProps) => (
+  <styles.Button
     backgroundColor={socialStyle[social].backgroundColor}
-    border={socialStyle[social].border}
     color={socialStyle[social].color}
+    onClick={onClick}
   >
-    {socialStyle[social].label}
-  </Button>
+    <styles.iconWrap>{socialStyle[social].logo}</styles.iconWrap>
+    <styles.labelWrap>{socialStyle[social].label}</styles.labelWrap>
+  </styles.Button>
 );
 
 export default LoginButton;

@@ -1,24 +1,20 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import LoginButton from './LoginButton';
-
-interface LoginButtonProps {
-  social: string;
-}
+import LoginButton, { LoginButtonProps } from './LoginButton';
 
 export default {
   title: 'components/common/atom/LoginButton',
   component: LoginButton,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    label: { defaultValue: 'Button' },
+    onClick: { action: 'clicked' },
   },
 } as ComponentMeta<typeof LoginButton>;
 
 const Template: ComponentStory<typeof LoginButton> = ({
   social,
-}: LoginButtonProps) => <LoginButton social={social} />;
+  onClick,
+}: LoginButtonProps) => <LoginButton social={social} onClick={onClick} />;
 
 export const Kakao = Template.bind({});
 Kakao.args = {
