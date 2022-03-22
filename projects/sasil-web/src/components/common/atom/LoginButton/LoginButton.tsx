@@ -6,21 +6,27 @@ import KakaoLogo from '@/assets/icons/KakaoLogo.svg';
 
 import * as styles from './LoginButton.style';
 
-interface socialThemesType {
-  [key: string]: {
+export const SOCIAL = {
+  kakao: 'kakao',
+  apple: 'apple',
+  google: 'google',
+} as const;
+export type Social = typeof SOCIAL[keyof typeof SOCIAL];
+
+type SocialTheme = {
+  [key in Social]: {
     label: string;
     backgroundColor: string;
     color: string;
     logo: ReactElement;
   };
-}
-
+};
 export interface LoginButtonProps {
-  social: string;
+  social: Social;
   onClick: () => void;
 }
 
-const socialStyle: socialThemesType = {
+const socialTheme: SocialTheme = {
   kakao: {
     label: '카카오 로그인',
     backgroundColor: '#FEE500',
@@ -43,12 +49,12 @@ const socialStyle: socialThemesType = {
 
 const LoginButton = ({ social, onClick }: LoginButtonProps) => (
   <styles.Button
-    backgroundColor={socialStyle[social].backgroundColor}
-    color={socialStyle[social].color}
+    backgroundColor={socialTheme[social].backgroundColor}
+    color={socialTheme[social].color}
     onClick={onClick}
   >
-    <styles.iconWrap>{socialStyle[social].logo}</styles.iconWrap>
-    <styles.labelWrap>{socialStyle[social].label}</styles.labelWrap>
+    <styles.iconWrap>{socialTheme[social].logo}</styles.iconWrap>
+    <styles.labelWrap>{socialTheme[social].label}</styles.labelWrap>
   </styles.Button>
 );
 
