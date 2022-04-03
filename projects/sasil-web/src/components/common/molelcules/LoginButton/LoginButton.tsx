@@ -4,7 +4,9 @@ import AppleLogo from '@/assets/icons/AppleLogo.svg';
 import GoogleLogo from '@/assets/icons/GoogleLogo.svg';
 import KakaoLogo from '@/assets/icons/KakaoLogo.svg';
 
+import { TEXT_STYLE_NAME } from '@/constants/styles/textStyles';
 import * as styles from './LoginButton.style';
+import StyledText from '../../atoms/StyledText/StyledText';
 
 export const SOCIAL = {
   kakao: 'kakao',
@@ -21,10 +23,6 @@ type SocialTheme = {
     logo: ReactElement;
   };
 };
-export interface LoginButtonProps {
-  social: Social;
-  onClick: () => void;
-}
 
 const socialTheme: SocialTheme = {
   kakao: {
@@ -47,14 +45,25 @@ const socialTheme: SocialTheme = {
   },
 };
 
+export interface LoginButtonProps {
+  social: Social;
+  onClick: () => void;
+}
+
 const LoginButton = ({ social, onClick }: LoginButtonProps) => (
   <styles.Button
     backgroundColor={socialTheme[social].backgroundColor}
-    color={socialTheme[social].color}
     onClick={onClick}
   >
     <styles.iconWrap>{socialTheme[social].logo}</styles.iconWrap>
-    <styles.labelWrap>{socialTheme[social].label}</styles.labelWrap>
+    <styles.labelWrap>
+      <StyledText
+        color={socialTheme[social].color}
+        textStyleName={TEXT_STYLE_NAME.button2B}
+      >
+        {socialTheme[social].label}
+      </StyledText>
+    </styles.labelWrap>
   </styles.Button>
 );
 

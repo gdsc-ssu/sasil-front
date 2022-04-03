@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
-import { relative } from 'path';
 
 interface ButtonProps {
-  color: string;
   backgroundColor: string;
 }
 
@@ -11,9 +9,6 @@ export const Button = styled.button<ButtonProps>((props) => ({
   height: 42,
   border: 'none',
   borderRadius: 8,
-  color: props.color,
-  fontSize: 14,
-  fontWeight: '600',
   background: props.backgroundColor,
   margin: 7,
   position: 'relative',
