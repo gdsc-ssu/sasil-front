@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import COLORS from '@/constants/styles/color';
+import COLORS from '@sasil/common/dist/constants/style';
 import { TEXT_STYLE_NAME } from '@/constants/styles/textStyles';
 import StyledText, { StyledTextProps } from './StyledText';
 
@@ -10,7 +10,7 @@ export default {
   component: StyledText,
   argTypes: {
     color: {
-      options: COLORS.grayscale,
+      options: COLORS.primary,
       control: 'select',
     },
     textStyleName: {
