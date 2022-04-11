@@ -2,12 +2,13 @@ import styled from '@emotion/styled';
 
 interface ButtonProps {
   backgroundColor: string;
+  border?: string;
 }
 
 export const Button = styled.button<ButtonProps>((props) => ({
   width: 354,
   height: 42,
-  border: 'none',
+  border: props.border ? props.border : 'none',
   borderRadius: 8,
   background: props.backgroundColor,
   margin: 7,

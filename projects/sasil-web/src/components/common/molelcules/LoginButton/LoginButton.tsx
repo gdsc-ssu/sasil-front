@@ -15,16 +15,17 @@ export const SOCIAL = {
 } as const;
 export type Social = typeof SOCIAL[keyof typeof SOCIAL];
 
-type SocialTheme = {
+type Themes = {
   [key in Social]: {
     label: string;
     backgroundColor: string;
     color: string;
     logo: ReactElement;
+    border?: string;
   };
 };
 
-const socialTheme: SocialTheme = {
+const themes: Themes = {
   kakao: {
     label: '카카오 로그인',
     backgroundColor: '#FEE500',
@@ -40,8 +41,9 @@ const socialTheme: SocialTheme = {
   google: {
     label: 'Google로 계속하기',
     backgroundColor: '#fff',
-    color: '000',
+    color: '#000',
     logo: <GoogleLogo width="18" />,
+    border: '1px solid #E0E0E0',
   },
 };
 
@@ -52,16 +54,17 @@ export interface LoginButtonProps {
 
 const LoginButton = ({ social, onClick }: LoginButtonProps) => (
   <styles.Button
-    backgroundColor={socialTheme[social].backgroundColor}
+    backgroundColor={themes[social].backgroundColor}
+    border={themes[social].border}
     onClick={onClick}
   >
-    <styles.iconWrap>{socialTheme[social].logo}</styles.iconWrap>
+    <styles.iconWrap>{themes[social].logo}</styles.iconWrap>
     <styles.labelWrap>
       <StyledText
-        color={socialTheme[social].color}
+        color={themes[social].color}
         textStyleName={TEXT_STYLE_NAME.button2B}
       >
-        {socialTheme[social].label}
+        {themes[social].label}
       </StyledText>
     </styles.labelWrap>
   </styles.Button>
