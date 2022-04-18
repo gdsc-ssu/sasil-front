@@ -6,9 +6,8 @@ interface ButtonProps {
 
 // eslint-disable-next-line import/prefer-default-export
 export const Button = styled.Pressable<ButtonProps>((props) => ({
-  width: 354,
+  width: 327,
   height: 42,
-  elevation: 0,
   borderRadius: 8,
   backgroundColor: props.backgroundColor,
   margin: 7,
@@ -23,6 +22,8 @@ export const labelWrap = styled.View({
 
 export const iconWrap = styled.View`
   position: absolute;
-  top: 28.57%;
-  left: 4.89%;
+  width: 18px;
+  height: 18px;
+  left: 16px;
+  top: 12px;
 `;
