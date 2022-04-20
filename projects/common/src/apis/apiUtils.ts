@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { apiUrl } from 'src/constants/serverInfo';
+import { apiUrl } from '../constants/serverInfo';
 
 /*
 [[ API 타입 & 유틸 함수 ]]
