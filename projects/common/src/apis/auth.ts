@@ -15,6 +15,7 @@ interface LoginAsyncOutput {
  * 소셜 로그인 토큰으로 JWT 토큰을 받는 함수
  * @param loginType 소셜 로그인 타입
  * @param token 소셜 로그인으로 받은 토큰
+ * @returns `{token: JWT 토큰}`
  */
 export async function loginAsync(
   loginType: LoginType,
@@ -26,7 +27,12 @@ export async function loginAsync(
 
   const result = await postAsync<LoginAsyncOutput, LoginAsyncInput>(
     `/auth/login/${loginType}`,
-    { Authorization: token },
+    undefined,
+    {
+      headers: {
+        Authorization: token,
+      },
+    },
   );
 
   return result;

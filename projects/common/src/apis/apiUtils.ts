@@ -89,16 +89,11 @@ export async function getAsync<T, D>(
   errorMessages?: Record<number, string>,
 ): ApiResult<T> {
   try {
-    const response = await axios.get<T, AxiosResponse<T, D>, D>(
-      `${apiUrl}${path}`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          accept: 'application/json',
-        },
-        ...config,
-      },
-    );
+    const response = await axios.get<T, AxiosResponse<T, D>, D>(path, {
+      baseURL: apiUrl,
+      responseType: 'json',
+      ...config,
+    });
 
     return { isSuccess: true, result: response.data };
   } catch (error) {
@@ -123,17 +118,11 @@ export async function postAsync<T, D>(
   errorMessages?: Record<number, string>,
 ): ApiResult<T> {
   try {
-    const response = await axios.post<T, AxiosResponse<T, D>, D>(
-      `${apiUrl}${path}`,
-      data,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          accept: 'application/json',
-        },
-        ...config,
-      },
-    );
+    const response = await axios.post<T, AxiosResponse<T, D>, D>(path, data, {
+      baseURL: apiUrl,
+      responseType: 'json',
+      ...config,
+    });
 
     return { isSuccess: true, result: response.data };
   } catch (error) {
