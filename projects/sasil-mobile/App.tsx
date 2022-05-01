@@ -1,7 +1,10 @@
+/* eslint-disable global-require */
 import { useCallback } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import { testFetch } from '@sasil/common';
+import { useFonts } from 'expo-font';
+
 import StorybookUIRoot from './storybook';
 
 const { connectToDevTools } = require('react-devtools-core');
@@ -31,6 +34,19 @@ const App = () => {
     const result = await testFetch(2);
     Alert.alert(result.data.email);
   }, []);
+
+  const [loaded] = useFonts({
+    bold: require('./assets/fonts/Pretendard-Bold.otf'),
+    light: require('./assets/fonts/Pretendard-Light.otf'),
+    medium: require('./assets/fonts/Pretendard-Medium.otf'),
+    regular: require('./assets/fonts/Pretendard-Regular.otf'),
+    semibold: require('./assets/fonts/Pretendard-SemiBold.otf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress}>

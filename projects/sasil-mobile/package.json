@@ -19,6 +19,7 @@
     "expo": "44.0.0",
     "expo-community-flipper": "44.0.1",
     "expo-dev-client": "0.8.4",
+    "expo-font": "10.0.5",
     "expo-status-bar": "1.2.0",
     "expo-updates": "0.11.6",
     "jotai": "1.6.0",

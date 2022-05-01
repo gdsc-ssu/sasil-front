@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import StyledText from '@/components/common/atom/StyledText';
-
 import AppleLogo from '@/assets/icons/AppleLogo';
 import KakaoLogo from '@/assets/icons/KakaoLogo';
 import GoogleLogo from '@/assets/icons/GoogleLogo';
 
+import { TEXT_STYLE_NAME } from '@sasil/common/src/constants/style/textStyles';
 import * as styles from './LoginButton.style';
 
 export const SOCIAL = {
@@ -24,6 +24,7 @@ type SocialTheme = {
   };
 };
 
+// 각 소셜의 버튼 스타일, 로고 등 정보를 가지고 있는 객체
 const themes: SocialTheme = {
   kakao: {
     label: '카카오 로그인',
@@ -49,6 +50,11 @@ interface LoginButtonProps {
   social: Social;
 }
 
+/**
+ * 로그인 버튼을 생성하는 컴포넌트
+ *
+ * @param social : 소셜 로그인 종류. apple, kakao, google 중 하나.
+ */
 const LoginButton = ({ social }: LoginButtonProps) => (
   <styles.Button
     backgroundColor={themes[social].backgroundColor}
@@ -56,7 +62,10 @@ const LoginButton = ({ social }: LoginButtonProps) => (
   >
     <styles.iconWrap>{themes[social].logo}</styles.iconWrap>
     <styles.labelWrap>
-      <StyledText color={themes[social].color}>
+      <StyledText
+        color={themes[social].color}
+        textStyleName={TEXT_STYLE_NAME.button2R}
+      >
         {themes[social].label}
       </StyledText>
     </styles.labelWrap>
