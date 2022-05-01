@@ -4,7 +4,7 @@ import AppleLogo from '@/assets/icons/AppleLogo.svg';
 import GoogleLogo from '@/assets/icons/GoogleLogo.svg';
 import KakaoLogo from '@/assets/icons/KakaoLogo.svg';
 
-import { TEXT_STYLE_NAME } from '@/constants/styles/textStyles';
+import { TEXT_STYLE_NAME } from '@sasil/common/src/constants/style/textStyles';
 import * as styles from './LoginButton.style';
 import StyledText from '../../atoms/StyledText/StyledText';
 
@@ -49,7 +49,7 @@ const themes: Themes = {
 
 export interface LoginButtonProps {
   social: Social;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const LoginButton = ({ social, onClick }: LoginButtonProps) => (

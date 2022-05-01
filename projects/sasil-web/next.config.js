@@ -16,4 +16,8 @@ module.exports = {
 
     return config;
   },
+  // @sasil-web 폴더에서 다른 폴더(@sasil-common)의 파일을 불러오기 위한 옵션
+  experimental: {
+    externalDir: true,
+  },
 };
