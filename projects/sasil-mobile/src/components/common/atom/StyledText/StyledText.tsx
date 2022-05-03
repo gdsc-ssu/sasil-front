@@ -1,9 +1,5 @@
 import styled from '@emotion/native';
-import COLORS from '@sasil/common/dist/constants/style';
-import {
-  TextStyleName,
-  TEXT_STYLES_MOBILE,
-} from '@sasil/common/src/constants/style/textStyles';
+import COLORS, { TextStyleName, TEXT_STYLES_MOBILE } from '@sasil/common';
 
 interface StyledTextProps {
   color?: string;

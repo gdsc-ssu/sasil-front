@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import COLORS from '@sasil/common/dist/constants/style';
-import { TEXT_STYLE_NAME } from '@sasil/common/src/constants/style/textStyles';
+import COLORS from '@sasil/common';
+import { TEXT_STYLE_NAME } from '@sasil/common';
 import StyledText, { StyledTextProps } from './StyledText';
 
 // storybook에서 color와 textStyle을 옵션으로 선택해서 테

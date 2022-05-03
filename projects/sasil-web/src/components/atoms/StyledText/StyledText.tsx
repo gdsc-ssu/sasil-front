@@ -1,8 +1,4 @@
-import COLORS from '@sasil/common/dist/constants/style';
-import {
-  TEXT_STYLES_PC,
-  TextStyleName,
-} from '@sasil/common/src/constants/style/textStyles';
+import COLORS, { TEXT_STYLES_PC, TextStyleName } from '@sasil/common';
 
 import styled from '@emotion/styled';
 

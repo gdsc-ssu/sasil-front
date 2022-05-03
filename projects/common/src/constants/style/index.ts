@@ -1,3 +1,2 @@
-import COLORS from './color';
-
-export default COLORS;
+export * from './color';
+export * from './textStyles';

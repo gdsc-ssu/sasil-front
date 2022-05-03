@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import StyledText from '@/components/common/atom/StyledText';
+
 import AppleLogo from '@/assets/icons/AppleLogo';
 import KakaoLogo from '@/assets/icons/KakaoLogo';
 import GoogleLogo from '@/assets/icons/GoogleLogo';
 
-import { TEXT_STYLE_NAME } from '@sasil/common/src/constants/style/textStyles';
+import { TEXT_STYLE_NAME } from '@sasil/common';
 import * as styles from './LoginButton.style';
 
 export const SOCIAL = {
@@ -64,7 +65,7 @@ const LoginButton = ({ social }: LoginButtonProps) => (
     <styles.labelWrap>
       <StyledText
         color={themes[social].color}
-        textStyleName={TEXT_STYLE_NAME.button2R}
+        textStyleName={TEXT_STYLE_NAME.button2B}
       >
         {themes[social].label}
       </StyledText>

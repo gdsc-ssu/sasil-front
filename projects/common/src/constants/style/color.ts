@@ -1,4 +1,5 @@
-const COLORS = {
+/* eslint-disable import/prefer-default-export */
+export const COLORS = {
   primary: {
     normal: '#595FE4',
     pressed: '#4448AF',
@@ -19,5 +20,3 @@ const COLORS = {
   },
   background: '#F8F8F8',
 };
-
-export default COLORS;
