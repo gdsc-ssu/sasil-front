@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import COLORS, { TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
 import StyledText from './StyledText';
 
 storiesOf('common/atom/StyledText', module)
