@@ -8,7 +8,8 @@
       "@/template/*": ["./src/template/*"],
       "@/screens/*": ["./src/screens/*"],
       "@/logics/*": ["./src/logics/*"],
-      "@/constants/*": ["./src/constants/*"]
+      "@/constants/*": ["./src/constants/*"],
+      "@/assets/*": ["assets/*"]
     }
   }
 }
