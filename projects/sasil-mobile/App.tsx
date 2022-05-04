@@ -35,9 +35,9 @@ const App = () => {
   }, []);
 
   const [loaded] = useFonts({
-    bold: require('./assets/fonts/Pretendard-Bold.otf'),
-    regular: require('./assets/fonts/Pretendard-Regular.otf'),
-    semibold: require('./assets/fonts/Pretendard-SemiBold.otf'),
+    bold: require('@/assets/fonts/Pretendard-Bold.otf'),
+    regular: require('@/assets/fonts/Pretendard-Regular.otf'),
+    semibold: require('@/assets/fonts/Pretendard-SemiBold.otf'),
   });
 
   if (!loaded) {

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import StyledText from '@/components/common/atom/StyledText';
 
@@ -16,6 +15,7 @@ export const SOCIAL = {
 } as const;
 export type Social = typeof SOCIAL[keyof typeof SOCIAL];
 
+/* eslint-disable no-undef */
 type SocialTheme = {
   [key in Social]: {
     label: string;

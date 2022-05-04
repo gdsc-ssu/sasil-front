@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
-import Svg, { SvgProps, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
-const GoogleLogo = (props: SvgProps) => (
-  <Svg width={18} height={18} fill="none" {...props}>
+const GoogleLogo = () => (
+  <Svg width={18} height={18} fill="none">
     <Path
       fillRule="evenodd"
       clipRule="evenodd"
