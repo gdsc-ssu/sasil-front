@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import LoginButton from './LoginButton';
 
-storiesOf('common/molecule/LoginButton', module)
+storiesOf('molecule/LoginButton', module)
   .addDecorator((getStory) => <View>{getStory()}</View>)
   .add('Kakao', () => <LoginButton social="kakao" />)
   .add('Google', () => <LoginButton social="google" />)
