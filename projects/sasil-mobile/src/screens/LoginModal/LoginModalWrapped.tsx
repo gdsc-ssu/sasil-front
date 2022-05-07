@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import * as Google from 'expo-auth-session/providers/google';
 import * as AppleAuthentication from 'expo-apple-authentication';
+import { ResponseType } from 'expo-auth-session';
 import LoginModal from './LoginModal';
 
 const expoClientId =
-  '429457146313-ub1nukuklsknj8831etpgjvj845h7l16.apps.googleusercontent.com';
-const androidClientId =
-  '429457146313-mq693iuckrp5spudm138g1rnntgnjjt4.apps.googleusercontent.com';
+  '1039863031545-6s4895k6lu3qoo5ndnhjm4vk9dkonkss.apps.googleusercontent.com';
+// const androidClientId =
+//   '429457146313-mq693iuckrp5spudm138g1rnntgnjjt4.apps.googleusercontent.com';
 const iosClientId =
-  '429457146313-3cnac39f86l1osgo34jjoj468e3lgvth.apps.googleusercontent.com';
+  '1039863031545-4in5ljvaephst13ridnjtqm32ododsho.apps.googleusercontent.com';
 
 // TODO: Apple 로그인 요청 함수 -> 유저 데이터 가져오지 않음!
 const loginWithApple = async () => {
@@ -45,13 +46,15 @@ const LoginModalWrapped = () => {
   // Google Login
   const [request, response, promptAsync] = Google.useAuthRequest({
     expoClientId,
-    androidClientId,
+    // androidClientId,
     iosClientId,
+    responseType: ResponseType.IdToken,
   });
   useEffect(() => {
     if (response?.type === 'success') {
-      const { authentication } = response;
-      console.log(authentication);
+      const { id_token: idToken } = response.params;
+      // TODO : 로그인 API에 id_token 전달해서 유저 정보 가지고 와야한다!
+      console.log(idToken);
     }
   }, [response]);
 
