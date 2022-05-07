@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Head from 'next/head';
 import AuthTemplateWrapped from '@/components/templates/auth/AuthTemplate';
 

@@ -3,7 +3,7 @@ import SasilLogo from '@/assets/icons/SasilLogo.svg';
 
 import * as styles from './SocialLoginBox.style';
 
-type SocialLoginBoxProps = {
+export type SocialLoginBoxProps = {
   appleLogin: () => Promise<void>;
   kakaoLogin: () => void;
   googleLogin: () => void;
