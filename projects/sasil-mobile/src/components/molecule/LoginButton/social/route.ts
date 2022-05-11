@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.sasil.app'; // 'http://localhost:4000';
-// axios.defaults.withCredentials = true;
 
 export const getUser = async (token: string) => {
   try {

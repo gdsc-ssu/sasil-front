@@ -1,5 +1,5 @@
 import { googleClientId } from '@sasil/common';
-import { useGoogleLogin } from 'react-google-login';
+import GoogleLogin from 'react-google-login';
 import { login, getUser } from '../routes';
 import LoginButton from '../LoginButton';
 
@@ -10,21 +10,21 @@ import LoginButton from '../LoginButton';
  */
 // TODO : login API 연결 !!
 const responseGoogle = async (response: any) => {
-  const res = await login(response.tokenId, 'google');
+  const res = await login(response.tokenId, 'google-web');
   const token = res?.data.token;
   const user = await getUser(token);
   console.log(user);
 };
 
 // Google 로그인 버튼 컴포넌트
-const GoogleLoginButton = () => {
-  const { signIn: loginWithGoogle } = useGoogleLogin({
-    onSuccess: responseGoogle,
-    onFailure: responseGoogle,
-    clientId: googleClientId.web,
-    isSignedIn: true,
-  });
-  return <LoginButton social="google" onClick={loginWithGoogle} />;
-};
-
+const GoogleLoginButton = () => (
+  <GoogleLogin
+    clientId={googleClientId.web}
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    render={(renderProps) => (
+      <LoginButton social="google" onClick={renderProps.onClick} />
+    )}
+  />
+);
 export default GoogleLoginButton;
