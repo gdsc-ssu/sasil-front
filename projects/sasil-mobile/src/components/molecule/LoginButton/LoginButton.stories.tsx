@@ -1,10 +1,14 @@
 import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import LoginButton from './LoginButton';
+import {
+  AppleLoginButton,
+  GoogleLoginButton,
+  KakaoLoginButton,
+} from './social';
 
 storiesOf('molecule/LoginButton', module)
   .addDecorator((getStory) => <View>{getStory()}</View>)
-  .add('Kakao', () => <LoginButton social="kakao" />)
-  .add('Google', () => <LoginButton social="google" />)
-  .add('Apple', () => <LoginButton social="apple" />);
+  .add('Kakao', () => <KakaoLoginButton />)
+  .add('Google', () => <GoogleLoginButton />)
+  .add('Apple', () => <AppleLoginButton />);

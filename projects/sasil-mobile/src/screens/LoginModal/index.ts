@@ -1,3 +1,3 @@
-import LoginModalWrapped from './LoginModalWrapped';
+import LoginModal from './LoginModal';
 
-export default LoginModalWrapped;
+export default LoginModal;

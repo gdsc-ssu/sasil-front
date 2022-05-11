@@ -1,20 +1,29 @@
-/* eslint-disable @next/next/no-sync-scripts */
-import Head from 'next/head';
-import AuthTemplateWrapped from '@/components/templates/auth/AuthTemplate';
+import Script from 'next/script';
+import styled from '@emotion/styled';
+import SocialLoginBox from '@/components/organisms/auth/SocialLoginBox';
+
+const Container = styled.div({
+  height: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
 
 const AuthPage = () => (
   <>
-    <Head>
-      <script
-        type="text/javascript"
-        src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"
-      />
-      <script
-        type="text/javascript"
-        src="https://developers.kakao.com/sdk/js/kakao.min.js"
-      />
-    </Head>
-    <AuthTemplateWrapped />
+    <Script
+      type="text/javascript"
+      src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"
+      strategy="beforeInteractive"
+    />
+    <Script
+      type="text/javascript"
+      src="https://developers.kakao.com/sdk/js/kakao.min.js"
+      strategy="beforeInteractive"
+    />
+    <Container>
+      <SocialLoginBox />
+    </Container>
   </>
 );
 

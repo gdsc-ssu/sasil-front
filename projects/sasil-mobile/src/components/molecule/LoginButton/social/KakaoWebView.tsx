@@ -6,6 +6,11 @@ import { login, getUser } from './route';
 
 const runFirst = `window.ReactNativeWebView.postMessage("this is message from web");`;
 
+const View = styled.SafeAreaView({
+  flex: 1,
+  backgroundColor: '#fff',
+});
+
 /**
  * accessCode 를 가지고 Kakao 토큰을 받는 함수
  *
@@ -28,20 +33,18 @@ const getKakaoToken = async (code: string) => {
  * @param authValue : Kakao로부터 받은 토큰
  */
 const responseKakao = async (authValue: string) => {
+  // TODO: login API 연결 !!
   const res = await login(authValue, 'kakao');
+  console.log(res);
   const token = res?.data.token;
   const user = await getUser(token);
   return user;
 };
 
-const View = styled.SafeAreaView({
-  flex: 1,
-  backgroundColor: '#fff',
-});
-
 type KakaoWebViewProps = {
   closeWebView: () => void;
 };
+
 /**
  * Kakao Login을 위한 Web View 컴포넌트
  *
@@ -58,8 +61,6 @@ const KakaoWebView = ({ closeWebView }: KakaoWebViewProps) => {
         const response = await getKakaoToken(accessCode);
         const authValue = response.data.access_token;
         const userData = await responseKakao(authValue);
-        console.log(userData);
-        // TODO : 잘 닫히는 게 맞나.??
         closeWebView();
       }
     } catch (err) {

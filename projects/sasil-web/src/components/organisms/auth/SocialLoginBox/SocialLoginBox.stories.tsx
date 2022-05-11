@@ -1,22 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import SocialLoginBox, { SocialLoginBoxProps } from './SocialLoginBox';
+import SocialLoginBox from './SocialLoginBox';
 
 export default {
   title: 'components/organisms/auth/SocialLoginBox',
   componenet: SocialLoginBox,
 } as ComponentMeta<typeof SocialLoginBox>;
 
-const Template: ComponentStory<typeof SocialLoginBox> = ({
-  appleLogin,
-  kakaoLogin,
-  googleLogin,
-}: SocialLoginBoxProps) => (
-  <SocialLoginBox
-    appleLogin={appleLogin}
-    kakaoLogin={kakaoLogin}
-    googleLogin={googleLogin}
-  />
+const Template: ComponentStory<typeof SocialLoginBox> = () => (
+  <SocialLoginBox />
 );
 
 export const Default = Template.bind({});
