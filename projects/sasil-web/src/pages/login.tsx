@@ -9,7 +9,7 @@ const Container = styled.div({
   alignItems: 'center',
 });
 
-const AuthPage = () => (
+const LoginPage = () => (
   <>
     <Script
       type="text/javascript"
@@ -27,4 +27,4 @@ const AuthPage = () => (
   </>
 );
 
-export default AuthPage;
+export default LoginPage;
