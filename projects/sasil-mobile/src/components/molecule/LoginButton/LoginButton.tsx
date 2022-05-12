@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledText from '@/components/common/atom/StyledText';
+import StyledText from '@/components/atom/StyledText';
 
 import AppleLogo from '@/assets/icons/AppleLogo';
 import KakaoLogo from '@/assets/icons/KakaoLogo';
@@ -49,17 +49,19 @@ const themes: SocialTheme = {
 
 interface LoginButtonProps {
   social: Social;
+  onPress: () => void;
 }
 
 /**
  * 로그인 버튼을 생성하는 컴포넌트
  *
  * @param social : 소셜 로그인 종류. apple, kakao, google 중 하나.
+ * @param onPress : 버튼 누르면 실행될 함수
  */
-const LoginButton = ({ social }: LoginButtonProps) => (
+const LoginButton = ({ social, onPress }: LoginButtonProps) => (
   <styles.Button
     backgroundColor={themes[social].backgroundColor}
-    // onPress={onPress}
+    onPress={onPress}
   >
     <styles.iconWrap>{themes[social].logo}</styles.iconWrap>
     <styles.labelWrap>
