@@ -1,5 +1,7 @@
 import { appleClientId, appleRedirectURI } from '@sasil/common';
 import { useEffect } from 'react';
+import { useAtom } from 'jotai';
+import { createUserInfoAtom } from '@/constants/store';
 import { login, getUser } from '../routes';
 import LoginButton from '../LoginButton';
 
@@ -30,18 +32,22 @@ const responseApple = async (authValue: string) => {
   const res = await login(authValue, 'apple-web');
   const token = res?.data.token;
   const userData = await getUser(token);
-  console.log(userData);
+  return userData;
 };
 
-// Apple 로그인 함수 : 애플 로그인 창이 열린 후, 로그인 성공시 유저 데이터를 받아오는 로직 실행
-const loginWithApple = async () => {
+/**
+ * Apple 로그인 성공시 유저 정보 받아온 후 userInfo atom에 넣어주는 함수
+ *
+ * @param setUserInfo : userInfo을 업데이트하는 action 함수
+ */
+const loginWithApple = async (setUserInfo: (update: any) => void) => {
   try {
     const { AppleID }: any = window;
     const data = await AppleID.auth.signIn();
     if (data) {
       const authValue = data.authorization.code;
       const result = await responseApple(authValue);
-      console.log(result);
+      setUserInfo(result);
     }
   } catch (error) {
     console.log(error);
@@ -50,6 +56,7 @@ const loginWithApple = async () => {
 
 // Apple 로그인 버튼 컴포넌트
 const AppleLoginButton = () => {
+  const [, setUserInfo] = useAtom(createUserInfoAtom);
   useEffect(() => {
     const { AppleID }: any = window;
     AppleID.auth.init({
@@ -61,7 +68,9 @@ const AppleLoginButton = () => {
       usePopup: true,
     });
   }, []);
-  return <LoginButton social="apple" onClick={loginWithApple} />;
+  return (
+    <LoginButton social="apple" onClick={() => loginWithApple(setUserInfo)} />
+  );
 };
 
 export default AppleLoginButton;
