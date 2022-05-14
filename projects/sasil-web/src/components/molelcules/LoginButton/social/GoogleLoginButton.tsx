@@ -1,12 +1,13 @@
 import { googleClientId } from '@sasil/common';
 import GoogleLogin from 'react-google-login';
-import { createUserInfoAtom } from '@/constants/store';
+import { createUserInfoAtom } from '@/logics/store/actions';
 import { useAtom } from 'jotai';
 import { login, getUser } from '../routes';
 import LoginButton from '../LoginButton';
 
 // Google 로그인 버튼 컴포넌트
 const GoogleLoginButton = () => {
+  // UserInfo Update Action
   const [, setUserInfo] = useAtom(createUserInfoAtom);
 
   /**
