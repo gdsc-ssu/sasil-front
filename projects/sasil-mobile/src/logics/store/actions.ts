@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { userInfoAtom, UserInfoType } from '../atoms';
+import { userInfoAtom, UserInfoType } from './atoms';
 
 export const createUserInfoAtom = atom(
   (get) => get(userInfoAtom),
