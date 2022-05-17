@@ -20,7 +20,8 @@
       "@/template/*": ["src/template/*"],
       "@/pages/*": ["src/pages/*"],
       "@/logics/*": ["src/logics/*"],
-      "@/constants/*": ["src/constants/*"]
+      "@/constants/*": ["src/constants/*"],
+      "@/assets/*": ["src/assets/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
