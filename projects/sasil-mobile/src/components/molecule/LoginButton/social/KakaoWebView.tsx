@@ -1,10 +1,15 @@
 import styled from '@emotion/native';
-import { kakaoClientId, kakaoRedirectURI } from '@sasil/common';
+import {
+  kakaoClientId,
+  kakaoRedirectURI,
+  loginAsync,
+  getUser,
+  User,
+} from '@sasil/common';
 import axios from 'axios';
 import { useAtom } from 'jotai';
 import WebView from 'react-native-webview';
 import { createUserInfoAtom } from '@/logics/store/actions';
-import { login, getUser } from './route';
 
 const runFirst = `window.ReactNativeWebView.postMessage("this is message from web");`;
 
@@ -35,11 +40,14 @@ const getKakaoToken = async (code: string) => {
  * @param authValue : Kakao로부터 받은 토큰
  */
 const responseKakao = async (authValue: string) => {
-  // TODO: login API 연결 !!
-  const res = await login(authValue, 'kakao');
-  const token = res?.data.token;
-  const user = await getUser(token);
-  return user;
+  const res = await loginAsync('kakao', authValue);
+  if (res.isSuccess) {
+    const { token } = res.result;
+    const user = await getUser(token);
+    if (user.isSuccess) return user.result;
+  }
+
+  return undefined;
 };
 
 type KakaoWebViewProps = {
@@ -64,7 +72,7 @@ const KakaoWebView = ({ closeWebView }: KakaoWebViewProps) => {
         const response = await getKakaoToken(accessCode);
         const authValue = response.data.access_token;
         const result = await responseKakao(authValue);
-        setUserInfo(result);
+        if (result) setUserInfo(result);
         closeWebView();
       }
     } catch (err) {

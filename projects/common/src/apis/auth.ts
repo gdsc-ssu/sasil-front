@@ -1,7 +1,8 @@
 import { postAsync, ApiResult } from './apiUtils';
 
 export const LOGIN_TYPE = {
-  google: 'google',
+  googleWeb: 'google-web',
+  googleMobile: 'google-mobile',
   kakao: 'kakao',
   appleWeb: 'apple-web',
   appleMobile: 'apple-mobile',

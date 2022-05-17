@@ -1,8 +1,12 @@
-import { appleClientId, appleRedirectURI } from '@sasil/common';
+import {
+  appleClientId,
+  appleRedirectURI,
+  loginAsync,
+  getUser,
+} from '@sasil/common';
 import { useEffect } from 'react';
 import { useAtom } from 'jotai';
 import { createUserInfoAtom } from '@/logics/store/actions';
-import { login, getUser } from '../routes';
 import LoginButton from '../LoginButton';
 
 // Apple 로그인 버튼 컴포넌트
@@ -32,19 +36,18 @@ const AppleLoginButton = () => {
    *
    * @param authValue : Apple 로부터 받은 토큰
    */
-  // TODO : login API 연결 !!
   const responseApple = async (authValue: string) => {
-    const res = await login(authValue, 'apple-web');
-    const token = res?.data.token;
-    const userData = await getUser(token);
-    return userData;
+    const res = await loginAsync('apple-web', authValue);
+    if (res.isSuccess) {
+      const { token } = res.result;
+      const userData = await getUser(token);
+      if (userData.isSuccess) return userData.result;
+    }
+
+    return undefined;
   };
 
-  /**
-   * Apple 로그인 성공시 유저 정보 받아온 후 userInfo atom에 넣어주는 함수
-   *
-   * @param setUserInfo : userInfo을 업데이트하는 action 함수
-   */
+  // Apple 로그인 성공시 유저 정보 받아온 후 userInfo atom에 넣어주는 함수
   const loginWithApple = async () => {
     try {
       const { AppleID }: any = window;
@@ -52,7 +55,7 @@ const AppleLoginButton = () => {
       if (data) {
         const authValue = data.authorization.code;
         const result = await responseApple(authValue);
-        setUserInfo(result);
+        if (result) setUserInfo(result);
       }
     } catch (error) {
       console.log(error);

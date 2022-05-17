@@ -1,8 +1,7 @@
 import { createUserInfoAtom } from '@/logics/store/actions';
-import { kakaoClientId } from '@sasil/common';
+import { kakaoClientId, loginAsync, getUser } from '@sasil/common';
 import { useAtom } from 'jotai';
 import LoginButton from '../LoginButton';
-import { login, getUser } from '../routes';
 
 // Kakao 로그인 버튼 컴포넌트
 const KakaoLoginButton = () => {
@@ -14,19 +13,18 @@ const KakaoLoginButton = () => {
    *
    * @param authValue : Kakao로부터 받은 토큰
    */
-  // TODO : login API 연결 !!
   const responseKakao = async (authValue: string) => {
-    const res = await login(authValue, 'kakao');
-    const token = res?.data.token;
-    const user = await getUser(token);
-    return user;
+    const res = await loginAsync('kakao', authValue);
+    if (res.isSuccess) {
+      const { token } = res.result;
+      const user = await getUser(token);
+      if (user.isSuccess) return user;
+    }
+
+    return undefined;
   };
 
-  /**
-   * Kakao 로그인 성공시 유저 정보 받아온 후 userInfo atom에 넣어주는 함수
-   *s
-   * @param setUserInfo : userInfo을 업데이트하는 action 함수
-   */
+  // Kakao 로그인 성공시 유저 정보 받아온 후 userInfo atom에 넣어주는 함수
   const loginWithKakao = () => {
     const { Kakao }: any = window;
     Kakao.init(kakaoClientId);
