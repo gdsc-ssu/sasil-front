@@ -12,6 +12,8 @@ module.exports = function (api) {
             '@/screens': './src/screens',
             '@/logics': './src/logics',
             '@/constants': './src/constants',
+            '@/routes': './src/routes',
+            '@/assets': './assets',
           },
         },
       ],
