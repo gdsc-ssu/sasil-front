@@ -1,8 +1,7 @@
-import { googleClientId } from '@sasil/common';
+import { googleClientId, loginAsync, getUser } from '@sasil/common';
 import GoogleLogin from 'react-google-login';
 import { createUserInfoAtom } from '@/logics/store/actions';
 import { useAtom } from 'jotai';
-import { login, getUser } from '../routes';
 import LoginButton from '../LoginButton';
 
 // Google 로그인 버튼 컴포넌트
@@ -15,12 +14,13 @@ const GoogleLoginButton = () => {
    *
    * @param response : Google로부터 받는 로그인 response 객체
    */
-  // TODO : login API 연결 !!
   const responseGoogle = async (response: any) => {
-    const res = await login(response.tokenId, 'google-web');
-    const token = res?.data.token;
-    const user = await getUser(token);
-    setUserInfo(user);
+    const res = await loginAsync('google-web', response.tokenId);
+    if (res.isSuccess) {
+      const { token } = res.result;
+      const user = await getUser(token);
+      if (user.isSuccess) setUserInfo(user.result);
+    }
   };
 
   return (

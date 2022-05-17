@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import * as Google from 'expo-auth-session/providers/google';
-import { googleClientId } from '@sasil/common';
-import { ResponseType } from 'expo-auth-session';
+import { googleClientId, getUser, loginAsync, LOGIN_TYPE } from '@sasil/common';
+import { ResponseType, AuthSessionResult } from 'expo-auth-session';
 import { useAtom } from 'jotai';
 import { createUserInfoAtom } from '@/logics/store/actions';
 import LoginButton from '../LoginButton';
-import { getUser, login } from './route';
 
 // Google 로그인 버튼 컴포넌트
 const GoogleLoginButton = () => {
@@ -18,20 +17,27 @@ const GoogleLoginButton = () => {
     responseType: ResponseType.IdToken,
   });
 
-  // TODO : login API 연결 !!
-  const responseGoogle = async (response: any) => {
-    if (response?.type === 'success') {
-      const { id_token: idToken } = response.params;
-      const res = await login(idToken, 'google-mobile');
-      const token = res?.data.token;
-      const userData = await getUser(token);
-      setUserInfo(userData);
-    }
-  };
+  const responseGoogle = useCallback(
+    async (response: AuthSessionResult | null) => {
+      if (response?.type === 'success') {
+        const { id_token: idToken } = response.params;
+        const res = await loginAsync(LOGIN_TYPE.googleWeb, idToken);
+
+        if (res.isSuccess) {
+          const userData = await getUser(res.result.token);
+
+          if (userData.isSuccess) {
+            setUserInfo(userData.result);
+          }
+        }
+      }
+    },
+    [setUserInfo],
+  );
 
   useEffect(() => {
     responseGoogle(resp);
-  }, [resp]);
+  }, [resp, responseGoogle]);
 
   return <LoginButton social="google" onPress={() => promptAsync()} />;
 };
