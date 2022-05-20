@@ -1,6 +1,6 @@
 import Script from 'next/script';
 import styled from '@emotion/styled';
-import SocialLoginBox from '@/components/organisms/auth/SocialLoginBox';
+import SocialLoginBox from '@/components/organisms/login/SocialLoginBox';
 
 const Container = styled.div({
   height: '100vh',

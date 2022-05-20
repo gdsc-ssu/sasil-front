@@ -66,13 +66,8 @@ const LoginButton = ({ social, onClick }: LoginButtonProps) => (
     onClick={onClick}
   >
     <styles.iconWrap>{themes[social].logo}</styles.iconWrap>
-    <styles.labelWrap>
-      <StyledText
-        color={themes[social].color}
-        textStyleName={TEXT_STYLE_NAME.button2B}
-      >
-        {themes[social].label}
-      </StyledText>
+    <styles.labelWrap color={themes[social].color}>
+      {themes[social].label}
     </styles.labelWrap>
   </styles.Button>
 );

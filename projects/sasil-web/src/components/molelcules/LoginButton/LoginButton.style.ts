@@ -26,6 +26,10 @@ export const iconWrap = styled.div`
   left: 16px;
 `;
 
-export const labelWrap = styled.div`
-  margin: 0 auto;
-`;
+export const labelWrap = styled.div((props) => ({
+  margin: '0 auto',
+  // Web용 로그인 버튼 텍스트 스타일
+  fontSize: 14,
+  fontWeight: 600,
+  color: props.color,
+}));
