@@ -1,5 +1,6 @@
-// 폰트 스타일 이름을 나타내는 객체
-// @sasil-mobile, @sasil-web 에서 공통으로 사용된다.
+/**
+ * web, mobile 공통으로 사용하는 텍스트 스타일 이름.
+ */
 export const TEXT_STYLE_NAME = {
   title: 'title',
   subtitle1: 'subtitle1',
@@ -19,6 +20,9 @@ export const TEXT_STYLE_NAME = {
   caption: 'caption',
 } as const;
 
+/**
+ * TEXT_STYLE_NAME 타입
+ */
 export type TextStyleName =
   typeof TEXT_STYLE_NAME[keyof typeof TEXT_STYLE_NAME];
 
@@ -30,7 +34,9 @@ interface TextStyle {
 
 const LINE_HEIGHT_RATIO = 1.2;
 
-// @sasil-web 에서 사용하는 폰트 스타일 객체
+/**
+ * web 폰트 스타일 지정해주는 객체.
+ */
 export const TEXT_STYLES_PC: Record<TextStyleName, TextStyle> = {
   [TEXT_STYLE_NAME.title]: {
     fontSize: 36,
@@ -121,7 +127,9 @@ export interface TextStyleMobile {
   lineHeight: number;
 }
 
-// @sasil-mobile에서 사용되는 폰트 스타일 객체
+/**
+ * mobile 폰트 스타일 지정해주는 객체.
+ */
 export const TEXT_STYLES_MOBILE: Record<TextStyleName, TextStyleMobile> = {
   [TEXT_STYLE_NAME.title]: {
     fontSize: 30,
