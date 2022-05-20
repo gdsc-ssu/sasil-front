@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import PostMiniCard, { PostMiniCardProps } from '.';
+import * as Post from '.';
 
 export default {
-  title: 'components/common/molecule/PostMiniCard',
-  component: PostMiniCard,
-} as ComponentMeta<typeof PostMiniCard>;
+  title: 'components/organism/post/MiniCard',
+  component: Post.MiniCard,
+} as ComponentMeta<typeof Post.MiniCard>;
 
-const RequestTemplate: ComponentStory<typeof PostMiniCard> = ({
+const RequestTemplate: ComponentStory<typeof Post.MiniCard> = ({
   title,
   likeCount,
-}: PostMiniCardProps) => (
-  <PostMiniCard type="request" title={title} likeCount={likeCount} />
+}: Post.MiniCardProps) => (
+  <Post.MiniCard type="request" title={title} likeCount={likeCount} />
 );
 
 export const RequestPost = RequestTemplate.bind({});
@@ -20,13 +20,13 @@ RequestPost.args = {
   likeCount: 925,
 };
 
-const ExperimentTemplate: ComponentStory<typeof PostMiniCard> = ({
+const ExperimentTemplate: ComponentStory<typeof Post.MiniCard> = ({
   title,
   likeCount,
   writerObj,
   thumbnail,
-}: PostMiniCardProps) => (
-  <PostMiniCard
+}: Post.MiniCardProps) => (
+  <Post.MiniCard
     type="experiment"
     title={title}
     likeCount={likeCount}
@@ -57,5 +57,5 @@ ExperimentPostWithNoThumbnail.args = {
     profileImg:
       'https://image.shutterstock.com/image-photo/darkeyed-girl-pink-makeup-chewing-600w-1457328599.jpg',
   },
-  thumbnail: null,
+  thumbnail: undefined,
 };

@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
-type postWrapProps = {
+type miniCardProps = {
   backgroundColor: string;
   thumbnail?: string | null;
 };
 
 // ? 실험과 의뢰 게시물이 현재 한 컴포넌트로 구성이 되어있다.
 // ? 이때문에 의뢰 게시물은 배경 이미지가 아예 안들어감에도 불구하고 css에는 background 관련 코드가 들어가있는 상황.. 리팩토링 필요
-export const postWrap = styled.div((props: postWrapProps) => ({
+export const miniCard = styled.div((props: miniCardProps) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',

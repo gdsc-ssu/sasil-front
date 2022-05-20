@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 import { COLORS } from '@sasil/common';
 import Image from 'next/image';
 
-interface ProfileWrapProps {
+interface ProfileImageWrapProps {
   size: number;
 }
 
-// Profile 전체를 감싸는 div
-const ProfileWrap = styled.div((props: ProfileWrapProps) => ({
+// ProfileImage 전체를 감싸는 div
+const ProfileImageWrap = styled.div((props: ProfileImageWrapProps) => ({
   width: props.size,
   height: props.size,
   borderRadius: props.size / 2,
@@ -16,26 +16,20 @@ const ProfileWrap = styled.div((props: ProfileWrapProps) => ({
   position: 'relative',
 }));
 
-// 사용 위치에 따른 프로필 이미지의 크기
-const profileSize = {
-  'post-card': 16,
-  'post-detail': 24,
-};
-
 export interface ProfileImageProps {
-  imageSrc: string | null;
-  use: 'post-card' | 'post-detail';
+  imageSrc: string | undefined;
+  size: number;
 }
 
 /**
  * 사용자의 프로필 이미지를 나타내는 컴포넌트
- * @param imageSrc : 프로필 이미지 url. 없다면 null
- * @param use :`post-card`와 `post-detail` 중 하나로, 이 컴포넌트가 사용되는 위치.
+ * @param imageSrc : 프로필 이미지 url. 사용자가 프로필 이미지를 가지고 있지 않다면 undefined
+ * @param size : 이미지가 들어가는 원의 width
  */
-const ProfileImage = ({ imageSrc, use }: ProfileImageProps) => (
-  <ProfileWrap size={profileSize[use]}>
+const ProfileImage = ({ imageSrc, size }: ProfileImageProps) => (
+  <ProfileImageWrap size={size}>
     {imageSrc && <Image src={imageSrc} layout="fill" />}
-  </ProfileWrap>
+  </ProfileImageWrap>
 );
 
 export default ProfileImage;

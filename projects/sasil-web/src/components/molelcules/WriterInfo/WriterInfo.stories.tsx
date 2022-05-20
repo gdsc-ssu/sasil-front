@@ -1,37 +1,45 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { COLORS } from '@sasil/common';
+import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
 import WriterInfo, { WriterInfoProps } from '.';
 
 export default {
-  title: 'components/common/molecule/WriterInfo',
+  title: 'components/molecule/WriterInfo',
   component: WriterInfo,
 } as ComponentMeta<typeof WriterInfo>;
 
 const Template: ComponentStory<typeof WriterInfo> = ({
   writerObj,
   textColor,
-  use,
+  textStyleName,
+  profileSize,
 }: WriterInfoProps) => (
-  <WriterInfo writerObj={writerObj} textColor={textColor} use={use} />
+  <WriterInfo
+    writerObj={writerObj}
+    textColor={textColor}
+    textStyleName={textStyleName}
+    profileSize={profileSize}
+  />
 );
 
-export const PostMini = Template.bind({});
-PostMini.args = {
+export const InPostMini = Template.bind({});
+InPostMini.args = {
   writerObj: {
     nickname: '작성자',
     profileImg: null,
   },
   textColor: COLORS.grayscale.black,
-  use: 'post-card',
+  textStyleName: TEXT_STYLE_NAME.body3,
+  profileSize: 14,
 };
 
-export const PostDetail = Template.bind({});
-PostDetail.args = {
+export const InPostDetail = Template.bind({});
+InPostDetail.args = {
   writerObj: {
     nickname: '작성자',
     profileImg: null,
   },
   textColor: COLORS.grayscale.black,
-  use: 'post-detail',
+  textStyleName: TEXT_STYLE_NAME.body2R,
+  profileSize: 20,
 };
