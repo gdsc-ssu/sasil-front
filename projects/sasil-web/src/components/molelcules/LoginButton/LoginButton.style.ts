@@ -13,6 +13,7 @@ export const Button = styled.button<ButtonProps>((props) => ({
   background: props.backgroundColor,
   margin: 7,
   position: 'relative',
+  cursor: 'pointer',
 }));
 
 export const iconWrap = styled.div`

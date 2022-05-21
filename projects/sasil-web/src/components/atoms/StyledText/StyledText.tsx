@@ -18,6 +18,7 @@ const StyledText = styled.div<StyledTextProps>((props) => ({
   fontSize: TEXT_STYLES_PC[props.textStyleName].fontSize,
   fontWeight: TEXT_STYLES_PC[props.textStyleName].fontWeight,
   lineHeight: `${TEXT_STYLES_PC[props.textStyleName].lineHeight}px`,
+  wordBreak: 'break-all',
 }));
 
 export default StyledText;
