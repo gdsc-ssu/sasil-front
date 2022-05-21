@@ -38,7 +38,7 @@ export interface MiniCardProps {
   title: string;
   likeCount: number;
   writerObj?: any;
-  thumbnail?: string | undefined;
+  thumbnail?: string | null;
 }
 
 /**
@@ -53,15 +53,15 @@ export const MiniCard = ({
   type,
   title,
   likeCount,
-  writerObj,
-  thumbnail,
+  writerObj = null,
+  thumbnail = null,
 }: MiniCardProps) => (
   <styles.miniCard
     backgroundColor={theme[type].backgroundColor}
     thumbnail={thumbnail}
   >
     <styles.infoWrap>
-      {type === 'experiment' && (
+      {writerObj && (
         <styles.writerWrap>
           <WriterInfo
             textColor={theme[type].textColor}

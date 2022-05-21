@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 type miniCardProps = {
   backgroundColor: string;
-  thumbnail?: string | null;
+  thumbnail: string | null;
 };
 
 // ? 실험과 의뢰 게시물이 현재 한 컴포넌트로 구성이 되어있다.
@@ -18,7 +18,7 @@ export const miniCard = styled.div((props: miniCardProps) => ({
   padding: 15,
   // 실험 게시물 썸네일 관련
   background: props.thumbnail
-    ? ` linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${props.thumbnail})`
+    ? `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${props.thumbnail})`
     : props.backgroundColor,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
