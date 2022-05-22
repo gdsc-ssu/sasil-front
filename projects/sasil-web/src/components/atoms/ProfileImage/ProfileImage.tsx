@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ProfileImageWrap } from './ProfileImage.style';
+import ProfileImageWrap from './ProfileImage.style';
 
 export interface ProfileImageProps {
   imageSrc: string | null;

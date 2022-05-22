@@ -5,7 +5,7 @@ interface ProfileImageWrapProps {
   size: number;
 }
 
-export const ProfileImageWrap = styled.div((props: ProfileImageWrapProps) => ({
+const ProfileImageWrap = styled.div((props: ProfileImageWrapProps) => ({
   width: props.size,
   height: props.size,
   borderRadius: props.size / 2,
@@ -13,3 +13,5 @@ export const ProfileImageWrap = styled.div((props: ProfileImageWrapProps) => ({
   overflow: 'hidden',
   position: 'relative',
 }));
+
+export default ProfileImageWrap;
