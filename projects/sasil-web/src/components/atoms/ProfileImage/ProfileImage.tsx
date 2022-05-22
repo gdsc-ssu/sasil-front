@@ -1,20 +1,5 @@
-import styled from '@emotion/styled';
-import { COLORS } from '@sasil/common';
 import Image from 'next/image';
-
-interface ProfileImageWrapProps {
-  size: number;
-}
-
-// ProfileImage 전체를 감싸는 div
-const ProfileImageWrap = styled.div((props: ProfileImageWrapProps) => ({
-  width: props.size,
-  height: props.size,
-  borderRadius: props.size / 2,
-  backgroundColor: COLORS.grayscale.gray6,
-  overflow: 'hidden',
-  position: 'relative',
-}));
+import { ProfileImageWrap } from './ProfileImage.style';
 
 export interface ProfileImageProps {
   imageSrc: string | null;
