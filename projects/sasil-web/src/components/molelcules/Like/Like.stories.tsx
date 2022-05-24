@@ -4,7 +4,7 @@ import { COLORS } from '@sasil/common';
 import Like, { LikeProps } from '.';
 
 export default {
-  title: 'components/atom/Like',
+  title: 'components/molecule/Like',
   component: Like,
 } as ComponentMeta<typeof Like>;
 
