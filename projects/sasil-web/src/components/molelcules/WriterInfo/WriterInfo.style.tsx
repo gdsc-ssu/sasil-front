@@ -7,4 +7,5 @@ export const writerWrap = styled.div({
 
 export const textWrap = styled.div({
   marginLeft: 4,
+  overflow: 'hidden',
 });
