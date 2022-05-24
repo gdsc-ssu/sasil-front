@@ -47,6 +47,7 @@ export interface MiniCardProps {
   thumbnail?: string | null;
 }
 
+// TODO muliline ellipsis 관련 css 코드가 StyledText inline style로 들어가있음. 가능하다면 추후 리팩토링 필요!
 /**
  * 메인 페이지 내 실험 컨텐츠가 담겨있는 게시물 컴포넌트
  */
@@ -75,8 +76,15 @@ export const MiniCard = ({
       <StyledText
         color={theme[type].textColor}
         textStyleName={TEXT_STYLE_NAME.body2R}
+        style={{
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}
       >
-        {title.length > 28 ? `${title.substring(0, 28)}...` : title}
+        {title}
       </StyledText>
     </styles.infoWrap>
     <Like color={theme[type].likeColor} likeCount={likeCount} />
