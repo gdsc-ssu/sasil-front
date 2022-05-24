@@ -1,10 +1,10 @@
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
-import Like from '@/components/atoms/Like/Like';
+import Like from '@/components/molelcules/Like/Like';
 import StyledText from '@/components/atoms/StyledText';
 import WriterInfo from '@/components/molelcules/WriterInfo';
 import * as styles from './Post.style';
 
-// 게시물 타입
+// 게시물 타입(실험 or 의뢰)
 const POST_TYPE = {
   experiment: 'experiment',
   request: 'request',
@@ -33,21 +33,22 @@ const theme: themeProps = {
   },
 };
 
+// TODO writeObj type확정 되면 수정해줄 것!
 export interface MiniCardProps {
+  /** `experiment` or `request` */
   type: 'experiment' | 'request';
+  /** 게시물 제목 */
   title: string;
+  /** 게시물 좋아요 수 */
   likeCount: number;
+  /** [실험만 필요] 게시물 작성자 정보(닉네임,프로필 사진)를 담은 객체 */
   writerObj?: any;
+  /** [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5` */
   thumbnail?: string | null;
 }
 
 /**
  * 메인 페이지 내 실험 컨텐츠가 담겨있는 게시물 컴포넌트
- * @param type `experiment`, `request`
- * @param title 게시물 제목
- * @param likeCount 게시물 좋아요 수
- * @param writerObj [실험만 필요] 게시물 작성자 정보(닉네임,프로필 사진)를 담은 객체
- * @param thumbnail [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5`
  */
 export const MiniCard = ({
   type,
