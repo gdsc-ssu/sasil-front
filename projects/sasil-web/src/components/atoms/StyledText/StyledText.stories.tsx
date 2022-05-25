@@ -4,9 +4,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
 import StyledText, { StyledTextProps } from './StyledText';
 
-// storybook에서 color와 textStyle을 옵션으로 선택해서 테
+// storybook에서 color와 textStyle을 옵션으로 선택해서 테스트 가능
 export default {
-  title: 'components/common/atom/StyledText',
+  title: 'components/atom/StyledText',
   component: StyledText,
   argTypes: {
     color: {

@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LoginButton, { LoginButtonProps } from './LoginButton';
 
 export default {
-  title: 'components/common/molecule/LoginButton',
+  title: 'components/molecule/LoginButton',
   component: LoginButton,
   argTypes: {
     onClick: { action: 'clicked' },
