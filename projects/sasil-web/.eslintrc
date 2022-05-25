@@ -41,6 +41,7 @@
     "react/react-in-jsx-scope": 0,
     "import/no-extraneous-dependencies": 0,
     "import/extensions": 0,
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "import/prefer-default-export": 0
   }
 }
