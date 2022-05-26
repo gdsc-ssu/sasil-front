@@ -1,4 +1,12 @@
 /**
+ * media query 적용 기준 값
+ */
+export const MEDIA_QUERIES = {
+  mobile: 'screen and (max-width: 500px)',
+  pc: 'screen and (min-width: 500px )',
+} as const;
+
+/**
  * web, mobile 공통으로 사용하는 텍스트 스타일 이름.
  */
 export const TEXT_STYLE_NAME = {

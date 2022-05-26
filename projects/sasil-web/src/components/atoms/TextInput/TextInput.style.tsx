@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import {
+  MEDIA_QUERIES,
   TEXT_STYLES_MOBILE,
   TEXT_STYLES_PC,
   TEXT_STYLE_NAME,
@@ -19,7 +20,7 @@ export const StyledTextInput = styled.input({
     outline: 'none',
   },
 
-  '@media screen and (max-width: 500px)': {
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
     fontSize: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body1R].fontSize,
     fontWeight: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body1R].fontWeight,
     lineHeight: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body1R].lineHeight,
