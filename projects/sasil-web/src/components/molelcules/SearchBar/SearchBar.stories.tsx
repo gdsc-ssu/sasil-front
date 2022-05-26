@@ -8,8 +8,11 @@ export default {
 } as ComponentMeta<typeof SearchBar>;
 
 const Template: ComponentStory<typeof SearchBar> = ({
+  value,
   onChange,
   onSearch,
-}: SearchBarProps) => <SearchBar onSearch={onSearch} onChange={onChange} />;
+}: SearchBarProps) => (
+  <SearchBar value={value} onSearch={onSearch} onChange={onChange} />
+);
 
 export const Default = Template.bind({});

@@ -5,7 +5,7 @@ export const styledNavigation = styled.ul({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  width: '240px',
+  width: '216px',
   height: '24px',
   listStyle: 'none',
   padding: '0',

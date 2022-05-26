@@ -10,11 +10,13 @@ export default {
 const Template: ComponentStory<typeof TextInput> = ({
   placeholder,
   className,
+  value,
   onChange,
 }: TextInputProps) => (
   <TextInput
     placeholder={placeholder}
     className={className}
+    value={value}
     onChange={onChange}
   />
 );

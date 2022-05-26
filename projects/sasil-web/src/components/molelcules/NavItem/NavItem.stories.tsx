@@ -8,10 +8,9 @@ export default {
   component: NavItem,
 } as ComponentMeta<typeof NavItem>;
 
-const Template: ComponentStory<typeof NavItem> = ({
-  type,
-  isChecked,
-}: NavItemProps) => <NavItem type={type} isChecked={isChecked} />;
+const Template: ComponentStory<typeof NavItem> = ({ type }: NavItemProps) => (
+  <NavItem type={type} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -21,5 +20,4 @@ Default.args = {
 export const Selected = Template.bind({});
 Selected.args = {
   type: 'main',
-  isChecked: true,
 };

@@ -16,7 +16,7 @@ const TopBar = () => {
       e.preventDefault();
 
       if (searchVal.trim().length > 0) {
-        router.push('/search'); // TODO: 검색 결과 URL
+        router.push(`/search/${searchVal}`); // TODO: 검색 결과 URL
       }
     },
     [router, searchVal],

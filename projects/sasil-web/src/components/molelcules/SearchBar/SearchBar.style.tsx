@@ -13,7 +13,6 @@ export const styledSearchBar = styled.form({
   border: `1px solid ${COLORS.grayscale.gray2}`,
   borderRadius: '5px',
   padding: '0 12px',
-  boxSizing: 'border-box',
 });
 
 export const iconWrap = styled.button({
