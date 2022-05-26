@@ -1,23 +1,12 @@
-import NavItem, {
-  navItemList,
-  NavItemType,
-} from '@/components/molelcules/NavItem';
+import NavItem, { navItemList } from '@/components/molelcules/NavItem';
 
 import * as styles from './Navigation.style';
 
-export interface NavigationProps {
-  target: NavItemType;
-}
-
-const Navigation = ({ target }: NavigationProps) => (
+const Navigation = () => (
   <styles.styledNavigation>
-    {navItemList.map((navItem) =>
-      target === navItem ? (
-        <NavItem type={navItem} isChecked />
-      ) : (
-        <NavItem type={navItem} />
-      ),
-    )}
+    {navItemList.map((navItem) => (
+      <NavItem type={navItem} key={navItem} />
+    ))}
   </styles.styledNavigation>
 );
 

@@ -30,6 +30,9 @@ export const styledNavItem = styled.li({
 
 export const LinkBox = styled.a({
   'text-decoration': 'none',
+  ':visited': {
+    fill: 'inherit',
+  },
 });
 
 export const iconWrap = styled.div({

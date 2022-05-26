@@ -1,10 +1,12 @@
+import Link from 'next/link';
+
 import MainIcon from '@/assets/icons/Main.svg';
 import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
 import UserIcon from '@/assets/icons/User.svg';
 import StyledText from '@/components/atoms/StyledText';
 import { TEXT_STYLE_NAME, COLORS, MEDIA_QUERIES } from '@sasil/common';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as styles from './NavItem.style';
 
 const NAV_INFO = {
@@ -36,17 +38,20 @@ export const navItemList = Object.keys(NAV_INFO) as [NavItemType];
 
 export interface NavItemProps {
   type: NavItemType;
-  isChecked?: boolean;
 }
 
-const NavItem = ({ type, isChecked }: NavItemProps) => {
-  const selectedColor = isChecked
+const NavItem = ({ type }: NavItemProps) => {
+  const router = useRouter();
+
+  const isThisPage = router.pathname === NAV_INFO[type].route;
+
+  const selectedColor = isThisPage
     ? COLORS.primary.normal
     : COLORS.grayscale.gray5;
 
-  const className = isChecked ? 'on' : undefined;
+  const className = isThisPage ? 'on' : undefined;
 
-  const isMobileSize = false;
+  const isMobileSize = false; // TODO: 반응형
   // window?.matchMedia(MEDIA_QUERIES.mobile).matches ?? false;
 
   return (

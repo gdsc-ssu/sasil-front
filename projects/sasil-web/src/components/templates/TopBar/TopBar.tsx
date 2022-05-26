@@ -31,7 +31,7 @@ const TopBar = () => {
         onSearch={handleSearch}
       />
       <styles.sideMenu>
-        <Navigation target="main" />
+        <Navigation />
         <ProfileImage size={34} />
       </styles.sideMenu>
     </styles.styledTopBar>
