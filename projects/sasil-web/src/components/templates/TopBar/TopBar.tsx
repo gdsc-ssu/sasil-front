@@ -16,7 +16,7 @@ const TopBar = () => {
       e.preventDefault();
 
       if (searchVal.trim().length > 0) {
-        router.push('/'); // TODO: 검색 결과 URL
+        router.push('/search'); // TODO: 검색 결과 URL
       }
     },
     [router, searchVal],
@@ -26,6 +26,7 @@ const TopBar = () => {
     <styles.styledTopBar>
       <SearchBar
         className="search-bar"
+        value={searchVal}
         onChange={handleChangeSearchVal}
         onSearch={handleSearch}
       />
