@@ -28,6 +28,10 @@ export const styledNavItem = styled.li({
   },
 });
 
+export const LinkBox = styled.a({
+  'text-decoration': 'none',
+});
+
 export const iconWrap = styled.div({
   width: '24px',
   height: '24px',
