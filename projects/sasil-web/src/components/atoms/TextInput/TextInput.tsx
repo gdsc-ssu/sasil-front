@@ -1,9 +1,11 @@
+import React from 'react';
+
 import * as styles from './TextInput.style';
 
 export interface TextInputProps {
   placeholder?: string;
   className?: string;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextInput = ({
