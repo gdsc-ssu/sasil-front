@@ -8,10 +8,12 @@ export interface SearchBarProps {
 }
 
 const SearchBar = ({ onChange, onSearch }: SearchBarProps) => (
-  <styles.StyledSearchBar onSubmit={onSearch}>
+  <styles.styledSearchBar onSubmit={onSearch}>
     <TextInput onChange={onChange} />
-    <SearchIcon />
-  </styles.StyledSearchBar>
+    <styles.iconWrap type="submit">
+      <SearchIcon />
+    </styles.iconWrap>
+  </styles.styledSearchBar>
 );
 
 export default SearchBar;
