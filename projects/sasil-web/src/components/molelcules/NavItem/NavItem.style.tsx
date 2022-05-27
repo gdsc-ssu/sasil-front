@@ -18,12 +18,29 @@ export const styledNavItem = styled.li({
     fill: COLORS.primary.normal,
   },
 
+  '& .nav-name': {
+    display: 'none',
+  },
+
+  ':hover': {
+    stroke: COLORS.primary.alpha20,
+    fill: COLORS.primary.alpha20,
+
+    '& .nav-name': {
+      color: COLORS.primary.alpha20,
+    },
+  },
+
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     width: '74px',
     height: '59px',
 
     '&.on': {
       borderTop: `2px solid ${COLORS.primary.normal}`,
+    },
+
+    '& .nav-name': {
+      display: 'block',
     },
   },
 });

@@ -5,7 +5,7 @@ import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
 import UserIcon from '@/assets/icons/User.svg';
 import StyledText from '@/components/atoms/StyledText';
-import { TEXT_STYLE_NAME, COLORS, MEDIA_QUERIES } from '@sasil/common';
+import { TEXT_STYLE_NAME, COLORS } from '@sasil/common';
 import { useRouter } from 'next/router';
 import * as styles from './NavItem.style';
 
@@ -43,30 +43,28 @@ export interface NavItemProps {
 const NavItem = ({ type }: NavItemProps) => {
   const router = useRouter();
 
-  const isThisPage = router.pathname === NAV_INFO[type].route;
+  const isThisPage = router ? router.pathname === NAV_INFO[type].route : false;
+
+  const thisPageClassName = isThisPage ? 'on' : undefined;
 
   const selectedColor = isThisPage
     ? COLORS.primary.normal
     : COLORS.grayscale.gray5;
 
-  const className = isThisPage ? 'on' : undefined;
-
-  const isMobileSize = false; // TODO: 반응형
-  // window?.matchMedia(MEDIA_QUERIES.mobile).matches ?? false;
+  const mobileSizeClassName = 'nav-name';
 
   return (
-    <styles.styledNavItem className={className}>
+    <styles.styledNavItem className={thisPageClassName}>
       <Link href={NAV_INFO[type].route} passHref>
         <styles.LinkBox>
           <styles.iconWrap>{NAV_INFO[type].icon}</styles.iconWrap>
-          {isMobileSize && (
-            <StyledText
-              color={selectedColor}
-              textStyleName={TEXT_STYLE_NAME.button3}
-            >
-              {NAV_INFO[type].naming}
-            </StyledText>
-          )}
+          <StyledText
+            className={mobileSizeClassName}
+            color={selectedColor}
+            textStyleName={TEXT_STYLE_NAME.button3}
+          >
+            {NAV_INFO[type].naming}
+          </StyledText>
         </styles.LinkBox>
       </Link>
     </styles.styledNavItem>
