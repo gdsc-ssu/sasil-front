@@ -46,6 +46,12 @@ export const styledNavItem = styled.li({
 });
 
 export const LinkBox = styled.a({
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+
   'text-decoration': 'none',
   ':visited': {
     fill: 'inherit',
