@@ -25,6 +25,14 @@ export const miniCard = styled.div((props: miniCardProps) => ({
 export const infoWrap = styled.div({
   display: 'flex',
   flexDirection: 'column',
+
+  '& > .post-title': {
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
 });
 
 export const writerWrap = styled.div({
