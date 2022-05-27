@@ -25,14 +25,14 @@ const TopBar = () => {
   return (
     <styles.styledTopBar>
       <SearchBar
-        className="search-bar"
+        className="menu_search-bar"
         value={searchVal}
         onChange={handleChangeSearchVal}
         onSearch={handleSearch}
       />
       <styles.sideMenu>
         <Navigation />
-        <ProfileImage size={34} />
+        <ProfileImage size={34} className="menu_profile-img" />
       </styles.sideMenu>
     </styles.styledTopBar>
   );
