@@ -7,6 +7,9 @@ import ProfileImage from '@/components/atoms/ProfileImage';
 import SearchBar from '@/components/molelcules/SearchBar';
 import * as styles from './TopBar.style';
 
+/**
+ * 메뉴바를 생성하는 컴포넌트 (반응형)
+ */
 const TopBar = () => {
   const router = useRouter();
   const [searchVal, , handleChangeSearchVal] = useInputChange('');

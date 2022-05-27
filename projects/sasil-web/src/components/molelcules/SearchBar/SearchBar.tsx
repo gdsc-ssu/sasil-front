@@ -10,12 +10,18 @@ export interface SearchBarProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSearch: (e: React.FormEvent<HTMLFormElement>) => void;
 }
-
+/**
+ * 검색바를 생성하는 컴포넌트
+ */
 const SearchBar = ({
-  onChange,
-  onSearch,
+  /** 검색창의 value 문자열 */
   value,
+  /** 컴포넌트로 생성할 요소의 클래스명 */
   className,
+  /** 검색창의 입력값에 따른 변화를 컨트롤할 함수 */
+  onChange,
+  /** 검색 동작을 컨트롤할 함수 */
+  onSearch,
 }: SearchBarProps) => (
   <styles.styledSearchBar onSubmit={onSearch} className={className}>
     <TextInput onChange={onChange} value={value} />

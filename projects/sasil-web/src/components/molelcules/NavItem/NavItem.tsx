@@ -9,6 +9,7 @@ import { TEXT_STYLE_NAME, COLORS } from '@sasil/common';
 import { useRouter } from 'next/router';
 import * as styles from './NavItem.style';
 
+// type에 따른 naming, icon, route 값을 갖는 객체
 const NAV_INFO = {
   main: {
     naming: '메인',
@@ -37,9 +38,13 @@ export type NavItemType = keyof typeof NAV_INFO;
 export const navItemList = Object.keys(NAV_INFO) as [NavItemType];
 
 export interface NavItemProps {
+  /** 네비게이션 요소 중 하나 */
   type: NavItemType;
 }
 
+/**
+ * 네비게이션 요소 하나를 그리는 컴포넌트 (반응형)
+ */
 const NavItem = ({ type }: NavItemProps) => {
   const router = useRouter();
 

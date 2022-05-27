@@ -7,6 +7,7 @@ export interface ProfileImageProps {
   imageSrc?: string | null;
   /** 이미지가 들어가는 원의 width */
   size: number;
+  /** 컴포넌트로 생성할 요소의 클래스명 */
   className?: string;
 }
 
