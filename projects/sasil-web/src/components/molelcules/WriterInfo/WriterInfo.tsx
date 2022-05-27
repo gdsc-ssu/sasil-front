@@ -26,15 +26,13 @@ const WriterInfo = ({
 }: WriterInfoProps) => (
   <styles.writerWrap>
     <ProfileImage imageSrc={writerObj.profileImg} size={profileSize} />
-    <styles.textWrap>
-      <StyledText
-        color={textColor}
-        textStyleName={textStyleName}
-        className="writer-info"
-      >
-        {writerObj.nickname}
-      </StyledText>
-    </styles.textWrap>
+    <StyledText
+      color={textColor}
+      textStyleName={textStyleName}
+      className="writer-info"
+    >
+      {writerObj.nickname}
+    </StyledText>
   </styles.writerWrap>
 );
 
