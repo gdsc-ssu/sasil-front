@@ -15,7 +15,6 @@ export interface WriterInfoProps {
   profileSize: number;
 }
 
-// TODO ellipsis 관련 css 코드가 WriterInfo inline style로 들어가있음. 가능하다면 추후 리팩토링 필요!
 /**
  * 게시물 작성자 정보(닉네임, 프로필 사진)를 나타내는 컴포넌트
  */
@@ -31,11 +30,7 @@ const WriterInfo = ({
       <StyledText
         color={textColor}
         textStyleName={textStyleName}
-        style={{
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-        }}
+        className="writer-info"
       >
         {writerObj.nickname}
       </StyledText>

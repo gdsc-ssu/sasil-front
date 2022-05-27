@@ -8,4 +8,10 @@ export const writerWrap = styled.div({
 export const textWrap = styled.div({
   marginLeft: 4,
   overflow: 'hidden',
+
+  '& > .writer-info': {
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+  },
 });
