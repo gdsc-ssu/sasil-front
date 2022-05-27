@@ -7,6 +7,7 @@ import ProfileImage from '@/components/atoms/ProfileImage';
 import SearchBar from '@/components/molelcules/SearchBar';
 import * as styles from './NavBar.style';
 
+// TODO: 프로필사진 전역 상태에서 가져오기
 /**
  * 메뉴바를 생성하는 컴포넌트 (반응형)
  */
