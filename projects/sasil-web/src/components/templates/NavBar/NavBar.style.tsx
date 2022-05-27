@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { COLORS, MEDIA_QUERIES } from '@sasil/common';
 
-export const styledTopBar = styled.div({
+export const styledNavBar = styled.div({
   position: 'fixed',
   display: 'flex',
   alignItems: 'center',

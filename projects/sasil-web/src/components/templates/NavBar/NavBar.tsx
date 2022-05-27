@@ -5,12 +5,12 @@ import { useInputChange } from '@/logics/hooks/useInputChange';
 import Navigation from '@/components/organisms/Navigation';
 import ProfileImage from '@/components/atoms/ProfileImage';
 import SearchBar from '@/components/molelcules/SearchBar';
-import * as styles from './TopBar.style';
+import * as styles from './NavBar.style';
 
 /**
  * 메뉴바를 생성하는 컴포넌트 (반응형)
  */
-const TopBar = () => {
+const NavBar = () => {
   const router = useRouter();
   const [searchVal, , handleChangeSearchVal] = useInputChange('');
 
@@ -26,7 +26,7 @@ const TopBar = () => {
   );
 
   return (
-    <styles.styledTopBar>
+    <styles.styledNavBar>
       <SearchBar
         className="menu_search-bar"
         value={searchVal}
@@ -37,8 +37,8 @@ const TopBar = () => {
         <Navigation />
         <ProfileImage size={34} className="menu_profile-img" />
       </styles.sideMenu>
-    </styles.styledTopBar>
+    </styles.styledNavBar>
   );
 };
 
-export default TopBar;
+export default NavBar;
