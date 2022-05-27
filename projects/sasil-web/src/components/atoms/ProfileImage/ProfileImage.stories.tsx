@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ProfileImage, { ProfileImageProps } from '.';
+import ProfileImage from '.';
+import { ProfileImageProps } from './ProfileImage.style';
 
 export default {
   title: 'components/atom/ProfileImage',
