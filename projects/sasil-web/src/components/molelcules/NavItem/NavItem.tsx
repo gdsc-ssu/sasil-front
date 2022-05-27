@@ -13,22 +13,22 @@ import * as styles from './NavItem.style';
 const NAV_INFO = {
   main: {
     naming: '메인',
-    icon: <MainIcon strokeWidth="1.6" />,
+    icon: <MainIcon />,
     route: '/',
   },
   request: {
     naming: '의뢰',
-    icon: <RequestIcon strokeWidth="0.1" />,
+    icon: <RequestIcon />,
     route: '/request',
   },
   experiment: {
     naming: '실험',
-    icon: <ExperimentIcon strokeWidth="0.1" />,
+    icon: <ExperimentIcon />,
     route: '/experiment',
   },
   user: {
     naming: '내정보',
-    icon: <UserIcon strokeWidth="0.1" />,
+    icon: <UserIcon />,
     route: '/user',
   },
 } as const;
