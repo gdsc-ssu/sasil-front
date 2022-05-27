@@ -56,15 +56,13 @@ const NavItem = ({ type }: NavItemProps) => {
     ? COLORS.primary.normal
     : COLORS.grayscale.gray5;
 
-  const mobileSizeClassName = 'nav-name';
-
   return (
     <styles.styledNavItem className={thisPageClassName}>
       <Link href={NAV_INFO[type].route} passHref>
         <styles.LinkBox>
           <styles.iconWrap>{NAV_INFO[type].icon}</styles.iconWrap>
           <StyledText
-            className={mobileSizeClassName}
+            className="nav-name"
             color={selectedColor}
             textStyleName={TEXT_STYLE_NAME.button3}
           >
