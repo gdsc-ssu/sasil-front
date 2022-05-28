@@ -48,11 +48,11 @@ export interface NavItemProps {
 const NavItem = ({ type }: NavItemProps) => {
   const router = useRouter();
 
-  const isThisPage = router ? router.pathname === NAV_INFO[type].route : false;
+  const isFocused = router ? router.pathname === NAV_INFO[type].route : false;
 
-  const thisPageClassName = isThisPage ? 'on' : undefined;
+  const thisPageClassName = isFocused ? 'focused' : undefined;
 
-  const selectedColor = isThisPage
+  const selectedColor = isFocused
     ? COLORS.primary.normal
     : COLORS.grayscale.gray5;
 

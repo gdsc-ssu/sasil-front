@@ -13,7 +13,7 @@ export const styledNavItem = styled.li({
   fill: COLORS.grayscale.gray5,
   cursor: 'pointer',
 
-  '&.on': {
+  '&.focused': {
     stroke: COLORS.primary.normal,
     fill: COLORS.primary.normal,
   },
@@ -35,7 +35,7 @@ export const styledNavItem = styled.li({
     width: '74px',
     height: '59px',
 
-    '&.on': {
+    '&.focused': {
       borderTop: `2px solid ${COLORS.primary.normal}`,
     },
 
