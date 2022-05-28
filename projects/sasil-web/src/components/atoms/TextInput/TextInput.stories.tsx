@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof TextInput> = ({
   />
 );
 
-export const Basic = Template.bind({});
+export const Default = Template.bind({});
 
 export const WithPlaceholder = Template.bind({});
 WithPlaceholder.args = {

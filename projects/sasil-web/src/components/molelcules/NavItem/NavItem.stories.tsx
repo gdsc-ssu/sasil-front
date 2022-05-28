@@ -16,8 +16,3 @@ export const Default = Template.bind({});
 Default.args = {
   type: 'main',
 };
-
-export const Selected = Template.bind({});
-Selected.args = {
-  type: 'main',
-};
