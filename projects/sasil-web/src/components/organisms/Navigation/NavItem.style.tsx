@@ -35,6 +35,7 @@ export const styledNavItem = styled.li({
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     width: '74px',
     height: '59px',
+    borderTop: `2px solid transparent`,
 
     '&.focused': {
       borderTop: `2px solid ${COLORS.primary.normal}`,

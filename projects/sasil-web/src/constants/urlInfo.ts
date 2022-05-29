@@ -5,3 +5,5 @@ export const URL_INFO = {
   Experiment: '/experiment',
   User: '/user',
 } as const;
+
+export type UrlNameType = typeof URL_INFO[keyof typeof URL_INFO];

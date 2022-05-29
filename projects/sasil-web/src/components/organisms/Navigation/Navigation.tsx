@@ -1,22 +1,22 @@
-import { useRouter } from 'next/router';
-
 import { NAV_INFO, NavItemType } from '@sasil/common';
 import { URL_INFO } from '@/constants/urlInfo';
 import NavItem from './NavItem';
 import * as styles from './Navigation.style';
 
+export interface NavigationProps {
+  targetURL: string;
+}
+
 /**
  * 페이지 이동을 위한 네비게이션을 생성하는 컴포넌트 (반응형)
  */
-const Navigation = () => {
-  const router = useRouter();
-
+const Navigation = ({ targetURL }: NavigationProps) => {
   const navList = Object.keys(NAV_INFO) as [NavItemType];
 
   return (
     <styles.styledNavigation>
       {navList.map((navType) => {
-        const isFocused = router?.pathname === URL_INFO[navType]; // TODO template prop으로 pathname 던져주기
+        const isFocused = targetURL === URL_INFO[navType]; // TODO template prop으로 pathname 던져주기
 
         return (
           <NavItem

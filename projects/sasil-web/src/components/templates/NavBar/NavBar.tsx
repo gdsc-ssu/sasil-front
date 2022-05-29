@@ -6,6 +6,7 @@ import { SearchBarWrapped } from '@/components/molelcules/SearchBar';
 import * as styles from './NavBar.style';
 
 export interface NavBarProps {
+  targetURL: string;
   children: React.ReactNode;
 }
 
@@ -13,12 +14,12 @@ export interface NavBarProps {
 /**
  * 메뉴바를 생성하는 컴포넌트 (반응형)
  */
-const NavBar = ({ children }: NavBarProps) => (
+const NavBar = ({ children, targetURL }: NavBarProps) => (
   <>
     <styles.styledNavBar>
       <SearchBarWrapped className="menu_search-bar" />
       <styles.sideMenu>
-        <Navigation />
+        <Navigation targetURL={targetURL} />
         <ProfileImage size={34} className="menu_profile-img" />
       </styles.sideMenu>
     </styles.styledNavBar>
