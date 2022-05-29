@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
 import {
-  MEDIA_QUERIES,
   TEXT_STYLES_MOBILE,
   TEXT_STYLES_PC,
   TEXT_STYLE_NAME,
 } from '@sasil/common';
+import { MEDIA_QUERIES } from '@/constants/styles';
 
 export const StyledTextInput = styled.input({
   width: '100%',
