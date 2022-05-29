@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { COLORS, MEDIA_QUERIES } from '@sasil/common';
+import { COLORS } from '@sasil/common';
+import { MEDIA_QUERIES } from '@/constants/styles';
 
 export const styledNavBar = styled.div({
   position: 'fixed',
