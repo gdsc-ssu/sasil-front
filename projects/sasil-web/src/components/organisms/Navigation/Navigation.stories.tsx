@@ -11,6 +11,3 @@ export default {
 const Template: ComponentStory<typeof Navigation> = () => <Navigation />;
 
 export const Default = Template.bind({});
-Default.args = {
-  target: 'main',
-};

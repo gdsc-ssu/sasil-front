@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { MEDIA_QUERIES } from '@sasil/common';
+import { MEDIA_QUERIES } from '@/constants/styles';
 
 export const styledNavigation = styled.ul({
   display: 'flex',
