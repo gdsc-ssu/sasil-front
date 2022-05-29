@@ -15,7 +15,7 @@ export interface SearchBarProps {
 const SearchBarWrapped = ({ className }: SearchBarProps) => {
   const router = useRouter();
 
-  const [searchVal, , handleChangeSearchVal] = useInputChange('');
+  const [searchVal, handleChangeSearchVal] = useInputChange('');
 
   const handleSearch = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
