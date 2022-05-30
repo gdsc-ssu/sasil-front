@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 // Auto-generated file created by react-native-storybook-loader
 // Do not edit.
 //
@@ -11,6 +10,8 @@ function loadStories() {
   require('../src/components/molecule/LoginButton/LoginButton.stories');
   require('../src/components/molecule/WriterInfo/WriterInfo.stories');
   require('../src/components/organisms/login/SocialLoginBox/SocialLoginBox.stories');
+  require('../src/components/organisms/Navigation/Navigation.stories');
+  require('../src/components/organisms/Navigation/NavItem.stories');
   require('../src/components/organisms/PostCard/PostCard.stories');
 }
 
@@ -21,7 +22,9 @@ const stories = [
   '../src/components/molecule/LoginButton/LoginButton.stories',
   '../src/components/molecule/WriterInfo/WriterInfo.stories',
   '../src/components/organisms/login/SocialLoginBox/SocialLoginBox.stories',
-  '../src/components/organisms/Post/PostMiniCard.stories',
+  '../src/components/organisms/Navigation/Navigation.stories',
+  '../src/components/organisms/Navigation/NavItem.stories',
+  '../src/components/organisms/PostCard/PostCard.stories',
 ];
 
 module.exports = {
