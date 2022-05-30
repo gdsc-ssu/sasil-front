@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { TEXT_STYLE_NAME, COLORS, NavItemType } from '@sasil/common';
+import { TEXT_STYLE_NAME, COLORS, NavInfo } from '@sasil/common';
 import MainIcon from '@/assets/icons/Main.svg';
 import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
@@ -16,11 +16,8 @@ const NAV_ICON = {
   User: <UserIcon />,
 } as const;
 
-// TODO: Typescript
-export interface NavItemProps {
-  type: NavItemType;
-  name: any;
-  targetURL: any;
+export interface NavItemProps extends NavInfo {
+  targetURL: string;
   isFocused: boolean;
 }
 

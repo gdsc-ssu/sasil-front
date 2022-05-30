@@ -17,9 +17,11 @@ export const NAV_INFO = {
   },
 } as const;
 
-export type NavItemType = keyof typeof NAV_INFO;
+export type NavItemKey = keyof typeof NAV_INFO;
+export type NavItemType = typeof NAV_INFO[keyof typeof NAV_INFO]['type'];
+export type NavItemName = typeof NAV_INFO[keyof typeof NAV_INFO]['name'];
 
-export interface InfoType {
+export interface NavInfo {
   type: NavItemType;
-  name: string;
+  name: NavItemName;
 }

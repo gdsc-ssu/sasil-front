@@ -4,15 +4,14 @@ import { useRouter } from 'next/router';
 import { useInputChange } from '@/logics/hooks/useInputChange';
 import SearchBar from './SearchBar';
 
-// TODO
-export interface SearchBarProps {
+export interface SearchBarWrappedProps {
   /** 컴포넌트로 생성할 요소의 클래스명 */
   className?: string;
 }
 /**
- * TODO
+ *  SearchBar에 검색 기능을 더하여 생성하는 컴포넌트
  */
-const SearchBarWrapped = ({ className }: SearchBarProps) => {
+const SearchBarWrapped = ({ className }: SearchBarWrappedProps) => {
   const router = useRouter();
 
   const [searchVal, handleChangeSearchVal] = useInputChange('');

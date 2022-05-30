@@ -6,8 +6,8 @@ import { SearchBarWrapped } from '@/components/molelcules/SearchBar';
 import * as styles from './NavBar.style';
 
 export interface NavBarProps {
-  targetURL: string;
   children: React.ReactNode;
+  targetURL: string;
 }
 
 // TODO: 프로필사진 전역 상태에서 가져오기

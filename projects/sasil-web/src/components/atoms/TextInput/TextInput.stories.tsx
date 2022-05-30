@@ -11,17 +11,22 @@ const Template: ComponentStory<typeof TextInput> = ({
   placeholder,
   className,
   value,
+  textStyleName,
   onChange,
 }: TextInputProps) => (
   <TextInput
     placeholder={placeholder}
     className={className}
     value={value}
+    textStyleName={textStyleName}
     onChange={onChange}
   />
 );
 
 export const Default = Template.bind({});
+Default.args = {
+  value: '입력된 값',
+};
 
 export const WithPlaceholder = Template.bind({});
 WithPlaceholder.args = {
