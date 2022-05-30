@@ -53,8 +53,8 @@ export const LinkBox = styled.a({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  textDecoration: 'none',
 
-  'text-decoration': 'none',
   ':visited': {
     fill: 'inherit',
   },
