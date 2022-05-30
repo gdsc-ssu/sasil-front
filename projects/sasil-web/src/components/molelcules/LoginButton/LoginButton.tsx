@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+/* eslint-disable no-undef */
+import React from 'react';
 
 import AppleLogo from '@/assets/icons/AppleLogo.svg';
 import GoogleLogo from '@/assets/icons/GoogleLogo.svg';
@@ -18,7 +19,7 @@ type Themes = {
     label: string;
     backgroundColor: string;
     color: string;
-    logo: ReactElement;
+    logo: JSX.Element;
     border?: string;
   };
 };

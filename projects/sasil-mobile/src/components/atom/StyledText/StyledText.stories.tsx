@@ -2,9 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
-import StyledText from './StyledText';
+import StyledText from '.';
 
-storiesOf('atom/StyledText', module)
+storiesOf('StyledText', module)
   .addDecorator((getStory) => <View>{getStory()}</View>)
   .add('Default', () => (
     <StyledText
