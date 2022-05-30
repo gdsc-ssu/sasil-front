@@ -4,7 +4,7 @@ import { TextStyleName } from '@sasil/common';
 import * as styles from './StyledText.style';
 
 export interface StyledTextProps {
-  children: React.ReactNode;
+  children: any; // ? React.ReactNode
   /** 텍스트 색 (인자를 지정해주지 않을 시, 기본값은 black) */
   color?: string;
   /** 텍스트 스타일 종류로, TEXT_STYLE_NAME.* 로 지정된다. */
