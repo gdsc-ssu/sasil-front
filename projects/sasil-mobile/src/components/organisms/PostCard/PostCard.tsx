@@ -56,21 +56,21 @@ export const PostCard = ({
   writerObj,
   thumbnail,
 }: PostCardProps) => (
-  <styles.postWrap
+  <styles.PostWrap
     source={{ uri: (type === 'experiment' && thumbnail) || undefined }}
     resizeMode="cover"
   >
-    {type === 'experiment' && <styles.filter />}
-    <styles.infoWrap>
+    {type === 'experiment' && <styles.Filter />}
+    <styles.InfoWrap>
       {type === 'experiment' && (
-        <styles.writerWrap>
+        <styles.WriterWrap>
           <WriterInfo
             textColor={theme[type].textColor}
             writerObj={writerObj}
             profileSize={14}
             textStyleName={TEXT_STYLE_NAME.body3}
           />
-        </styles.writerWrap>
+        </styles.WriterWrap>
       )}
       <StyledText
         color={theme[type].textColor}
@@ -79,9 +79,9 @@ export const PostCard = ({
       >
         {title}
       </StyledText>
-    </styles.infoWrap>
+    </styles.InfoWrap>
     <Like color={theme[type].likeColor} likeCount={likeCount} />
-  </styles.postWrap>
+  </styles.PostWrap>
 );
 
 export default PostCard;

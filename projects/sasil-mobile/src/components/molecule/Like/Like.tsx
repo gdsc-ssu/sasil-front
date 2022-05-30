@@ -16,11 +16,11 @@ export interface LikeProps {
  */
 const Like = ({ color = COLORS.primary.normal, likeCount }: LikeProps) => (
   <styles.LikeWrap>
-    <Heart color={color} style={styles.IconWrap} />
+    <Heart color={color} style={styles.iconWrap} />
     <StyledText
       color={color}
       textStyleName={TEXT_STYLE_NAME.body3}
-      style={styles.LabelWrap}
+      style={styles.labelWrap}
     >
       {likeCount}
     </StyledText>

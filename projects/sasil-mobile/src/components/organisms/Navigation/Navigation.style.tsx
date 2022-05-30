@@ -1,6 +1,6 @@
 import styled from '@emotion/native';
 
-export const styledNavigation = styled.View({
+export const StyledNavigation = styled.View({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',

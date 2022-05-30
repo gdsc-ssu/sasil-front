@@ -17,7 +17,7 @@ const ProfileImage = ({ src, size }: ProfileImageProps) => {
     src ??
     'https://image.shutterstock.com/image-photo/darkeyed-girl-pink-makeup-chewing-600w-1457328599.jpg';
 
-  return <styles.profileWrap size={size} source={{ uri: imageSrc }} />;
+  return <styles.ProfileWrap size={size} source={{ uri: imageSrc }} />;
 };
 
 export default ProfileImage;

@@ -6,11 +6,11 @@ export const LikeWrap = styled.View({
   alignItems: 'center',
 });
 
-export const LabelWrap = css({
+export const labelWrap = css({
   height: 14,
 });
 
-export const IconWrap = css({
+export const iconWrap = css({
   width: 14,
   height: 14,
   marginRight: 2,

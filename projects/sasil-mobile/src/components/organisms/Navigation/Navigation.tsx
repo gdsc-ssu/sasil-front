@@ -9,7 +9,7 @@ export interface NavigationProps {
  * 페이지 이동을 위한 네비게이션을 생성하는 컴포넌트
  */
 const Navigation = ({ navListInfo }: NavigationProps) => (
-  <styles.styledNavigation>
+  <styles.StyledNavigation>
     {navListInfo.map((navInfo) => (
       <NavItem
         type={navInfo.type}
@@ -19,7 +19,7 @@ const Navigation = ({ navListInfo }: NavigationProps) => (
         key={navInfo.type}
       />
     ))}
-  </styles.styledNavigation>
+  </styles.StyledNavigation>
 );
 
 export default Navigation;

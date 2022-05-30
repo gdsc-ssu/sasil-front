@@ -1,7 +1,7 @@
 import styled from '@emotion/native';
 import { COLORS } from '@sasil/common';
 
-export const postWrap = styled.ImageBackground({
+export const PostWrap = styled.ImageBackground({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
@@ -14,7 +14,7 @@ export const postWrap = styled.ImageBackground({
 });
 
 // 실험 게시물 이미지 필터
-export const filter = styled.View({
+export const Filter = styled.View({
   position: 'absolute',
   width: 140,
   height: 100,
@@ -23,11 +23,11 @@ export const filter = styled.View({
   padding: 12,
 });
 
-export const infoWrap = styled.View({
+export const InfoWrap = styled.View({
   display: 'flex',
   flexDirection: 'column',
 });
 
-export const writerWrap = styled.View({
+export const WriterWrap = styled.View({
   marginBottom: 5,
 });

@@ -13,13 +13,13 @@ export const Button = styled.Pressable<ButtonProps>((props) => ({
   position: 'relative',
 }));
 
-export const labelWrap = styled.View({
+export const LabelWrap = styled.View({
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
 });
 
-export const iconWrap = styled.View({
+export const IconWrap = styled.View({
   position: 'absolute',
   width: 18,
   height: 18,

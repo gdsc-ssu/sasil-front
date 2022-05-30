@@ -36,8 +36,8 @@ const NavItem = ({ type, name, isFocused, onPress }: NavItemProps) => {
     : COLORS.grayscale.gray5;
 
   return (
-    <styles.styledNavItem isFocused={isFocused} onPress={onPress}>
-      <styles.iconWrap>{getIcon(type, selectedColor)}</styles.iconWrap>
+    <styles.StyledNavItem isFocused={isFocused} onPress={onPress}>
+      <styles.IconWrap>{getIcon(type, selectedColor)}</styles.IconWrap>
       <StyledText
         color={selectedColor}
         textStyleName={TEXT_STYLE_NAME.button3}
@@ -45,7 +45,7 @@ const NavItem = ({ type, name, isFocused, onPress }: NavItemProps) => {
       >
         {name}
       </StyledText>
-    </styles.styledNavItem>
+    </styles.StyledNavItem>
   );
 };
 

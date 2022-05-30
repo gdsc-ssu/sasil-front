@@ -5,7 +5,7 @@ interface StyledNavItemProps {
   isFocused: boolean;
 }
 
-export const styledNavItem = styled.Pressable(
+export const StyledNavItem = styled.Pressable(
   ({ isFocused }: StyledNavItemProps) => ({
     display: 'flex',
     alignItems: 'center',
@@ -17,7 +17,7 @@ export const styledNavItem = styled.Pressable(
   }),
 );
 
-export const iconWrap = styled.View({
+export const IconWrap = styled.View({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
