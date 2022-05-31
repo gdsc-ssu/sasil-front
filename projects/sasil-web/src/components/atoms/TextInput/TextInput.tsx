@@ -31,6 +31,7 @@ const TextInput = ({
       inputProps.onChange?.(e);
       onTextChange?.(e.target.value);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [onTextChange, inputProps.onChange],
   );
 
@@ -40,6 +41,7 @@ const TextInput = ({
       value={value}
       textStyleName={textStyleName}
       type="text"
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...inputProps}
       onChange={onChange}
     />
