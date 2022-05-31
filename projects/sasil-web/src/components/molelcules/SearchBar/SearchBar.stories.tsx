@@ -9,10 +9,10 @@ export default {
 
 const Template: ComponentStory<typeof SearchBar> = ({
   value,
-  onChange,
+  onTextChange,
   onSearch,
 }: SearchBarProps) => (
-  <SearchBar value={value} onSearch={onSearch} onChange={onChange} />
+  <SearchBar value={value} onSearch={onSearch} onTextChange={onTextChange} />
 );
 
 export const Default = Template.bind({});

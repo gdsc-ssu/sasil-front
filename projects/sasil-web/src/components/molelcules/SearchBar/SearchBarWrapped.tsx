@@ -1,7 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import { useInputChange } from '@/logics/hooks/useInputChange';
 import SearchBar from './SearchBar';
 
 export interface SearchBarWrappedProps {
@@ -14,24 +13,28 @@ export interface SearchBarWrappedProps {
 const SearchBarWrapped = ({ className }: SearchBarWrappedProps) => {
   const router = useRouter();
 
-  const [searchVal, handleChangeSearchVal] = useInputChange('');
+  const [value, setValue] = useState('');
 
   const handleSearch = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      if (searchVal.trim().length > 0) {
-        router.push(`/search/${searchVal}`); // TODO: 검색 결과 URL
+      if (value.trim().length > 0) {
+        router.push(`/search/${value}`); // TODO: 검색 결과 URL
       }
     },
-    [router, searchVal],
+    [router, value],
   );
+
+  const onTextChange = useCallback((text: string) => {
+    setValue(text);
+  }, []);
 
   return (
     <SearchBar
-      value={searchVal}
+      value={value}
       className={className}
-      onChange={handleChangeSearchVal}
+      onTextChange={onTextChange}
       onSearch={handleSearch}
     />
   );

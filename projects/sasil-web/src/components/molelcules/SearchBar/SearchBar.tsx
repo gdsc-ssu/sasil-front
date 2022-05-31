@@ -5,7 +5,7 @@ import TextInput, { TextInputProps } from '@/components/atoms/TextInput';
 import * as styles from './SearchBar.style';
 
 export interface SearchBarProps
-  extends Pick<TextInputProps, 'className' | 'value' | 'onChange'> {
+  extends Pick<TextInputProps, 'className' | 'value' | 'onTextChange'> {
   /** 검색 동작을 컨트롤할 함수 */
   onSearch: (e: React.FormEvent<HTMLFormElement>) => void;
 }
@@ -15,11 +15,11 @@ export interface SearchBarProps
 const SearchBar = ({
   className,
   value,
-  onChange,
+  onTextChange,
   onSearch,
 }: SearchBarProps) => (
   <styles.styledSearchBar onSubmit={onSearch} className={className}>
-    <TextInput onChange={onChange} value={value} />
+    <TextInput onTextChange={onTextChange} value={value} />
     <styles.iconWrap type="submit">
       <SearchIcon />
     </styles.iconWrap>

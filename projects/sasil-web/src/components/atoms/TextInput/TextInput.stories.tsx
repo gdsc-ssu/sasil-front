@@ -12,14 +12,14 @@ const Template: ComponentStory<typeof TextInput> = ({
   className,
   value,
   textStyleName,
-  onChange,
+  onTextChange,
 }: TextInputProps) => (
   <TextInput
     placeholder={placeholder}
     className={className}
     value={value}
     textStyleName={textStyleName}
-    onChange={onChange}
+    onTextChange={onTextChange}
   />
 );
 
