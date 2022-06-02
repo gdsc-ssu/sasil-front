@@ -8,9 +8,9 @@ export default {
 } as ComponentMeta<typeof ProfileImage>;
 
 const Template: ComponentStory<typeof ProfileImage> = ({
-  imageSrc,
+  src,
   size,
-}: ProfileImageProps) => <ProfileImage imageSrc={imageSrc} size={size} />;
+}: ProfileImageProps) => <ProfileImage src={src} size={size} />;
 
 export const Empty = Template.bind({});
 Empty.args = {
@@ -19,7 +19,6 @@ Empty.args = {
 
 export const Image = Template.bind({});
 Image.args = {
-  imageSrc:
-    'https://image.shutterstock.com/image-photo/darkeyed-girl-pink-makeup-chewing-600w-1457328599.jpg',
+  src: 'https://image.shutterstock.com/image-photo/darkeyed-girl-pink-makeup-chewing-600w-1457328599.jpg',
   size: 24,
 };

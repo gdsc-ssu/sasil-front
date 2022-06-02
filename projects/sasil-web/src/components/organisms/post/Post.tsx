@@ -76,13 +76,7 @@ export const MiniCard = ({
       <StyledText
         color={theme[type].textColor}
         textStyleName={TEXT_STYLE_NAME.body2R}
-        style={{
-          display: '-webkit-box',
-          WebkitLineClamp: 2,
-          WebkitBoxOrient: 'vertical',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-        }}
+        className="post-title"
       >
         {title}
       </StyledText>

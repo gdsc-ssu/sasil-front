@@ -3,10 +3,10 @@ import styled from '@emotion/styled';
 export const like = styled.div({
   display: 'flex',
   alignItems: 'center',
-});
 
-export const labelWrap = styled.div({
-  height: 16,
+  '& > .like-count': {
+    height: 16,
+  },
 });
 
 export const iconWrap = styled.div({
