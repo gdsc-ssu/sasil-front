@@ -18,11 +18,13 @@ const Like = ({ color = COLORS.primary.normal, likeCount }: LikeProps) => (
     <styles.iconWrap>
       <Heart fill={color} />
     </styles.iconWrap>
-    <styles.labelWrap>
-      <StyledText color={color} textStyleName={TEXT_STYLE_NAME.body3}>
-        {likeCount}
-      </StyledText>
-    </styles.labelWrap>
+    <StyledText
+      color={color}
+      textStyleName={TEXT_STYLE_NAME.body3}
+      className="like-count"
+    >
+      {likeCount}
+    </StyledText>
   </styles.like>
 );
 
