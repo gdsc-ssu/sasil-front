@@ -24,14 +24,14 @@ const WriterInfo = ({
   textColor,
   profileSize,
 }: WriterInfoProps) => (
-  <styles.wrap>
-    <ProfileImage imageSrc={writerObj.profile_img} size={profileSize} />
-    <styles.textWrap>
+  <styles.Wrap>
+    <ProfileImage src={writerObj.profile_img} size={profileSize} />
+    <styles.TextWrap>
       <StyledText color={textColor} textStyleName={textStyleName}>
         {writerObj.nickname}
       </StyledText>
-    </styles.textWrap>
-  </styles.wrap>
+    </styles.TextWrap>
+  </styles.Wrap>
 );
 
 export default WriterInfo;

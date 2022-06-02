@@ -1,11 +1,11 @@
 import styled from '@emotion/native';
 
-export const wrap = styled.View({
+export const Wrap = styled.View({
   display: 'flex',
   flexDirection: 'row',
   alignContent: 'center',
 });
 
-export const textWrap = styled.View({
+export const TextWrap = styled.View({
   marginLeft: 4,
 });
