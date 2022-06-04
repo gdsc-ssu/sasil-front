@@ -47,7 +47,6 @@ export interface MiniCardProps {
   thumbnail?: string | null;
 }
 
-// TODO muliline ellipsis 관련 css 코드가 StyledText inline style로 들어가있음. 가능하다면 추후 리팩토링 필요!
 /**
  * 메인 페이지 내 실험 컨텐츠가 담겨있는 게시물 컴포넌트
  */
@@ -58,20 +57,20 @@ export const MiniCard = ({
   writerObj = null,
   thumbnail = null,
 }: MiniCardProps) => (
-  <styles.miniCard
+  <styles.MiniCard
     backgroundColor={theme[type].backgroundColor}
     thumbnail={thumbnail}
   >
-    <styles.infoWrap>
+    <styles.InfoWrap>
       {writerObj && (
-        <styles.writerWrap>
+        <styles.WriterWrap>
           <WriterInfo
             textColor={theme[type].textColor}
             textStyleName={TEXT_STYLE_NAME.body3}
             profileSize={14}
             writerObj={writerObj}
           />
-        </styles.writerWrap>
+        </styles.WriterWrap>
       )}
       <StyledText
         color={theme[type].textColor}
@@ -80,9 +79,9 @@ export const MiniCard = ({
       >
         {title}
       </StyledText>
-    </styles.infoWrap>
+    </styles.InfoWrap>
     <Like color={theme[type].likeColor} likeCount={likeCount} />
-  </styles.miniCard>
+  </styles.MiniCard>
 );
 
 // TODO 의뢰 및 실험 페이지에서 사용되는 Post Card 컴포넌트
