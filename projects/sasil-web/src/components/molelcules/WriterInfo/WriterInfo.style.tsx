@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const writerWrap = styled.div({
+export const WriterWrap = styled.div({
   display: 'flex',
   alignItems: 'center',
 

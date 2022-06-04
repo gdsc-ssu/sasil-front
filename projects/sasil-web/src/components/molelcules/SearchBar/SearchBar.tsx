@@ -18,12 +18,12 @@ const SearchBar = ({
   onTextChange,
   onSearch,
 }: SearchBarProps) => (
-  <styles.styledSearchBar onSubmit={onSearch} className={className}>
+  <styles.StyledSearchBar onSubmit={onSearch} className={className}>
     <TextInput onTextChange={onTextChange} value={value} />
-    <styles.iconWrap type="submit">
+    <styles.IconWrap type="submit">
       <SearchIcon />
-    </styles.iconWrap>
-  </styles.styledSearchBar>
+    </styles.IconWrap>
+  </styles.StyledSearchBar>
 );
 
 export default SearchBar;

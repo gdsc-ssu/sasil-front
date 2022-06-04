@@ -8,7 +8,7 @@ interface WrapProps {
   textStyleName: TextStyleName;
 }
 
-export const wrap = styled.div(({ color, textStyleName }: WrapProps) => ({
+export const Wrap = styled.div(({ color, textStyleName }: WrapProps) => ({
   color: color || COLORS.grayscale.black,
   fontSize: TEXT_STYLES_PC[textStyleName].fontSize,
   fontWeight: TEXT_STYLES_PC[textStyleName].fontWeight,

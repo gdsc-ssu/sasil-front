@@ -14,10 +14,10 @@ export interface LikeProps {
  * 해당 게시물이 받은 누적 좋아요 수를 나타내는 컴포넌트
  */
 const Like = ({ color = COLORS.primary.normal, likeCount }: LikeProps) => (
-  <styles.like>
-    <styles.iconWrap>
+  <styles.Like>
+    <styles.IconWrap>
       <Heart fill={color} />
-    </styles.iconWrap>
+    </styles.IconWrap>
     <StyledText
       color={color}
       textStyleName={TEXT_STYLE_NAME.body3}
@@ -25,7 +25,7 @@ const Like = ({ color = COLORS.primary.normal, likeCount }: LikeProps) => (
     >
       {likeCount}
     </StyledText>
-  </styles.like>
+  </styles.Like>
 );
 
 export default Like;

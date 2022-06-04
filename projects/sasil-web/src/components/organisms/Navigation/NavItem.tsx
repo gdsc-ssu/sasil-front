@@ -32,10 +32,10 @@ const NavItem = ({ type, name, targetURL, isFocused }: NavItemProps) => {
     : COLORS.grayscale.gray5;
 
   return (
-    <styles.styledNavItem className={focusedClassName}>
+    <styles.StyledNavItem className={focusedClassName}>
       <Link href={targetURL} passHref>
         <styles.LinkBox>
-          <styles.iconWrap>{NAV_ICON[type]}</styles.iconWrap>
+          <styles.IconWrap>{NAV_ICON[type]}</styles.IconWrap>
           <StyledText
             className="nav-name"
             color={selectedColor}
@@ -45,7 +45,7 @@ const NavItem = ({ type, name, targetURL, isFocused }: NavItemProps) => {
           </StyledText>
         </styles.LinkBox>
       </Link>
-    </styles.styledNavItem>
+    </styles.StyledNavItem>
   );
 };
 
