@@ -45,6 +45,7 @@ export interface MiniCardProps {
   writerObj?: any;
   /** [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5` */
   thumbnail?: string | null;
+  className?: string;
 }
 
 // TODO muliline ellipsis 관련 css 코드가 StyledText inline style로 들어가있음. 가능하다면 추후 리팩토링 필요!
@@ -57,10 +58,12 @@ export const MiniCard = ({
   likeCount,
   writerObj = null,
   thumbnail = null,
+  className,
 }: MiniCardProps) => (
   <styles.miniCard
     backgroundColor={theme[type].backgroundColor}
-    thumbnail={thumbnail}
+    thumbnail={type === 'experiment' ? thumbnail : null}
+    className={className}
   >
     <styles.infoWrap>
       {writerObj && (
