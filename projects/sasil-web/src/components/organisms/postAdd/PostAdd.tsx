@@ -13,6 +13,7 @@ const PostAdd = () => {
   // TODO listItem 누르면 게시물 작성 url로 이동하기
   const router = useRouter();
   const [isListOpened, setIsListOpened] = useState(false);
+  const handleListOpen = () => setIsListOpened(!isListOpened);
   return (
     <styles.Wrap>
       {isListOpened && (
@@ -41,12 +42,12 @@ const PostAdd = () => {
       )}
       <styles.ButtonWrap>
         <styles.Button
-          className={isListOpened ? 'list-opened' : ''}
-          onClick={() => setIsListOpened(!isListOpened)}
+          color={isListOpened ? COLORS.grayscale.white : COLORS.primary.normal}
+          onClick={handleListOpen}
         >
           <Plus
             fill={isListOpened ? COLORS.primary.normal : COLORS.grayscale.white}
-            className={isListOpened ? 'list-opened-icon' : ''}
+            transform={isListOpened ? 'rotate(45)' : ''}
           />
         </styles.Button>
       </styles.ButtonWrap>
