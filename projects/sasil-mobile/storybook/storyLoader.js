@@ -13,6 +13,9 @@ function loadStories() {
   require('../src/components/organisms/Navigation/Navigation.stories');
   require('../src/components/organisms/Navigation/NavItem.stories');
   require('../src/components/organisms/PostCard/PostCard.stories');
+  require('../src/components/organisms/PostWriteNav/PostWriteNav.stories');
+  require('../src/components/templates/MainPostsWrap/PostsWrap.stories');
+  require('../src/components/templates/MainPostsWrap/PostsWrapTitle.stories');
 }
 
 const stories = [
@@ -25,6 +28,9 @@ const stories = [
   '../src/components/organisms/Navigation/Navigation.stories',
   '../src/components/organisms/Navigation/NavItem.stories',
   '../src/components/organisms/PostCard/PostCard.stories',
+  '../src/components/organisms/PostWrite/PostWrite.stories',
+  '../src/components/templates/MainPostsWrap/PostsWrap.stories',
+  '../src/components/templates/MainPostsWrap/PostsWrapTitle.stories',
 ];
 
 module.exports = {
