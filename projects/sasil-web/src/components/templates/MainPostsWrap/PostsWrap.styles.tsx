@@ -23,7 +23,6 @@ export const Wrap = styled.div({
     },
   },
   [`@media screen and (max-width:870px)`]: {
-    // backgroundColor: 'red',
     width: '800px',
     '.mini-card:nth-child(n+7)': {
       display: 'none',

@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import { testFetch } from '@sasil/common';
-import MainTemplate from '@/components/templates/MainTemplate/MainTemplate';
+import MainTemplate from '@/components/templates/MainTemplate';
 
 const Home: NextPage = () => {
   const [text, setText] = useState('');

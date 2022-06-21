@@ -1,33 +1,32 @@
 import { COLORS } from '@sasil/common';
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const Container = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  '.exp': {
+    backgroundColor: COLORS.grayscale.white,
+  },
+});
 
-  .exp {
-    background-color: ${COLORS.grayscale.white};
-  }
-`;
+export const Content = styled.div({
+  width: '100vw',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  background: COLORS.background,
+  padding: '47px',
+});
 
-export const Content = styled.div`
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: ${COLORS.background};
-  padding: 47px;
-`;
+export const IconWrap = styled.div({
+  margin: '88px auto',
+});
 
-export const IconWrap = styled.div`
-  margin: 88px auto;
-`;
-
-export const PostWriteNavWrap = styled.div`
-  position: fixed;
-  right: 30px;
-  bottom: 40px;
-`;
+export const PostWriteNavWrap = styled.div({
+  position: 'fixed',
+  right: '30px',
+  bottom: '40px',
+});

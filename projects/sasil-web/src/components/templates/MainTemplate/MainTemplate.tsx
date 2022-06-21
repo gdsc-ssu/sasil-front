@@ -7,8 +7,7 @@ import PostWriteNav from '@/components/organisms/PostWriteNav';
 import * as styles from './MainTemplate.style';
 
 const MainTemplate = () => (
-  <>
-    <NavBar targetURL={URL_INFO.Main}> </NavBar>
+  <NavBar targetURL={URL_INFO.Main}>
     <styles.Container>
       <styles.IconWrap>
         <SasilLogo width="166" height="166" />
@@ -26,7 +25,7 @@ const MainTemplate = () => (
     <styles.PostWriteNavWrap>
       <PostWriteNav />
     </styles.PostWriteNavWrap>
-  </>
+  </NavBar>
 );
 
 export default MainTemplate;
