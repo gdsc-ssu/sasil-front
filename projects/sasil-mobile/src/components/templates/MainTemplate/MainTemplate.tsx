@@ -1,17 +1,21 @@
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
+
 import SasilLogo from '@/assets/icons/SasilLogo';
 import SearchIcon from '@/assets/icons/Search';
 import RightIcon from '@/assets/icons/Right';
+
 import StyledText from '@/components/atom/StyledText';
 import ProfileImage from '@/components/atom/ProfileImage';
-import { expPosts, reqPosts } from '@/components/dummyData';
 import PostWriteNav from '@/components/organisms/PostWriteNav';
-import MainPostsWrap, { titleType } from '@/components/templates/MainPostsWrap';
+import MainPostsWrap, {
+  postsWrapTitleType,
+} from '@/components/templates/MainPostsWrap';
+import { expPosts, reqPosts } from '@/components/dummyData';
 import * as styles from './MainTemplate.style';
 
 interface ContentProps {
-  type: titleType;
+  type: postsWrapTitleType;
   post: any;
 }
 
@@ -22,6 +26,14 @@ const Content = ({ type, post }: ContentProps) => (
       type === 'popExperiment' ? COLORS.grayscale.white : COLORS.background
     }
   >
+    <styles.ContentScroll
+      horizontal
+      contentOffset={{ x: 255, y: 0 }}
+      contentContainerStyle={styles.PostsContainer}
+    >
+      <MainPostsWrap posts={post} type={type} />
+    </styles.ContentScroll>
+
     <styles.ViewMoreButton>
       <StyledText
         textStyleName={TEXT_STYLE_NAME.body3}
@@ -31,9 +43,6 @@ const Content = ({ type, post }: ContentProps) => (
       </StyledText>
       <RightIcon color={COLORS.grayscale.gray7} />
     </styles.ViewMoreButton>
-    <ScrollView horizontal contentContainerStyle={styles.PostsContainer}>
-      <MainPostsWrap posts={post} type={type} />
-    </ScrollView>
   </styles.Content>
 );
 

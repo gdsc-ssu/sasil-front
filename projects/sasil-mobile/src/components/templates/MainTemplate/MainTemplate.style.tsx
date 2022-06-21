@@ -1,6 +1,34 @@
 import styled, { css } from '@emotion/native';
 import { COLORS } from '@sasil/common';
 
+export const Content = styled.View(
+  ({ backgroundColor }: { backgroundColor: string }) => ({
+    height: 280,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 20,
+    backgroundColor,
+  }),
+);
+
+export const ContentScroll = styled.ScrollView({});
+
+export const PostsContainer = css({
+  flexGrow: 1,
+  justifyContent: 'center',
+  alignSelf: 'center',
+});
+
+export const ViewMoreButton = styled.Pressable({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  position: 'absolute',
+  right: 10,
+  top: 15,
+});
+
 export const Template = styled.SafeAreaView({
   flex: 1,
   backgroundColor: COLORS.grayscale.white,
@@ -35,32 +63,6 @@ export const MenuWrap = styled.View({
 export const IconWrap = styled.View({
   width: 32,
   height: 32,
-});
-
-export const Content = styled.View(
-  ({ backgroundColor }: { backgroundColor: string }) => ({
-    height: 280,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    // marginBottom: 20,
-    paddingTop: 20,
-    backgroundColor,
-  }),
-);
-export const PostsContainer = css({
-  flexGrow: 1,
-  justifyContent: 'center',
-  alignSelf: 'center',
-});
-
-export const ViewMoreButton = styled.Pressable({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  position: 'absolute',
-  right: 10,
-  top: 15,
 });
 
 export const PostWriteNavWrap = styled.View({
