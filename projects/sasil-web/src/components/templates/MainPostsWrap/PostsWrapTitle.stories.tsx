@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import PostWrapTitle, { PostWrapTitleProps } from './PostWrapTitle';
+import PostsWrapTitle, { PostsWrapTitleProps } from './PostsWrapTitle';
 
 export default {
-  title: 'components/template/PostWrapLabel',
-  component: PostWrapTitle,
-} as ComponentMeta<typeof PostWrapTitle>;
+  title: 'components/template/PostsWrapLabel',
+  component: PostsWrapTitle,
+} as ComponentMeta<typeof PostsWrapTitle>;
 
-const Template: ComponentStory<typeof PostWrapTitle> = ({
+const Template: ComponentStory<typeof PostsWrapTitle> = ({
   type,
-}: PostWrapTitleProps) => <PostWrapTitle type={type} />;
+}: PostsWrapTitleProps) => <PostsWrapTitle type={type} />;
 
 export const HotRequest = Template.bind({});
 HotRequest.args = {

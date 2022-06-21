@@ -8,14 +8,9 @@ import Fire from '@/assets/icons/Fire.svg';
 import Experiment from '@/assets/icons/Experiment.svg';
 import Request from '@/assets/icons/Request.svg';
 
-import * as styles from './PostWrapTitle.style';
+import * as styles from './PostsWrapTitle.style';
 
-export const TITLE = {
-  hotRequest: 'hotRequest',
-  popExperiment: 'popExperiment',
-  popRequest: 'popRequest',
-} as const;
-export type titleType = typeof TITLE[keyof typeof TITLE];
+export type titleType = 'hotRequest' | 'popExperiment' | 'popRequest';
 
 export type postTitleProps = {
   [key in titleType]: {
@@ -47,19 +42,27 @@ export const POSTS_TITLE: postTitleProps = {
   },
 };
 
-export interface PostWrapTitleProps {
+export interface PostsWrapTitleProps {
+  /** PostsWrap의 제목으로 '핫한 의뢰', '인기 의뢰', '인기 실험' 중 하나. */
   type: titleType;
 }
 
-const PostWrapTitle = ({ type }: PostWrapTitleProps) => {
+/**
+ *  메인 페이지에서 각 PostsWrap들의 제목을 나타내고 실험 및 의뢰 상세 페이지로 이동시키는 컴포넌트
+ */
+const PostsWrapTitle = ({ type }: PostsWrapTitleProps) => {
   const router = useRouter();
   const handleRouter = () => {
     router.push(`/${POSTS_TITLE[type].postType}`);
   };
+  const alignLeft = type === 'popExperiment';
   return (
-    <styles.Title>
+    <styles.Title alignLeft={alignLeft}>
       {POSTS_TITLE[type].icon}
-      <StyledText textStyleName={TEXT_STYLE_NAME.subtitle2B}>
+      <StyledText
+        textStyleName={TEXT_STYLE_NAME.subtitle2B}
+        className="title-text"
+      >
         {POSTS_TITLE[type].title}
       </StyledText>
       <styles.Icon onClick={handleRouter}>
@@ -69,4 +72,4 @@ const PostWrapTitle = ({ type }: PostWrapTitleProps) => {
   );
 };
 
-export default PostWrapTitle;
+export default PostsWrapTitle;

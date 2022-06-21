@@ -1,8 +1,8 @@
 import * as Post from '@/components/organisms/post';
-import PostWrapTitle, { POSTS_TITLE, titleType } from './PostWrapTitle';
-import * as styles from './PostWrap.styles';
+import PostsWrapTitle, { POSTS_TITLE, titleType } from './PostsWrapTitle';
+import * as styles from './PostsWrap.styles';
 
-export interface PostWrapProps {
+export interface PostsWrapProps {
   // TODO Posts type 넣기
   // TODO posts는 불러올 때 11개만 가져와야함!
   /**  게시물 데이터 */
@@ -15,12 +15,12 @@ export interface PostWrapProps {
 /**
  * 메인에서 보여지는 게시물을 type에 맞게 관리하는 컴포넌트
  */
-const PostWrap = ({ posts, type, className }: PostWrapProps) => (
+const PostsWrap = ({ posts, type, className }: PostsWrapProps) => (
   <styles.Wrap className={className}>
     {posts.slice().map((post: any, index: number) =>
       index === POSTS_TITLE[type].index ? (
         <>
-          <PostWrapTitle type={type} />
+          <PostsWrapTitle type={type} />
           <Post.MiniCard
             type={POSTS_TITLE[type].postType}
             title={post.title}
@@ -41,4 +41,4 @@ const PostWrap = ({ posts, type, className }: PostWrapProps) => (
     )}
   </styles.Wrap>
 );
-export default PostWrap;
+export default PostsWrap;
