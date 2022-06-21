@@ -1,21 +1,18 @@
 import { COLORS } from '@sasil/common';
 import styled from '@emotion/styled';
 
-export const Content = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  > .post-wrap {
-    margin: 0 auto;
-  }
   .exp {
     background-color: ${COLORS.grayscale.white};
   }
 `;
 
-export const Wrap = styled.div`
+export const Content = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -25,11 +22,11 @@ export const Wrap = styled.div`
   padding: 47px;
 `;
 
-export const Icon = styled.div`
+export const IconWrap = styled.div`
   margin: 88px auto;
 `;
 
-export const PostAddWrap = styled.div`
+export const PostWriteNavWrap = styled.div`
   position: fixed;
   right: 30px;
   bottom: 40px;
