@@ -1,4 +1,4 @@
-import styled from '@emotion/native';
+import styled, { css } from '@emotion/native';
 
 export const Wrap = styled.View({
   width: 890,
@@ -6,9 +6,8 @@ export const Wrap = styled.View({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  overflow: 'scroll',
 });
 
-export const Item = styled.View({
+export const Item = css({
   margin: 4,
 });

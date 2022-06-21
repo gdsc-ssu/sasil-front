@@ -2,12 +2,11 @@ import styled from '@emotion/native';
 import { COLORS } from '@sasil/common';
 
 export const Wrap = styled.View({
+  display: 'flex',
   alignItems: 'flex-end',
 });
 
-export const ItemIcon = styled.View({});
-
-export const ListWrap = styled.View({
+export const NavList = styled.View({
   width: 108,
   height: 88,
   display: 'flex',
@@ -18,7 +17,7 @@ export const ListWrap = styled.View({
   marginBottom: 10,
 });
 
-export const ItemWrap = styled.View({
+export const NavItem = styled.View({
   width: '80%',
   display: 'flex',
   flexDirection: 'row',
@@ -33,22 +32,22 @@ export const IconWrap = styled.View({
 });
 
 type ButtonProps = {
-  color: string;
+  backgroundColor: string;
 };
-export const Button = styled.Pressable(({ color }: ButtonProps) => ({
+export const Button = styled.Pressable(({ backgroundColor }: ButtonProps) => ({
   width: 50,
   height: 50,
   borderRadius: 25,
-  backgroundColor: `${color}`,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  backgroundColor,
 }));
 
-type IconProps = {
+type ButtonIconProps = {
   listOpened: Boolean;
 };
 
-export const Icon = styled.View(({ listOpened }: IconProps) => ({
+export const ButtonIcon = styled.View(({ listOpened }: ButtonIconProps) => ({
   transform: listOpened ? [{ rotate: '45deg' }] : [],
 }));

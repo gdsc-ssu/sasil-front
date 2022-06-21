@@ -1,47 +1,51 @@
 import React, { useState } from 'react';
-import Plus from '@/assets/icons/Plus';
-import Experiment from '@/assets/icons/Experiment';
-import Request from '@/assets/icons/Request';
+import PlusIcon from '@/assets/icons/Plus';
+import ExperimentIcon from '@/assets/icons/Experiment';
+import RequestIcon from '@/assets/icons/Request';
 import { COLORS } from '@sasil/common';
 import StyledText from '@/components/atom/StyledText';
 import * as styles from './PostWriteNav.style';
 
+/**
+ *
+ * 게시물 작성 페이지로 바로 이동할 수 있는 컴포넌트. 원형 버튼으로 화면 하단에 항상 위치하고 있다.
+ */
 const PostWriteNav = () => {
   const [listOpened, setListOpened] = useState(false);
   const handleListOpen = () => setListOpened(!listOpened);
   return (
     <styles.Wrap>
       {listOpened && (
-        <styles.ListWrap>
-          <styles.ItemWrap>
+        <styles.NavList>
+          <styles.NavItem>
             <styles.IconWrap>
-              <Experiment color={COLORS.grayscale.gray6} />
+              <ExperimentIcon color={COLORS.grayscale.gray6} />
             </styles.IconWrap>
-
             <StyledText textStyleName="body1B" color={COLORS.grayscale.gray6}>
               실험하기
             </StyledText>
-          </styles.ItemWrap>
-          <styles.ItemWrap>
+          </styles.NavItem>
+          <styles.NavItem>
             <styles.IconWrap>
-              <Request color={COLORS.grayscale.gray6} />
+              <RequestIcon color={COLORS.grayscale.gray6} />
             </styles.IconWrap>
-
             <StyledText textStyleName="body1B" color={COLORS.grayscale.gray6}>
               의뢰하기
             </StyledText>
-          </styles.ItemWrap>
-        </styles.ListWrap>
+          </styles.NavItem>
+        </styles.NavList>
       )}
       <styles.Button
         onPress={handleListOpen}
-        color={listOpened ? COLORS.grayscale.white : COLORS.primary.normal}
+        backgroundColor={
+          listOpened ? COLORS.grayscale.white : COLORS.primary.normal
+        }
       >
-        <styles.Icon listOpened={listOpened}>
-          <Plus
+        <styles.ButtonIcon listOpened={listOpened}>
+          <PlusIcon
             color={listOpened ? COLORS.primary.normal : COLORS.grayscale.white}
           />
-        </styles.Icon>
+        </styles.ButtonIcon>
       </styles.Button>
     </styles.Wrap>
   );

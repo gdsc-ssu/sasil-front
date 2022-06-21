@@ -1,13 +1,13 @@
 import styled, { css } from '@emotion/native';
 
-export const Wrap = styled.View(({ alignLeft }: { alignLeft: boolean }) => ({
+export const Wrap = styled.View(({ alignRight }: { alignRight: boolean }) => ({
   width: 140,
   height: 100,
   paddingHorizontal: 12,
   paddingVertical: 3,
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: alignLeft ? 'flex-start' : 'flex-end',
+  alignItems: alignRight ? 'flex-end' : 'flex-start',
 }));
 
 export const rightTitle = css({
@@ -16,7 +16,7 @@ export const rightTitle = css({
 
 export const IconWrap = styled.View(
   ({ haveFireIcon }: { haveFireIcon: boolean }) => ({
-    width: haveFireIcon ? 20 : 40,
+    width: haveFireIcon ? 21 : 40,
     height: haveFireIcon ? 21 : 40,
   }),
 );
