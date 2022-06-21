@@ -8,6 +8,7 @@ export const COLORS = {
   },
   grayscale: {
     white: '#FFFFFF',
+    white_opacity60: 'rgba(255, 255, 255, 0.6)',
     gray1: '#F5F5F5',
     gray2: '#EDEDED',
     gray3: '#E0E0E0',
