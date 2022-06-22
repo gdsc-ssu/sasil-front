@@ -3,6 +3,7 @@ export const COLORS = {
   primary: {
     normal: '#595FE4',
     pressed: '#4448AF',
+    alpha50: 'rgba(89, 95, 228, 0.5)',
     alpha20: 'rgba(89, 95, 228, 0.2)',
     alpha10: 'rgba(89, 95, 228, 0.1)',
   },

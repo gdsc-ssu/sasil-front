@@ -24,7 +24,7 @@ const theme: themeProps = {
   experiment: {
     likeColor: COLORS.grayscale.white,
     textColor: COLORS.grayscale.white,
-    backgroundColor: COLORS.grayscale.gray5,
+    backgroundColor: COLORS.primary.alpha50,
   },
   request: {
     likeColor: COLORS.primary.normal,
