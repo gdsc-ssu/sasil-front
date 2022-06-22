@@ -13,8 +13,6 @@ export const Title = styled.div(({ alignLeft }: TitleProps) => ({
   justifyContent: 'space-between',
   alignItems: alignLeft ? 'flex-start' : 'flex-end',
   margin: '7px',
-  // marginRight: '15px',
-  // marginBottom: '15px',
 
   '>.title-text': {
     textAlign: 'right',

@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import PostWriteNav from './PostWriteNav';
+import PostWriteNav from '.';
 
 export default {
-  title: 'components/organism/PostWriteNav/PostWriteNav',
+  title: 'components/organism/PostWriteNav',
   component: PostWriteNav,
 } as ComponentMeta<typeof PostWriteNav>;
 

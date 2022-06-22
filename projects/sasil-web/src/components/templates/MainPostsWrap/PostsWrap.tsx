@@ -1,3 +1,4 @@
+import React from 'react';
 import * as Post from '@/components/organisms/post';
 import PostsWrapTitle, { POSTS_TITLE, titleType } from './PostsWrapTitle';
 import * as styles from './PostsWrap.styles';
@@ -17,19 +18,9 @@ export interface PostsWrapProps {
  */
 const PostsWrap = ({ posts, type, className }: PostsWrapProps) => (
   <styles.Wrap className={className}>
-    {posts.slice().map((post: any, index: number) =>
-      index === POSTS_TITLE[type].index ? (
-        <>
-          <PostsWrapTitle type={type} />
-          <Post.MiniCard
-            type={POSTS_TITLE[type].postType}
-            title={post.title}
-            likeCount={post.likeCount}
-            thumbnail={post.thumbnail}
-            className="mini-card"
-          />
-        </>
-      ) : (
+    {posts.map((post: any, index: number) => (
+      <React.Fragment key={post.id}>
+        {index === POSTS_TITLE[type].index && <PostsWrapTitle type={type} />}
         <Post.MiniCard
           type={POSTS_TITLE[type].postType}
           title={post.title}
@@ -37,8 +28,8 @@ const PostsWrap = ({ posts, type, className }: PostsWrapProps) => (
           thumbnail={post.thumbnail}
           className="mini-card"
         />
-      ),
-    )}
+      </React.Fragment>
+    ))}
   </styles.Wrap>
 );
 export default PostsWrap;

@@ -19,6 +19,7 @@ export const Content = styled.div({
   alignItems: 'center',
   background: COLORS.background,
   padding: '47px',
+  overflowX: 'scroll',
 });
 
 export const IconWrap = styled.div({
