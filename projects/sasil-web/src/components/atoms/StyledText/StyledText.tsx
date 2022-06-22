@@ -22,13 +22,13 @@ const StyledText = ({
   textStyleName,
   className,
 }: StyledTextProps) => (
-  <styles.wrap
+  <styles.Wrap
     color={color}
     textStyleName={textStyleName}
     className={className}
   >
     {children}
-  </styles.wrap>
+  </styles.Wrap>
 );
 
 export default StyledText;

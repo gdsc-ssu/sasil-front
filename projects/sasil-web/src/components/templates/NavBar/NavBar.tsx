@@ -16,13 +16,13 @@ export interface NavBarProps {
  */
 const NavBar = ({ children, targetURL }: NavBarProps) => (
   <>
-    <styles.styledNavBar>
+    <styles.StyledNavBar>
       <SearchBarWrapped className="menu_search-bar" />
-      <styles.sideMenu>
+      <styles.SideMenu>
         <Navigation targetURL={targetURL} />
         <ProfileImage size={34} className="menu_profile-img" />
-      </styles.sideMenu>
-    </styles.styledNavBar>
+      </styles.SideMenu>
+    </styles.StyledNavBar>
     {children}
   </>
 );
