@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { COLORS } from '@sasil/common';
 import { MEDIA_QUERIES } from '@/constants/styles';
 
-export const styledNavItem = styled.li({
+export const StyledNavItem = styled.li({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -60,7 +60,7 @@ export const LinkBox = styled.a({
   },
 });
 
-export const iconWrap = styled.div({
+export const IconWrap = styled.div({
   width: '24px',
   height: '24px',
   marginBottom: '3px',

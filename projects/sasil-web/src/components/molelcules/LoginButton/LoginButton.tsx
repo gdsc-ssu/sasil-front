@@ -64,10 +64,10 @@ const LoginButton = ({ social, onClick }: LoginButtonProps) => (
     border={themes[social].border}
     onClick={onClick}
   >
-    <styles.iconWrap>{themes[social].logo}</styles.iconWrap>
-    <styles.labelWrap color={themes[social].color}>
+    <styles.IconWrap>{themes[social].logo}</styles.IconWrap>
+    <styles.LabelWrap color={themes[social].color}>
       {themes[social].label}
-    </styles.labelWrap>
+    </styles.LabelWrap>
   </styles.Button>
 );
 

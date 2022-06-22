@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { COLORS } from '@sasil/common';
 
-export const styledSearchBar = styled.form({
+export const StyledSearchBar = styled.form({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -15,7 +15,7 @@ export const styledSearchBar = styled.form({
   padding: '0 12px',
 });
 
-export const iconWrap = styled.button({
+export const IconWrap = styled.button({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

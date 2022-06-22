@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const like = styled.div({
+export const Like = styled.div({
   display: 'flex',
   alignItems: 'center',
 
@@ -9,7 +9,7 @@ export const like = styled.div({
   },
 });
 
-export const iconWrap = styled.div({
+export const IconWrap = styled.div({
   width: 16,
   height: 16,
   marginRight: 2,

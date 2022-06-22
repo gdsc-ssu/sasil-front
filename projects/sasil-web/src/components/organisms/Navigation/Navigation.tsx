@@ -15,7 +15,7 @@ const Navigation = ({ targetURL }: NavigationProps) => {
   const navList = Object.keys(NAV_INFO) as [NavItemKey];
 
   return (
-    <styles.styledNavigation>
+    <styles.StyledNavigation>
       {navList.map((navType) => {
         const isFocused = targetURL === URL_INFO[navType];
 
@@ -29,7 +29,7 @@ const Navigation = ({ targetURL }: NavigationProps) => {
           />
         );
       })}
-    </styles.styledNavigation>
+    </styles.StyledNavigation>
   );
 };
 

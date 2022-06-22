@@ -24,7 +24,7 @@ const WriterInfo = ({
   textColor,
   profileSize,
 }: WriterInfoProps) => (
-  <styles.writerWrap>
+  <styles.WriterWrap>
     <ProfileImage src={writerObj.profileImg} size={profileSize} />
     <StyledText
       color={textColor}
@@ -33,7 +33,7 @@ const WriterInfo = ({
     >
       {writerObj.nickname}
     </StyledText>
-  </styles.writerWrap>
+  </styles.WriterWrap>
 );
 
 export default WriterInfo;

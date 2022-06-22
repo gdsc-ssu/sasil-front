@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { COLORS } from '@sasil/common';
 import { MEDIA_QUERIES } from '@/constants/styles';
 
-export const styledNavBar = styled.div({
+export const StyledNavBar = styled.div({
   position: 'fixed',
   display: 'flex',
   alignItems: 'center',
@@ -37,7 +37,7 @@ export const styledNavBar = styled.div({
   },
 });
 
-export const sideMenu = styled.div({
+export const SideMenu = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',

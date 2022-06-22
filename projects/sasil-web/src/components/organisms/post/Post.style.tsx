@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
+import { TEXT_STYLES_MOBILE, TEXT_STYLE_NAME } from '@sasil/common';
+import { MEDIA_QUERIES } from '@/constants/styles';
 
 type miniCardProps = {
   backgroundColor: string;
   thumbnail: string | null;
 };
 
-export const miniCard = styled.div((props: miniCardProps) => ({
+export const MiniCard = styled.div((props: miniCardProps) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
@@ -20,9 +22,15 @@ export const miniCard = styled.div((props: miniCardProps) => ({
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
   backgroundSize: 'cover',
+
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
+    width: 140,
+    height: 100,
+    padding: 12,
+  },
 }));
 
-export const infoWrap = styled.div({
+export const InfoWrap = styled.div({
   display: 'flex',
   flexDirection: 'column',
 
@@ -33,8 +41,16 @@ export const infoWrap = styled.div({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
+
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
+    '& > .post-title': {
+      fontSize: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body2R].fontSize,
+      fontWeight: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body2R].fontWeight,
+      lineHeight: `${TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body2R].lineHeight}px`,
+    },
+  },
 });
 
-export const writerWrap = styled.div({
+export const WriterWrap = styled.div({
   marginBottom: 5,
 });
