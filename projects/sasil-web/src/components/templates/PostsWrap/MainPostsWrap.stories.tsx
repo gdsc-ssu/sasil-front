@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expPosts, reqPosts } from 'src/dummyData';
-import PostsWrap, { PostsWrapProps } from '.';
+import MainPostsWrap, { MainPostsWrapProps } from '.';
 
 export default {
-  title: 'components/template/PostsWrap',
-  component: PostsWrap,
-} as ComponentMeta<typeof PostsWrap>;
+  title: 'components/template/PostsWrap/MainPostsWrap',
+  component: MainPostsWrap,
+} as ComponentMeta<typeof MainPostsWrap>;
 
-const Template: ComponentStory<typeof PostsWrap> = ({
+const Template: ComponentStory<typeof MainPostsWrap> = ({
   posts,
   type,
-}: PostsWrapProps) => <PostsWrap type={type} posts={posts} />;
+}: MainPostsWrapProps) => <MainPostsWrap type={type} posts={posts} />;
 
 export const HotRequest = Template.bind({});
 HotRequest.args = {

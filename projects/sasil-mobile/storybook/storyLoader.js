@@ -14,8 +14,8 @@ function loadStories() {
   require('../src/components/organisms/Navigation/NavItem.stories');
   require('../src/components/organisms/PostCard/PostCard.stories');
   require('../src/components/organisms/PostWriteNav/PostWriteNav.stories');
-  require('../src/components/templates/MainPostsWrap/PostsWrap.stories');
-  require('../src/components/templates/MainPostsWrap/PostsWrapTitle.stories');
+  require('../src/components/templates/PostsWrap/MainPostsWrap.stories');
+  require('../src/components/templates/PostsWrap/MainPostsNavCard.stories');
 }
 
 const stories = [

@@ -1,4 +1,3 @@
-import { ScrollView, View } from 'react-native';
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
 
 import SasilLogo from '@/assets/icons/SasilLogo';
@@ -9,13 +8,13 @@ import StyledText from '@/components/atom/StyledText';
 import ProfileImage from '@/components/atom/ProfileImage';
 import PostWriteNav from '@/components/organisms/PostWriteNav';
 import MainPostsWrap, {
-  postsWrapTitleType,
-} from '@/components/templates/MainPostsWrap';
+  postsTitleType,
+} from '@/components/templates/PostsWrap';
 import { expPosts, reqPosts } from '@/components/dummyData';
 import * as styles from './MainTemplate.style';
 
 interface ContentProps {
-  type: postsWrapTitleType;
+  type: postsTitleType;
   post: any;
 }
 
@@ -26,13 +25,13 @@ const Content = ({ type, post }: ContentProps) => (
       type === 'popExperiment' ? COLORS.grayscale.white : COLORS.background
     }
   >
-    <styles.ContentScroll
+    <styles.Scroll
       horizontal
       contentOffset={{ x: 255, y: 0 }}
       contentContainerStyle={styles.PostsContainer}
     >
       <MainPostsWrap posts={post} type={type} />
-    </styles.ContentScroll>
+    </styles.Scroll>
 
     <styles.ViewMoreButton>
       <StyledText
@@ -48,7 +47,7 @@ const Content = ({ type, post }: ContentProps) => (
 
 const MainTemplate = () => (
   <styles.Template>
-    <ScrollView>
+    <styles.Scroll>
       <styles.Top>
         <styles.LogoWrap>
           <SasilLogo />
@@ -69,7 +68,7 @@ const MainTemplate = () => (
       <Content type="hotRequest" post={reqPosts} />
       <Content type="popExperiment" post={expPosts} />
       <Content type="popRequest" post={reqPosts} />
-    </ScrollView>
+    </styles.Scroll>
     <styles.PostWriteNavWrap>
       <PostWriteNav />
     </styles.PostWriteNavWrap>

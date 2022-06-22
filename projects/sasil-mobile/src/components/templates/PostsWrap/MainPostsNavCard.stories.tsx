@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import PostsWrapTitle from './PostsWrapTitle';
+import PostsWrapTitle from './MainPostsNavCard';
 
-storiesOf('PostsWrapTitle', module)
+storiesOf('MainPostsNavCard', module)
   .add('HotRequest', () => <PostsWrapTitle type="hotRequest" />)
   .add('PopularRequest', () => <PostsWrapTitle type="popRequest" />)
   .add('PopularExperiment', () => <PostsWrapTitle type="popExperiment" />);

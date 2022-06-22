@@ -8,12 +8,12 @@ import Fire from '@/assets/icons/Fire.svg';
 import Experiment from '@/assets/icons/Experiment.svg';
 import Request from '@/assets/icons/Request.svg';
 
-import * as styles from './PostsWrapTitle.style';
+import * as styles from './MainPostsNavCard.style';
 
-export type titleType = 'hotRequest' | 'popExperiment' | 'popRequest';
+export type postsTitleType = 'hotRequest' | 'popExperiment' | 'popRequest';
 
-export type postTitleProps = {
-  [key in titleType]: {
+export type postsInfoType = {
+  [key in postsTitleType]: {
     icon: JSX.Element;
     title: string;
     index: number;
@@ -21,7 +21,7 @@ export type postTitleProps = {
   };
 };
 
-export const POSTS_TITLE: postTitleProps = {
+export const POSTS_INFO: postsInfoType = {
   hotRequest: {
     icon: <Fire />,
     title: '답변을 기다리는 HOT한 의뢰',
@@ -42,28 +42,28 @@ export const POSTS_TITLE: postTitleProps = {
   },
 };
 
-export interface PostsWrapTitleProps {
+export interface MainPostsNavCardProps {
   /** PostsWrap의 제목으로 '핫한 의뢰', '인기 의뢰', '인기 실험' 중 하나. */
-  type: titleType;
+  type: postsTitleType;
 }
 
 /**
  *  메인 페이지에서 각 PostsWrap들의 제목을 나타내고 실험 및 의뢰 상세 페이지로 이동시키는 컴포넌트
  */
-const PostsWrapTitle = ({ type }: PostsWrapTitleProps) => {
+const MainPostsNavCard = ({ type }: MainPostsNavCardProps) => {
   const router = useRouter();
   const handleRouter = () => {
-    router.push(`/${POSTS_TITLE[type].postType}`);
+    router.push(`/${POSTS_INFO[type].postType}`);
   };
   const alignLeft = type === 'popExperiment';
   return (
     <styles.Title alignLeft={alignLeft}>
-      {POSTS_TITLE[type].icon}
+      {POSTS_INFO[type].icon}
       <StyledText
         textStyleName={TEXT_STYLE_NAME.subtitle2B}
         className="title-text"
       >
-        {POSTS_TITLE[type].title}
+        {POSTS_INFO[type].title}
       </StyledText>
       <styles.Icon onClick={handleRouter}>
         <CircleRight />
@@ -72,4 +72,4 @@ const PostsWrapTitle = ({ type }: PostsWrapTitleProps) => {
   );
 };
 
-export default PostsWrapTitle;
+export default MainPostsNavCard;

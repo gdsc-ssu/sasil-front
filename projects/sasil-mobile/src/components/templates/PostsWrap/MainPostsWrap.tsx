@@ -2,21 +2,21 @@ import React from 'react';
 import PostCard from '@/components/organisms/PostCard';
 import PostsWrapTitle, {
   POSTS_TITLE,
-  postsWrapTitleType,
-} from './PostsWrapTitle';
-import * as styles from './PostsWrap.style';
+  postsTitleType,
+} from './MainPostsNavCard';
+import * as styles from './MainPostsWrap.style';
 
-export interface MainPostWrapProps {
+export interface MainPostsWrapProps {
   posts: any;
-  type: postsWrapTitleType;
+  type: postsTitleType;
 }
 
-const MainPostsWrap = ({ posts, type }: MainPostWrapProps) => (
+const MainPostsWrap = ({ posts, type }: MainPostsWrapProps) => (
   <styles.Wrap>
     {posts.map((post: any, index: number) => (
       <React.Fragment key={post.id}>
         {index === POSTS_TITLE[type].index && (
-          <PostsWrapTitle type={type} style={styles.Item} />
+          <PostsWrapTitle type={type} style={styles.item} />
         )}
         <PostCard
           type={POSTS_TITLE[type].postType}
@@ -24,7 +24,7 @@ const MainPostsWrap = ({ posts, type }: MainPostWrapProps) => (
           likeCount={post.likeCount}
           thumbnail={post.thumbnail}
           writerObj={post.user}
-          style={styles.Item}
+          style={styles.item}
         />
       </React.Fragment>
     ))}

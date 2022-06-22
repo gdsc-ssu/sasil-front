@@ -12,7 +12,7 @@ export const Content = styled.View(
   }),
 );
 
-export const ContentScroll = styled.ScrollView({});
+export const Scroll = styled.ScrollView({});
 
 export const PostsContainer = css({
   flexGrow: 1,

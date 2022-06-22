@@ -10,10 +10,6 @@ export const Wrap = styled.View(({ alignRight }: { alignRight: boolean }) => ({
   alignItems: alignRight ? 'flex-end' : 'flex-start',
 }));
 
-export const rightTitle = css({
-  textAlign: 'right',
-});
-
 export const IconWrap = styled.View(
   ({ haveFireIcon }: { haveFireIcon: boolean }) => ({
     width: haveFireIcon ? 21 : 40,
@@ -24,4 +20,8 @@ export const IconWrap = styled.View(
 export const CircleIconWrap = styled.View({
   width: 24,
   height: 24,
+});
+
+export const rightTitle = css({
+  textAlign: 'right',
 });

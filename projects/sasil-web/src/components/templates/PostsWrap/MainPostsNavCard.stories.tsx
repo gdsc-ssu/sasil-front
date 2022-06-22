@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import PostsWrapTitle, { PostsWrapTitleProps } from './PostsWrapTitle';
+import MainPostsNavCard, { MainPostsNavCardProps } from './MainPostsNavCard';
 
 export default {
-  title: 'components/template/PostsWrapLabel',
-  component: PostsWrapTitle,
-} as ComponentMeta<typeof PostsWrapTitle>;
+  title: 'components/template/PostsWrap/MainPostsNavCard',
+  component: MainPostsNavCard,
+} as ComponentMeta<typeof MainPostsNavCard>;
 
-const Template: ComponentStory<typeof PostsWrapTitle> = ({
+const Template: ComponentStory<typeof MainPostsNavCard> = ({
   type,
-}: PostsWrapTitleProps) => <PostsWrapTitle type={type} />;
+}: MainPostsNavCardProps) => <MainPostsNavCard type={type} />;
 
 export const HotRequest = Template.bind({});
 HotRequest.args = {

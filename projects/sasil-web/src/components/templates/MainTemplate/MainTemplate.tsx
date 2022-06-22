@@ -1,5 +1,5 @@
 import NavBar from '@/components/templates/NavBar';
-import PostsWrap from '@/components/templates/MainPostsWrap/PostsWrap';
+import MainPostsWrap from '@/components/templates/PostsWrap';
 import SasilLogo from '@/assets/icons/SasilLogo.svg';
 import { URL_INFO } from '@/constants/urlInfo';
 import { expPosts, reqPosts } from 'src/dummyData';
@@ -13,13 +13,13 @@ const MainTemplate = () => (
         <SasilLogo width="166" height="166" />
       </styles.IconWrap>
       <styles.Content>
-        <PostsWrap posts={reqPosts} type="hotRequest" />
+        <MainPostsWrap posts={reqPosts} type="hotRequest" />
       </styles.Content>
       <styles.Content className="exp">
-        <PostsWrap posts={expPosts} type="popExperiment" />
+        <MainPostsWrap posts={expPosts} type="popExperiment" />
       </styles.Content>
       <styles.Content>
-        <PostsWrap posts={reqPosts} type="popRequest" />
+        <MainPostsWrap posts={reqPosts} type="popRequest" />
       </styles.Content>
     </styles.Container>
     <styles.PostWriteNavWrap>

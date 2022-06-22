@@ -8,6 +8,6 @@ export const Wrap = styled.View({
   flexWrap: 'wrap',
 });
 
-export const Item = css({
+export const item = css({
   margin: 4,
 });
