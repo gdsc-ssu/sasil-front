@@ -64,9 +64,3 @@ export const IconWrap = styled.View({
   width: 32,
   height: 32,
 });
-
-export const PostWriteNavWrap = styled.View({
-  position: 'absolute',
-  bottom: 30,
-  right: 20,
-});

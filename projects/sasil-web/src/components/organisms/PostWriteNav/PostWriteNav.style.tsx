@@ -1,3 +1,4 @@
+import { MEDIA_QUERIES } from '@/constants/styles';
 import styled from '@emotion/styled';
 import { COLORS } from '@sasil/common';
 
@@ -6,6 +7,13 @@ export const Wrap = styled.div({
   flexDirection: 'column',
   alignItems: 'center',
   width: '116px',
+  position: 'fixed',
+  right: '30px',
+  bottom: '40px',
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
+    right: '7px',
+    bottom: '70px',
+  },
 });
 
 type ButtonProps = {

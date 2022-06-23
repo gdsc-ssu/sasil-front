@@ -10,7 +10,6 @@ import PostWriteNav from '@/components/organisms/PostWriteNav';
 import MainPostsWrap, {
   postsTitleType,
 } from '@/components/templates/PostsWrap';
-import { expPosts, reqPosts } from '@/components/dummyData';
 import NavBar from '@/components/templates/NavBar';
 import * as styles from './MainTemplate.style';
 
@@ -46,8 +45,19 @@ const Content = ({ type, post }: ContentProps) => (
   </styles.Content>
 );
 
+interface MainTemplateProps {
+  // TODO post type 지정
+  hotReqPosts: any;
+  popReqPosts: any;
+  popExpPosts: any;
+}
+
 // TODO 페이지 구현하면 NavBar 연결
-const MainTemplate = () => (
+const MainTemplate = ({
+  hotReqPosts,
+  popReqPosts,
+  popExpPosts,
+}: MainTemplateProps) => (
   <styles.Template>
     {/* <NavBar> */}
     <styles.Scroll>
@@ -68,13 +78,11 @@ const MainTemplate = () => (
           </styles.IconWrap>
         </styles.MenuWrap>
       </styles.Top>
-      <Content type="hotRequest" post={reqPosts} />
-      <Content type="popExperiment" post={expPosts} />
-      <Content type="popRequest" post={reqPosts} />
+      <Content type="hotRequest" post={hotReqPosts} />
+      <Content type="popExperiment" post={popExpPosts} />
+      <Content type="popRequest" post={popReqPosts} />
     </styles.Scroll>
-    <styles.PostWriteNavWrap>
-      <PostWriteNav />
-    </styles.PostWriteNavWrap>
+    <PostWriteNav />
     {/* </NavBar> */}
   </styles.Template>
 );

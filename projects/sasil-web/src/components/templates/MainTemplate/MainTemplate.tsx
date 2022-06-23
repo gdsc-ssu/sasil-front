@@ -3,7 +3,6 @@ import MainPostsWrap, {
   postsTitleType,
 } from '@/components/templates/PostsWrap';
 import { URL_INFO } from '@/constants/urlInfo';
-import { expPosts, reqPosts } from 'src/dummyData';
 import PostWriteNav from '@/components/organisms/PostWriteNav';
 import StyledText from '@/components/atoms/StyledText';
 import RightIcon from '@/assets/icons/Right.svg';
@@ -34,32 +33,42 @@ const ViewMoreButton = ({ type }: ViewMoreButtonProp) => {
   );
 };
 
-const MainTemplate = () => (
+interface MainTemplateProps {
+  // TODO post type 지정
+  hotReqPosts: any;
+  popReqPosts: any;
+  popExpPosts: any;
+}
+
+const MainTemplate = ({
+  hotReqPosts,
+  popReqPosts,
+  popExpPosts,
+}: MainTemplateProps) => (
   <NavBar targetURL={URL_INFO.Main}>
     <styles.Container>
       <PageHeader />
       <styles.Content>
         <ViewMoreButton type="hotRequest" />
         <styles.Posts>
-          <MainPostsWrap posts={reqPosts} type="hotRequest" />
+          <MainPostsWrap posts={hotReqPosts} type="hotRequest" />
         </styles.Posts>
       </styles.Content>
       <styles.Content className="exp">
         <ViewMoreButton type="popExperiment" />
         <styles.Posts>
-          <MainPostsWrap posts={expPosts} type="popExperiment" />
+          <MainPostsWrap posts={popExpPosts} type="popExperiment" />
         </styles.Posts>
       </styles.Content>
       <styles.Content>
         <ViewMoreButton type="popRequest" />
         <styles.Posts>
-          <MainPostsWrap posts={reqPosts} type="popRequest" />
+          <MainPostsWrap posts={popReqPosts} type="popRequest" />
         </styles.Posts>
       </styles.Content>
     </styles.Container>
-    <styles.PostWriteNavWrap>
-      <PostWriteNav />
-    </styles.PostWriteNavWrap>
+
+    <PostWriteNav />
   </NavBar>
 );
 

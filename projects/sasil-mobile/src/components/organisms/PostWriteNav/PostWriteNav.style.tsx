@@ -4,6 +4,9 @@ import { COLORS } from '@sasil/common';
 export const Wrap = styled.View({
   display: 'flex',
   alignItems: 'flex-end',
+  position: 'absolute',
+  bottom: 30,
+  right: 20,
 });
 
 export const NavList = styled.View({

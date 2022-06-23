@@ -40,16 +40,6 @@ export const IconWrap = styled.div({
   margin: '88px auto',
 });
 
-export const PostWriteNavWrap = styled.div({
-  position: 'fixed',
-  right: '30px',
-  bottom: '40px',
-  [`@media ${MEDIA_QUERIES.mobile}`]: {
-    right: '7px',
-    bottom: '70px',
-  },
-});
-
 export const ViewMoreButton = styled.div({
   display: 'none',
   height: '50px',
