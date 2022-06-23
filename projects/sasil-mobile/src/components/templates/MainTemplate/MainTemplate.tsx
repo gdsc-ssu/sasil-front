@@ -11,6 +11,7 @@ import MainPostsWrap, {
   postsTitleType,
 } from '@/components/templates/PostsWrap';
 import { expPosts, reqPosts } from '@/components/dummyData';
+import NavBar from '@/components/templates/NavBar';
 import * as styles from './MainTemplate.style';
 
 interface ContentProps {
@@ -45,8 +46,10 @@ const Content = ({ type, post }: ContentProps) => (
   </styles.Content>
 );
 
+// TODO 페이지 구현하면 NavBar 연결
 const MainTemplate = () => (
   <styles.Template>
+    {/* <NavBar> */}
     <styles.Scroll>
       <styles.Top>
         <styles.LogoWrap>
@@ -72,6 +75,7 @@ const MainTemplate = () => (
     <styles.PostWriteNavWrap>
       <PostWriteNav />
     </styles.PostWriteNavWrap>
+    {/* </NavBar> */}
   </styles.Template>
 );
 
