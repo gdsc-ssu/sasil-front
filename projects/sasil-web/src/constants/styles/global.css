@@ -5,6 +5,9 @@
   src: url('/fonts/Pretendard-SemiBold.otf');
 }
 
-* {
+*,
+*:before,
+*:after {
   font-family: Pretendard;
+  box-sizing: border-box;
 }

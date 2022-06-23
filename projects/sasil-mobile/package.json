@@ -14,6 +14,8 @@
   "dependencies": {
     "@emotion/native": "11.0.0",
     "@emotion/react": "11.7.1",
+    "@react-native-async-storage/async-storage": "1.15.0",
+    "@react-navigation/bottom-tabs": "6.3.1",
     "@react-navigation/native": "6.0.8",
     "@react-navigation/stack": "6.2.1",
     "@sasil/common": "1.0.0",
@@ -22,11 +24,11 @@
     "expo-application": "4.0.2",
     "expo-auth-session": "3.5.0",
     "expo-community-flipper": "44.0.1",
-    "expo-dev-client": "0.8.4",
+    "expo-dev-client": "0.8.5",
     "expo-font": "10.0.5",
     "expo-random": "12.1.1",
     "expo-status-bar": "1.2.0",
-    "expo-updates": "0.11.6",
+    "expo-updates": "0.11.7",
     "jotai": "1.6.0",
     "react": "17.0.1",
     "react-devtools-core": "4.23.0",
@@ -38,7 +40,7 @@
     "react-native-screens": "3.10.1",
     "react-native-svg": "12.1.1",
     "react-native-web": "0.17.1",
-    "react-native-webview": "11.18.2",
+    "react-native-webview": "11.15.0",
     "react-query": "3.34.15"
   },
   "devDependencies": {
@@ -50,7 +52,7 @@
     "@storybook/addon-ondevice-knobs": "5.3.25",
     "@storybook/react-native": "5.3.25",
     "@storybook/react-native-server": "5.3.23",
-    "@types/react": "17.0.21",
+    "@types/react": "17.0.39",
     "@types/react-native": "0.64.12",
     "@typescript-eslint/eslint-plugin": "5.12.0",
     "@typescript-eslint/parser": "5.12.0",
@@ -68,6 +70,9 @@
     "prettier": "2.5.1",
     "react-native-storybook-loader": "2.0.5",
     "typescript": "4.5.5"
+  },
+  "resolutions": {
+    "@types/react": "17.0.39"
   },
   "private": true
 }
