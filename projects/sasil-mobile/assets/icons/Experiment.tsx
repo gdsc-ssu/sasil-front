@@ -4,8 +4,8 @@ import { IconProps } from './iconType';
 
 const SvgComponent = ({ color }: IconProps) => (
   <Svg
-    width="24"
-    height="24"
+    width="100%"
+    height="100%"
     viewBox="0 0 24 24"
     color={color}
     fill="currentColor"

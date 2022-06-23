@@ -8,8 +8,7 @@ export const users = [
   {
     id: 2,
     nickname: 'user2',
-    profile_img:
-      'https://images.pexels.com/photos/9485465/pexels-photo-9485465.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    profile_img: null,
   },
 ];
 
@@ -73,7 +72,6 @@ export const expPosts = [
     updated_at: '',
     title: 'testPost',
     thumbnail: null,
-    user: users[0],
     categories: {},
     likeCount: 9,
   },

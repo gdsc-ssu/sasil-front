@@ -24,7 +24,7 @@ const theme: themeProps = {
   experiment: {
     likeColor: COLORS.grayscale.white,
     textColor: COLORS.grayscale.white,
-    backgroundColor: COLORS.grayscale.gray5,
+    backgroundColor: COLORS.primary.alpha50,
   },
   request: {
     likeColor: COLORS.primary.normal,
@@ -45,6 +45,7 @@ export interface MiniCardProps {
   writerObj?: any;
   /** [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5` */
   thumbnail?: string | null;
+  className?: string;
 }
 
 /**
@@ -56,10 +57,12 @@ export const MiniCard = ({
   likeCount,
   writerObj = null,
   thumbnail = null,
+  className,
 }: MiniCardProps) => (
   <styles.MiniCard
     backgroundColor={theme[type].backgroundColor}
-    thumbnail={thumbnail}
+    thumbnail={type === 'experiment' ? thumbnail : null}
+    className={className}
   >
     <styles.InfoWrap>
       {writerObj && (

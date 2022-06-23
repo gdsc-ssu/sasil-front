@@ -44,6 +44,8 @@ export interface PostCardProps {
   writerObj?: any;
   /** [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5` */
   thumbnail?: string | null;
+  /** 추가 style 적용을 위한 css 객체 */
+  style?: any;
 }
 
 /**
@@ -55,33 +57,38 @@ export const PostCard = ({
   likeCount,
   writerObj,
   thumbnail,
-}: PostCardProps) => (
-  <styles.PostWrap
-    source={{ uri: (type === 'experiment' && thumbnail) || undefined }}
-    resizeMode="cover"
-  >
-    {type === 'experiment' && <styles.Filter />}
-    <styles.InfoWrap>
-      {type === 'experiment' && (
-        <styles.WriterWrap>
-          <WriterInfo
-            textColor={theme[type].textColor}
-            writerObj={writerObj}
-            profileSize={14}
-            textStyleName={TEXT_STYLE_NAME.body3}
-          />
-        </styles.WriterWrap>
-      )}
-      <StyledText
-        color={theme[type].textColor}
-        textStyleName={TEXT_STYLE_NAME.body2R}
-        numberOfLines={2}
-      >
-        {title}
-      </StyledText>
-    </styles.InfoWrap>
-    <Like color={theme[type].likeColor} likeCount={likeCount} />
-  </styles.PostWrap>
-);
+  style,
+}: PostCardProps) => {
+  const isExperiment = type === 'experiment';
+  return (
+    <styles.PostWrap
+      source={{ uri: (isExperiment && thumbnail) || undefined }}
+      resizeMode="cover"
+      style={style}
+    >
+      {isExperiment && <styles.Filter />}
+      <styles.InfoWrap>
+        {isExperiment && (
+          <styles.WriterWrap>
+            <WriterInfo
+              textColor={theme[type].textColor}
+              writerObj={writerObj}
+              profileSize={14}
+              textStyleName={TEXT_STYLE_NAME.body3}
+            />
+          </styles.WriterWrap>
+        )}
+        <StyledText
+          color={theme[type].textColor}
+          textStyleName={TEXT_STYLE_NAME.body2R}
+          numberOfLines={2}
+        >
+          {title}
+        </StyledText>
+      </styles.InfoWrap>
+      <Like color={theme[type].likeColor} likeCount={likeCount} />
+    </styles.PostWrap>
+  );
+};
 
 export default PostCard;

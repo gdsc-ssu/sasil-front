@@ -49,7 +49,7 @@ export const TEXT_STYLES_PC: Record<TextStyleName, TextStyle> = {
     lineHeight: 28 * LINE_HEIGHT_RATIO,
   },
   [TEXT_STYLE_NAME.subtitle2B]: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 700,
     lineHeight: 18 * LINE_HEIGHT_RATIO,
   },
