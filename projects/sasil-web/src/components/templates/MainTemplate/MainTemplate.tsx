@@ -1,16 +1,17 @@
+import { useRouter } from 'next/router';
+
+import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
+import { URL_INFO } from '@/constants/urlInfo';
+import RightIcon from '@/assets/icons/Right.svg';
+import { POSTS_INFO } from '@/components/templates/PostsWrap/MainPostsNavCard';
 import NavBar from '@/components/templates/NavBar';
 import MainPostsWrap, {
   postsTitleType,
 } from '@/components/templates/PostsWrap';
-import { URL_INFO } from '@/constants/urlInfo';
 import PostWriteNav from '@/components/organisms/PostWriteNav';
 import StyledText from '@/components/atoms/StyledText';
-import RightIcon from '@/assets/icons/Right.svg';
-import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
-import { useRouter } from 'next/router';
 import * as styles from './MainTemplate.style';
 import PageHeader from './PageHeader';
-import { POSTS_INFO } from '../PostsWrap/MainPostsNavCard';
 
 interface ViewMoreButtonProp {
   type: postsTitleType;
@@ -18,7 +19,7 @@ interface ViewMoreButtonProp {
 const ViewMoreButton = ({ type }: ViewMoreButtonProp) => {
   const router = useRouter();
   const viewMoreHandler = () => {
-    router.push(`/${POSTS_INFO[type].postType}`);
+    router.push(URL_INFO[POSTS_INFO[type].postType]);
   };
   return (
     <styles.ViewMoreButton onClick={viewMoreHandler}>
@@ -45,7 +46,7 @@ const MainTemplate = ({
   popReqPosts,
   popExpPosts,
 }: MainTemplateProps) => (
-  <NavBar targetURL={URL_INFO.Main}>
+  <NavBar focusType="main">
     <styles.Container>
       <PageHeader />
       <styles.Content>

@@ -1,6 +1,11 @@
 import Link from 'next/link';
 
-import { TEXT_STYLE_NAME, COLORS, NavInfo } from '@sasil/common';
+import {
+  TEXT_STYLE_NAME,
+  COLORS,
+  NavItemKey,
+  NavItemNameKR,
+} from '@sasil/common';
 import MainIcon from '@/assets/icons/Main.svg';
 import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
@@ -10,13 +15,15 @@ import * as styles from './NavItem.style';
 
 // type에 따른 Icon
 const NAV_ICON = {
-  Main: <MainIcon />,
-  Request: <RequestIcon />,
-  Experiment: <ExperimentIcon />,
-  User: <UserIcon />,
+  main: <MainIcon />,
+  request: <RequestIcon />,
+  experiment: <ExperimentIcon />,
+  user: <UserIcon />,
 } as const;
 
-export interface NavItemProps extends NavInfo {
+export interface NavItemProps {
+  type: NavItemKey;
+  name: NavItemNameKR;
   targetURL: string;
   isFocused: boolean;
 }
