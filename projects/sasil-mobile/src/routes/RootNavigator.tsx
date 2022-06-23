@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginModal from '@/screens/LoginModal/LoginModal';
+import LoginModal from '@/screens/LoginModal';
+import MainScreen from '@/screens/MainScreen';
 
 const Stack = createStackNavigator();
 
@@ -12,10 +13,11 @@ const RootNavigator = () => (
         headerShown: false,
       }}
     >
-      <Stack.Group screenOptions={{ presentation: 'modal' }}>
+      {/* <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Login" component={LoginModal} />
-      </Stack.Group>
+      </Stack.Group> */}
       {/* Login 후 넘어갈 Stack.Screen  */}
+      <Stack.Screen name="main" component={MainScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );

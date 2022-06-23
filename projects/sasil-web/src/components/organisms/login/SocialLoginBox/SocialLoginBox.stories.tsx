@@ -3,7 +3,7 @@ import React from 'react';
 import SocialLoginBox from './SocialLoginBox';
 
 export default {
-  title: 'components/organisms/auth/SocialLoginBox',
+  title: 'components/organism/login/SocialLoginBox',
   componenet: SocialLoginBox,
 } as ComponentMeta<typeof SocialLoginBox>;
 

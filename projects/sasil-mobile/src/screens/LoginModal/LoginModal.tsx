@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-native';
-import SocialLoginBox from '@/components/organisms/auth/SocialLoginBox';
+import SocialLoginBox from '@/components/organisms/login/SocialLoginBox';
 import * as styles from './LoginModal.style';
 
 /**

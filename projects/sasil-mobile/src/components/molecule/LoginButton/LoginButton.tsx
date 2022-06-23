@@ -63,15 +63,15 @@ const LoginButton = ({ social, onPress }: LoginButtonProps) => (
     backgroundColor={themes[social].backgroundColor}
     onPress={onPress}
   >
-    <styles.iconWrap>{themes[social].logo}</styles.iconWrap>
-    <styles.labelWrap>
+    <styles.IconWrap>{themes[social].logo}</styles.IconWrap>
+    <styles.LabelWrap>
       <StyledText
         color={themes[social].color}
         textStyleName={TEXT_STYLE_NAME.button2B}
       >
         {themes[social].label}
       </StyledText>
-    </styles.labelWrap>
+    </styles.LabelWrap>
   </styles.Button>
 );
 
