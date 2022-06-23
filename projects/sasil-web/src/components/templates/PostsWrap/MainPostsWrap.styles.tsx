@@ -12,6 +12,9 @@ export const Wrap = styled.div({
   },
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
-    // TODO 미니카드 스타일 적용
+    width: '1000px',
+    ' > .mini-card': {
+      margin: '4px',
+    },
   },
 });

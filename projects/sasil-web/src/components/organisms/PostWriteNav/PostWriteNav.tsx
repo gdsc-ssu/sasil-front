@@ -46,17 +46,16 @@ const PostWriteNav = () => {
           <ListItem type="experiment" onClick={() => router.push('/')} />
         </styles.ListWrap>
       )}
-      <styles.ButtonWrap>
-        <styles.Button
-          color={listOpened ? COLORS.grayscale.white : COLORS.primary.normal}
-          onClick={handleListOpen}
-        >
-          <Plus
-            fill={listOpened ? COLORS.primary.normal : COLORS.grayscale.white}
-            transform={listOpened ? 'rotate(45)' : ''}
-          />
-        </styles.Button>
-      </styles.ButtonWrap>
+
+      <styles.Button
+        color={listOpened ? COLORS.grayscale.white : COLORS.primary.normal}
+        onClick={handleListOpen}
+      >
+        <Plus
+          fill={listOpened ? COLORS.primary.normal : COLORS.grayscale.white}
+          transform={listOpened ? 'rotate(45)' : ''}
+        />
+      </styles.Button>
     </styles.Wrap>
   );
 };

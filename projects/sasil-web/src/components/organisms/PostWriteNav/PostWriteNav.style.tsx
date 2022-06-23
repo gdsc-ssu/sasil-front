@@ -8,12 +8,6 @@ export const Wrap = styled.div({
   width: '116px',
 });
 
-export const ButtonWrap = styled.div({
-  '& .list-opened': {
-    backgroundColor: `${COLORS.grayscale.white};`,
-  },
-});
-
 type ButtonProps = {
   color: string;
 };

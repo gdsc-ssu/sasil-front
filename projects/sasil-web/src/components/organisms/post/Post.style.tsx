@@ -41,7 +41,7 @@ export const InfoWrap = styled.div({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
-
+  // TODO StyledText 반응형 적용시 삭제 바람!
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     '& > .post-title': {
       fontSize: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body2R].fontSize,
