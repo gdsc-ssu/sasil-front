@@ -5,7 +5,8 @@ import { URL_INFO } from '@/constants/urlInfo';
 import RightIcon from '@/assets/icons/Right.svg';
 import { POSTS_INFO } from '@/components/templates/PostsWrap/MainPostsNavCard';
 import NavBar from '@/components/templates/NavBar';
-import MainPostsWrap, {
+import {
+  MainPostsWrap,
   postsTitleType,
 } from '@/components/templates/PostsWrap';
 import PostWriteNav from '@/components/organisms/PostWriteNav';

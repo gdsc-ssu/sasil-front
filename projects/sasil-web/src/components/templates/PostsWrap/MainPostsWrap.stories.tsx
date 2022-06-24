@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { expPosts, reqPosts } from 'src/dummyData';
-import MainPostsWrap, { MainPostsWrapProps } from '.';
+import MainPostsWrap, { MainPostsWrapProps } from './MainPostsWrap';
 
 export default {
   title: 'components/template/PostsWrap/MainPostsWrap',
