@@ -66,7 +66,7 @@ export const getPostsAsync = async (
       result: {
         posts: response.result,
         nextPage: page + 1,
-        isLast: response.result.length === 0,
+        isLast: response.result.length < page,
       },
     };
   }
