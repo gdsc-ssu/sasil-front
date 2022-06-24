@@ -51,7 +51,7 @@ export interface PostCardProps {
 /**
  * 실험 및 의뢰 게시물을 담을 컴포넌트
  */
-export const PostCard = ({
+const PostCard = ({
   type,
   title,
   likeCount,
