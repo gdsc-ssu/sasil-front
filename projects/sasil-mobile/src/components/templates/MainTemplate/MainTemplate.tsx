@@ -7,7 +7,8 @@ import RightIcon from '@/assets/icons/Right';
 import StyledText from '@/components/atom/StyledText';
 import ProfileImage from '@/components/atom/ProfileImage';
 import PostWriteNav from '@/components/organisms/PostWriteNav';
-import MainPostsWrap, {
+import {
+  MainPostsWrap,
   postsTitleType,
 } from '@/components/templates/PostsWrap';
 import NavBar from '@/components/templates/NavBar';
