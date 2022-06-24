@@ -25,4 +25,11 @@ export const Wrap = styled.div(({ color, textStyleName }: WrapProps) => ({
     fontWeight: TEXT_STYLES_MOBILE[textStyleName].fontWeight,
     lineHeight: `${TEXT_STYLES_MOBILE[textStyleName].lineHeight}px`,
   },
+
+  '&.ellipsis': {
+    width: '100%',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+  },
 }));
