@@ -1,6 +1,6 @@
 import styled, { css } from '@emotion/native';
 
-export const Container = styled.ScrollView({
+export const Container = styled.View({
   width: '100%',
   display: 'flex',
   flexDirection: 'row',

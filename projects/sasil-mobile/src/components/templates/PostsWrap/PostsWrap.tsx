@@ -3,13 +3,13 @@ import { PostInfoType } from '@sasil/common';
 import PostCard from '@/components/organisms/PostCard';
 import * as styles from './PostsWrap.style';
 
-export interface PostsProps {
+export interface PostsWrapProps {
   posts: PostInfoType[];
   type: 'request' | 'experiment';
 }
 
 // TODO: flat list
-const Posts = ({ posts, type }: PostsProps) => (
+const PostsWrap = ({ posts, type }: PostsWrapProps) => (
   <styles.Container>
     {posts.map((post: PostInfoType) => (
       <PostCard
@@ -25,4 +25,4 @@ const Posts = ({ posts, type }: PostsProps) => (
   </styles.Container>
 );
 
-export default Posts;
+export default PostsWrap;
