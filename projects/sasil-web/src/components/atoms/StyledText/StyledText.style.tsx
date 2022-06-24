@@ -1,6 +1,12 @@
 import styled from '@emotion/styled';
 
-import { COLORS, TEXT_STYLES_PC, TextStyleName } from '@sasil/common';
+import {
+  COLORS,
+  TEXT_STYLES_PC,
+  TEXT_STYLES_MOBILE,
+  TextStyleName,
+} from '@sasil/common';
+import { MEDIA_QUERIES } from '@/constants/styles';
 
 interface WrapProps {
   color?: string;
@@ -9,8 +15,14 @@ interface WrapProps {
 }
 
 export const Wrap = styled.div(({ color, textStyleName }: WrapProps) => ({
-  color: color || COLORS.grayscale.black,
+  color: color ?? COLORS.grayscale.black,
   fontSize: TEXT_STYLES_PC[textStyleName].fontSize,
   fontWeight: TEXT_STYLES_PC[textStyleName].fontWeight,
   lineHeight: `${TEXT_STYLES_PC[textStyleName].lineHeight}px`,
+
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
+    fontSize: TEXT_STYLES_MOBILE[textStyleName].fontSize,
+    fontWeight: TEXT_STYLES_MOBILE[textStyleName].fontWeight,
+    lineHeight: `${TEXT_STYLES_MOBILE[textStyleName].lineHeight}px`,
+  },
 }));
