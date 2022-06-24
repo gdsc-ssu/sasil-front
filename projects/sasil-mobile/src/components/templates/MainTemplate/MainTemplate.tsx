@@ -74,9 +74,7 @@ const MainTemplate = ({
         </styles.LogoWrap>
         <styles.MenuWrap>
           <ProfileImage size={32} />
-          <styles.IconWrap>
-            <SearchIcon />
-          </styles.IconWrap>
+          <SearchIcon size={32} />
         </styles.MenuWrap>
       </styles.Top>
       <Content type="hotRequest" post={hotReqPosts} />
