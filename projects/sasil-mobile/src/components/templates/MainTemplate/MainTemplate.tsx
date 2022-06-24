@@ -1,4 +1,4 @@
-import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, PostInfoType, TEXT_STYLE_NAME } from '@sasil/common';
 
 import SasilLogo from '@/assets/icons/SasilLogo';
 import SearchIcon from '@/assets/icons/Search';
@@ -16,10 +16,10 @@ import * as styles from './MainTemplate.style';
 
 interface ContentProps {
   type: postsTitleType;
-  post: any;
+  posts: PostInfoType[];
 }
 
-const Content = ({ type, post }: ContentProps) => (
+const Content = ({ type, posts }: ContentProps) => (
   // TODO 더보기버튼 누르면 상세 페이지 이동하기
   <styles.Content
     backgroundColor={
@@ -31,7 +31,7 @@ const Content = ({ type, post }: ContentProps) => (
       contentOffset={{ x: 255, y: 0 }}
       contentContainerStyle={styles.PostsContainer}
     >
-      <MainPostsWrap posts={post} type={type} />
+      <MainPostsWrap posts={posts} type={type} />
     </styles.Scroll>
 
     <styles.ViewMoreButton>
@@ -48,9 +48,9 @@ const Content = ({ type, post }: ContentProps) => (
 
 interface MainTemplateProps {
   // TODO post type 지정
-  hotReqPosts: any;
-  popReqPosts: any;
-  popExpPosts: any;
+  hotReqPosts: PostInfoType[];
+  popReqPosts: PostInfoType[];
+  popExpPosts: PostInfoType[];
 }
 
 // TODO 페이지 구현하면 NavBar 연결
@@ -77,9 +77,9 @@ const MainTemplate = ({
           <SearchIcon size={32} />
         </styles.MenuWrap>
       </styles.Top>
-      <Content type="hotRequest" post={hotReqPosts} />
-      <Content type="popExperiment" post={popExpPosts} />
-      <Content type="popRequest" post={popReqPosts} />
+      <Content type="hotRequest" posts={hotReqPosts} />
+      <Content type="popExperiment" posts={popExpPosts} />
+      <Content type="popRequest" posts={popReqPosts} />
     </styles.Scroll>
     <PostWriteNav />
     {/* </NavBar> */}
