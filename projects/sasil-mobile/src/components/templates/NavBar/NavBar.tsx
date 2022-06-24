@@ -4,17 +4,17 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import { NavItemType, NAV_INFO } from '@sasil/common';
+import { NavItemKey, NAV_INFO } from '@sasil/common';
 import Navigation from '@/components/organisms/Navigation';
 import * as styles from './NavBar.style';
 
 export const NavWrapper = ({ state, navigation }: BottomTabBarProps) => {
   const navListInfo = state.routes.map((route, index) => {
-    const navType = route.name as NavItemType;
+    const navType = route.name.toLowerCase() as NavItemKey;
 
     return {
       type: navType,
-      name: NAV_INFO[navType].name,
+      name: NAV_INFO[navType].name_kr,
       isFocused: state.index === index,
       onPress: () => {
         const event = navigation.emit({
@@ -43,14 +43,14 @@ export interface NavBarProps {
 const NavBar = ({ children }: NavBarProps) => (
   <styles.StyledNavBar>
     <Tab.Navigator
-      initialRouteName={NAV_INFO.Main.type}
+      initialRouteName={NAV_INFO.main.name}
       tabBar={NavWrapper}
       screenOptions={{ headerShown: false }}
     >
-      <Tab.Screen name={NAV_INFO.Main.type} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.Request.type} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.Experiment.type} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.User.type} component={Navigation} />
+      <Tab.Screen name={NAV_INFO.main.name} component={Navigation} />
+      <Tab.Screen name={NAV_INFO.request.name} component={Navigation} />
+      <Tab.Screen name={NAV_INFO.experiment.name} component={Navigation} />
+      <Tab.Screen name={NAV_INFO.user.name} component={Navigation} />
     </Tab.Navigator>
     {children}
   </styles.StyledNavBar>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { URL_INFO } from '@/constants/urlInfo';
 import NavBar, { NavBarProps } from '.';
 
 export default {
@@ -10,26 +9,26 @@ export default {
 } as ComponentMeta<typeof NavBar>;
 
 const Template: ComponentStory<typeof NavBar> = ({
-  targetURL,
+  focusType,
   children,
-}: NavBarProps) => <NavBar targetURL={targetURL}>{children}</NavBar>;
+}: NavBarProps) => <NavBar focusType={focusType}>{children}</NavBar>;
 
 export const Main = Template.bind({});
 Main.args = {
-  targetURL: URL_INFO.Main,
+  focusType: 'main',
 };
 
 export const Request = Template.bind({});
 Request.args = {
-  targetURL: URL_INFO.Request,
+  focusType: 'request',
 };
 
 export const Experiment = Template.bind({});
 Experiment.args = {
-  targetURL: URL_INFO.Experiment,
+  focusType: 'experiment',
 };
 
 export const User = Template.bind({});
 User.args = {
-  targetURL: URL_INFO.User,
+  focusType: 'user',
 };
