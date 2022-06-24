@@ -19,6 +19,8 @@ function loadStories() {
   require('../src/components/templates/PostsWrap/MainPostsNavCard.stories');
   require('../src/components/templates/PostsWrap/MainPostsWrap.stories');
   require('../src/components/templates/PostsWrap/PostsWrap.stories');
+  require('../src/components/templates/ReqExpTemplate/PageHeader.stories');
+  require('../src/components/templates/ReqExpTemplate/ReqExpTemplate.stories');
 }
 
 const stories = [
@@ -37,6 +39,8 @@ const stories = [
   '../src/components/templates/PostsWrap/MainPostsNavCard.stories',
   '../src/components/templates/PostsWrap/MainPostsWrap.stories',
   '../src/components/templates/PostsWrap/PostsWrap.stories',
+  '../src/components/templates/ReqExpTemplate/PageHeader.stories',
+  '../src/components/templates/ReqExpTemplate/ReqExpTemplate.stories',
 ];
 
 module.exports = {
