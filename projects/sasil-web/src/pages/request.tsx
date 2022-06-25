@@ -14,7 +14,7 @@ const RequestPage: NextPage = () => {
   const sortType = (router?.query?.sort || 'recent') as SortType;
   const pageType = 'request';
   const stateType = 'all';
-  const display = 2;
+  const display = 2; // TODO: 몇 개씩 표시될건지 정하기!
 
   const postsRef = useRef(null);
 
@@ -49,6 +49,7 @@ const RequestPage: NextPage = () => {
     <ReqExpTemplate
       postsRef={postsRef}
       type={pageType}
+      sortType={sortType}
       posts={postsData}
       categories={categories}
     />

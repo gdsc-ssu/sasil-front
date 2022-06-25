@@ -11,13 +11,14 @@ export interface ReqExpTemplateProps extends PostsWrapProps, PageHeaderProps {
 
 const ReqExpTemplate = ({
   type,
+  sortType,
   categories,
   posts,
   postsRef,
 }: ReqExpTemplateProps) => (
   <NavBar focusType={type}>
     <styles.Container>
-      <PageHeader type={type} categories={categories} />
+      <PageHeader type={type} sortType={sortType} categories={categories} />
       <styles.PagesWrapper>
         <Posts posts={posts} ref={postsRef} />
       </styles.PagesWrapper>

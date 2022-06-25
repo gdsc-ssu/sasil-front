@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router';
-
 import { COLORS, TEXT_STYLE_NAME, CategoryType } from '@sasil/common';
 import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
@@ -13,8 +11,8 @@ import * as styles from './PageHeader.style';
 
 export interface PageHeaderProps {
   type: 'request' | 'experiment';
+  sortType?: 'recent' | 'popular';
   categories: CategoryType[];
-  // sortType?: 'recent' | 'popular';
 }
 
 // TODO: common에 넣을지 결정해야함
@@ -38,12 +36,7 @@ const HEADER_ICON = {
 };
 
 // TODO: 검색 버튼 동작, ProfileImg 클릭 동작
-const PageHeader = ({ type, categories }: PageHeaderProps) => {
-  const router = useRouter();
-
-  // TODO: router 방식 vs props로 sortType 받아오는 방식
-  const sortType = router?.query?.sort || 'recent';
-
+const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
   const [recentBtnColor, popularBtnColor] =
     sortType === 'recent'
       ? [COLORS.grayscale.black, COLORS.grayscale.gray4]
