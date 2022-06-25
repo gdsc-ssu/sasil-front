@@ -16,7 +16,7 @@ const RequestPage: NextPage = () => {
   const stateType = 'all';
   const display = 2;
 
-  const containerRef = useRef(null);
+  const postsRef = useRef(null);
 
   const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
     'posts', // TODO: Query Key
@@ -39,7 +39,7 @@ const RequestPage: NextPage = () => {
     }
   };
 
-  useInifiniteScroll(containerRef, getReqPosts);
+  useInifiniteScroll(postsRef, getReqPosts);
 
   const postsData = data?.pages
     .map((res) => (res.isSuccess ? res.result.posts : []))
@@ -47,7 +47,7 @@ const RequestPage: NextPage = () => {
 
   return (
     <ReqExpTemplate
-      forwardedRef={containerRef}
+      postsRef={postsRef}
       type={pageType}
       posts={postsData}
       categories={categories}

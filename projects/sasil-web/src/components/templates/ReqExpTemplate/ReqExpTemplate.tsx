@@ -6,20 +6,20 @@ import PageHeader, { PageHeaderProps } from './PageHeader';
 import * as styles from './ReqExpTemplate.style';
 
 export interface ReqExpTemplateProps extends PostsWrapProps, PageHeaderProps {
-  forwardedRef?: React.RefObject<HTMLDivElement>;
+  postsRef?: React.RefObject<HTMLDivElement>;
 }
 
 const ReqExpTemplate = ({
   type,
   categories,
   posts,
-  forwardedRef,
+  postsRef,
 }: ReqExpTemplateProps) => (
   <NavBar focusType={type}>
     <styles.Container>
       <PageHeader type={type} categories={categories} />
       <styles.PagesWrapper>
-        <Posts posts={posts} ref={forwardedRef} />
+        <Posts posts={posts} ref={postsRef} />
       </styles.PagesWrapper>
     </styles.Container>
   </NavBar>
