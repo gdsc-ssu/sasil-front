@@ -69,7 +69,7 @@ export const TitleWrapper = styled.div({
     width: '150px',
     marginTop: '18px',
 
-    '& > .fixed-text-style': {
+    '& > .fixed-text-style > div': {
       fontSize: TEXT_STYLES_MOBILE.subtitle2B.fontSize,
       fontWeight: TEXT_STYLES_MOBILE.subtitle2B.fontWeight,
       lineHeight: `${TEXT_STYLES_MOBILE.subtitle2B.lineHeight}px`,
