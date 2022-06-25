@@ -11,7 +11,7 @@ import * as styles from './PageHeader.style';
 
 export interface PageHeaderProps {
   type: 'request' | 'experiment';
-  sortType?: 'recent' | 'popular';
+  sortType: 'recent' | 'popular';
   categories: CategoryType[];
 }
 

@@ -1,4 +1,5 @@
-import { useRef, useEffect, MutableRefObject, RefObject } from 'react';
+/* eslint-disable consistent-return */
+import { useRef, useEffect, RefObject } from 'react';
 
 type callbackFuncType = (...args: any) => any;
 
@@ -7,8 +8,7 @@ const useInifiniteScroll = (
   callbackFunc: callbackFuncType,
 ) => {
   // Node.js 환경에서 빌드됨으로써 생기는 오류 해결하기 위한 참조
-  const observerRef: MutableRefObject<IntersectionObserver | null> =
-    useRef<IntersectionObserver>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -30,7 +30,6 @@ const useInifiniteScroll = (
 
     observerRef.current.observe(postsRef.current.lastElementChild);
 
-    // TODO: understand, solve typescript error
     return () => {
       observerRef.current?.disconnect();
     };
