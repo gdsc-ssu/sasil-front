@@ -6,7 +6,7 @@ export interface PostHeaderProps {
   /** 썸네일 URL */
   thumbnail?: string | null;
   /** 카테고리 이름 */
-  categories: CategoryType[] | [];
+  categories: CategoryType[];
 }
 
 const PostHeader = ({ thumbnail, categories }: PostHeaderProps) => {

@@ -13,7 +13,7 @@ import * as styles from './PageHeader.style';
 
 export interface PageHeaderProps {
   type: 'request' | 'experiment';
-  categories: CategoryType[] | [];
+  categories: CategoryType[];
   // sortType?: 'recent' | 'popular';
 }
 

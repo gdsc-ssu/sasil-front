@@ -20,7 +20,7 @@ export interface PostInfoType {
     nickname: string;
     profile_img?: string | null;
   };
-  categories: CategoryType[] | [];
+  categories: CategoryType[];
   state?: Exclude<StateType, 'all'>;
 }
 
