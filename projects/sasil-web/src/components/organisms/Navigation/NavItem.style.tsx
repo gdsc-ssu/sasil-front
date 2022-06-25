@@ -24,6 +24,7 @@ export const StyledNavItem = styled.li({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
   },
 
   ':hover': {
