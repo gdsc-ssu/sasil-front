@@ -29,7 +29,7 @@ const CategoryBox = ({
       className={className}
     >
       <StyledLink
-        url=""
+        url={{ query: { category: name } }} // TODO: 정책에 따른 변경 필요
         color={color}
         textStyleName={TEXT_STYLE_NAME.body2R}
         ellipsis

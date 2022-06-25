@@ -64,7 +64,7 @@ const PageHeader = ({ type, categories }: PageHeaderProps) => {
         </styles.TopWrapper>
         <styles.TitleWrapper>
           <StyledLink
-            url={{ pathname: router?.pathname, query: { sort: 'recent' } }}
+            url={{ query: { sort: 'recent' } }}
             color={recentBtnColor}
             textStyleName={TEXT_STYLE_NAME.title}
             className="fixed-text-style"
@@ -72,7 +72,7 @@ const PageHeader = ({ type, categories }: PageHeaderProps) => {
             {BTN_LABEL[type].recent}
           </StyledLink>
           <StyledLink
-            url={{ pathname: router?.pathname, query: { sort: 'popular' } }}
+            url={{ query: { sort: 'popular' } }}
             color={popularBtnColor}
             textStyleName={TEXT_STYLE_NAME.title}
             className="fixed-text-style"
