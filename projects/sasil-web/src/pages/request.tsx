@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useInfiniteQuery } from 'react-query';
@@ -19,7 +19,7 @@ const RequestPage: NextPage = () => {
   const postsRef = useRef(null);
 
   const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
-    ['posts', pageType, sortType], // TODO: Query Key
+    ['posts', { pageType, sortType }],
     ({ pageParam = 1 }) =>
       getPostsAsync(pageType, pageParam, display, sortType, stateType),
     {
@@ -30,6 +30,7 @@ const RequestPage: NextPage = () => {
 
         return lastPage.result.nextPage;
       },
+      staleTime: 300000, // TODO: 일단 cache-time의 default 값인 5분과 동일하게 맞춤
     },
   );
 
