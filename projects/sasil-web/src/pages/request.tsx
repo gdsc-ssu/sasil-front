@@ -14,12 +14,12 @@ const RequestPage: NextPage = () => {
   const sortType = (router?.query?.sort || 'recent') as SortType;
   const pageType = 'request';
   const stateType = 'all';
-  const display = 2; // TODO: 몇 개씩 표시될건지 정하기!
+  const display = 1; // TODO: 몇 개씩 표시될건지 정하기!
 
   const postsRef = useRef(null);
 
   const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
-    'posts', // TODO: Query Key
+    ['posts', pageType, sortType], // TODO: Query Key
     ({ pageParam = 1 }) =>
       getPostsAsync(pageType, pageParam, display, sortType, stateType),
     {
