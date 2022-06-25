@@ -11,16 +11,21 @@ export default {
 
 const Template: ComponentStory<typeof PageHeader> = ({
   type,
-}: PageHeaderProps) => <PageHeader type={type} categories={categories} />;
+  sortType,
+}: PageHeaderProps) => (
+  <PageHeader type={type} sortType={sortType} categories={categories} />
+);
 
 export const ExperimentPageHeader = Template.bind({});
 ExperimentPageHeader.args = {
   type: 'experiment',
+  sortType: 'recent',
   categories,
 };
 
 export const RequestPageHeader = Template.bind({});
 RequestPageHeader.args = {
   type: 'request',
+  sortType: 'popular',
   categories,
 };

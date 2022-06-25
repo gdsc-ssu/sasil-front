@@ -10,10 +10,18 @@ export default {
 } as ComponentMeta<typeof ReqExpTemplate>;
 
 const Template: ComponentStory<typeof ReqExpTemplate> = ({
+  postsRef,
   type,
+  sortType,
   posts,
 }: ReqExpTemplateProps) => (
-  <ReqExpTemplate type={type} categories={categories} posts={posts} />
+  <ReqExpTemplate
+    postsRef={postsRef}
+    type={type}
+    sortType={sortType}
+    categories={categories}
+    posts={posts}
+  />
 );
 
 export const ExperimentPageTemplate = Template.bind({});
