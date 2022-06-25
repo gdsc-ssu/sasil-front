@@ -1,4 +1,4 @@
-import { PostInfoType } from '@sasil/common';
+import { CategoryType, PostInfoType } from '@sasil/common';
 
 export const users = [
   {
@@ -269,7 +269,7 @@ export const reqPosts: PostInfoType[] = [
   },
 ];
 
-export const categories = [
+export const categories: CategoryType[] = [
   { id: 1, name: '프론트엔드' },
   { id: 2, name: '백엔드' },
   { id: 3, name: 'Javascript' },
