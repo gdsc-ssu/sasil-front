@@ -1,9 +1,19 @@
 import type { AppProps } from 'next/app';
-import '@/constants/styles/global.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  /* eslint-disable react/jsx-props-no-spreading */
-  return <Component {...pageProps} />;
-}
+import '@/constants/styles/global.css';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  const queryClient = new QueryClient();
+
+  return (
+    /* eslint-disable react/jsx-props-no-spreading */
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+};
 
 export default MyApp;
