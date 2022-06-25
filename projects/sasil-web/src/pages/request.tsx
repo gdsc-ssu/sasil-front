@@ -1,21 +1,58 @@
+import { useRef } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { useInfiniteQuery } from 'react-query';
 
+import { categories } from 'src/dummyData';
 import { getPostsAsync, SortType } from '@sasil/common';
-
-import { categories, reqPosts } from 'src/dummyData';
 import ReqExpTemplate from '@/components/templates/ReqExpTemplate';
+import useInifiniteScroll from '@/logics/hooks/useInfiniteScroll';
 
-const ExperimentPage: NextPage = () => {
+const RequestPage: NextPage = () => {
   const router = useRouter();
 
-  const pageType = 'request';
   const sortType = (router?.query?.sort || 'recent') as SortType;
-  const display = 12;
+  const pageType = 'request';
+  const stateType = 'all';
+  const display = 2;
+
+  const containerRef = useRef(null);
+
+  const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
+    'posts', // TODO: Query Key
+    ({ pageParam = 1 }) =>
+      getPostsAsync(pageType, pageParam, display, sortType, stateType),
+    {
+      getNextPageParam: (lastPage) => {
+        if (!lastPage.isSuccess || lastPage.result.isLast) {
+          return undefined;
+        }
+
+        return lastPage.result.nextPage;
+      },
+    },
+  );
+
+  const getReqPosts = () => {
+    if (hasNextPage) {
+      fetchNextPage();
+    }
+  };
+
+  useInifiniteScroll(containerRef, getReqPosts);
+
+  const postsData = data?.pages
+    .map((res) => (res.isSuccess ? res.result.posts : []))
+    .flat();
 
   return (
-    <ReqExpTemplate type={pageType} posts={reqPosts} categories={categories} />
+    <ReqExpTemplate
+      forwardedRef={containerRef}
+      type={pageType}
+      posts={postsData}
+      categories={categories}
+    />
   );
 };
 
-export default ExperimentPage;
+export default RequestPage;
