@@ -59,8 +59,3 @@ export const MenuWrap = styled.View({
   alignItems: 'center',
   marginTop: 10,
 });
-
-export const IconWrap = styled.View({
-  width: 32,
-  height: 32,
-});

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 
 import { expPosts, reqPosts } from '@/components/dummyData';
-import MainPostsWrap from '.';
+import MainPostsWrap from './MainPostsWrap';
 
 storiesOf('MainPostsWrap', module)
   .add('HotRequest', () => <MainPostsWrap posts={reqPosts} type="hotRequest" />)
