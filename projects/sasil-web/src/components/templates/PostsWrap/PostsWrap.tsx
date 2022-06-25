@@ -5,7 +5,7 @@ import { PostInfoType } from '@sasil/common';
 import * as styles from './PostsWrap.style';
 
 export interface PostsWrapProps {
-  posts: PostInfoType[];
+  posts?: PostInfoType[];
 }
 
 // TODO: 알 수 없는 에러 ('posts' is missing in props validation)
