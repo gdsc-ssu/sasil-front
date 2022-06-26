@@ -6,7 +6,7 @@ import PageHeader, { PageHeaderProps } from './PageHeader';
 import * as styles from './ReqExpTemplate.style';
 
 export interface ReqExpTemplateProps extends PostsWrapProps, PageHeaderProps {
-  postsRef: React.RefObject<HTMLDivElement>;
+  postsRef?: React.RefObject<HTMLDivElement>;
 }
 
 const ReqExpTemplate = ({
