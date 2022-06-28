@@ -2,6 +2,7 @@ import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
 import Like from '@/components/molelcules/Like/Like';
 import StyledText from '@/components/atoms/StyledText';
 import WriterInfo from '@/components/molelcules/WriterInfo';
+import PostHeader, { PostHeaderProps } from './PostHeader';
 import * as styles from './Post.style';
 
 // 게시물 타입(실험 or 의뢰)
@@ -48,6 +49,13 @@ export interface MiniCardProps {
   className?: string;
 }
 
+export interface CardProps extends PostHeaderProps {
+  /** 게시물 제목 */
+  title: string;
+  /** 게시물 좋아요 수 */
+  likeCount: number;
+}
+
 /**
  * 메인 페이지 내 실험 컨텐츠가 담겨있는 게시물 컴포넌트
  */
@@ -87,6 +95,26 @@ export const MiniCard = ({
   </styles.MiniCard>
 );
 
-// TODO 의뢰 및 실험 페이지에서 사용되는 Post Card 컴포넌트
-// TODO PostCard.stories.tsx 로 스토리 파일 별도로 생성할 것
-export const Card = () => <div>Card</div>;
+/**
+ * 의뢰 및 실험 페이지에서 사용되는 Card 컴포넌트
+ */
+export const Card = ({
+  title,
+  likeCount,
+  thumbnail,
+  categories,
+}: CardProps) => (
+  <styles.PostCardWrapper>
+    <PostHeader categories={categories} thumbnail={thumbnail} />
+    <styles.PostCardContent>
+      <StyledText
+        color={COLORS.grayscale.black}
+        textStyleName={TEXT_STYLE_NAME.subtitle2B}
+        className="post-title"
+      >
+        {title}
+      </StyledText>
+      <Like color={COLORS.primary.normal} likeCount={likeCount} />
+    </styles.PostCardContent>
+  </styles.PostCardWrapper>
+);

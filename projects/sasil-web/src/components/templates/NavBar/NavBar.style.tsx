@@ -14,6 +14,7 @@ export const StyledNavBar = styled.div({
   padding: '0 34px',
   borderBottom: `1px solid ${COLORS.grayscale.gray3}`,
   backgroundColor: `${COLORS.grayscale.white_opacity60}`,
+  zIndex: '1',
 
   '& > .menu_search-bar': {
     position: 'absolute',

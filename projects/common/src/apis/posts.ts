@@ -13,12 +13,12 @@ export interface PostInfoType {
   created_at: Date;
   updated_at: Date;
   title: string;
-  thumbnail: string;
+  thumbnail?: string | null;
   likeCount: number;
   user: {
     id: number;
     nickname: string;
-    profile_img: string | null;
+    profile_img?: string | null;
   };
   categories: CategoryType[];
   state?: Exclude<StateType, 'all'>;
