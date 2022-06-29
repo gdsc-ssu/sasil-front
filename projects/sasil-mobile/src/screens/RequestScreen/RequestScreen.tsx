@@ -12,7 +12,7 @@ import ReqExpTemplate from '@/components/templates/ReqExpTemplate';
 import PostsWrap from '@/components/templates/PostsWrap';
 import * as styles from './RequestScreen.style';
 
-async function getRequests({ pageParam = 0 }) {
+async function getRequests({ pageParam = 1 }) {
   const result = await getPostsAsync('request', pageParam, 16, 'recent', 'all');
   if (result.isSuccess) {
     return result.result;
@@ -27,7 +27,8 @@ const RequestScreen = () => {
   const { data, fetchNextPage, isRefetching, refetch } = useInfiniteQuery<
     ResultType<PostInfoType[]>
   >([QUERY_KEYS.requests], getRequests, {
-    getNextPageParam: (lastPage) => lastPage.nextPage,
+    getNextPageParam: (lastPage) =>
+      lastPage.isLast ? undefined : lastPage.nextPage,
   });
 
   const getNextPage = useCallback(async () => {
