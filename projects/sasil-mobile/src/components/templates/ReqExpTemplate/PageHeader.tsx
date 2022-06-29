@@ -63,6 +63,7 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => (
           name={category.name}
           isWithBackground={false}
           style={styles.categoryItem}
+          key={category.id}
         />
       ))}
     </styles.CategoryWrapper>
