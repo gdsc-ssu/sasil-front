@@ -1,12 +1,22 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import {
   BottomTabBarProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import { NavItemKey, NAV_INFO } from '@sasil/common';
+import { NavItemKey, NAV_INFO, COLORS } from '@sasil/common';
 import Navigation from '@/components/organisms/Navigation';
-import * as styles from './NavBar.style';
+import MainScreen from '@/screens/MainScreen';
+import RequestScreen from '@/screens/RequestScreen';
+import ExperimentScreen from '@/screens/ExperimentScreen';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.background,
+    flex: 1,
+  },
+});
 
 export const NavWrapper = ({ state, navigation }: BottomTabBarProps) => {
   const navListInfo = state.routes.map((route, index) => {
@@ -41,19 +51,22 @@ export interface NavBarProps {
 
 // TODO: 각 페이지 컴포넌트로 변경하기
 const NavBar = ({ children }: NavBarProps) => (
-  <styles.StyledNavBar>
+  <View style={styles.container}>
     <Tab.Navigator
       initialRouteName={NAV_INFO.main.name}
       tabBar={NavWrapper}
       screenOptions={{ headerShown: false }}
     >
-      <Tab.Screen name={NAV_INFO.main.name} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.request.name} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.experiment.name} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.user.name} component={Navigation} />
+      <Tab.Screen name={NAV_INFO.main.name} component={MainScreen} />
+      <Tab.Screen name={NAV_INFO.request.name} component={RequestScreen} />
+      <Tab.Screen
+        name={NAV_INFO.experiment.name}
+        component={ExperimentScreen}
+      />
+      {/* <Tab.Screen name={NAV_INFO.user.name} component={Navigation} /> */}
     </Tab.Navigator>
     {children}
-  </styles.StyledNavBar>
+  </View>
 );
 
 export default NavBar;
