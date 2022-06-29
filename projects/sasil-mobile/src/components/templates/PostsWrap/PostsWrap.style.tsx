@@ -7,4 +7,9 @@ export const container = css({
 
 export const item = css({
   marginBottom: 18,
+  marginHorizontal: 9,
+});
+
+export const columnWrapper = css({
+  justifyContent: 'center',
 });

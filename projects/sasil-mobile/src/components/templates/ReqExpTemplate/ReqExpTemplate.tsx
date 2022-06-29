@@ -11,10 +11,8 @@ interface Props extends PageHeaderProps {
 const ReqExpTemplate = ({ type, sortType, categories, children }: Props) => (
   <styles.Template>
     {/* <NavBar> */}
-    <styles.Scroll>
-      <PageHeader type={type} sortType={sortType} categories={categories} />
-      {children}
-    </styles.Scroll>
+    <PageHeader type={type} sortType={sortType} categories={categories} />
+    <styles.Scroll>{children}</styles.Scroll>
     <PostWriteNav />
     {/* </NavBar> */}
   </styles.Template>

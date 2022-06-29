@@ -57,6 +57,7 @@ const PostsWrap = ({
       horizontal={false}
       numColumns={2}
       contentContainerStyle={styles.container}
+      columnWrapperStyle={styles.columnWrapper}
     />
   );
 };
