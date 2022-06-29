@@ -32,7 +32,7 @@ const RequestScreen = () => {
 
   const { data, fetchNextPage, isRefetching, refetch } = useInfiniteQuery<
     ResultType<PostInfoType[]>
-  >([QUERY_KEYS.requests], getRequests, {
+  >([QUERY_KEYS.experiments], getRequests, {
     getNextPageParam: (lastPage) =>
       lastPage.isLast ? undefined : lastPage.nextPage,
   });
