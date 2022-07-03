@@ -19,15 +19,19 @@ export const StyledNavItem = styled.li({
     fill: COLORS.primary.normal,
   },
 
-  '& .nav-name': {
-    display: 'none',
+  '& .nav-item': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
   },
 
   ':hover': {
     stroke: COLORS.primary.alpha20,
     fill: COLORS.primary.alpha20,
 
-    '& .nav-name': {
+    '& .nav-item ': {
       color: COLORS.primary.alpha20,
     },
   },
@@ -39,10 +43,6 @@ export const StyledNavItem = styled.li({
 
     '&.focused': {
       borderTop: `2px solid ${COLORS.primary.normal}`,
-    },
-
-    '& .nav-name': {
-      display: 'block',
     },
   },
 });
@@ -64,4 +64,12 @@ export const IconWrap = styled.div({
   width: '24px',
   height: '24px',
   marginBottom: '3px',
+});
+
+export const TextWrap = styled.span({
+  display: 'none',
+
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
+    display: 'block',
+  },
 });
