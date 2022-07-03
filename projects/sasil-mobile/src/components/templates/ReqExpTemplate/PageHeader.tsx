@@ -1,4 +1,4 @@
-import { COLORS, TEXT_STYLE_NAME, CategoryType } from '@sasil/common';
+import { COLORS, TEXT_STYLE_NAME, CategoryType, SortType } from '@sasil/common';
 import SearchIcon from '@/assets/icons/Search';
 import SasilLogoIcon from '@/assets/icons/SasilLogo';
 import ProfileImage from '@/components/atom/ProfileImage';
@@ -23,10 +23,16 @@ export interface PageHeaderProps {
   type: 'request' | 'experiment';
   sortType?: 'recent' | 'popular';
   categories: CategoryType[] | [];
+  onSortTypeChange?: (sort: SortType) => void;
 }
 
 // TODO: 동작 기능 추가
-const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => (
+const PageHeader = ({
+  type,
+  sortType,
+  categories,
+  onSortTypeChange,
+}: PageHeaderProps) => (
   <styles.StyledPageHeader>
     <styles.TopWrapper>
       <SasilLogoIcon />
@@ -44,7 +50,9 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => (
             : COLORS.grayscale.gray4
         }
         textStyleName={TEXT_STYLE_NAME.subtitle2B}
-        // onPress={onPress}
+        onPress={() => {
+          onSortTypeChange?.('recent');
+        }}
       />
       <StyledButton
         text={BTN_LABEL[type].popular}
@@ -54,7 +62,9 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => (
             : COLORS.grayscale.gray4
         }
         textStyleName={TEXT_STYLE_NAME.subtitle2B}
-        // onPress={onPress}
+        onPress={() => {
+          onSortTypeChange?.('popular');
+        }}
       />
     </styles.TitleWrapper>
     <styles.CategoryWrapper>
@@ -63,6 +73,7 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => (
           name={category.name}
           isWithBackground={false}
           style={styles.categoryItem}
+          key={category.id}
         />
       ))}
     </styles.CategoryWrapper>

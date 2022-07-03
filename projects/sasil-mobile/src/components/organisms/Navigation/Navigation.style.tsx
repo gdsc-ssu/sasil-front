@@ -1,12 +1,15 @@
 import styled from '@emotion/native';
 
-export const StyledNavigation = styled.View({
+interface StyledNavigationProps {
+  paddingBottom?: number;
+}
+
+export const StyledNavigation = styled.View<StyledNavigationProps>((props) => ({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  flex: 1,
-  height: 59,
   paddingLeft: '3%',
   paddingRight: '3%',
-});
+  paddingBottom: props.paddingBottom,
+}));

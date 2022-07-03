@@ -1,11 +1,15 @@
-import styled, { css } from '@emotion/native';
+import { css } from '@emotion/native';
 
-export const Container = styled.View({
+export const container = css({
   width: '100%',
   display: 'flex',
-  flexDirection: 'row',
 });
 
 export const item = css({
-  margin: 9,
+  marginBottom: 18,
+  marginHorizontal: 9,
+});
+
+export const columnWrapper = css({
+  justifyContent: 'center',
 });

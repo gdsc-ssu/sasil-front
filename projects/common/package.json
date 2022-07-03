@@ -23,5 +23,10 @@
   },
   "dependencies": {
     "axios": "0.26.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-query": "^3.34.15",
+    "@types/react": "^17.0.39"
   }
 }
