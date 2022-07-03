@@ -1,5 +1,5 @@
 import styled from '@emotion/native';
 
-export const StyledNavBar = styled.View({
+export const Screen = styled.View({
   flex: 1,
 });

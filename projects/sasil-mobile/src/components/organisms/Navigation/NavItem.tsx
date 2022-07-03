@@ -3,26 +3,33 @@ import RequestIcon from '@/assets/icons/Request';
 import ExperimentIcon from '@/assets/icons/Experiment';
 import UserIcon from '@/assets/icons/User';
 import StyledText from '@/components/atom/StyledText';
-import { TEXT_STYLE_NAME, COLORS, NavItemType, NavInfo } from '@sasil/common';
+import {
+  TEXT_STYLE_NAME,
+  COLORS,
+  NavItemKey,
+  NavItemNameKR,
+} from '@sasil/common';
 import * as styles from './NavItem.style';
 
 // type에 따른 Icon 반환하는 함수
-const getIcon = (type: NavItemType, color: string) => {
+const getIcon = (type: NavItemKey, color: string) => {
   switch (type) {
-    case 'Main':
+    case 'main':
       return <MainIcon color={color} />;
-    case 'Request':
+    case 'request':
       return <RequestIcon color={color} />;
-    case 'Experiment':
+    case 'experiment':
       return <ExperimentIcon color={color} />;
-    case 'User':
+    case 'user':
       return <UserIcon color={color} />;
     default:
       return <MainIcon color={color} />;
   }
 };
 
-export interface NavItemProps extends NavInfo {
+export interface NavItemProps {
+  type: NavItemKey;
+  name: NavItemNameKR;
   isFocused: boolean;
   onPress?: () => void;
 }

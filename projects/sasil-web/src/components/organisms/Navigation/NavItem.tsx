@@ -1,22 +1,27 @@
-import Link from 'next/link';
-
-import { TEXT_STYLE_NAME, COLORS, NavInfo } from '@sasil/common';
+import {
+  TEXT_STYLE_NAME,
+  COLORS,
+  NavItemKey,
+  NavItemNameKR,
+} from '@sasil/common';
 import MainIcon from '@/assets/icons/Main.svg';
 import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
 import UserIcon from '@/assets/icons/User.svg';
-import StyledText from '@/components/atoms/StyledText';
+import StyledLink from '@/components/atoms/StyledLink';
 import * as styles from './NavItem.style';
 
 // type에 따른 Icon
 const NAV_ICON = {
-  Main: <MainIcon />,
-  Request: <RequestIcon />,
-  Experiment: <ExperimentIcon />,
-  User: <UserIcon />,
+  main: <MainIcon />,
+  request: <RequestIcon />,
+  experiment: <ExperimentIcon />,
+  user: <UserIcon />,
 } as const;
 
-export interface NavItemProps extends NavInfo {
+export interface NavItemProps {
+  type: NavItemKey;
+  name: NavItemNameKR;
   targetURL: string;
   isFocused: boolean;
 }
@@ -33,18 +38,15 @@ const NavItem = ({ type, name, targetURL, isFocused }: NavItemProps) => {
 
   return (
     <styles.StyledNavItem className={focusedClassName}>
-      <Link href={targetURL} passHref>
-        <styles.LinkBox>
-          <styles.IconWrap>{NAV_ICON[type]}</styles.IconWrap>
-          <StyledText
-            className="nav-name"
-            color={selectedColor}
-            textStyleName={TEXT_STYLE_NAME.button3}
-          >
-            {name}
-          </StyledText>
-        </styles.LinkBox>
-      </Link>
+      <StyledLink
+        url={targetURL}
+        color={selectedColor}
+        textStyleName={TEXT_STYLE_NAME.button3}
+        className="nav-item"
+      >
+        <styles.IconWrap>{NAV_ICON[type]}</styles.IconWrap>
+        <styles.TextWrap>{name}</styles.TextWrap>
+      </StyledLink>
     </styles.StyledNavItem>
   );
 };

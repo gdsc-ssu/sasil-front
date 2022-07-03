@@ -9,6 +9,8 @@ export interface StyledTextProps {
   color?: string;
   /** 텍스트 스타일 종류로, TEXT_STYLE_NAME.* 로 지정된다. */
   textStyleName: TextStyleName;
+  /** 텍스트 overflow에 따른 ellipsis 처리 여부 */
+  ellipsis?: boolean;
   /** 컴포넌트로 생성할 요소의 클래스명 */
   className?: string;
 }
@@ -20,12 +22,13 @@ const StyledText = ({
   children,
   color,
   textStyleName,
+  ellipsis,
   className,
 }: StyledTextProps) => (
   <styles.Wrap
     color={color}
     textStyleName={textStyleName}
-    className={className}
+    className={`${ellipsis ? 'ellipsis' : ''} ${className ?? ''}`}
   >
     {children}
   </styles.Wrap>

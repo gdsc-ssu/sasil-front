@@ -6,30 +6,18 @@ import NavItem from './NavItem';
 
 storiesOf('NavItem', module)
   .add('Main', () => (
-    <NavItem
-      type={NAV_INFO.Main.type}
-      name={NAV_INFO.Main.name}
-      isFocused={false}
-    />
+    <NavItem type="main" name={NAV_INFO.main.name_kr} isFocused={false} />
   ))
   .add('Request', () => (
-    <NavItem
-      type={NAV_INFO.Request.type}
-      name={NAV_INFO.Request.name}
-      isFocused={false}
-    />
+    <NavItem type="request" name={NAV_INFO.request.name_kr} isFocused={false} />
   ))
   .add('Experiment', () => (
     <NavItem
-      type={NAV_INFO.Experiment.type}
-      name={NAV_INFO.Experiment.name}
+      type="experiment"
+      name={NAV_INFO.experiment.name_kr}
       isFocused={false}
     />
   ))
   .add('User', () => (
-    <NavItem
-      type={NAV_INFO.User.type}
-      name={NAV_INFO.User.name}
-      isFocused={false}
-    />
+    <NavItem type="user" name={NAV_INFO.user.name_kr} isFocused={false} />
   ));

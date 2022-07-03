@@ -26,32 +26,32 @@ const Template: ComponentStory<typeof NavItem> = ({
 
 export const Main = Template.bind({});
 Main.args = {
-  type: NAV_INFO.Main.type,
-  name: NAV_INFO.Main.name,
-  targetURL: URL_INFO.Main,
+  type: 'main',
+  name: NAV_INFO.main.name_kr,
+  targetURL: URL_INFO.main,
   isFocused: true,
 };
 
 export const Request = Template.bind({});
 Request.args = {
-  type: NAV_INFO.Request.type,
-  name: NAV_INFO.Request.name,
-  targetURL: URL_INFO.Request,
+  type: 'request',
+  name: NAV_INFO.request.name_kr,
+  targetURL: URL_INFO.request,
   isFocused: true,
 };
 
 export const Experiment = Template.bind({});
 Experiment.args = {
-  type: NAV_INFO.Experiment.type,
-  name: NAV_INFO.Experiment.name,
-  targetURL: URL_INFO.Experiment,
+  type: 'experiment',
+  name: NAV_INFO.experiment.name_kr,
+  targetURL: URL_INFO.experiment,
   isFocused: true,
 };
 
 export const User = Template.bind({});
 User.args = {
-  type: NAV_INFO.User.type,
-  name: NAV_INFO.User.name,
-  targetURL: URL_INFO.User,
+  type: 'user',
+  name: NAV_INFO.user.name_kr,
+  targetURL: URL_INFO.user,
   isFocused: true,
 };

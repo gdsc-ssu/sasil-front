@@ -1,20 +1,30 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import {
   BottomTabBarProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import { NavItemType, NAV_INFO } from '@sasil/common';
+import { NavItemKey, NAV_INFO, COLORS } from '@sasil/common';
 import Navigation from '@/components/organisms/Navigation';
-import * as styles from './NavBar.style';
+import MainScreen from '@/screens/MainScreen';
+import RequestScreen from '@/screens/RequestScreen';
+import ExperimentScreen from '@/screens/ExperimentScreen';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.background,
+    flex: 1,
+  },
+});
 
 export const NavWrapper = ({ state, navigation }: BottomTabBarProps) => {
   const navListInfo = state.routes.map((route, index) => {
-    const navType = route.name as NavItemType;
+    const navType = route.name.toLowerCase() as NavItemKey;
 
     return {
       type: navType,
-      name: NAV_INFO[navType].name,
+      name: NAV_INFO[navType].name_kr,
       isFocused: state.index === index,
       onPress: () => {
         const event = navigation.emit({
@@ -40,20 +50,23 @@ export interface NavBarProps {
 }
 
 // TODO: 각 페이지 컴포넌트로 변경하기
-const NavBar = ({ children }: NavBarProps) => (
-  <styles.StyledNavBar>
+const BottomTabNavigator = ({ children }: NavBarProps) => (
+  <View style={styles.container}>
     <Tab.Navigator
-      initialRouteName={NAV_INFO.Main.type}
+      initialRouteName={NAV_INFO.main.name}
       tabBar={NavWrapper}
       screenOptions={{ headerShown: false }}
     >
-      <Tab.Screen name={NAV_INFO.Main.type} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.Request.type} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.Experiment.type} component={Navigation} />
-      <Tab.Screen name={NAV_INFO.User.type} component={Navigation} />
+      <Tab.Screen name={NAV_INFO.main.name} component={MainScreen} />
+      <Tab.Screen name={NAV_INFO.request.name} component={RequestScreen} />
+      <Tab.Screen
+        name={NAV_INFO.experiment.name}
+        component={ExperimentScreen}
+      />
+      {/* <Tab.Screen name={NAV_INFO.user.name} component={Navigation} /> */}
     </Tab.Navigator>
     {children}
-  </styles.StyledNavBar>
+  </View>
 );
 
-export default NavBar;
+export default BottomTabNavigator;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { URL_INFO } from '@/constants/urlInfo';
 import Navigation, { NavigationProps } from '.';
 
 export default {
@@ -10,25 +9,25 @@ export default {
 } as ComponentMeta<typeof Navigation>;
 
 const Template: ComponentStory<typeof Navigation> = ({
-  targetURL,
-}: NavigationProps) => <Navigation targetURL={targetURL} />;
+  focusType,
+}: NavigationProps) => <Navigation focusType={focusType} />;
 
 export const Main = Template.bind({});
 Main.args = {
-  targetURL: URL_INFO.Main,
+  focusType: 'main',
 };
 
 export const Request = Template.bind({});
 Request.args = {
-  targetURL: URL_INFO.Request,
+  focusType: 'request',
 };
 
 export const Experiment = Template.bind({});
 Experiment.args = {
-  targetURL: URL_INFO.Experiment,
+  focusType: 'experiment',
 };
 
 export const User = Template.bind({});
 User.args = {
-  targetURL: URL_INFO.User,
+  focusType: 'user',
 };

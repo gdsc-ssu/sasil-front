@@ -1,27 +1,27 @@
 export const NAV_INFO = {
-  Main: {
-    type: 'Main',
-    name: '메인',
+  main: {
+    name: 'Main',
+    name_kr: '메인',
   },
-  Request: {
-    type: 'Request',
-    name: '의뢰',
+  request: {
+    name: 'Request',
+    name_kr: '의뢰',
   },
-  Experiment: {
-    type: 'Experiment',
-    name: '실험',
+  experiment: {
+    name: 'Experiment',
+    name_kr: '실험',
   },
-  User: {
-    type: 'User',
-    name: '내정보',
+  user: {
+    name: 'User',
+    name_kr: '내정보',
   },
 } as const;
 
 export type NavItemKey = keyof typeof NAV_INFO;
-export type NavItemType = typeof NAV_INFO[keyof typeof NAV_INFO]['type'];
 export type NavItemName = typeof NAV_INFO[keyof typeof NAV_INFO]['name'];
+export type NavItemNameKR = typeof NAV_INFO[keyof typeof NAV_INFO]['name_kr'];
 
 export interface NavInfo {
-  type: NavItemType;
   name: NavItemName;
+  name_kr: NavItemNameKR;
 }

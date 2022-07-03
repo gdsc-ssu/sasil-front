@@ -12,26 +12,26 @@ storiesOf('Navigation', module)
     <Navigation
       navListInfo={[
         {
-          type: NAV_INFO.Main.type,
-          name: NAV_INFO.Main.name,
+          type: 'main',
+          name: NAV_INFO.main.name_kr,
           isFocused: true,
           onPress: action('onPressMain'),
         },
         {
-          type: NAV_INFO.Request.type,
-          name: NAV_INFO.Request.name,
+          type: 'request',
+          name: NAV_INFO.request.name_kr,
           isFocused: false,
           onPress: action('onPressRequest'),
         },
         {
-          type: NAV_INFO.Experiment.type,
-          name: NAV_INFO.Experiment.name,
+          type: 'experiment',
+          name: NAV_INFO.experiment.name_kr,
           isFocused: false,
           onPress: action('onPressExperiment'),
         },
         {
-          type: NAV_INFO.User.type,
-          name: NAV_INFO.User.name,
+          type: 'user',
+          name: NAV_INFO.user.name_kr,
           isFocused: false,
           onPress: action('onPressUser'),
         },

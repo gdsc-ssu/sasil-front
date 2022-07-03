@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { TEXT_STYLES_MOBILE, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS } from '@sasil/common';
 import { MEDIA_QUERIES } from '@/constants/styles';
 
 type miniCardProps = {
@@ -41,16 +41,35 @@ export const InfoWrap = styled.div({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
-  // TODO StyledText 반응형 적용시 삭제 바람!
-  [`@media ${MEDIA_QUERIES.mobile}`]: {
-    '& > .post-title': {
-      fontSize: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body2R].fontSize,
-      fontWeight: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body2R].fontWeight,
-      lineHeight: `${TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.body2R].lineHeight}px`,
-    },
-  },
 });
 
 export const WriterWrap = styled.div({
   marginBottom: 5,
+});
+
+export const PostCardWrapper = styled.div({
+  width: '330px',
+  height: '280px',
+  display: 'flex',
+  flexDirection: 'column',
+  borderRadius: '5px',
+  backgroundColor: COLORS.grayscale.white,
+  margin: '10px',
+
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
+    width: '90%',
+  },
+});
+
+export const PostCardContent = styled.div({
+  width: '100%',
+  height: '47%',
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'column',
+  padding: '16px 32px 32px 32px',
+
+  [`@media ${MEDIA_QUERIES.mobile}`]: {
+    padding: '12px 16px 16px 16px',
+  },
 });
