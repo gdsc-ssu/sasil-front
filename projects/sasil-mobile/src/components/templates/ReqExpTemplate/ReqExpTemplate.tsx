@@ -8,10 +8,11 @@ interface Props extends PageHeaderProps {
 }
 
 // TODO 페이지 구현하면 NavBar 연결
-const ReqExpTemplate = ({ type, sortType, categories, children }: Props) => (
+const ReqExpTemplate = ({ children, ...pageHeaderProps }: Props) => (
   <styles.Template>
     {/* <NavBar> */}
-    <PageHeader type={type} sortType={sortType} categories={categories} />
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+    <PageHeader {...pageHeaderProps} />
     <styles.Scroll>{children}</styles.Scroll>
     <PostWriteNav />
     {/* </NavBar> */}

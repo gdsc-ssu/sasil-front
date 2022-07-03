@@ -1,35 +1,22 @@
-import { useCallback, useMemo } from 'react';
-import {
-  getPostsAsync,
-  ResultType,
-  PostInfoType,
-  QUERY_KEYS,
-} from '@sasil/common';
-import { useInfiniteQuery } from 'react-query';
+import { useCallback, useMemo, useState } from 'react';
+import { useListQuery, SortType } from '@sasil/common';
 
 import { reqPosts, categories } from '@/components/dummyData';
 import ReqExpTemplate from '@/components/templates/ReqExpTemplate';
 import PostsWrap from '@/components/templates/PostsWrap';
 import * as styles from './RequestScreen.style';
 
-async function getRequests({ pageParam = 1 }) {
-  const result = await getPostsAsync('request', pageParam, 16, 'recent', 'all');
-  if (result.isSuccess) {
-    return result.result;
-  }
-
-  throw result.result.errorMessage;
-}
-
 const RequestScreen = () => {
-  const sortType = 'recent'; // TODO
+  const [sort, setSort] = useState<SortType>('popular');
 
-  const { data, fetchNextPage, isRefetching, refetch } = useInfiniteQuery<
-    ResultType<PostInfoType[]>
-  >([QUERY_KEYS.requests], getRequests, {
-    getNextPageParam: (lastPage) =>
-      lastPage.isLast ? undefined : lastPage.nextPage,
-  });
+  const { data, fetchNextPage, isRefetching, refetch } = useListQuery(
+    'getRequests',
+    {
+      display: 16,
+      sort,
+      state: 'all',
+    },
+  );
 
   const getNextPage = useCallback(async () => {
     await fetchNextPage();
@@ -48,8 +35,9 @@ const RequestScreen = () => {
     <styles.Screen>
       <ReqExpTemplate
         type="request"
-        sortType={sortType}
+        sortType={sort}
         categories={categories}
+        onSortTypeChange={setSort}
       >
         <PostsWrap
           posts={posts ?? reqPosts}
