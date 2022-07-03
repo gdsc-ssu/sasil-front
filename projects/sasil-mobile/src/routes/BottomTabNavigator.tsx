@@ -50,7 +50,7 @@ export interface NavBarProps {
 }
 
 // TODO: 각 페이지 컴포넌트로 변경하기
-const NavBar = ({ children }: NavBarProps) => (
+const BottomTabNavigator = ({ children }: NavBarProps) => (
   <View style={styles.container}>
     <Tab.Navigator
       initialRouteName={NAV_INFO.main.name}
@@ -69,4 +69,4 @@ const NavBar = ({ children }: NavBarProps) => (
   </View>
 );
 
-export default NavBar;
+export default BottomTabNavigator;
