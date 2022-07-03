@@ -1,23 +1,36 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 
-import { categories, reqPosts, expPosts } from '@/components/dummyData';
+import { categories } from '@/components/dummyData';
 import ReqExpTemplate from './ReqExpTemplate';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+  },
+  mock: {
+    flex: 1,
+  },
+});
 
 storiesOf('ReqExpTemplate', module)
   .add('ExpTemplate', () => (
-    <ReqExpTemplate
-      type="experiment"
-      sortType="popular"
-      categories={categories}
-      posts={expPosts}
-    />
+    <View style={styles.container}>
+      <ReqExpTemplate
+        type="experiment"
+        sortType="popular"
+        categories={categories}
+      >
+        <View style={styles.mock} />
+      </ReqExpTemplate>
+    </View>
   ))
   .add('ReqTemplate', () => (
-    <ReqExpTemplate
-      type="request"
-      sortType="recent"
-      categories={categories}
-      posts={reqPosts}
-    />
+    <View style={styles.container}>
+      <ReqExpTemplate type="request" sortType="recent" categories={categories}>
+        <View style={styles.mock} />
+      </ReqExpTemplate>
+    </View>
   ));
