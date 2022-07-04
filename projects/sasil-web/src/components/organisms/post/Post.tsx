@@ -1,5 +1,5 @@
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
-import Like from '@/components/molelcules/Like/Like';
+import Interest from '@/components/molelcules/Interest';
 import StyledText from '@/components/atoms/StyledText';
 import WriterInfo from '@/components/molelcules/WriterInfo';
 import PostHeader, { PostHeaderProps } from './PostHeader';
@@ -34,7 +34,7 @@ const theme: themeProps = {
   },
 };
 
-// TODO writeObj type확정 되면 수정해줄 것!
+// TODO writeObj type 확정 되면 수정해줄 것!
 export interface MiniCardProps {
   /** `experiment` or `request` */
   type: 'experiment' | 'request';
@@ -91,7 +91,7 @@ export const MiniCard = ({
         {title}
       </StyledText>
     </styles.InfoWrap>
-    <Like color={theme[type].likeColor} likeCount={likeCount} />
+    <Interest color={theme[type].likeColor} count={likeCount} type="like" />
   </styles.MiniCard>
 );
 
@@ -114,7 +114,7 @@ export const Card = ({
       >
         {title}
       </StyledText>
-      <Like color={COLORS.primary.normal} likeCount={likeCount} />
+      <Interest color={COLORS.primary.normal} count={likeCount} type="like" />
     </styles.PostCardContent>
   </styles.PostCardWrapper>
 );
