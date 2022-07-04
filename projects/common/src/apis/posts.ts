@@ -15,6 +15,7 @@ export interface PostInfoType {
   title: string;
   thumbnail?: string | null;
   likeCount: number;
+  bookmarkCount: number;
   user: {
     id: number;
     nickname: string;
