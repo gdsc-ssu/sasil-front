@@ -36,13 +36,6 @@ export type ResultType<T> = {
   isLast: boolean;
 };
 
-export interface PostsAsyncInput {
-  display: number;
-  page: number;
-  sort: SortType;
-  state?: StateType;
-}
-
 /**
  * 기준에 따른 게시물 목록 반환하는 함수
  *
@@ -59,12 +52,9 @@ export const getPostsAsync = async (
   sort: SortType,
   state?: StateType,
 ): ApiResult<ResultType<PostInfoType[]>> => {
-  const response = await getAsync<PostInfoType[], PostsAsyncInput>(
-    `/posts/${type}`,
-    {
-      params: { page, display, sort, state },
-    },
-  );
+  const response = await getAsync<PostInfoType[], any>(`/posts/${type}`, {
+    params: { page, display, sort, state },
+  });
 
   if (response.isSuccess) {
     return {

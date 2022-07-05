@@ -22,11 +22,7 @@ export async function loginAsync(
   loginType: LoginType,
   token: string,
 ): ApiResult<LoginAsyncOutput> {
-  interface LoginAsyncInput {
-    Authorization: string;
-  }
-
-  const result = await postAsync<LoginAsyncOutput, LoginAsyncInput>(
+  const result = await postAsync<LoginAsyncOutput, any>(
     `/auth/login/${loginType}`,
     undefined,
     {
