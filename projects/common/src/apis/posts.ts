@@ -1,34 +1,7 @@
 import { getAsync, ApiResult } from './apiUtils';
+import { StateType, PostInfoType } from './post';
 
 export type SortType = 'recent' | 'popular';
-export type StateType = 'all' | 'wait' | 'answered';
-
-export type WriterType = {
-  id: number;
-  nickname: string;
-  profileImg?: string | null;
-};
-
-export type CategoryType = {
-  id: number;
-  name: string;
-};
-
-export interface PostInfoType {
-  id: number;
-  createdAt: Date;
-  updatedAt: Date;
-  title: string;
-  content?: string;
-  thumbnail?: string | null;
-  likeCount: number;
-  bookmarkCount: number;
-  isLike?: boolean;
-  isBookmark?: boolean;
-  user: WriterType;
-  categories?: CategoryType[];
-  state?: Exclude<StateType, 'all'>;
-}
 
 export type InfResultType<T> = {
   list: T;
@@ -51,8 +24,8 @@ export const getPostsAsync = async (
   display: number,
   sort: SortType,
   state?: StateType,
-): ApiResult<InfResultType<PostInfoType[]>> => {
-  const response = await getAsync<PostInfoType[], any>(`/posts/${type}`, {
+): ApiResult<InfResultType<any[]>> => {
+  const response = await getAsync<any[], any>(`/posts/${type}`, {
     params: { page, display, sort, state },
   });
 
