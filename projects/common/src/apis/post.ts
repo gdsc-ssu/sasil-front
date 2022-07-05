@@ -25,6 +25,7 @@ export interface PostBasicType {
 
 export interface PostListType extends PostBasicType {
   categories: CategoryType[];
+  state?: StateType;
 }
 
 export interface PostDetailType extends PostBasicType {
@@ -40,9 +41,9 @@ export interface TargetReqPostType extends PostBasicType {
   bookmarkCount: number;
 }
 
-interface AnswerExpPostType extends PostBasicType {}
+export interface AnswerExpPostType extends PostBasicType {}
 
-interface ImgUploadURLType {
+export interface ImgUploadURLType {
   imgUploadURL: string;
 }
 

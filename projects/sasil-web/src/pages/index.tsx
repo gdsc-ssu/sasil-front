@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import { getPostsAsync, PostInfoType } from '@sasil/common';
+import { getPostsAsync, PostListType } from '@sasil/common';
 import MainTemplate from '@/components/templates/MainTemplate';
 import { expPosts, reqPosts } from 'src/dummyData';
 
 interface MainPageProps {
-  hotReqPosts: PostInfoType[];
-  popReqPosts: PostInfoType[];
-  popExpPosts: PostInfoType[];
+  hotReqPosts: PostListType[];
+  popReqPosts: PostListType[];
+  popExpPosts: PostListType[];
 }
 
 export async function getServerSideProps() {
@@ -17,9 +17,9 @@ export async function getServerSideProps() {
   ]);
 
   const result: MainPageProps = {
-    hotReqPosts: hotReq.isSuccess ? hotReq.result.posts : [],
-    popReqPosts: popReq.isSuccess ? popReq.result.posts : [],
-    popExpPosts: popExp.isSuccess ? popExp.result.posts : [],
+    hotReqPosts: hotReq.isSuccess ? hotReq.result.list : [],
+    popReqPosts: popReq.isSuccess ? popReq.result.list : [],
+    popExpPosts: popExp.isSuccess ? popExp.result.list : [],
   };
 
   return { props: result };
