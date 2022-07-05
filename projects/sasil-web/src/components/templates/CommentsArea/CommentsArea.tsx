@@ -1,3 +1,4 @@
+import { CommentType } from '@sasil/common';
 import StyledText from '@/components/atoms/StyledText';
 import CommentInput from '@/components/molelcules/CommentInput';
 import Comment from '@/components/organisms/Comment';
@@ -7,7 +8,7 @@ export interface CommentsAreaProps {
   /** 댓글 입력 값 */
   inputValue: string;
   /** 댓글 리스트 객체 */
-  comments: any;
+  comments: CommentType[];
   /** 댓글 변화 컨트롤 함수 */
   onCommentTextChange: (text: string) => void;
 }
@@ -26,10 +27,10 @@ const CommentsArea = ({
       <CommentInput value={inputValue} onTextChange={onCommentTextChange} />
     </styles.CommentInputWrap>
     <styles.CommentsWrap>
-      {comments?.map((comment: any) => (
+      {comments?.map((comment: CommentType) => (
         <Comment
           key={comment.id}
-          writerObj={comment.writerObj}
+          writerObj={comment.user}
           content={comment.content}
         />
       ))}

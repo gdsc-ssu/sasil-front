@@ -1,6 +1,11 @@
 import ProfileImage from '@/components/atoms/ProfileImage';
 import StyledText from '@/components/atoms/StyledText';
-import { COLORS, TextStyleName, TEXT_STYLE_NAME } from '@sasil/common';
+import {
+  COLORS,
+  TextStyleName,
+  TEXT_STYLE_NAME,
+  WriterType,
+} from '@sasil/common';
 import * as styles from './WriterInfo.style';
 
 const formatDate = (date: Date) => {
@@ -12,10 +17,9 @@ const formatDate = (date: Date) => {
   return `${month}/${day} ${hour}:${min}`;
 };
 
-// TODO writeObj type 확정 되면 수정해줄 것!
 export interface WriterInfoProps {
   /** 작성자 정보 객체 */
-  writerObj: any;
+  writerObj: WriterType;
   /** 닉네임 텍스트 스타일(`TEXT_STYLE_NAME.*`) */
   textStyleName: TextStyleName;
   /** 닉네임 텍스트 색상 */

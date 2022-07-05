@@ -10,9 +10,9 @@ export interface InterestsWrapProps {
   /** 북마크 수 */
   bookmarkCount: number;
   /** 사용자가 해당 게시물에 좋아요를 눌렀는지에 대한 여부 */
-  liked?: boolean;
+  isLike?: boolean;
   /** 사용자가 해당 게시물에 북마크를 눌렀는지에 대한 여부 */
-  bookmarked?: boolean;
+  isBookmark?: boolean;
   /** 좋아요 혹은 북마크 버튼을 눌렀을 때 실행되는 함수 */
   onInterestPress?: (buttonName: string) => void;
 }
@@ -21,8 +21,8 @@ export interface InterestsWrapProps {
 const InterestsWrap = ({
   likeCount,
   bookmarkCount,
-  liked = true,
-  bookmarked = true,
+  isLike = true,
+  isBookmark = true,
   onInterestPress,
 }: InterestsWrapProps) => {
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,7 +44,7 @@ const InterestsWrap = ({
         <Interest
           type="like"
           count={likeCount}
-          pressed={liked}
+          pressed={isLike}
           size={25}
           textStyleName={TEXT_STYLE_NAME.body1R}
           className="like-count"
@@ -64,7 +64,7 @@ const InterestsWrap = ({
         <Interest
           type="bookmark"
           count={bookmarkCount}
-          pressed={bookmarked}
+          pressed={isBookmark}
           size={25}
           textStyleName={TEXT_STYLE_NAME.body1R}
         />

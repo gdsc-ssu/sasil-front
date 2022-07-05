@@ -10,14 +10,14 @@ export default {
 const Template: ComponentStory<typeof InterestsWrap> = ({
   likeCount,
   bookmarkCount,
-  liked,
-  bookmarked,
+  isLike,
+  isBookmark,
 }: InterestsWrapProps) => (
   <InterestsWrap
     likeCount={likeCount}
     bookmarkCount={bookmarkCount}
-    liked={liked}
-    bookmarked={bookmarked}
+    isLike={isLike}
+    isBookmark={isBookmark}
   />
 );
 
@@ -25,6 +25,6 @@ export const Default = Template.bind({});
 Default.args = {
   likeCount: 10,
   bookmarkCount: 10,
-  liked: true,
-  bookmarked: false,
+  isLike: true,
+  isBookmark: false,
 };

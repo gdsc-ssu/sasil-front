@@ -25,18 +25,24 @@ Default.args = {
   comments: [
     {
       id: 1,
-      writerObj: { nickname: '작성자1', profileImg: null },
+      user: { id: 1, nickname: '작성자1', profileImg: null },
       content: '안녕하세요 댓글이에요 1',
+      createdAt: new Date('2022-05-19T14:53:43.044Z'),
+      updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     },
     {
       id: 2,
-      writerObj: { nickname: '작성자2', profileImg: null },
+      user: { id: 2, nickname: '작성자2', profileImg: null },
       content: '안녕하세요  댓글이에요 2',
+      createdAt: new Date('2022-05-19T14:53:43.044Z'),
+      updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     },
     {
       id: 3,
-      writerObj: { nickname: '작성자3', profileImg: null },
+      user: { id: 3, nickname: '작성자3', profileImg: null },
       content: '안녕하세요  댓글이에요 3',
+      createdAt: new Date('2022-05-19T14:53:43.044Z'),
+      updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     },
   ],
   inputValue: 'input value임',

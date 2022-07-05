@@ -1,4 +1,4 @@
-import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, WriterType, TEXT_STYLE_NAME } from '@sasil/common';
 import Interest from '@/components/molelcules/Interest';
 import StyledText from '@/components/atoms/StyledText';
 import WriterInfo from '@/components/molelcules/WriterInfo';
@@ -34,7 +34,6 @@ const theme: themeProps = {
   },
 };
 
-// TODO writeObj type 확정 되면 수정해줄 것!
 export interface MiniCardProps {
   /** `experiment` or `request` */
   type: 'experiment' | 'request';
@@ -43,7 +42,7 @@ export interface MiniCardProps {
   /** 게시물 좋아요 수 */
   likeCount: number;
   /** [실험만 필요] 게시물 작성자 정보(닉네임,프로필 사진)를 담은 객체 */
-  writerObj?: any;
+  writerObj?: WriterType | null;
   /** [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5` */
   thumbnail?: string | null;
   className?: string;

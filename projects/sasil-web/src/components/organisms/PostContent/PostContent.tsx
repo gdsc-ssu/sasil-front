@@ -22,7 +22,7 @@ const PostContent = ({ post }: PostContentProps) => (
         textColor={COLORS.grayscale.gray7}
         textStyleName={TEXT_STYLE_NAME.body2R}
         profileSize={24}
-        writeDate={post.created_at}
+        writeDate={post.createdAt}
       />
     </styles.CreateInfoWrap>
     <StyledText

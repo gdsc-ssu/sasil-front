@@ -1,12 +1,11 @@
 import StyledText from '@/components/atoms/StyledText';
 import WriterInfo from '@/components/molelcules/WriterInfo';
-import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, TEXT_STYLE_NAME, WriterType } from '@sasil/common';
 import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
 import * as styles from './Comment.style';
 
-// TODO 타입 정의
 export interface CommentProps {
-  writerObj: any;
+  writerObj: WriterType;
   content: string;
 }
 

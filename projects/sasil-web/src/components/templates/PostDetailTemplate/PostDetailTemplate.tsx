@@ -1,6 +1,6 @@
 /* eslint-disable react/self-closing-comp */
 import { useRouter } from 'next/router';
-import { COLORS } from '@sasil/common';
+import { COLORS, CommentType } from '@sasil/common';
 import PostContent from '@/components/organisms/PostContent';
 import PostSummary from '@/components/templates/PostSummary';
 import StyledButton from '@/components/atoms/StyledButton';
@@ -11,14 +11,11 @@ import InterestsWrap from '@/components/organisms/InterestsWrap';
 import LeftIcon from '@/assets/icons/Left.svg';
 import * as Post from '@/components/organisms/post';
 import * as styles from './PostDetailTemplate.style';
+import { PostSummaryProps } from '../PostSummary/PostSummary';
 
-export interface PostDetailTemplateProps {
-  /** 게시물의 종류로, 의뢰 혹은 실험 중 하나. */
-  type: 'request' | 'experiment';
-  /** 게시물 객체 */
-  post: any;
-  /** 게시물 type이 실험이라면 해당 게시물이 응답한 의뢰 게시물. 의뢰라면 해당 게시물에 응답한 실험 게시물 리스트. */
-  relativePosts: any;
+export interface PostDetailTemplateProps extends PostSummaryProps {
+  /** 댓글 목록 */
+  comments: CommentType[];
   /** 댓글 입력 값 */
   commentInputValue: string;
   /** 댓글 입력 변화 컨트롤 함수 */
@@ -31,6 +28,7 @@ export interface PostDetailTemplateProps {
 const PostDetailTemplate = ({
   type,
   post,
+  comments,
   relativePosts,
   commentInputValue,
   onCommentTextChange,
@@ -40,6 +38,7 @@ const PostDetailTemplate = ({
   const goBack = () => router.back();
   const goExpWrite = () => router.push(`/write/experiment?reqId=${post.id}`);
   const isExp = type === 'experiment';
+
   return (
     <styles.Wrap>
       <NavBar focusType="main" className="post-navbar">
@@ -61,7 +60,7 @@ const PostDetailTemplate = ({
         </styles.MobileNavBar>
         {isExp && (
           <styles.ExperimentThumbnail
-            thumbnail={post.thumbnail}
+            thumbnail={post.thumbnail ?? ''}
           ></styles.ExperimentThumbnail>
         )}
         <styles.TemplateWrap>
@@ -79,8 +78,8 @@ const PostDetailTemplate = ({
                 <InterestsWrap
                   likeCount={post.likeCount}
                   bookmarkCount={post.bookmarkCount}
-                  liked={post.liked}
-                  bookmarked={post.bookmarked}
+                  isLike={post.isLike}
+                  isBookmark={post.isBookmark}
                   onInterestPress={onInterestPress}
                 />
               </styles.InterestBoxWrap>
@@ -105,7 +104,7 @@ const PostDetailTemplate = ({
               </styles.ScrollArea>
             </styles.Bottom>
             <CommentsArea
-              comments={post.comments}
+              comments={comments}
               inputValue={commentInputValue}
               onCommentTextChange={onCommentTextChange}
             />

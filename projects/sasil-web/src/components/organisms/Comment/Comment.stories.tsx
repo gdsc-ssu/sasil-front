@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof Comment> = ({
 export const Default = Template.bind({});
 Default.args = {
   writerObj: {
+    id: 1,
     nickname: '작성자',
     profileImg: null,
   },

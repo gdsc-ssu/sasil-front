@@ -33,7 +33,7 @@ export const IconWrap = styled.div({
 });
 
 export const ExperimentThumbnail = styled.div(
-  ({ thumbnail }: { thumbnail: string }) => ({
+  ({ thumbnail }: { thumbnail?: string }) => ({
     display: 'none',
     [`@media ${MEDIA_QUERIES.mobile}`]: {
       display: 'block',

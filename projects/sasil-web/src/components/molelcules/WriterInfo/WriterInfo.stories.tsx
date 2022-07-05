@@ -27,6 +27,7 @@ const Template: ComponentStory<typeof WriterInfo> = ({
 export const InPostMini = Template.bind({});
 InPostMini.args = {
   writerObj: {
+    id: 1,
     nickname: '작성자',
     profileImg: null,
   },
@@ -38,6 +39,7 @@ InPostMini.args = {
 export const InPostDetail = Template.bind({});
 InPostDetail.args = {
   writerObj: {
+    id: 2,
     nickname: '작성자',
     profileImg: null,
   },
@@ -49,6 +51,7 @@ InPostDetail.args = {
 export const HaveWriteTime = Template.bind({});
 HaveWriteTime.args = {
   writerObj: {
+    id: 3,
     nickname: '작성자',
     profileImg: null,
   },

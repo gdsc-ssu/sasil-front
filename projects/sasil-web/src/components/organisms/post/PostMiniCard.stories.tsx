@@ -40,6 +40,7 @@ ExperimentPostWithThumbnail.args = {
   title: '썸네일 있는 실험 게시물 제목 예시입니다.',
   likeCount: 5,
   writerObj: {
+    id: 1,
     nickname: '작성자',
     profileImg:
       'https://image.shutterstock.com/image-photo/darkeyed-girl-pink-makeup-chewing-600w-1457328599.jpg',
@@ -53,6 +54,7 @@ ExperimentPostWithNoThumbnail.args = {
   title: '썸네일 없는 실험 게시물 제목 예시입니다.',
   likeCount: 10,
   writerObj: {
+    id: 2,
     nickname: '작성자',
     profileImg:
       'https://image.shutterstock.com/image-photo/darkeyed-girl-pink-makeup-chewing-600w-1457328599.jpg',
