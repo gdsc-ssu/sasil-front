@@ -3,6 +3,12 @@ import { getAsync, ApiResult } from './apiUtils';
 export type SortType = 'recent' | 'popular';
 export type StateType = 'all' | 'wait' | 'answered';
 
+export type WriterType = {
+  id: number;
+  nickname: string;
+  profileImg?: string | null;
+};
+
 export type CategoryType = {
   id: number;
   name: string;
@@ -10,17 +16,17 @@ export type CategoryType = {
 
 export interface PostInfoType {
   id: number;
-  created_at: Date;
-  updated_at: Date;
+  createdAt: Date;
+  updatedAt: Date;
   title: string;
+  content?: string;
   thumbnail?: string | null;
   likeCount: number;
-  user: {
-    id: number;
-    nickname: string;
-    profile_img?: string | null;
-  };
-  categories: CategoryType[];
+  bookmarkCount: number;
+  isLike?: boolean;
+  isBookmark?: boolean;
+  user: WriterType;
+  categories?: CategoryType[];
   state?: Exclude<StateType, 'all'>;
 }
 

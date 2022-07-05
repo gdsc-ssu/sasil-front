@@ -13,18 +13,21 @@ const Template: ComponentStory<typeof WriterInfo> = ({
   textColor,
   textStyleName,
   profileSize,
+  writeDate,
 }: WriterInfoProps) => (
   <WriterInfo
     writerObj={writerObj}
     textColor={textColor}
     textStyleName={textStyleName}
     profileSize={profileSize}
+    writeDate={writeDate}
   />
 );
 
 export const InPostMini = Template.bind({});
 InPostMini.args = {
   writerObj: {
+    id: 1,
     nickname: '작성자',
     profileImg: null,
   },
@@ -36,10 +39,24 @@ InPostMini.args = {
 export const InPostDetail = Template.bind({});
 InPostDetail.args = {
   writerObj: {
+    id: 2,
     nickname: '작성자',
     profileImg: null,
   },
   textColor: COLORS.grayscale.black,
   textStyleName: TEXT_STYLE_NAME.body2R,
   profileSize: 20,
+};
+
+export const HaveWriteTime = Template.bind({});
+HaveWriteTime.args = {
+  writerObj: {
+    id: 3,
+    nickname: '작성자',
+    profileImg: null,
+  },
+  textColor: COLORS.grayscale.black,
+  textStyleName: TEXT_STYLE_NAME.body2R,
+  profileSize: 20,
+  writeDate: new Date('Sun Jul 03 2022 22:05:17 GMT+0900 (한국 표준시)'),
 };

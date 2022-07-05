@@ -16,7 +16,7 @@ const ProfileImage = ({ src, size, className }: ProfileImageProps) => {
   // TODO: Default Image Src (mayble Logo..?)
   const imageSrc =
     src ??
-    'https://image.shutterstock.com/image-photo/darkeyed-girl-pink-makeup-chewing-600w-1457328599.jpg';
+    'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1114445501.jpg';
 
   return (
     <styles.StyledProfileImage
