@@ -19,7 +19,7 @@ export const CommentInputWrap = styled.div({
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     position: 'fixed',
     bottom: 0,
-    padding: '18px 16px',
+    padding: '15px',
     backgroundColor: COLORS.background,
   },
 });
