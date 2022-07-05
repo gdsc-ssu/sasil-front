@@ -30,8 +30,8 @@ export interface PostInfoType {
   state?: Exclude<StateType, 'all'>;
 }
 
-export type ResultType<T> = {
-  posts: T;
+export type InfResultType<T> = {
+  list: T;
   nextPage: number;
   isLast: boolean;
 };
@@ -51,7 +51,7 @@ export const getPostsAsync = async (
   display: number,
   sort: SortType,
   state?: StateType,
-): ApiResult<ResultType<PostInfoType[]>> => {
+): ApiResult<InfResultType<PostInfoType[]>> => {
   const response = await getAsync<PostInfoType[], any>(`/posts/${type}`, {
     params: { page, display, sort, state },
   });
@@ -60,7 +60,7 @@ export const getPostsAsync = async (
     return {
       isSuccess: response.isSuccess,
       result: {
-        posts: response.result,
+        list: response.result,
         nextPage: page + 1,
         isLast: response.result.length < display,
       },
