@@ -14,8 +14,8 @@ export interface TextInputProps
   textStyleName?: TextStyleName;
   /** input의 입력값에 따른 변화를 컨트롤할 함수 */
   onTextChange?: (text: string) => void | Promise<void>;
-  /** Enter나 Backspace를 눌렀을 때 실행되는 로직을 제어하기 위한 함수 */
-  keyHandler?: (key: string) => void;
+  /** 키보드의 key를 눌렀을 때 실행되는 이벤트 함수 */
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -26,7 +26,7 @@ const TextInput = ({
   value,
   textStyleName,
   onTextChange,
-  keyHandler,
+  onKeyDown,
   ...inputProps
 }: TextInputProps) => {
   const onChange = useCallback(
@@ -36,18 +36,6 @@ const TextInput = ({
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [onTextChange, inputProps.onChange],
-  );
-
-  const onKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.code === 'Enter' && e.nativeEvent.isComposing === false) {
-        // isComposing : 입력한 문자가 조합문자라면 true
-        keyHandler?.('enter');
-      } else if (e.code === 'Backspace') {
-        keyHandler?.('backspace');
-      }
-    },
-    [keyHandler],
   );
 
   return (
