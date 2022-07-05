@@ -13,7 +13,7 @@ export type CategoryType = {
   name: string;
 };
 
-export interface PostInfoType {
+export interface PostBasicType {
   id: number;
   createdAt: Date;
   updatedAt: Date;
@@ -21,21 +21,26 @@ export interface PostInfoType {
   thumbnail?: string | null;
   likeCount: number;
   user: WriterType;
-  content?: string;
-  bookmarkCount?: number;
-  isLike?: boolean;
-  isBookmark?: boolean;
-  categories?: CategoryType[];
+}
+
+export interface PostListType extends PostBasicType {
+  categories: CategoryType[];
+}
+
+export interface PostDetailType extends PostBasicType {
+  content: string;
+  bookmarkCount: number;
+  isLike: boolean;
+  isBookmark: boolean;
+  categories: CategoryType[];
   state?: Exclude<StateType, 'all'>;
 }
 
-// export interface TargetReqPostType extends PostBasicType {
-//   bookmarkCount: number;
-// }
+export interface TargetReqPostType extends PostBasicType {
+  bookmarkCount: number;
+}
 
-// export interface AnswerExpPostType extends PostBasicType {
-//   isLike: boolean;
-// }
+interface AnswerExpPostType extends PostBasicType {}
 
 interface ImgUploadURLType {
   imgUploadURL: string;
@@ -59,12 +64,15 @@ export const getPostDetailAsync = async (
   token: string,
   postType: 'experiment' | 'request',
   postId: number,
-): ApiResult<any> => {
-  const result = await getAsync<any, any>(`/post/${postType}/${postId}`, {
-    headers: {
-      Authorization: token,
+): ApiResult<PostDetailType> => {
+  const result = await getAsync<PostDetailType, any>(
+    `/post/${postType}/${postId}`,
+    {
+      headers: {
+        Authorization: token,
+      },
     },
-  });
+  );
 
   return result;
 };
@@ -73,8 +81,10 @@ export const getPostDetailAsync = async (
  * 특정 의뢰에 응답한 실험 게시물 목록 조회 (최신순)
  * @param reqId 의뢰 게시물의 id값
  */
-export const getExpListByReqAsync = async (reqId: string): ApiResult<any[]> => {
-  const result = await getAsync<any[], any>(
+export const getExpListByReqAsync = async (
+  reqId: string,
+): ApiResult<AnswerExpPostType[]> => {
+  const result = await getAsync<AnswerExpPostType[], any>(
     `/post/request/${reqId}/experiments`,
   );
 
@@ -85,8 +95,12 @@ export const getExpListByReqAsync = async (reqId: string): ApiResult<any[]> => {
  * 특정 실험 게시물이 응답한 의뢰 게시물 정보 조회
  * @param expId 실험 게시물의 id값
  */
-export const getReqPostByExpAsync = async (expId: string): ApiResult<any> => {
-  const result = await getAsync<any, any>(`/post/experiment/${expId}/request`);
+export const getReqPostByExpAsync = async (
+  expId: string,
+): ApiResult<TargetReqPostType> => {
+  const result = await getAsync<TargetReqPostType, any>(
+    `/post/experiment/${expId}/request`,
+  );
 
   return result;
 };
@@ -107,7 +121,7 @@ export const addPostAsync = async (
   title: string,
   content: string,
   thumbnail: string,
-  categories: any[],
+  categories: CategoryType[],
   reqId: number | undefined,
 ): ApiResult<undefined> => {
   const result = await postAsync<undefined, AddPostAsyncInput>(

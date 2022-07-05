@@ -1,5 +1,5 @@
 import { getAsync, ApiResult } from './apiUtils';
-import { StateType, PostInfoType } from './post';
+import { StateType, PostListType } from './post';
 
 export type SortType = 'recent' | 'popular';
 
@@ -24,8 +24,8 @@ export const getPostsAsync = async (
   display: number,
   sort: SortType,
   state?: StateType,
-): ApiResult<InfResultType<any[]>> => {
-  const response = await getAsync<any[], any>(`/posts/${type}`, {
+): ApiResult<InfResultType<PostListType[]>> => {
+  const response = await getAsync<PostListType[], any>(`/posts/${type}`, {
     params: { page, display, sort, state },
   });
 
