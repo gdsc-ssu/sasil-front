@@ -1,6 +1,10 @@
 import { useInfiniteQuery } from 'react-query';
-import { PostListType } from '@sasil/common';
-import { getPostsAsync, QUERY_KEYS, InfResultType } from '../apis';
+import {
+  getPostsAsync,
+  QUERY_KEYS,
+  InfResultType,
+  PostListType,
+} from '../apis';
 import { ApiResult } from '../apis/apiUtils';
 
 interface PostsAsyncInput {
