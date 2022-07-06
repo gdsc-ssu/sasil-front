@@ -1,11 +1,11 @@
-import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, TEXT_STYLE_NAME, PostDetailType } from '@sasil/common';
 import StyledText from '@/components/atoms/StyledText';
 import WriterInfo from '@/components/molelcules/WriterInfo';
 import Interest from '@/components/molelcules/Interest';
 import * as styles from './PostInfoCard.style';
 
 export interface PostInfoCardProps {
-  post: any;
+  post: PostDetailType;
 }
 
 /** 게시물 상세 페이지의 사이드에 띄워지는 PostSummary 컴포넌트 내부에서 게시물 관련 내용을 보여주는 컴포넌트 (웹만 해당) */
