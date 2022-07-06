@@ -1,12 +1,14 @@
 /* eslint-disable react/self-closing-comp */
+import React from 'react';
 import { useRouter } from 'next/router';
-import { COLORS, CommentType } from '@sasil/common';
+
+import { COLORS } from '@sasil/common';
 import PostContent from '@/components/organisms/PostContent';
 import PostSummary from '@/components/templates/PostSummary';
 import StyledButton from '@/components/atoms/StyledButton';
 import NavBar from '@/components/templates/NavBar';
 import StyledText from '@/components/atoms/StyledText';
-import CommentsArea from '@/components/templates/CommentsArea';
+import { CommentsAreaWrapped } from '@/components/templates/CommentsArea';
 import InterestsWrap from '@/components/organisms/InterestsWrap';
 import LeftIcon from '@/assets/icons/Left.svg';
 import * as Post from '@/components/organisms/post';
@@ -14,12 +16,6 @@ import * as styles from './PostDetailTemplate.style';
 import { PostSummaryProps } from '../PostSummary/PostSummary';
 
 export interface PostDetailTemplateProps extends PostSummaryProps {
-  /** 댓글 목록 */
-  comments: CommentType[];
-  /** 댓글 입력 값 */
-  commentInputValue: string;
-  /** 댓글 입력 변화 컨트롤 함수 */
-  onCommentTextChange: (text: string) => void;
   /** 좋아요 및 게시물 버튼을 눌렀을 시 컨트롤 함수 */
   onInterestPress: (buttonName: string) => void;
 }
@@ -28,10 +24,7 @@ export interface PostDetailTemplateProps extends PostSummaryProps {
 const PostDetailTemplate = ({
   type,
   post,
-  comments,
   relativePosts,
-  commentInputValue,
-  onCommentTextChange,
   onInterestPress,
 }: PostDetailTemplateProps) => {
   const router = useRouter();
@@ -103,11 +96,7 @@ const PostDetailTemplate = ({
                 </styles.PostCardsWrap>
               </styles.ScrollArea>
             </styles.Bottom>
-            <CommentsArea
-              comments={comments}
-              inputValue={commentInputValue}
-              onCommentTextChange={onCommentTextChange}
-            />
+            <CommentsAreaWrapped />
           </styles.MainContentWrap>
         </styles.TemplateWrap>
       </NavBar>
