@@ -4,6 +4,8 @@ import {
   QUERY_KEYS,
   InfResultType,
   PostListType,
+  getCommentListAsync,
+  CommentType,
 } from '../apis';
 import { ApiResult } from '../apis/apiUtils';
 
@@ -14,7 +16,14 @@ interface PostsAsyncInput {
   state?: 'all' | 'answered' | 'wait';
 }
 
-function getResult<T>(response: Awaited<ApiResult<T>>) {
+interface CommentAsyncInput {
+  postType: 'request' | 'experiment';
+  postId: number;
+  page: number;
+  display: number;
+}
+
+export function getResult<T>(response: Awaited<ApiResult<T>>) {
   if (response.isSuccess) {
     return response.result;
   }
@@ -39,6 +48,13 @@ export const LIST_API = {
     queryKey: QUERY_KEYS.experiments,
     paramType: {} as Omit<PostsAsyncInput, 'page' | 'state'>,
     resultType: {} as InfResultType<PostListType[]>,
+  },
+  getComments: {
+    fetcher: async ({ postType, postId, page, display }: CommentAsyncInput) =>
+      getResult(await getCommentListAsync(postType, postId, page, display)),
+    queryKey: QUERY_KEYS.comments,
+    paramType: {} as any,
+    resultType: {} as InfResultType<CommentType[]>,
   },
 } as const;
 
