@@ -51,7 +51,7 @@ interface AddPostAsyncInput {
   title: string;
   content: string;
   thumbnail: string;
-  categories: CategoryType[];
+  categories: string[];
   reqId?: number;
 }
 
@@ -122,7 +122,7 @@ export const addPostAsync = async (
   title: string,
   content: string,
   thumbnail: string,
-  categories: CategoryType[],
+  categories: string[],
   reqId: number | undefined,
 ): ApiResult<undefined> => {
   const result = await postAsync<undefined, AddPostAsyncInput>(
