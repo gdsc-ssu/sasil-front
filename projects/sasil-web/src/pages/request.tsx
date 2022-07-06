@@ -43,7 +43,7 @@ const RequestPage: NextPage = () => {
   useInifiniteScroll(postsRef, getReqPosts);
 
   const postsData = data?.pages
-    .map((res) => (res.isSuccess ? res.result.posts : []))
+    .map((res) => (res.isSuccess ? res.result.list : []))
     .flat();
 
   return (

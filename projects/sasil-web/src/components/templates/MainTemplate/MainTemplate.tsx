@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { COLORS, PostInfoType, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, PostListType, TEXT_STYLE_NAME } from '@sasil/common';
 import { URL_INFO } from '@/constants/urlInfo';
 import RightIcon from '@/assets/icons/Right.svg';
 import { POSTS_INFO } from '@/components/templates/PostsWrap/MainPostsNavCard';
@@ -36,9 +36,9 @@ const ViewMoreButton = ({ type }: ViewMoreButtonProp) => {
 };
 
 interface MainTemplateProps {
-  hotReqPosts: PostInfoType[];
-  popReqPosts: PostInfoType[];
-  popExpPosts: PostInfoType[];
+  hotReqPosts: PostListType[];
+  popReqPosts: PostListType[];
+  popExpPosts: PostListType[];
 }
 
 const MainTemplate = ({

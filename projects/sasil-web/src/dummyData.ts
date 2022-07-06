@@ -1,4 +1,11 @@
-import { CategoryType, CommentType, PostInfoType } from '@sasil/common';
+import {
+  CategoryType,
+  CommentType,
+  PostDetailType,
+  PostListType,
+  TargetReqPostType,
+  AnswerExpPostType,
+} from '@sasil/common';
 
 export const users = [
   {
@@ -14,246 +21,210 @@ export const users = [
   },
 ];
 
-export const expPosts: PostInfoType[] = [
+export const expPosts: PostListType[] = [
   {
     id: 1,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost1',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 2,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost2',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 3,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost3',
-    content: '실험 본문',
     thumbnail: null,
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 4,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail: null,
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 5,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 6,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail: null,
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 7,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 8,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 9,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 10,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 11,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail: null,
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
 ];
 
-export const reqPosts: PostInfoType[] = [
+export const reqPosts: PostListType[] = [
   {
     id: 1,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost1',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 2,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 3,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 4,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 5,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 6,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 7,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
     title: 'testPost',
-    content: '실험 본문',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 8,
@@ -264,10 +235,8 @@ export const reqPosts: PostInfoType[] = [
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
-    content: '실험 본문',
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 9,
@@ -278,10 +247,8 @@ export const reqPosts: PostInfoType[] = [
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
-    content: '실험 본문',
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 10,
@@ -292,10 +259,8 @@ export const reqPosts: PostInfoType[] = [
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
-    content: '실험 본문',
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 11,
@@ -306,10 +271,8 @@ export const reqPosts: PostInfoType[] = [
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
     categories: [],
-    content: '실험 본문',
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
 ];
 
@@ -323,7 +286,7 @@ export const categories: CategoryType[] = [
   { id: 7, name: 'Storybook' },
 ];
 
-export const reqPostDetail = {
+export const reqPostDetail: PostDetailType = {
   id: 9,
   createdAt: new Date('2022-05-19T14:53:43.044Z'),
   updatedAt: new Date('2022-05-19T14:53:43.044Z'),
@@ -344,7 +307,7 @@ export const reqPostDetail = {
   ],
 };
 
-export const reqAnswerPosts: PostInfoType[] = [
+export const reqAnswerPosts: AnswerExpPostType[] = [
   {
     id: 1,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
@@ -353,10 +316,7 @@ export const reqAnswerPosts: PostInfoType[] = [
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
-    categories: [],
-    state: 'answered',
     likeCount: 25,
-    bookmarkCount: 9,
   },
   {
     id: 2,
@@ -366,10 +326,7 @@ export const reqAnswerPosts: PostInfoType[] = [
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
-    categories: [],
-    state: 'wait',
     likeCount: 25,
-    bookmarkCount: 9,
   },
   {
     id: 3,
@@ -379,10 +336,7 @@ export const reqAnswerPosts: PostInfoType[] = [
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
-    categories: [],
-    state: 'wait',
     likeCount: 25,
-    bookmarkCount: 9,
   },
   {
     id: 4,
@@ -392,14 +346,11 @@ export const reqAnswerPosts: PostInfoType[] = [
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[1],
-    categories: [],
-    state: 'wait',
     likeCount: 25,
-    bookmarkCount: 9,
   },
 ];
 
-export const expPostDetail: PostInfoType = {
+export const expPostDetail: PostDetailType = {
   id: 9,
   createdAt: new Date('2022-05-19T14:53:43.044Z'),
   updatedAt: new Date('2022-05-19T14:53:43.044Z'),
@@ -451,12 +402,11 @@ export const comments: CommentType[] = [
     content: '안녕하세요  댓글이에요 4',
   },
 ];
-export const expRequestPost: PostInfoType[] = [
+export const expRequestPost: TargetReqPostType[] = [
   {
     id: 1,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
     updatedAt: new Date('2022-05-19T14:53:43.044Z'),
-    content: '실험이 응답한 의뢰 게시물',
     title: 'testPost1',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',

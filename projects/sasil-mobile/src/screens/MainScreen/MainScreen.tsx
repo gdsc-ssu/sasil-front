@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { getPostsAsync, PostInfoType } from '@sasil/common';
+import { getPostsAsync, PostListType } from '@sasil/common';
 import { expPosts, reqPosts } from '@/components/dummyData';
 import MainTemplate from '@/components/templates/MainTemplate';
 import * as styles from './MainScreen.style';
 
 const MainScreen = () => {
   const [posts, setPosts] = useState<{
-    hotReqPosts: PostInfoType[];
-    popExpPosts: PostInfoType[];
-    popReqPosts: PostInfoType[];
+    hotReqPosts: PostListType[];
+    popExpPosts: PostListType[];
+    popReqPosts: PostListType[];
   }>({
     hotReqPosts: [],
     popExpPosts: [],
@@ -24,9 +24,9 @@ const MainScreen = () => {
       ]);
 
       setPosts({
-        hotReqPosts: hotReq.isSuccess ? hotReq.result.posts : [],
-        popExpPosts: popExp.isSuccess ? popExp.result.posts : [],
-        popReqPosts: popReq.isSuccess ? popReq.result.posts : [],
+        hotReqPosts: hotReq.isSuccess ? hotReq.result.list : [],
+        popExpPosts: popExp.isSuccess ? popExp.result.list : [],
+        popReqPosts: popReq.isSuccess ? popReq.result.list : [],
       });
     }
 

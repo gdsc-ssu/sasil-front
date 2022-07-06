@@ -1,12 +1,18 @@
 import { useInfiniteQuery } from 'react-query';
 import {
   getPostsAsync,
-  PostsAsyncInput,
   QUERY_KEYS,
-  ResultType,
-  PostInfoType,
+  InfResultType,
+  PostListType,
 } from '../apis';
 import { ApiResult } from '../apis/apiUtils';
+
+interface PostsAsyncInput {
+  page: number;
+  display: number;
+  sort: 'recent' | 'popular';
+  state?: 'all' | 'answered' | 'wait';
+}
 
 function getResult<T>(response: Awaited<ApiResult<T>>) {
   if (response.isSuccess) {
@@ -25,14 +31,14 @@ export const LIST_API = {
       getResult(await getPostsAsync('request', page, display, sort, state)),
     queryKey: QUERY_KEYS.requests,
     paramType: {} as Omit<PostsAsyncInput, 'page'>,
-    resultType: {} as ResultType<PostInfoType[]>,
+    resultType: {} as InfResultType<PostListType[]>,
   },
   getExperiments: {
     fetcher: async ({ page, display, sort }: Omit<PostsAsyncInput, 'state'>) =>
       getResult(await getPostsAsync('experiment', page, display, sort)),
     queryKey: QUERY_KEYS.experiments,
     paramType: {} as Omit<PostsAsyncInput, 'page' | 'state'>,
-    resultType: {} as ResultType<PostInfoType[]>,
+    resultType: {} as InfResultType<PostListType[]>,
   },
 } as const;
 

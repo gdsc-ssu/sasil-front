@@ -1,4 +1,4 @@
-import { CategoryType, PostInfoType } from '@sasil/common';
+import { CategoryType, PostListType } from '@sasil/common';
 
 export const users = [
   {
@@ -14,7 +14,7 @@ export const users = [
   },
 ];
 
-export const expPosts: PostInfoType[] = [
+export const expPosts: PostListType[] = [
   {
     id: 1,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
@@ -25,7 +25,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 2,
@@ -37,7 +36,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 3,
@@ -48,7 +46,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 4,
@@ -59,7 +56,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 5,
@@ -71,7 +67,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 6,
@@ -82,7 +77,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 7,
@@ -94,7 +88,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 8,
@@ -106,7 +99,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 9,
@@ -118,7 +110,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 10,
@@ -130,7 +121,6 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
   {
     id: 11,
@@ -141,11 +131,10 @@ export const expPosts: PostInfoType[] = [
     user: users[0],
     categories: [],
     likeCount: 9,
-    bookmarkCount: 25,
   },
 ];
 
-export const reqPosts: PostInfoType[] = [
+export const reqPosts: PostListType[] = [
   {
     id: 1,
     createdAt: new Date('2022-05-19T14:53:43.044Z'),
@@ -157,7 +146,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 2,
@@ -170,7 +158,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 3,
@@ -183,7 +170,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 4,
@@ -196,7 +182,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 5,
@@ -209,7 +194,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 6,
@@ -222,7 +206,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 7,
@@ -235,7 +218,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 8,
@@ -248,7 +230,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 9,
@@ -261,7 +242,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 10,
@@ -274,7 +254,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'answered',
     likeCount: 25,
-    bookmarkCount: 25,
   },
   {
     id: 11,
@@ -287,7 +266,6 @@ export const reqPosts: PostInfoType[] = [
     categories: [],
     state: 'wait',
     likeCount: 25,
-    bookmarkCount: 25,
   },
 ];
 
