@@ -1,4 +1,5 @@
 import { useInfiniteQuery } from 'react-query';
+import { PostListType } from '@sasil/common';
 import { getPostsAsync, QUERY_KEYS, InfResultType } from '../apis';
 import { ApiResult } from '../apis/apiUtils';
 
@@ -26,14 +27,14 @@ export const LIST_API = {
       getResult(await getPostsAsync('request', page, display, sort, state)),
     queryKey: QUERY_KEYS.requests,
     paramType: {} as Omit<PostsAsyncInput, 'page'>,
-    resultType: {} as InfResultType<any[]>,
+    resultType: {} as InfResultType<PostListType[]>,
   },
   getExperiments: {
     fetcher: async ({ page, display, sort }: Omit<PostsAsyncInput, 'state'>) =>
       getResult(await getPostsAsync('experiment', page, display, sort)),
     queryKey: QUERY_KEYS.experiments,
     paramType: {} as Omit<PostsAsyncInput, 'page' | 'state'>,
-    resultType: {} as InfResultType<any[]>,
+    resultType: {} as InfResultType<PostListType[]>,
   },
 } as const;
 
