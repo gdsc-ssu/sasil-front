@@ -15,8 +15,8 @@ export type CategoryType = {
 
 export interface PostBasicType {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   title: string;
   thumbnail?: string | null;
   likeCount: number;

@@ -8,12 +8,14 @@ import {
 } from '@sasil/common';
 import * as styles from './WriterInfo.style';
 
-const formatDate = (date: Date) => {
+const formatDate = (date: string) => {
+  const dateData = new Date(date);
+
   const setTwoDigit = (time: string | number) => `0${time}`.slice(-2);
-  const month = setTwoDigit(date.getMonth() + 1);
-  const day = setTwoDigit(date.getDate());
-  const hour = setTwoDigit(date.getHours());
-  const min = setTwoDigit(date.getMinutes());
+  const month = setTwoDigit(dateData.getMonth() + 1);
+  const day = setTwoDigit(dateData.getDate());
+  const hour = setTwoDigit(dateData.getHours());
+  const min = setTwoDigit(dateData.getMinutes());
   return `${month}/${day} ${hour}:${min}`;
 };
 
@@ -27,7 +29,7 @@ export interface WriterInfoProps {
   /** 프로필 이미지 사이즈. 이미지 들어가는 원의 width */
   profileSize: number;
   /** 게시물 작성 시간  */
-  writeDate?: Date;
+  writeDate?: string;
 }
 
 /**
