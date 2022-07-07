@@ -53,7 +53,7 @@ const PostDetail: NextPage = () => {
     };
 
     getInitialData();
-  }, [relativePosts, postId, postType, router.isReady]);
+  }, [postId, postType]);
 
   // TODO: 로딩화면
 
@@ -86,10 +86,6 @@ const PostDetail: NextPage = () => {
     //     break;
     // }
   };
-
-  // if (Object.keys(realPost).length === 0) {
-  //   return <>test</>;
-  // }
 
   return (
     <PostDetailTemplate
