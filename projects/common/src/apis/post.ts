@@ -15,8 +15,8 @@ export type CategoryType = {
 
 export interface PostBasicType {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   title: string;
   thumbnail?: string | null;
   likeCount: number;
@@ -37,11 +37,7 @@ export interface PostDetailType extends PostBasicType {
   state?: Exclude<StateType, 'all'>;
 }
 
-export interface TargetReqPostType extends PostBasicType {
-  bookmarkCount: number;
-}
-
-export interface AnswerExpPostType extends PostBasicType {}
+export interface RelativePostType extends PostBasicType {}
 
 export interface ImgUploadURLType {
   imgUploadURL: string;
@@ -50,8 +46,8 @@ export interface ImgUploadURLType {
 interface AddPostAsyncInput {
   title: string;
   content: string;
-  thumbnail: string;
-  categories: CategoryType[];
+  thumbnail?: string;
+  categories: string[];
   reqId?: number;
 }
 
@@ -79,28 +75,16 @@ export const getPostDetailAsync = async (
 };
 
 /**
- * 특정 의뢰에 응답한 실험 게시물 목록 조회 (최신순)
- * @param reqId 의뢰 게시물의 id값
+ * 관련 게시물 목록 조회 (최신순)
+ * @param postType 게시물 종류
+ * @param postId 게시물의 id값
  */
-export const getExpListByReqAsync = async (
-  reqId: string,
-): ApiResult<AnswerExpPostType[]> => {
-  const result = await getAsync<AnswerExpPostType[], any>(
-    `/post/request/${reqId}/experiments`,
-  );
-
-  return result;
-};
-
-/**
- * 특정 실험 게시물이 응답한 의뢰 게시물 정보 조회
- * @param expId 실험 게시물의 id값
- */
-export const getReqPostByExpAsync = async (
-  expId: string,
-): ApiResult<TargetReqPostType> => {
-  const result = await getAsync<TargetReqPostType, any>(
-    `/post/experiment/${expId}/request`,
+export const getRelativePosts = async (
+  postType: 'request' | 'experiment',
+  postId: number,
+): ApiResult<RelativePostType[]> => {
+  const result = await getAsync<RelativePostType[], any>(
+    `/post/${postType}/${postId}/relative`,
   );
 
   return result;
@@ -121,17 +105,17 @@ export const addPostAsync = async (
   postType: 'experiment' | 'request',
   title: string,
   content: string,
-  thumbnail: string,
-  categories: CategoryType[],
-  reqId: number | undefined,
+  categories: string[],
+  thumbnail?: string,
+  reqId?: number,
 ): ApiResult<undefined> => {
   const result = await postAsync<undefined, AddPostAsyncInput>(
     `/post/${postType}`,
     {
       title,
       content,
-      thumbnail,
       categories,
+      thumbnail,
       reqId,
     },
     {

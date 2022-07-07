@@ -4,8 +4,8 @@ import { WriterType } from './post';
 
 export interface CommentType {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   content: string;
   user: WriterType;
   parentId?: number;

@@ -17,8 +17,8 @@ export const users = [
 export const expPosts: PostListType[] = [
   {
     id: 1,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost1',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -28,8 +28,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 2,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost2',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -39,8 +39,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 3,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost3',
     thumbnail: null,
     user: users[0],
@@ -49,8 +49,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 4,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail: null,
     user: users[0],
@@ -59,8 +59,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 5,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -70,8 +70,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 6,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail: null,
     user: users[0],
@@ -80,8 +80,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 7,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -91,8 +91,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 8,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -102,8 +102,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 9,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -113,8 +113,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 10,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -124,8 +124,8 @@ export const expPosts: PostListType[] = [
   },
   {
     id: 11,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail: null,
     user: users[0],
@@ -137,8 +137,8 @@ export const expPosts: PostListType[] = [
 export const reqPosts: PostListType[] = [
   {
     id: 1,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost1',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -149,8 +149,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 2,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -161,8 +161,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 3,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -173,8 +173,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 4,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -185,8 +185,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 5,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -197,8 +197,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 6,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -209,8 +209,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 7,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -221,8 +221,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 8,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -233,8 +233,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 9,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -245,8 +245,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 10,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
@@ -257,8 +257,8 @@ export const reqPosts: PostListType[] = [
   },
   {
     id: 11,
-    createdAt: new Date('2022-05-19T14:53:43.044Z'),
-    updatedAt: new Date('2022-05-19T14:53:43.044Z'),
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
     title: 'testPost',
     thumbnail:
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { interestsInfo } from 'src/dummyData';
 import InterestsWrap, { InterestsWrapProps } from '.';
 
 export default {
@@ -8,23 +9,14 @@ export default {
 } as ComponentMeta<typeof InterestsWrap>;
 
 const Template: ComponentStory<typeof InterestsWrap> = ({
-  likeCount,
-  bookmarkCount,
-  isLike,
-  isBookmark,
+  likeInfo,
+  bookmarkInfo,
 }: InterestsWrapProps) => (
-  <InterestsWrap
-    likeCount={likeCount}
-    bookmarkCount={bookmarkCount}
-    isLike={isLike}
-    isBookmark={isBookmark}
-  />
+  <InterestsWrap likeInfo={likeInfo} bookmarkInfo={bookmarkInfo} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  likeCount: 10,
-  bookmarkCount: 10,
-  isLike: true,
-  isBookmark: false,
+  likeInfo: interestsInfo.likeInfo,
+  bookmarkInfo: interestsInfo.bookmarkInfo,
 };

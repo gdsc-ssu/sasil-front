@@ -58,5 +58,5 @@ HaveWriteTime.args = {
   textColor: COLORS.grayscale.black,
   textStyleName: TEXT_STYLE_NAME.body2R,
   profileSize: 20,
-  writeDate: new Date('Sun Jul 03 2022 22:05:17 GMT+0900 (한국 표준시)'),
+  writeDate: '2022-05-19T14:53:43.044Z',
 };
