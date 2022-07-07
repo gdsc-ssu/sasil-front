@@ -20,6 +20,14 @@ export const users = [
   },
 ];
 
+export const interestsInfo = {
+  likeInfo: { isLike: true, likeCount: 10 },
+  bookmarkInfo: {
+    bookmarkCount: 10,
+    isBookmark: false,
+  },
+};
+
 export const expPosts: PostListType[] = [
   {
     id: 1,
