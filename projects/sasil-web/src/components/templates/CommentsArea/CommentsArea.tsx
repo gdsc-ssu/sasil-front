@@ -11,9 +11,9 @@ export interface CommentsAreaProps {
   /** 댓글 리스트 객체 */
   comments: CommentType[] | undefined;
   /** 댓글 변화 컨트롤 함수 */
-  onCommentTextChange: (text: string) => void;
+  onCommentTextChange?: (text: string) => void;
   /** 댓글 추가 함수 */
-  addComment: () => void;
+  addComment?: () => void;
   /** 댓글 작성 가능 여부 */
   canWrite: boolean;
 }

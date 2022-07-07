@@ -5,8 +5,8 @@ import * as styles from './CommentInput.style';
 
 export interface CommentInputProps
   extends Pick<TextInputProps, 'value' | 'onTextChange'> {
-  addComment: () => void;
-  canWrite: boolean;
+  addComment?: () => void;
+  canWrite?: boolean;
 }
 
 /** 게시물에 댓글을 입력할 수 있는 댓글바를 생성하는 컴포넌트  */

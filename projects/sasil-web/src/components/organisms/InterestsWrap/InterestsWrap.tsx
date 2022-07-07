@@ -18,8 +18,8 @@ export interface InterestsWrapProps {
   likeInfo: LikeInfoType;
   bookmarkInfo: BookmarkInfoType;
   /** 좋아요 혹은 북마크 버튼을 눌렀을 때 실행되는 함수 */
-  handleLike: () => void;
-  handleBookmark: () => void;
+  handleLike?: () => void;
+  handleBookmark?: () => void;
 }
 
 /** 사용자가 게시물에 좋아요와 북마크를 누를 수 있는 컴포넌트 */

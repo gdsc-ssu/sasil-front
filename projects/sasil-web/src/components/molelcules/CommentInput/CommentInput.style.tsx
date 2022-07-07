@@ -21,24 +21,26 @@ export const Wrap = styled.div({
 });
 
 interface IconWrapProps {
-  canWrite: boolean;
+  canWrite?: boolean;
 }
 
-export const IconWrap = styled.button(({ canWrite }: IconWrapProps) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '24px',
-  height: '24px',
-  padding: '0',
-  marginLeft: '10px',
-  cursor: canWrite ? 'pointer' : 'default',
-  border: 'none',
-  backgroundColor: 'transparent',
+export const IconWrap = styled.button(
+  ({ canWrite = false }: IconWrapProps) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '24px',
+    height: '24px',
+    padding: '0',
+    marginLeft: '10px',
+    cursor: canWrite ? 'pointer' : 'default',
+    border: 'none',
+    backgroundColor: 'transparent',
 
-  [`@media ${MEDIA_QUERIES.mobile}`]: {
-    position: 'absolute',
-    top: '5px',
-    right: '-11%',
-  },
-}));
+    [`@media ${MEDIA_QUERIES.mobile}`]: {
+      position: 'absolute',
+      top: '5px',
+      right: '-11%',
+    },
+  }),
+);

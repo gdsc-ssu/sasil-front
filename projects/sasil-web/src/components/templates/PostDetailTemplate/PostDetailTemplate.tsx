@@ -22,8 +22,8 @@ export interface PostDetailTemplateProps extends PostSummaryProps {
   /** 좋아요 및 북마크 버튼을 눌렀을 시 컨트롤 함수 */
   likeInfo: LikeInfoType;
   bookmarkInfo: BookmarkInfoType;
-  handleLike: () => void;
-  handleBookmark: () => void;
+  handleLike?: () => void;
+  handleBookmark?: () => void;
 }
 
 /** 게시물 상세 페이지를 위한 템플릿 컴포넌트  */
