@@ -9,15 +9,21 @@ import StyledButton from '@/components/atoms/StyledButton';
 import NavBar from '@/components/templates/NavBar';
 import StyledText from '@/components/atoms/StyledText';
 import { CommentsAreaWrapped } from '@/components/templates/CommentsArea';
-import InterestsWrap from '@/components/organisms/InterestsWrap';
+import InterestsWrap, {
+  LikeInfoType,
+  BookmarkInfoType,
+} from '@/components/organisms/InterestsWrap';
 import LeftIcon from '@/assets/icons/Left.svg';
 import * as Post from '@/components/organisms/post';
 import * as styles from './PostDetailTemplate.style';
 import { PostSummaryProps } from '../PostSummary/PostSummary';
 
 export interface PostDetailTemplateProps extends PostSummaryProps {
-  /** 좋아요 및 게시물 버튼을 눌렀을 시 컨트롤 함수 */
-  onInterestPress: (buttonName: string) => void;
+  /** 좋아요 및 북마크 버튼을 눌렀을 시 컨트롤 함수 */
+  likeInfo: LikeInfoType;
+  bookmarkInfo: BookmarkInfoType;
+  handleLike: () => void;
+  handleBookmark: () => void;
 }
 
 /** 게시물 상세 페이지를 위한 템플릿 컴포넌트  */
@@ -25,7 +31,10 @@ const PostDetailTemplate = ({
   type,
   post,
   relativePosts,
-  onInterestPress,
+  likeInfo,
+  bookmarkInfo,
+  handleLike,
+  handleBookmark,
 }: PostDetailTemplateProps) => {
   const router = useRouter();
   const goBack = () => router.back();
@@ -69,11 +78,10 @@ const PostDetailTemplate = ({
               <PostContent post={post} />
               <styles.InterestBoxWrap>
                 <InterestsWrap
-                  likeCount={post.likeCount}
-                  bookmarkCount={post.bookmarkCount}
-                  isLike={post.isLike}
-                  isBookmark={post.isBookmark}
-                  onInterestPress={onInterestPress}
+                  likeInfo={likeInfo}
+                  bookmarkInfo={bookmarkInfo}
+                  handleLike={handleLike}
+                  handleBookmark={handleBookmark}
                 />
               </styles.InterestBoxWrap>
             </styles.Top>

@@ -1,10 +1,14 @@
 import dynamic from 'next/dynamic';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
 
 import {
+  addBookmarkAsync,
+  addLikeAsync,
+  deleteBookmarkAsync,
+  deleteLikeAsync,
   getPostDetailAsync,
   getRelativePosts,
   PostDetailType,
@@ -26,6 +30,12 @@ const PostDetail: NextPage = () => {
 
   const [realPost, setRealPost] = useState({});
   const [relativePosts, setReltativePosts] = useState([] as RelativePostType[]);
+
+  const [likeInfo, setLike] = useState({ isLike: false, likeCount: 0 });
+  const [bookmarkInfo, setBookmark] = useState({
+    isBookmark: false,
+    bookmarkCount: 9,
+  });
 
   useEffect(() => {
     if (!postType || !postId) {
@@ -50,49 +60,69 @@ const PostDetail: NextPage = () => {
       setReltativePosts((prev) =>
         relativePostResult.isSuccess ? relativePostResult.result : prev,
       );
+
+      // interest
+      setLike((prev) =>
+        postDetailResult.isSuccess
+          ? {
+              isLike: postDetailResult.result.isLike,
+              likeCount: postDetailResult.result.likeCount,
+            }
+          : prev,
+      );
+
+      setBookmark((prev) =>
+        postDetailResult.isSuccess
+          ? {
+              isBookmark: postDetailResult.result.isBookmark,
+              bookmarkCount: postDetailResult.result.bookmarkCount,
+            }
+          : prev,
+      );
     };
 
     getInitialData();
   }, [postId, postType]);
 
-  // TODO: 로딩화면
+  const handleLike = useCallback(async () => {
+    const result = likeInfo.isLike
+      ? await deleteLikeAsync(accessToken, postType, postId)
+      : await addLikeAsync(accessToken, postType, postId);
 
-  const onInterestPress = (buttonName: string) => {
-    // switch (buttonName) {
-    //   case 'like': {
-    //     setRealPost((prev) => ({
-    //       ...prev,
-    //       likeCount: prev.isLikes ? prev.likeCount - 1 : prev.likeCount + 1,
-    //       isLike: !prev.isLike,
-    //     }));
-    //     break;
-    //   }
-    //   case 'bookmark': {
-    //     setRealPost((prev) => {
-    //       if (Object.keys(prev).length === 0) {
-    //         return prev;
-    //       }
-    //       return {
-    //         ...prev,
-    //         bookmarkCount: prev.isBookmark
-    //           ? prev.bookmarkCount - 1
-    //           : prev.bookmarkCount + 1,
-    //         isBookmark: !prev.isBookmark,
-    //       };
-    //     });
-    //     break;
-    //   }
-    //   default:
-    //     break;
-    // }
-  };
+    if (result.isSuccess) {
+      setLike((prev) => ({
+        ...prev,
+        likeCount: prev.isLike ? prev.likeCount - 1 : prev.likeCount + 1,
+        isLike: !prev.isLike,
+      }));
+    }
+  }, [likeInfo.isLike, postId, postType]);
+
+  const handleBookmark = useCallback(async () => {
+    const result = bookmarkInfo.isBookmark
+      ? await deleteBookmarkAsync(accessToken, postType, postId)
+      : await addBookmarkAsync(accessToken, postType, postId);
+
+    if (result.isSuccess) {
+      setBookmark((prev) => ({
+        ...prev,
+        bookmarkCount: prev.isBookmark
+          ? prev.bookmarkCount - 1
+          : prev.bookmarkCount + 1,
+        isBookmark: !prev.isBookmark,
+      }));
+    }
+  }, [bookmarkInfo.isBookmark, postId, postType]);
 
   return (
     <PostDetailTemplate
       type={postType}
       post={realPost as PostDetailType}
       relativePosts={relativePosts}
-      onInterestPress={onInterestPress}
+      likeInfo={likeInfo}
+      bookmarkInfo={bookmarkInfo}
+      handleLike={handleLike}
+      handleBookmark={handleBookmark}
     />
   );
 };
