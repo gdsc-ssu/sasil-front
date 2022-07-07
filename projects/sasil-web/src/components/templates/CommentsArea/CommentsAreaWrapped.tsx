@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useInfiniteQuery } from 'react-query';
 import { useAtom } from 'jotai';
@@ -18,21 +18,22 @@ const CommentsAreaWrapped = () => {
 
   const commentsRef = useRef(null);
 
-  const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
-    ['comments', { postType, postId }],
-    ({ pageParam = 1 }) =>
-      getCommentListAsync(postType, postId, pageParam, display),
-    {
-      getNextPageParam: (lastPage) => {
-        if (!lastPage.isSuccess || lastPage.result.isLast) {
-          return undefined;
-        }
+  const { data, isFetching, hasNextPage, fetchNextPage, refetch } =
+    useInfiniteQuery(
+      ['comments', { postType, postId }],
+      ({ pageParam = 1 }) =>
+        getCommentListAsync(postType, postId, pageParam, display),
+      {
+        getNextPageParam: (lastPage) => {
+          if (!lastPage.isSuccess || lastPage.result.isLast) {
+            return undefined;
+          }
 
-        return lastPage.result.nextPage;
+          return lastPage.result.nextPage;
+        },
+        staleTime: 300000, // TODO: 일단 cache-time의 default 값인 5분과 동일하게 맞춤
       },
-      staleTime: 300000, // TODO: 일단 cache-time의 default 값인 5분과 동일하게 맞춤
-    },
-  );
+    );
 
   const getCommentList = async () => {
     if (hasNextPage) {
@@ -52,13 +53,28 @@ const CommentsAreaWrapped = () => {
     setCommentValue(text);
   }, []);
 
-  // TODO: onSubmitComment (Form?)
+  const addComment = useCallback(async () => {
+    if (commentValue.length > 0) {
+      await addCommentAsync(accessToken, postType, postId, commentValue);
+
+      onCommentTextChange('');
+
+      await refetch();
+    }
+  }, [commentValue, onCommentTextChange, postId, postType, refetch]);
+
+  const canWrite = useMemo(
+    () => commentValue.length > 0,
+    [commentValue.length],
+  );
 
   return (
     <CommentsArea
       comments={comments}
       inputValue={commentValue}
       onCommentTextChange={onCommentTextChange}
+      addComment={addComment}
+      canWrite={canWrite}
       ref={commentsRef}
     />
   );

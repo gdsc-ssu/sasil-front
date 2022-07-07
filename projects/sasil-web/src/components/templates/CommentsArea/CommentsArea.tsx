@@ -12,17 +12,29 @@ export interface CommentsAreaProps {
   comments: CommentType[] | undefined;
   /** 댓글 변화 컨트롤 함수 */
   onCommentTextChange: (text: string) => void;
+  /** 댓글 추가 함수 */
+  addComment: () => void;
+  /** 댓글 작성 가능 여부 */
+  canWrite: boolean;
 }
 
 /** 댓글바와 해당 게시물에 달린 댓글들을 보여주는 컴포넌트 */
 const CommentsArea = forwardRef<HTMLDivElement, CommentsAreaProps>(
-  ({ inputValue, comments, onCommentTextChange }, ref) => (
+  (
+    { inputValue, comments, onCommentTextChange, addComment, canWrite },
+    ref,
+  ) => (
     <styles.Wrap>
       <StyledText textStyleName="subtitle3" className="mobile-label">
         댓글
       </StyledText>
       <styles.CommentInputWrap>
-        <CommentInput value={inputValue} onTextChange={onCommentTextChange} />
+        <CommentInput
+          value={inputValue}
+          onTextChange={onCommentTextChange}
+          addComment={addComment}
+          canWrite={canWrite}
+        />
       </styles.CommentInputWrap>
       <styles.CommentsWrap ref={ref}>
         {comments?.map((comment: CommentType) => (
