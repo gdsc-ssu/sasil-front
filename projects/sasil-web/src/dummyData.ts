@@ -3,8 +3,7 @@ import {
   CommentType,
   PostDetailType,
   PostListType,
-  TargetReqPostType,
-  AnswerExpPostType,
+  RelativePostType,
 } from '@sasil/common';
 
 export const users = [
@@ -307,7 +306,7 @@ export const reqPostDetail: PostDetailType = {
   ],
 };
 
-export const reqAnswerPosts: AnswerExpPostType[] = [
+export const reqAnswerPosts: RelativePostType[] = [
   {
     id: 1,
     createdAt: '2022-05-19T14:53:43.044Z',
@@ -402,7 +401,7 @@ export const comments: CommentType[] = [
     content: '안녕하세요  댓글이에요 4',
   },
 ];
-export const expRequestPost: TargetReqPostType[] = [
+export const expRequestPost: RelativePostType[] = [
   {
     id: 1,
     createdAt: '2022-05-19T14:53:43.044Z',
@@ -412,6 +411,5 @@ export const expRequestPost: TargetReqPostType[] = [
       'https://image.shutterstock.com/image-photo/cute-labrador-dog-playing-stick-600w-1935251336.jpg',
     user: users[0],
     likeCount: 9,
-    bookmarkCount: 25,
   },
 ];

@@ -37,11 +37,7 @@ export interface PostDetailType extends PostBasicType {
   state?: Exclude<StateType, 'all'>;
 }
 
-export interface TargetReqPostType extends PostBasicType {
-  bookmarkCount: number;
-}
-
-export interface AnswerExpPostType extends PostBasicType {}
+export interface RelativePostType extends PostBasicType {}
 
 export interface ImgUploadURLType {
   imgUploadURL: string;
@@ -83,9 +79,9 @@ export const getPostDetailAsync = async (
  * @param reqId 의뢰 게시물의 id값
  */
 export const getExpListByReqAsync = async (
-  reqId: string,
-): ApiResult<AnswerExpPostType[]> => {
-  const result = await getAsync<AnswerExpPostType[], any>(
+  reqId: number,
+): ApiResult<RelativePostType[]> => {
+  const result = await getAsync<RelativePostType[], any>(
     `/post/request/${reqId}/experiments`,
   );
 
@@ -97,9 +93,9 @@ export const getExpListByReqAsync = async (
  * @param expId 실험 게시물의 id값
  */
 export const getReqPostByExpAsync = async (
-  expId: string,
-): ApiResult<TargetReqPostType> => {
-  const result = await getAsync<TargetReqPostType, any>(
+  expId: number,
+): ApiResult<RelativePostType> => {
+  const result = await getAsync<RelativePostType, any>(
     `/post/experiment/${expId}/request`,
   );
 
