@@ -4,8 +4,12 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
 
-import { getPostDetailAsync, PostDetailType } from '@sasil/common';
-import { comments, expPostDetail, expRequestPost } from 'src/dummyData';
+import {
+  getPostDetailAsync,
+  getRelativePosts,
+  PostDetailType,
+  RelativePostType,
+} from '@sasil/common';
 
 // Toast Viewer를 사용하기 위한 ssr 해제
 const PostDetailTemplate = dynamic(
@@ -13,15 +17,15 @@ const PostDetailTemplate = dynamic(
   { ssr: false },
 );
 
-// TODO 현재는 실험 게시물 더미 데이터로 되어있음. pid에 맞게 api 연결할 것!
 const PostDetail: NextPage = () => {
   const router = useRouter();
+
   const postType = router.query.type as 'experiment' | 'request';
   const postId = Number(router.query.pid);
-
   const accessToken = ''; // TODO: Jotai
 
   const [realPost, setRealPost] = useState({});
+  const [relativePosts, setReltativePosts] = useState([] as RelativePostType[]);
 
   useEffect(() => {
     if (!postType || !postId) {
@@ -29,19 +33,27 @@ const PostDetail: NextPage = () => {
     }
 
     const getInitialData = async () => {
-      const postDetailData = await getPostDetailAsync(
+      // content
+      const postDetailResult = await getPostDetailAsync(
         accessToken,
         postType,
         postId,
       );
 
       setRealPost((prev) =>
-        postDetailData.isSuccess ? postDetailData.result : prev,
+        postDetailResult.isSuccess ? postDetailResult.result : prev,
+      );
+
+      // relative post
+      const relativePostResult = await getRelativePosts(postType, postId);
+
+      setReltativePosts((prev) =>
+        relativePostResult.isSuccess ? relativePostResult.result : prev,
       );
     };
 
     getInitialData();
-  }, [postId, postType, router.isReady]);
+  }, [relativePosts, postId, postType, router.isReady]);
 
   // TODO: 로딩화면
 
@@ -83,7 +95,7 @@ const PostDetail: NextPage = () => {
     <PostDetailTemplate
       type={postType}
       post={realPost as PostDetailType}
-      relativePosts={expRequestPost}
+      relativePosts={relativePosts}
       onInterestPress={onInterestPress}
     />
   );
