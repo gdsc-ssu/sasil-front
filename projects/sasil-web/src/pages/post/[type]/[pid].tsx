@@ -14,6 +14,7 @@ import {
   PostDetailType,
   RelativePostType,
 } from '@sasil/common';
+import { getAccessTokenAtom } from '@/logics/store/actions';
 
 // Toast Viewer를 사용하기 위한 ssr 해제
 const PostDetailTemplate = dynamic(
@@ -26,7 +27,7 @@ const PostDetail: NextPage = () => {
 
   const postType = router.query.type as 'experiment' | 'request';
   const postId = Number(router.query.pid);
-  const accessToken = ''; // TODO: Jotai
+  const [accessToken] = useAtom(getAccessTokenAtom);
 
   const [realPost, setRealPost] = useState({});
   const [relativePosts, setReltativePosts] = useState([] as RelativePostType[]);
@@ -45,7 +46,7 @@ const PostDetail: NextPage = () => {
     const getInitialData = async () => {
       // content
       const postDetailResult = await getPostDetailAsync(
-        accessToken,
+        accessToken ?? '', // Access Token이 없어도 정상 동작
         postType,
         postId,
       );
@@ -82,9 +83,13 @@ const PostDetail: NextPage = () => {
     };
 
     getInitialData();
-  }, [postId, postType]);
+  }, [accessToken, postId, postType]);
 
   const handleLike = useCallback(async () => {
+    if (!accessToken) {
+      return; // TODO: 로그인 필요 기능 알림
+    }
+
     const result = likeInfo.isLike
       ? await deleteLikeAsync(accessToken, postType, postId)
       : await addLikeAsync(accessToken, postType, postId);
@@ -96,9 +101,13 @@ const PostDetail: NextPage = () => {
         isLike: !prev.isLike,
       }));
     }
-  }, [likeInfo.isLike, postId, postType]);
+  }, [accessToken, likeInfo.isLike, postId, postType]);
 
   const handleBookmark = useCallback(async () => {
+    if (!accessToken) {
+      return; // TODO: 로그인 필요 기능 알림
+    }
+
     const result = bookmarkInfo.isBookmark
       ? await deleteBookmarkAsync(accessToken, postType, postId)
       : await addBookmarkAsync(accessToken, postType, postId);
@@ -112,7 +121,7 @@ const PostDetail: NextPage = () => {
         isBookmark: !prev.isBookmark,
       }));
     }
-  }, [bookmarkInfo.isBookmark, postId, postType]);
+  }, [accessToken, bookmarkInfo.isBookmark, postId, postType]);
 
   return (
     <PostDetailTemplate

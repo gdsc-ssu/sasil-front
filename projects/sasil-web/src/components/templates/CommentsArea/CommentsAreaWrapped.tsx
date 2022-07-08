@@ -5,6 +5,7 @@ import { useAtom } from 'jotai';
 
 import { getCommentListAsync, addCommentAsync } from '@sasil/common';
 import useInifiniteScroll from '@/logics/hooks/useInfiniteScroll';
+import { getAccessTokenAtom } from '@/logics/store/actions';
 import CommentsArea from './CommentsArea';
 
 const CommentsAreaWrapped = () => {
@@ -14,7 +15,7 @@ const CommentsAreaWrapped = () => {
   const postId = Number(router.query.pid);
   const display = 10;
 
-  const accessToken = ''; // TODO: Jotai
+  const [accessToken] = useAtom(getAccessTokenAtom);
 
   const commentsRef = useRef(null);
 
@@ -55,13 +56,24 @@ const CommentsAreaWrapped = () => {
 
   const addComment = useCallback(async () => {
     if (commentValue.length > 0) {
+      if (!accessToken) {
+        return; // TODO: 로그인 필요 기능 알림
+      }
+
       await addCommentAsync(accessToken, postType, postId, commentValue);
 
       onCommentTextChange('');
 
       await refetch();
     }
-  }, [commentValue, onCommentTextChange, postId, postType, refetch]);
+  }, [
+    accessToken,
+    commentValue,
+    onCommentTextChange,
+    postId,
+    postType,
+    refetch,
+  ]);
 
   const canWrite = useMemo(
     () => commentValue.length > 0,

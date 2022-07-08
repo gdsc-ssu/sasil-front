@@ -43,6 +43,10 @@ export interface ImgUploadURLType {
   imgUploadURL: string;
 }
 
+interface AddPostType {
+  id: number;
+}
+
 interface AddPostAsyncInput {
   title: string;
   content: string;
@@ -108,8 +112,8 @@ export const addPostAsync = async (
   categories: string[],
   thumbnail?: string,
   reqId?: number,
-): ApiResult<undefined> => {
-  const result = await postAsync<undefined, AddPostAsyncInput>(
+): ApiResult<AddPostType> => {
+  const result = await postAsync<AddPostType, AddPostAsyncInput>(
     `/post/${postType}`,
     {
       title,
