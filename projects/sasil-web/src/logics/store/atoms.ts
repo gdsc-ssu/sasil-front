@@ -1,4 +1,5 @@
 import { atom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
 export type UserInfoType = {
   id: number | null;
@@ -13,3 +14,8 @@ export const userInfoAtom = atom<UserInfoType>({
   nickname: null,
   email: null,
 });
+
+export const accessTokenAtom = atomWithStorage<string | null>(
+  'accessToken',
+  null,
+);
