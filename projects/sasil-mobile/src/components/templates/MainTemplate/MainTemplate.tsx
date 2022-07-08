@@ -1,4 +1,4 @@
-import { COLORS, PostInfoType, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, PostListType, TEXT_STYLE_NAME } from '@sasil/common';
 
 import SasilLogo from '@/assets/icons/SasilLogo';
 import SearchIcon from '@/assets/icons/Search';
@@ -11,12 +11,11 @@ import {
   MainPostsWrap,
   postsTitleType,
 } from '@/components/templates/PostsWrap';
-import NavBar from '@/components/templates/NavBar';
 import * as styles from './MainTemplate.style';
 
 interface ContentProps {
   type: postsTitleType;
-  posts: PostInfoType[];
+  posts: PostListType[];
 }
 
 const Content = ({ type, posts }: ContentProps) => (
@@ -48,9 +47,9 @@ const Content = ({ type, posts }: ContentProps) => (
 
 interface MainTemplateProps {
   // TODO post type 지정
-  hotReqPosts: PostInfoType[];
-  popReqPosts: PostInfoType[];
-  popExpPosts: PostInfoType[];
+  hotReqPosts: PostListType[];
+  popReqPosts: PostListType[];
+  popExpPosts: PostListType[];
 }
 
 // TODO 페이지 구현하면 NavBar 연결

@@ -85,7 +85,7 @@ function processError(
  */
 export async function getAsync<T, D>(
   path: string,
-  config?: AxiosRequestConfig<D>,
+  config?: AxiosRequestConfig,
   errorMessages?: Record<number, string>,
 ): ApiResult<T> {
   try {
@@ -114,11 +114,38 @@ export async function getAsync<T, D>(
 export async function postAsync<T, D>(
   path: string,
   data?: D,
-  config?: AxiosRequestConfig<D>,
+  config?: AxiosRequestConfig,
   errorMessages?: Record<number, string>,
 ): ApiResult<T> {
   try {
     const response = await axios.post<T, AxiosResponse<T, D>, D>(path, data, {
+      baseURL: apiUrl,
+      responseType: 'json',
+      ...config,
+    });
+
+    return { isSuccess: true, result: response.data };
+  } catch (error) {
+    return { isSuccess: false, result: processError(error, errorMessages) };
+  }
+}
+
+/**
+ * DELETE 요청을 보내는 API 호출 함수
+ * @param T 서버 응답 타입
+ * @param D parameter 또는 body로 전달할 데이터의 타입
+ *
+ * @param path API Endpoint
+ * @param config `AxiosRequestConfig`
+ * @param errorMessages status code에 따른 에러 메시지
+ */
+export async function deleteAsync<T, D>(
+  path: string,
+  config?: AxiosRequestConfig,
+  errorMessages?: Record<number, string>,
+): ApiResult<T> {
+  try {
+    const response = await axios.delete<T, AxiosResponse<T, D>, D>(path, {
       baseURL: apiUrl,
       responseType: 'json',
       ...config,

@@ -1,41 +1,13 @@
 import { getAsync, ApiResult } from './apiUtils';
+import { StateType, PostListType } from './post';
 
 export type SortType = 'recent' | 'popular';
-export type StateType = 'all' | 'wait' | 'answered';
 
-export type CategoryType = {
-  id: number;
-  name: string;
-};
-
-export interface PostInfoType {
-  id: number;
-  created_at: Date;
-  updated_at: Date;
-  title: string;
-  thumbnail?: string | null;
-  likeCount: number;
-  user: {
-    id: number;
-    nickname: string;
-    profile_img?: string | null;
-  };
-  categories: CategoryType[];
-  state?: Exclude<StateType, 'all'>;
-}
-
-export type ResultType<T> = {
-  posts: T;
+export type InfResultType<T> = {
+  list: T;
   nextPage: number;
   isLast: boolean;
 };
-
-export interface PostsAsyncInput {
-  display: number;
-  page: number;
-  sort: SortType;
-  state?: StateType;
-}
 
 /**
  * 기준에 따른 게시물 목록 반환하는 함수
@@ -52,19 +24,16 @@ export const getPostsAsync = async (
   display: number,
   sort: SortType,
   state?: StateType,
-): ApiResult<ResultType<PostInfoType[]>> => {
-  const response = await getAsync<PostInfoType[], PostsAsyncInput>(
-    `/posts/${type}`,
-    {
-      params: { page, display, sort, state },
-    },
-  );
+): ApiResult<InfResultType<PostListType[]>> => {
+  const response = await getAsync<PostListType[], any>(`/posts/${type}`, {
+    params: { page, display, sort, state },
+  });
 
   if (response.isSuccess) {
     return {
       isSuccess: response.isSuccess,
       result: {
-        posts: response.result,
+        list: response.result,
         nextPage: page + 1,
         isLast: response.result.length < display,
       },
