@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { PostListType } from '@sasil/common';
 
 import PostCard from '@/components/organisms/PostCard';
@@ -20,6 +21,8 @@ const PostsWrap = ({
   onRefresh,
   isRefreshing,
 }: PostsWrapProps) => {
+  const navigation = useNavigation();
+
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<PostListType>) => (
       <PostCard
@@ -28,11 +31,17 @@ const PostsWrap = ({
         likeCount={item.likeCount}
         thumbnail={item.thumbnail}
         writerObj={item.user}
+        onPress={() =>
+          navigation.navigate('PostDetail', {
+            id: item.id,
+            type,
+          })
+        }
         style={styles.item}
         key={item.id}
       />
     ),
-    [type],
+    [type, navigation],
   );
 
   const onEndReached = useCallback(async () => {
