@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
-import { PostInfoType } from '@sasil/common';
+import { PostListType } from '@sasil/common';
 
 import PostCard from '@/components/organisms/PostCard';
 import * as styles from './PostsWrap.style';
 
 export interface PostsWrapProps {
-  posts: PostInfoType[];
+  posts: PostListType[];
   type: 'request' | 'experiment';
   fetchNextPage?: () => Promise<void>;
   onRefresh?: () => Promise<void>;
@@ -21,7 +21,7 @@ const PostsWrap = ({
   isRefreshing,
 }: PostsWrapProps) => {
   const renderItem = useCallback(
-    ({ item }: ListRenderItemInfo<PostInfoType>) => (
+    ({ item }: ListRenderItemInfo<PostListType>) => (
       <PostCard
         type={type}
         title={item.title}
@@ -39,7 +39,7 @@ const PostsWrap = ({
     await fetchNextPage?.();
   }, [fetchNextPage]);
 
-  const keyExtractor = useCallback((item: PostInfoType) => `${item.id}`, []);
+  const keyExtractor = useCallback((item: PostListType) => `${item.id}`, []);
 
   return (
     <FlatList

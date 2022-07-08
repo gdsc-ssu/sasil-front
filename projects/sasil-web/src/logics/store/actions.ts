@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { userInfoAtom, UserInfoType } from './atoms';
+import { userInfoAtom, accessTokenAtom, UserInfoType } from './atoms';
 
 export const createUserInfoAtom = atom(
   (get) => get(userInfoAtom),
@@ -11,5 +11,12 @@ export const createUserInfoAtom = atom(
       email: userObj.email,
     };
     set(userInfoAtom, newUserInfo);
+  },
+);
+
+export const getAccessTokenAtom = atom(
+  (get) => get(accessTokenAtom),
+  (get, set, accessToken: string) => {
+    set(accessTokenAtom, accessToken);
   },
 );

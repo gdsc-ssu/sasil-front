@@ -14,7 +14,7 @@ const RequestPage: NextPage = () => {
   const sortType = (router?.query?.sort || 'recent') as SortType;
   const pageType = 'request';
   const stateType = 'all';
-  const display = 1; // TODO: 몇 개씩 표시될건지 정하기!
+  const display = 16; // TODO: 몇 개씩 표시될건지 정하기!
 
   const postsRef = useRef(null);
 
@@ -34,16 +34,16 @@ const RequestPage: NextPage = () => {
     },
   );
 
-  const getReqPosts = () => {
+  const getReqPosts = async () => {
     if (hasNextPage) {
-      fetchNextPage();
+      await fetchNextPage();
     }
   };
 
   useInifiniteScroll(postsRef, getReqPosts);
 
   const postsData = data?.pages
-    .map((res) => (res.isSuccess ? res.result.posts : []))
+    .map((res) => (res.isSuccess ? res.result.list : []))
     .flat();
 
   return (

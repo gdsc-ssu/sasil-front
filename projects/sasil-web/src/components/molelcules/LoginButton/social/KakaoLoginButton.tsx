@@ -1,12 +1,14 @@
-import { createUserInfoAtom } from '@/logics/store/actions';
-import { kakaoClientId, loginAsync, getUser } from '@sasil/common';
 import { useAtom } from 'jotai';
+
+import { kakaoClientId, loginAsync, getUser } from '@sasil/common';
+import { createUserInfoAtom, getAccessTokenAtom } from '@/logics/store/actions';
 import LoginButton from '../LoginButton';
 
 // Kakao 로그인 버튼 컴포넌트
 const KakaoLoginButton = () => {
   // UserInfo Update Action
   const [, setUserInfo] = useAtom(createUserInfoAtom);
+  const [, setAccessToken] = useAtom(getAccessTokenAtom);
 
   /**
    * Kakao 토큰으로 JWT 토큰을 받고 이를 통해 유저 정보 불러오는 함수
@@ -17,8 +19,8 @@ const KakaoLoginButton = () => {
     const res = await loginAsync('kakao', authValue);
     if (res.isSuccess) {
       const { token } = res.result;
-      const user = await getUser(token);
-      if (user.isSuccess) return user;
+      const userData = await getUser(token);
+      if (userData.isSuccess) return { user: userData.result, token };
     }
 
     return undefined;
@@ -34,7 +36,10 @@ const KakaoLoginButton = () => {
         async success(authObj: any) {
           const authValue = authObj.access_token;
           const result = await responseKakao(authValue);
-          setUserInfo(result);
+          if (result) {
+            setUserInfo(result.user);
+            setAccessToken(result.token);
+          }
         },
         fail(error: any) {
           console.log(JSON.stringify(error));

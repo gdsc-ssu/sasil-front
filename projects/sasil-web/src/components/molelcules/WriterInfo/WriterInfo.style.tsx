@@ -4,10 +4,13 @@ export const WriterWrap = styled.div({
   display: 'flex',
   alignItems: 'center',
 
-  '& > .writer-info': {
-    marginLeft: 4,
+  '.writer-info': {
+    marginLeft: 6,
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
+  },
+  '.create-date': {
+    marginLeft: 6,
   },
 });

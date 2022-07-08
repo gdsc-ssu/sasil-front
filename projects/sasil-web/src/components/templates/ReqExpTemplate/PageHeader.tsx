@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import { COLORS, TEXT_STYLE_NAME, CategoryType } from '@sasil/common';
 import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
@@ -37,6 +39,9 @@ const HEADER_ICON = {
 
 // TODO: 검색 버튼 동작, ProfileImg 클릭 동작
 const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
+  const router = useRouter();
+  const goWrite = () => router.push(`/write/${type}`);
+
   const [recentBtnColor, popularBtnColor] =
     sortType === 'recent'
       ? [COLORS.grayscale.black, COLORS.grayscale.gray4]
@@ -86,6 +91,7 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
           <StyledButton
             text={BTN_LABEL[type].write}
             textStyleName={TEXT_STYLE_NAME.button2B}
+            onClick={goWrite}
           />
         </styles.WriteButtonWrap>
       </styles.ContentWrapper>

@@ -27,7 +27,7 @@ const RequestScreen = () => {
   }, [refetch]);
 
   const posts = useMemo(
-    () => data?.pages.map((page) => page.posts).flat(),
+    () => data?.pages.map((page) => page.list).flat(),
     [data],
   );
 

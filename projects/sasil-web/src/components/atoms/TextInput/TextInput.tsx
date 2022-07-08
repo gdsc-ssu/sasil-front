@@ -14,6 +14,8 @@ export interface TextInputProps
   textStyleName?: TextStyleName;
   /** input의 입력값에 따른 변화를 컨트롤할 함수 */
   onTextChange?: (text: string) => void | Promise<void>;
+  /** 키보드의 key를 눌렀을 때 실행되는 이벤트 함수 */
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -24,6 +26,7 @@ const TextInput = ({
   value,
   textStyleName,
   onTextChange,
+  onKeyDown,
   ...inputProps
 }: TextInputProps) => {
   const onChange = useCallback(
@@ -44,6 +47,7 @@ const TextInput = ({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...inputProps}
       onChange={onChange}
+      onKeyDown={onKeyDown}
     />
   );
 };

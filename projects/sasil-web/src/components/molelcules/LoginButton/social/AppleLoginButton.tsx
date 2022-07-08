@@ -6,13 +6,14 @@ import {
 } from '@sasil/common';
 import { useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { createUserInfoAtom } from '@/logics/store/actions';
+import { createUserInfoAtom, getAccessTokenAtom } from '@/logics/store/actions';
 import LoginButton from '../LoginButton';
 
 // Apple 로그인 버튼 컴포넌트
 const AppleLoginButton = () => {
   // UserInfo Update Action
   const [, setUserInfo] = useAtom(createUserInfoAtom);
+  const [, setAccessToken] = useAtom(getAccessTokenAtom);
 
   /**
    * Apple 로그인의 nonce를 위해 주어질 길이만큼 임의의 문자열을 생성하는 함수
@@ -41,7 +42,7 @@ const AppleLoginButton = () => {
     if (res.isSuccess) {
       const { token } = res.result;
       const userData = await getUser(token);
-      if (userData.isSuccess) return userData.result;
+      if (userData.isSuccess) return { user: userData.result, token };
     }
 
     return undefined;
@@ -55,7 +56,10 @@ const AppleLoginButton = () => {
       if (data) {
         const authValue = data.authorization.code;
         const result = await responseApple(authValue);
-        if (result) setUserInfo(result);
+        if (result) {
+          setUserInfo(result.user);
+          setAccessToken(result.token);
+        }
       }
     } catch (error) {
       console.log(error);

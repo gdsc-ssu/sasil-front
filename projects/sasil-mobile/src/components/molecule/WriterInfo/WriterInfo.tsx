@@ -25,7 +25,7 @@ const WriterInfo = ({
   profileSize,
 }: WriterInfoProps) => (
   <styles.Wrap>
-    <ProfileImage src={writerObj.profile_img} size={profileSize} />
+    <ProfileImage src={writerObj.profileImg} size={profileSize} />
     <styles.TextWrap>
       <StyledText color={textColor} textStyleName={textStyleName}>
         {writerObj.nickname}
