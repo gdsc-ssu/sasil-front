@@ -14,7 +14,6 @@ export const InterestsWrap = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '0px 65px',
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     width: 'fit-content',
@@ -33,6 +32,7 @@ export const InterestButton = styled.button({
   border: 'none',
   background: 'none',
   cursor: 'pointer',
+  width: '50%',
   '.like-count': {
     marginRight: '5px',
   },
