@@ -13,7 +13,14 @@ const PostWriteScreen = () => {
   const navigation = useNavigation();
 
   const tokenJs = useMemo(
-    () => `window.localStorage.setItem('accessToken', '${token}');`,
+    () =>
+      `(function(){
+        let token = window.localStorage.getItem('accessToken');
+        if(!token || (token && token != '"${token}"')) {
+          window.localStorage.setItem('accessToken', '"${token}"');
+          window.location.reload();
+        }
+      })();`,
     [token],
   );
 
@@ -26,9 +33,11 @@ const PostWriteScreen = () => {
       <WebView
         style={styles.webView}
         source={{
-          uri: `https://sasil-front-tsxu1cfxu-sasil.vercel.app/write/${route.params.type}`,
+          uri: `https://sasil.app/write/${route.params.type}`,
         }}
-        injectedJavaScript={tokenJs}
+        injectedJavaScriptBeforeContentLoaded={tokenJs}
+        javaScriptEnabled
+        domStorageEnabled
       />
     </styles.Container>
   );
