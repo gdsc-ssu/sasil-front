@@ -29,8 +29,12 @@ const PostDetail: NextPage = () => {
   const postId = Number(router.query.pid);
   const [accessToken] = useAtom(getAccessTokenAtom);
 
-  const [realPost, setRealPost] = useState({});
-  const [relativePosts, setReltativePosts] = useState([] as RelativePostType[]);
+  const [realPost, setRealPost] = useState<PostDetailType | undefined>(
+    undefined,
+  );
+  const [relativePosts, setReltativePosts] = useState<
+    RelativePostType[] | undefined
+  >(undefined);
 
   const [likeInfo, setLike] = useState({ isLike: false, likeCount: 0 });
   const [bookmarkInfo, setBookmark] = useState({
@@ -122,6 +126,10 @@ const PostDetail: NextPage = () => {
       }));
     }
   }, [accessToken, bookmarkInfo.isBookmark, postId, postType]);
+
+  if (realPost === undefined || relativePosts === undefined) {
+    return <>로딩중 </>;
+  }
 
   return (
     <PostDetailTemplate

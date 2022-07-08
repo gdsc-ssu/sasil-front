@@ -76,6 +76,7 @@ export const SummaryWrap = styled.div({
 });
 
 export const MainContentWrap = styled.div({
+  width: '100%',
   maxWidth: '620px',
   padding: '24px',
   display: 'flex',

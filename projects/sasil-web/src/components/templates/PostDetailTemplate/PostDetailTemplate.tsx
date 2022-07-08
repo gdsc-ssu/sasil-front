@@ -2,7 +2,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { COLORS } from '@sasil/common';
+import { COLORS, RelativePostType } from '@sasil/common';
 import PostContent from '@/components/organisms/PostContent';
 import PostSummary from '@/components/templates/PostSummary';
 import StyledButton from '@/components/atoms/StyledButton';
@@ -91,16 +91,17 @@ const PostDetailTemplate = ({
               </StyledText>
               <styles.ScrollArea>
                 <styles.PostCardsWrap>
-                  {relativePosts.map((relPost: any) => (
-                    <Post.MiniCard
-                      key={relPost.id}
-                      type={isExp ? 'request' : 'experiment'}
-                      thumbnail={relPost.thumbnail}
-                      title={relPost.title}
-                      likeCount={relPost.likeCount}
-                      className="postcard"
-                    />
-                  ))}
+                  {relativePosts[0] &&
+                    relativePosts.map((relPost: RelativePostType) => (
+                      <Post.MiniCard
+                        key={relPost.id}
+                        type={isExp ? 'request' : 'experiment'}
+                        thumbnail={relPost.thumbnail}
+                        title={relPost.title}
+                        likeCount={relPost.likeCount}
+                        className="postcard"
+                      />
+                    ))}
                 </styles.PostCardsWrap>
               </styles.ScrollArea>
             </styles.Bottom>
