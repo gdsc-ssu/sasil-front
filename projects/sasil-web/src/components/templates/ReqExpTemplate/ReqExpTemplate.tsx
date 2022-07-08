@@ -20,7 +20,7 @@ const ReqExpTemplate = ({
     <styles.Container>
       <PageHeader type={type} sortType={sortType} categories={categories} />
       <styles.PagesWrapper>
-        <PostsWrap posts={posts} ref={postsRef} />
+        <PostsWrap type={type} posts={posts} ref={postsRef} />
       </styles.PagesWrapper>
     </styles.Container>
   </NavBar>

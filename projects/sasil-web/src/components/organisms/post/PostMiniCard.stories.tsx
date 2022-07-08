@@ -10,8 +10,14 @@ export default {
 const RequestTemplate: ComponentStory<typeof Post.MiniCard> = ({
   title,
   likeCount,
+  postUrl,
 }: Post.MiniCardProps) => (
-  <Post.MiniCard type="request" title={title} likeCount={likeCount} />
+  <Post.MiniCard
+    type="request"
+    title={title}
+    likeCount={likeCount}
+    postUrl={postUrl}
+  />
 );
 
 export const RequestPost = RequestTemplate.bind({});
@@ -25,10 +31,12 @@ const ExperimentTemplate: ComponentStory<typeof Post.MiniCard> = ({
   likeCount,
   writerObj,
   thumbnail,
+  postUrl,
 }: Post.MiniCardProps) => (
   <Post.MiniCard
     type="experiment"
     title={title}
+    postUrl={postUrl}
     likeCount={likeCount}
     writerObj={writerObj}
     thumbnail={thumbnail}

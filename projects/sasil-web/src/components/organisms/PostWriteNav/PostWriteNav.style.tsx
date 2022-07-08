@@ -26,6 +26,7 @@ export const Button = styled.button(({ color }: ButtonProps) => ({
   borderRadius: '25px',
   backgroundColor: `${color}`,
   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+  cursor: 'pointer',
 }));
 
 export const Icon = styled.div({
@@ -54,10 +55,11 @@ export const ListItem = styled.div({
   justifyContent: 'space-between',
   fill: `${COLORS.grayscale.gray6}`,
   margin: '6px 0px',
-  '.item-text:hover': {
-    color: `${COLORS.primary.normal}`,
-  },
+  cursor: 'pointer',
   ':hover': {
     fill: `${COLORS.primary.normal}`,
+    '.item-text': {
+      color: `${COLORS.primary.normal}`,
+    },
   },
 });

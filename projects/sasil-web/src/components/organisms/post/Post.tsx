@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { COLORS, WriterType, TEXT_STYLE_NAME } from '@sasil/common';
 import Interest from '@/components/molelcules/Interest';
 import StyledText from '@/components/atoms/StyledText';
@@ -46,6 +47,8 @@ export interface MiniCardProps {
   /** [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5` */
   thumbnail?: string | null;
   className?: string;
+  /** 클릭 시 이동할 url */
+  postUrl: string;
 }
 
 export interface CardProps extends PostHeaderProps {
@@ -53,6 +56,8 @@ export interface CardProps extends PostHeaderProps {
   title: string;
   /** 게시물 좋아요 수 */
   likeCount: number;
+  /** 클릭 시 이동할 url */
+  postUrl: string;
 }
 
 /**
@@ -65,33 +70,36 @@ export const MiniCard = ({
   writerObj = null,
   thumbnail = null,
   className,
+  postUrl,
 }: MiniCardProps) => (
-  <styles.MiniCard
-    backgroundColor={theme[type].backgroundColor}
-    thumbnail={type === 'experiment' ? thumbnail : null}
-    className={className}
-  >
-    <styles.InfoWrap>
-      {writerObj && (
-        <styles.WriterWrap>
-          <WriterInfo
-            textColor={theme[type].textColor}
-            textStyleName={TEXT_STYLE_NAME.body3}
-            profileSize={14}
-            writerObj={writerObj}
-          />
-        </styles.WriterWrap>
-      )}
-      <StyledText
-        color={theme[type].textColor}
-        textStyleName={TEXT_STYLE_NAME.body2R}
-        className="post-title"
-      >
-        {title}
-      </StyledText>
-    </styles.InfoWrap>
-    <Interest color={theme[type].likeColor} count={likeCount} type="like" />
-  </styles.MiniCard>
+  <Link href={postUrl} passHref>
+    <styles.MiniCard
+      backgroundColor={theme[type].backgroundColor}
+      thumbnail={type === 'experiment' ? thumbnail : null}
+      className={className}
+    >
+      <styles.InfoWrap>
+        {writerObj && (
+          <styles.WriterWrap>
+            <WriterInfo
+              textColor={theme[type].textColor}
+              textStyleName={TEXT_STYLE_NAME.body3}
+              profileSize={14}
+              writerObj={writerObj}
+            />
+          </styles.WriterWrap>
+        )}
+        <StyledText
+          color={theme[type].textColor}
+          textStyleName={TEXT_STYLE_NAME.body2R}
+          className="post-title"
+        >
+          {title}
+        </StyledText>
+      </styles.InfoWrap>
+      <Interest color={theme[type].likeColor} count={likeCount} type="like" />
+    </styles.MiniCard>
+  </Link>
 );
 
 /**
@@ -102,18 +110,21 @@ export const Card = ({
   likeCount,
   thumbnail,
   categories,
+  postUrl,
 }: CardProps) => (
-  <styles.PostCardWrapper>
-    <PostHeader categories={categories} thumbnail={thumbnail} />
-    <styles.PostCardContent>
-      <StyledText
-        color={COLORS.grayscale.black}
-        textStyleName={TEXT_STYLE_NAME.subtitle2B}
-        className="post-title"
-      >
-        {title}
-      </StyledText>
-      <Interest color={COLORS.primary.normal} count={likeCount} type="like" />
-    </styles.PostCardContent>
-  </styles.PostCardWrapper>
+  <Link href={postUrl} passHref>
+    <styles.PostCardWrapper>
+      <PostHeader categories={categories} thumbnail={thumbnail} />
+      <styles.PostCardContent>
+        <StyledText
+          color={COLORS.grayscale.black}
+          textStyleName={TEXT_STYLE_NAME.subtitle2B}
+          className="post-title"
+        >
+          {title}
+        </StyledText>
+        <Interest color={COLORS.primary.normal} count={likeCount} type="like" />
+      </styles.PostCardContent>
+    </styles.PostCardWrapper>
+  </Link>
 );

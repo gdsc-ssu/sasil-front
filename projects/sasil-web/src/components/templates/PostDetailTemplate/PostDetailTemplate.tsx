@@ -1,7 +1,6 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import { useRouter } from 'next/router';
-
 import { COLORS, RelativePostType } from '@sasil/common';
 import PostContent from '@/components/organisms/PostContent';
 import PostSummary from '@/components/templates/PostSummary';
@@ -39,7 +38,9 @@ const PostDetailTemplate = ({
   const router = useRouter();
   const goBack = () => router.back();
   const goExpWrite = () => router.push(`/write/experiment?reqId=${post.id}`);
+
   const isExp = type === 'experiment';
+  const relPostType = isExp ? 'request' : 'experiment';
 
   return (
     <styles.Wrap>
@@ -95,7 +96,8 @@ const PostDetailTemplate = ({
                     relativePosts.map((relPost: RelativePostType) => (
                       <Post.MiniCard
                         key={relPost.id}
-                        type={isExp ? 'request' : 'experiment'}
+                        postUrl={`/post/${relPostType}/${relPost.id}`}
+                        type={relPostType}
                         thumbnail={relPost.thumbnail}
                         title={relPost.title}
                         likeCount={relPost.likeCount}
