@@ -33,9 +33,9 @@ const ExperimentPage: NextPage = () => {
     },
   );
 
-  const getExpPosts = () => {
+  const getExpPosts = async () => {
     if (hasNextPage) {
-      fetchNextPage();
+      await fetchNextPage();
     }
   };
 
