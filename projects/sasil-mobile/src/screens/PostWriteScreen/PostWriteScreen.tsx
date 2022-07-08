@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import WebView from 'react-native-webview';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { COLORS } from '@sasil/common';
 import { useAtom } from 'jotai';
@@ -11,6 +12,7 @@ const PostWriteScreen = () => {
   const [token] = useAtom(tokenAtom);
   const route = useRoute();
   const navigation = useNavigation();
+  const { bottom } = useSafeAreaInsets();
 
   const tokenJs = useMemo(
     () =>
@@ -25,7 +27,7 @@ const PostWriteScreen = () => {
   );
 
   return (
-    <styles.Container>
+    <styles.Container bottomInset={bottom}>
       <TopBar
         backgroundColor={COLORS.grayscale.white}
         onBackPress={() => navigation.goBack()}
