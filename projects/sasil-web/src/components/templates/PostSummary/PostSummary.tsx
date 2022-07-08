@@ -32,16 +32,17 @@ const PostSummary = ({ type, post, relativePosts }: PostSummaryProps) => {
         />
       )}
       <styles.PostCardsWrap>
-        {relativePosts.map((relPost: any) => (
-          <Post.MiniCard
-            key={relPost.id}
-            type={type === 'experiment' ? 'request' : 'experiment'}
-            thumbnail={relPost.thumbnail}
-            title={relPost.title}
-            likeCount={relPost.likeCount}
-            className={`postcard ${type === 'experiment' && 'req'}`}
-          />
-        ))}
+        {relativePosts[0] &&
+          relativePosts.map((relPost: any) => (
+            <Post.MiniCard
+              key={relPost.id}
+              type={type === 'experiment' ? 'request' : 'experiment'}
+              thumbnail={relPost.thumbnail}
+              title={relPost.title}
+              likeCount={relPost.likeCount}
+              className={`postcard ${type === 'experiment' && 'req'}`}
+            />
+          ))}
       </styles.PostCardsWrap>
     </styles.Wrap>
   );
