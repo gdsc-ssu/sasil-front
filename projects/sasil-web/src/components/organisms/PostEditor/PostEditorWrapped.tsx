@@ -59,7 +59,7 @@ const PostEditorWrapped = ({ type }: PostEditorWrappedProps) => {
   // 이미지 업로드 함수
   const onUploadImage = async (blob: Blob | File, callback: HookCallback) => {
     if (!accessToken) {
-      return; // TODO: 로그인 필요 기능 알림
+      return;
     }
     const res = await getImgUploadURLAsync(accessToken);
     if (res.isSuccess) {
@@ -97,8 +97,10 @@ const PostEditorWrapped = ({ type }: PostEditorWrappedProps) => {
 
     if (mdText) {
       if (!accessToken) {
-        return; // TODO: 로그인 필요 기능 알림
+        router.push('/login');
+        return;
       }
+
       const res = await addPostAsync(
         accessToken,
         type as 'request' | 'experiment',

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import WebView from 'react-native-webview';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { COLORS } from '@sasil/common';
 import { useAtom } from 'jotai';
@@ -11,14 +12,22 @@ const PostDetailScreen = () => {
   const [token] = useAtom(tokenAtom);
   const route = useRoute();
   const navigation = useNavigation();
+  const { bottom } = useSafeAreaInsets();
 
   const tokenJs = useMemo(
-    () => `window.localStorage.setItem('accessToken', '${token}');`,
+    () =>
+      `(function(){
+        let token = window.localStorage.getItem('accessToken');
+        if(!token || (token && token != '"${token}"')) {
+          window.localStorage.setItem('accessToken', '"${token}"');
+          window.location.reload();
+        }
+      })();`,
     [token],
   );
 
   return (
-    <styles.Container>
+    <styles.Container bottomInset={bottom}>
       <TopBar
         backgroundColor={COLORS.grayscale.white}
         onBackPress={() => navigation.goBack()}
@@ -26,9 +35,11 @@ const PostDetailScreen = () => {
       <WebView
         style={styles.webView}
         source={{
-          uri: `https://sasil-front-tsxu1cfxu-sasil.vercel.app/post/${route.params.type}/${route.params.id}`,
+          uri: `https://sasil.app/post/${route.params.type}/${route.params.id}`,
         }}
-        injectedJavaScript={tokenJs}
+        injectedJavaScriptBeforeContentLoaded={tokenJs}
+        javaScriptEnabled
+        domStorageEnabled
       />
     </styles.Container>
   );

@@ -12,9 +12,11 @@ const CardTemplate: ComponentStory<typeof Post.Card> = ({
   likeCount,
   thumbnail,
   categories,
+  postUrl,
 }: Post.CardProps) => (
   <Post.Card
     title={title}
+    postUrl={postUrl}
     likeCount={likeCount}
     thumbnail={thumbnail}
     categories={categories}

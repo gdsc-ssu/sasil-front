@@ -22,6 +22,7 @@ export const MiniCard = styled.div((props: miniCardProps) => ({
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
   backgroundSize: 'cover',
+  cursor: 'pointer',
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     width: 140,
@@ -55,6 +56,7 @@ export const PostCardWrapper = styled.div({
   borderRadius: '5px',
   backgroundColor: COLORS.grayscale.white,
   margin: '10px',
+  cursor: 'pointer',
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     width: '90%',

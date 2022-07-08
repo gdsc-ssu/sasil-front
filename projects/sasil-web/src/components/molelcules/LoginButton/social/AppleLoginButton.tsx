@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import {
   appleClientId,
   appleRedirectURI,
@@ -66,8 +67,14 @@ const AppleLoginButton = () => {
     }
   };
 
+  const router = useRouter();
+
   useEffect(() => {
     const { AppleID }: any = window;
+    if (!AppleID) {
+      router.reload();
+      return;
+    }
     AppleID.auth.init({
       clientId: appleClientId,
       scope: 'name email',
@@ -76,7 +83,7 @@ const AppleLoginButton = () => {
       nonce: generateNonce(16),
       usePopup: true,
     });
-  }, []);
+  }, [router]);
 
   return <LoginButton social="apple" onClick={loginWithApple} />;
 };

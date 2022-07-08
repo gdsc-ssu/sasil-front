@@ -30,7 +30,7 @@ const MainPostsWrap = ({ posts, type }: MainPostsWrapProps) => {
             onPress={() =>
               navigation.navigate('PostDetail', {
                 id: post.id,
-                type,
+                type: POSTS_INFO[type].postType,
               })
             }
           />

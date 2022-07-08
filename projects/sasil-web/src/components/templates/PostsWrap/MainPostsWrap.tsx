@@ -26,6 +26,7 @@ const MainPostsWrap = ({ posts, type, className }: MainPostsWrapProps) => (
       <React.Fragment key={post.id}>
         {index === POSTS_INFO[type].index && <MainPostsNavCard type={type} />}
         <Post.MiniCard
+          postUrl={`/post/${POSTS_INFO[type].postType}/${post.id}`}
           type={POSTS_INFO[type].postType}
           title={post.title}
           likeCount={post.likeCount}
@@ -36,4 +37,5 @@ const MainPostsWrap = ({ posts, type, className }: MainPostsWrapProps) => (
     ))}
   </styles.Wrap>
 );
+
 export default MainPostsWrap;

@@ -57,7 +57,8 @@ const CommentsAreaWrapped = () => {
   const addComment = useCallback(async () => {
     if (commentValue.length > 0) {
       if (!accessToken) {
-        return; // TODO: 로그인 필요 기능 알림
+        router.push('/login');
+        return;
       }
 
       await addCommentAsync(accessToken, postType, postId, commentValue);
@@ -73,6 +74,7 @@ const CommentsAreaWrapped = () => {
     postId,
     postType,
     refetch,
+    router,
   ]);
 
   const canWrite = useMemo(

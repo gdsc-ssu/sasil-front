@@ -20,10 +20,13 @@ const PostSummary = ({ type, post, relativePosts }: PostSummaryProps) => {
   const router = useRouter();
   const goExpWrite = () => router.push(`/write/experiment?reqId=${post.id}`);
 
+  const isExp = type === 'experiment';
+  const relPostType = isExp ? 'request' : 'experiment';
+
   return (
     <styles.Wrap>
       <PostInfoCard post={post} />
-      {type === 'request' && (
+      {!isExp && (
         <StyledButton
           text="실험하기"
           textStyleName="button2B"
@@ -33,14 +36,15 @@ const PostSummary = ({ type, post, relativePosts }: PostSummaryProps) => {
       )}
       <styles.PostCardsWrap>
         {relativePosts[0] &&
-          relativePosts.map((relPost: any) => (
+          relativePosts.map((relPost: RelativePostType) => (
             <Post.MiniCard
               key={relPost.id}
-              type={type === 'experiment' ? 'request' : 'experiment'}
+              postUrl={`/post/${relPostType}/${relPost.id}`}
+              type={relPostType}
               thumbnail={relPost.thumbnail}
               title={relPost.title}
               likeCount={relPost.likeCount}
-              className={`postcard ${type === 'experiment' && 'req'}`}
+              className={`postcard ${isExp && 'req'}`}
             />
           ))}
       </styles.PostCardsWrap>

@@ -91,7 +91,8 @@ const PostDetail: NextPage = () => {
 
   const handleLike = useCallback(async () => {
     if (!accessToken) {
-      return; // TODO: 로그인 필요 기능 알림
+      router.push('/login');
+      return;
     }
 
     const result = likeInfo.isLike
@@ -105,13 +106,13 @@ const PostDetail: NextPage = () => {
         isLike: !prev.isLike,
       }));
     }
-  }, [accessToken, likeInfo.isLike, postId, postType]);
+  }, [accessToken, likeInfo.isLike, postId, postType, router]);
 
   const handleBookmark = useCallback(async () => {
     if (!accessToken) {
-      return; // TODO: 로그인 필요 기능 알림
+      router.push('/login');
+      return;
     }
-
     const result = bookmarkInfo.isBookmark
       ? await deleteBookmarkAsync(accessToken, postType, postId)
       : await addBookmarkAsync(accessToken, postType, postId);
@@ -125,7 +126,7 @@ const PostDetail: NextPage = () => {
         isBookmark: !prev.isBookmark,
       }));
     }
-  }, [accessToken, bookmarkInfo.isBookmark, postId, postType]);
+  }, [accessToken, bookmarkInfo.isBookmark, postId, postType, router]);
 
   if (realPost === undefined || relativePosts === undefined) {
     return <>로딩중 </>;
