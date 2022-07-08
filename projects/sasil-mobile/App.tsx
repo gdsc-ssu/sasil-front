@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 import { useFonts } from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
 import RootNavigator from '@/routes/RootNavigator';
 import StorybookUIRoot from './storybook';
 
@@ -25,7 +26,12 @@ const App = () => {
     return null;
   }
 
-  return <RootNavigator />;
+  return (
+    <>
+      <RootNavigator />
+      <StatusBar style="auto" />
+    </>
+  );
 };
 
 export default STORYBOOK_ENABLED ? StorybookUIRoot : App;
