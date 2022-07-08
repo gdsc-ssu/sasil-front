@@ -1,3 +1,4 @@
+import { Pressable } from 'react-native';
 import { COLORS, PostListType, TEXT_STYLE_NAME } from '@sasil/common';
 
 import SasilLogo from '@/assets/icons/SasilLogo';
@@ -50,6 +51,7 @@ interface MainTemplateProps {
   hotReqPosts: PostListType[];
   popReqPosts: PostListType[];
   popExpPosts: PostListType[];
+  onProfilePress?: () => void;
 }
 
 // TODO 페이지 구현하면 NavBar 연결
@@ -57,6 +59,7 @@ const MainTemplate = ({
   hotReqPosts,
   popReqPosts,
   popExpPosts,
+  onProfilePress,
 }: MainTemplateProps) => (
   <styles.Template>
     {/* <NavBar> */}
@@ -72,7 +75,9 @@ const MainTemplate = ({
           </StyledText>
         </styles.LogoWrap>
         <styles.MenuWrap>
-          <ProfileImage size={32} />
+          <Pressable onPress={onProfilePress}>
+            <ProfileImage size={32} />
+          </Pressable>
           <SearchIcon size={32} />
         </styles.MenuWrap>
       </styles.Top>

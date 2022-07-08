@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { getPostsAsync, PostListType } from '@sasil/common';
 import { expPosts, reqPosts } from '@/components/dummyData';
 import MainTemplate from '@/components/templates/MainTemplate';
 import * as styles from './MainScreen.style';
 
 const MainScreen = () => {
+  const navigation = useNavigation();
+
   const [posts, setPosts] = useState<{
     hotReqPosts: PostListType[];
     popExpPosts: PostListType[];
@@ -33,6 +36,10 @@ const MainScreen = () => {
     getInitialData();
   }, []);
 
+  const openLoginModal = useCallback(() => {
+    navigation.navigate('Login');
+  }, [navigation]);
+
   return (
     <styles.Screen>
       <MainTemplate
@@ -45,6 +52,7 @@ const MainScreen = () => {
         popReqPosts={
           posts.popReqPosts.length > 0 ? posts.popReqPosts : reqPosts
         }
+        onProfilePress={openLoginModal}
       />
     </styles.Screen>
   );
