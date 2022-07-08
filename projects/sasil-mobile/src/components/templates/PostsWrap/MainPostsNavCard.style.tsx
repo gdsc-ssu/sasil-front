@@ -1,14 +1,16 @@
 import styled, { css } from '@emotion/native';
 
-export const Wrap = styled.View(({ alignRight }: { alignRight: boolean }) => ({
-  width: 140,
-  height: 100,
-  paddingHorizontal: 12,
-  paddingVertical: 3,
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: alignRight ? 'flex-end' : 'flex-start',
-}));
+export const Wrap = styled.Pressable(
+  ({ alignRight }: { alignRight: boolean }) => ({
+    width: 140,
+    height: 100,
+    paddingHorizontal: 12,
+    paddingVertical: 3,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: alignRight ? 'flex-end' : 'flex-start',
+  }),
+);
 
 export const IconWrap = styled.View(
   ({ haveFireIcon }: { haveFireIcon: boolean }) => ({

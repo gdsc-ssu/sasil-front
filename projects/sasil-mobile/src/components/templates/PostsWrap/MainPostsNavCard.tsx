@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
-
+import { useNavigation } from '@react-navigation/native';
 import RequestIcon from '@/assets/icons/Request';
 import ExperimentIcon from '@/assets/icons/Experiment';
 import CircleRightIcon from '@/assets/icons/CircleRight';
@@ -51,11 +51,20 @@ export interface MainPostsNavCardProps {
  * PostsWrap의 제목을 나타내고 의뢰 및 실험 페이지로 이동시키는 컴포넌트.
  */
 const MainPostsNavCard = ({ type, style }: MainPostsNavCardProps) => {
-  // TODO CircleIcon 누르면 상세 페이지 이동하기
+  const navigation = useNavigation();
   const haveFireIcon = type === 'hotRequest';
   const alignRight = type !== 'popExperiment';
+
   return (
-    <styles.Wrap alignRight={alignRight} style={style}>
+    <styles.Wrap
+      alignRight={alignRight}
+      style={style}
+      onPress={() => {
+        navigation.navigate(
+          POSTS_INFO[type].postType === 'request' ? 'Request' : 'Experiment',
+        );
+      }}
+    >
       <styles.IconWrap haveFireIcon={haveFireIcon}>
         {POSTS_INFO[type].icon}
       </styles.IconWrap>

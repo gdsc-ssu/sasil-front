@@ -2,8 +2,9 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import PostDetailScreen from '@/screens/PostDetailScreen';
+import PostWriteScreen from '@/screens/PostWriteScreen';
 import LoginModal from '@/screens/LoginModal';
-import MainScreen from '@/screens/MainScreen';
 import BottomTabNavigator from './BottomTabNavigator';
 
 const Stack = createStackNavigator();
@@ -18,11 +19,19 @@ const RootNavigator = () => (
           headerShown: false,
         }}
       >
-        {/* <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Login" component={LoginModal} />
-      </Stack.Group> */}
-        {/* Login 후 넘어갈 Stack.Screen  */}
         <Stack.Screen name="MainStack" component={BottomTabNavigator} />
+        <Stack.Group
+          screenOptions={{
+            presentation: 'modal',
+            cardStyle: {
+              backgroundColor: 'transparent',
+            },
+          }}
+        >
+          <Stack.Screen name="Login" component={LoginModal} />
+          <Stack.Screen name="PostDetail" component={PostDetailScreen} />
+          <Stack.Screen name="PostWrite" component={PostWriteScreen} />
+        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   </QueryClientProvider>

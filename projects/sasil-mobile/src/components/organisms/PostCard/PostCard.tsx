@@ -1,3 +1,4 @@
+import { Pressable } from 'react-native';
 import Like from '@/components/molecule/Like';
 import StyledText from '@/components/atom/StyledText';
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
@@ -46,6 +47,7 @@ export interface PostCardProps {
   thumbnail?: string | null;
   /** 추가 style 적용을 위한 css 객체 */
   style?: any;
+  onPress?: () => void;
 }
 
 /**
@@ -58,36 +60,40 @@ const PostCard = ({
   writerObj,
   thumbnail,
   style,
+  onPress,
 }: PostCardProps) => {
   const isExperiment = type === 'experiment';
+
   return (
-    <styles.PostWrap
-      source={{ uri: (isExperiment && thumbnail) || undefined }}
-      resizeMode="cover"
-      style={style}
-    >
-      {isExperiment && <styles.Filter />}
-      <styles.InfoWrap>
-        {isExperiment && (
-          <styles.WriterWrap>
-            <WriterInfo
-              textColor={theme[type].textColor}
-              writerObj={writerObj}
-              profileSize={14}
-              textStyleName={TEXT_STYLE_NAME.body3}
-            />
-          </styles.WriterWrap>
-        )}
-        <StyledText
-          color={theme[type].textColor}
-          textStyleName={TEXT_STYLE_NAME.body2R}
-          numberOfLines={2}
-        >
-          {title}
-        </StyledText>
-      </styles.InfoWrap>
-      <Like color={theme[type].likeColor} likeCount={likeCount} />
-    </styles.PostWrap>
+    <Pressable onPress={onPress}>
+      <styles.PostWrap
+        source={{ uri: (isExperiment && thumbnail) || undefined }}
+        resizeMode="cover"
+        style={style}
+      >
+        {isExperiment && <styles.Filter />}
+        <styles.InfoWrap>
+          {isExperiment && (
+            <styles.WriterWrap>
+              <WriterInfo
+                textColor={theme[type].textColor}
+                writerObj={writerObj}
+                profileSize={14}
+                textStyleName={TEXT_STYLE_NAME.body3}
+              />
+            </styles.WriterWrap>
+          )}
+          <StyledText
+            color={theme[type].textColor}
+            textStyleName={TEXT_STYLE_NAME.body2R}
+            numberOfLines={2}
+          >
+            {title}
+          </StyledText>
+        </styles.InfoWrap>
+        <Like color={theme[type].likeColor} likeCount={likeCount} />
+      </styles.PostWrap>
+    </Pressable>
   );
 };
 

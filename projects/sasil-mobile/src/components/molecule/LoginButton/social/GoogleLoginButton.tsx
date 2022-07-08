@@ -3,6 +3,7 @@ import * as Google from 'expo-auth-session/providers/google';
 import { googleClientId, getUser, loginAsync, LOGIN_TYPE } from '@sasil/common';
 import { ResponseType, AuthSessionResult } from 'expo-auth-session';
 import { useAtom } from 'jotai';
+import { tokenAtom } from '@/logics/store/atoms';
 import { createUserInfoAtom } from '@/logics/store/actions';
 import LoginButton from '../LoginButton';
 
@@ -10,6 +11,7 @@ import LoginButton from '../LoginButton';
 const GoogleLoginButton = () => {
   // UserInfo Update Action
   const [, setUserInfo] = useAtom(createUserInfoAtom);
+  const [, setToken] = useAtom(tokenAtom);
 
   const [req, resp, promptAsync] = Google.useAuthRequest({
     expoClientId: googleClientId.expo,
@@ -24,6 +26,7 @@ const GoogleLoginButton = () => {
         const res = await loginAsync(LOGIN_TYPE.googleWeb, idToken);
 
         if (res.isSuccess) {
+          setToken(res.result.token);
           const userData = await getUser(res.result.token);
 
           if (userData.isSuccess) {
@@ -32,7 +35,7 @@ const GoogleLoginButton = () => {
         }
       }
     },
-    [setUserInfo],
+    [setUserInfo, setToken],
   );
 
   useEffect(() => {

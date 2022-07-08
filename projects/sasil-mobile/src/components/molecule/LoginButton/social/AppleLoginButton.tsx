@@ -1,6 +1,7 @@
 import React from 'react';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import { getUser, loginAsync } from '@sasil/common';
+import { tokenAtom } from '@/logics/store/atoms';
 import { createUserInfoAtom } from '@/logics/store/actions';
 import { useAtom } from 'jotai';
 import LoginButton from '../LoginButton';
@@ -9,6 +10,7 @@ import LoginButton from '../LoginButton';
 const AppleLoginButton = () => {
   // UserInfo Update Action
   const [, setUserInfo] = useAtom(createUserInfoAtom);
+  const [, setToken] = useAtom(tokenAtom);
 
   // Apple 로그인 성공시 유저 정보 받아온 후 userInfo atom에 넣어주는 함수
   const loginWithApple = async () => {
@@ -30,10 +32,11 @@ const AppleLoginButton = () => {
 
       if (res.isSuccess) {
         const { token } = res.result;
+        setToken(token);
         const userData = await getUser(token);
 
         if (userData.isSuccess) {
-          setUserInfo(userData);
+          setUserInfo(userData.result);
         } else alert(userData.result.errorMessage);
       } else alert(res.result.errorMessage);
     } catch (error: any) {

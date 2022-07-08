@@ -20,7 +20,7 @@ export const NavList = styled.View({
   marginBottom: 10,
 });
 
-export const NavItem = styled.View({
+export const NavItem = styled.Pressable({
   width: '80%',
   display: 'flex',
   flexDirection: 'row',
