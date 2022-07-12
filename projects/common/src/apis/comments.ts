@@ -7,7 +7,7 @@ export interface CommentType {
   createdAt: string;
   updatedAt: string;
   content: string;
-  user: WriterType;
+  user?: WriterType;
   parentId?: number;
 }
 

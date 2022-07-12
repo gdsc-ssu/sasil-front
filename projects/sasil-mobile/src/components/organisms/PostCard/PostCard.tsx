@@ -1,7 +1,7 @@
 import { Pressable } from 'react-native';
 import Like from '@/components/molecule/Like';
 import StyledText from '@/components/atom/StyledText';
-import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
+import { COLORS, TEXT_STYLE_NAME, WriterType } from '@sasil/common';
 import WriterInfo from '@/components/molecule/WriterInfo';
 import * as styles from './PostCard.style';
 
@@ -42,7 +42,7 @@ export interface PostCardProps {
   /** 게시물 좋아요 수 */
   likeCount: number;
   /** [실험만 필요] 게시물 작성자 정보(닉네임,프로필 사진)를 담은 객체 */
-  writerObj?: any;
+  writerObj?: WriterType;
   /** [실험만 필요] 게시물의 대표 이미지. 이미지 없을시 배경색 `gray5` */
   thumbnail?: string | null;
   /** 추가 style 적용을 위한 css 객체 */

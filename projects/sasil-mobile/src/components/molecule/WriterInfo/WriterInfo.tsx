@@ -1,12 +1,16 @@
 import ProfileImage from '@/components/atom/ProfileImage';
 import StyledText from '@/components/atom/StyledText';
-import { TextStyleName } from '@sasil/common';
+import {
+  TextStyleName,
+  WriterType,
+  DELETED_USER_NICKNAME,
+} from '@sasil/common';
 import * as styles from './WriterInfo.style';
 
 // TODO writerObj type 추후 지정
 export interface WriterInfoProps {
   /** 작성자 정보 객체 */
-  writerObj: any;
+  writerObj?: WriterType;
   /** 닉네임 텍스트 스타일(`TEXT_STYLE_NAME.*`) */
   textStyleName: TextStyleName;
   /** 닉네임 텍스트 색상 */
@@ -25,10 +29,10 @@ const WriterInfo = ({
   profileSize,
 }: WriterInfoProps) => (
   <styles.Wrap>
-    <ProfileImage src={writerObj.profileImg} size={profileSize} />
+    <ProfileImage src={writerObj?.profileImg} size={profileSize} />
     <styles.TextWrap>
       <StyledText color={textColor} textStyleName={textStyleName}>
-        {writerObj.nickname}
+        {writerObj?.nickname ?? DELETED_USER_NICKNAME}
       </StyledText>
     </styles.TextWrap>
   </styles.Wrap>
