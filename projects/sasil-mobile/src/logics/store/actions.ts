@@ -8,7 +8,6 @@ export const createUserInfoAtom = atom(
       id: userObj.id,
       profile: userObj.profile,
       nickname: userObj.nickname,
-      email: userObj.email,
     };
     set(userInfoAtom, newUserInfo);
   },

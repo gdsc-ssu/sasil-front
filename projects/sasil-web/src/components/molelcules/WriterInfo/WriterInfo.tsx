@@ -5,6 +5,7 @@ import {
   TextStyleName,
   TEXT_STYLE_NAME,
   WriterType,
+  DELETED_USER_NICKNAME,
 } from '@sasil/common';
 import * as styles from './WriterInfo.style';
 
@@ -21,7 +22,7 @@ const formatDate = (date: string) => {
 
 export interface WriterInfoProps {
   /** 작성자 정보 객체 */
-  writerObj: WriterType;
+  writerObj?: WriterType;
   /** 닉네임 텍스트 스타일(`TEXT_STYLE_NAME.*`) */
   textStyleName: TextStyleName;
   /** 닉네임 텍스트 색상 */
@@ -43,13 +44,13 @@ const WriterInfo = ({
   writeDate,
 }: WriterInfoProps) => (
   <styles.WriterWrap>
-    <ProfileImage src={writerObj.profileImg} size={profileSize} />
+    <ProfileImage src={writerObj?.profileImg} size={profileSize} />
     <StyledText
       color={textColor}
       textStyleName={textStyleName}
       className="writer-info"
     >
-      {writerObj.nickname}
+      {writerObj?.nickname ?? DELETED_USER_NICKNAME}
     </StyledText>
     {writeDate && (
       <StyledText
