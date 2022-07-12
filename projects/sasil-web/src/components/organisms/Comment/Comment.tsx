@@ -5,7 +5,7 @@ import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
 import * as styles from './Comment.style';
 
 export interface CommentProps {
-  writerObj: WriterType;
+  writerObj?: WriterType;
   content: string;
 }
 

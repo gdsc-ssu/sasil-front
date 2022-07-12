@@ -20,7 +20,7 @@ export interface PostBasicType {
   title: string;
   thumbnail?: string | null;
   likeCount: number;
-  user: WriterType;
+  user?: WriterType;
 }
 
 export interface PostListType extends PostBasicType {
