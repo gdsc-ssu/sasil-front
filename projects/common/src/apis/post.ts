@@ -1,4 +1,4 @@
-import { getAsync, postAsync, ApiResult } from './apiUtils';
+import { getAsync, postAsync, deleteAsync, ApiResult } from './apiUtils';
 
 export type StateType = 'all' | 'wait' | 'answered';
 
@@ -144,6 +144,29 @@ export const getImgUploadURLAsync = async (
       Authorization: token,
     },
   });
+
+  return result;
+};
+
+/**
+ * 게시물 삭제
+ * @param token 소셜 로그인으로 받은 토큰
+ * @param postType 게시물 타입
+ * @param postId 게시물 id값
+ */
+export const deletePostAsync = async (
+  token: string,
+  postType: 'request' | 'experiment',
+  postId: number,
+): ApiResult<undefined> => {
+  const result = await deleteAsync<undefined, any>(
+    `/post/${postType}/${postId}`,
+    {
+      headers: {
+        Authorization: token,
+      },
+    },
+  );
 
   return result;
 };
