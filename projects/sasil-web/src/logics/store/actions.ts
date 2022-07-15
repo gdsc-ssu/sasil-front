@@ -6,7 +6,7 @@ export const getUserInfoAtom = atom(
   (get, set, userData: any) => {
     const newUserInfo: UserInfoType = {
       id: userData.id,
-      profile: userData.profile,
+      profileImg: userData.profileImg,
       nickname: userData.nickname,
       token: userData.token,
     };
