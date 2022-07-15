@@ -1,21 +1,15 @@
 import { atom } from 'jotai';
-import { userInfoAtom, accessTokenAtom, UserInfoType } from './atoms';
+import { userInfoAtom, UserInfoType } from './atoms';
 
-export const createUserInfoAtom = atom(
+export const getUserInfoAtom = atom(
   (get) => get(userInfoAtom),
-  (get, set, userObj: any) => {
+  (get, set, userData: any) => {
     const newUserInfo: UserInfoType = {
-      id: userObj.id,
-      profile: userObj.profile,
-      nickname: userObj.nickname,
+      id: userData.id,
+      profile: userData.profile,
+      nickname: userData.nickname,
+      token: userData.token,
     };
     set(userInfoAtom, newUserInfo);
-  },
-);
-
-export const getAccessTokenAtom = atom(
-  (get) => get(accessTokenAtom),
-  (get, set, accessToken: string) => {
-    set(accessTokenAtom, accessToken);
   },
 );
