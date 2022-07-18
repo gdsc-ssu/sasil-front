@@ -1,15 +1,15 @@
 import { atom } from 'jotai';
 
-export const tokenAtom = atom('');
-
 export type UserInfoType = {
   id: number | null;
-  profile: string | null;
+  profileImg: string | null;
   nickname: string | null;
+  token: string | null;
 };
 
 export const userInfoAtom = atom<UserInfoType>({
   id: null,
-  profile: null,
+  profileImg: null,
   nickname: null,
+  token: null,
 });

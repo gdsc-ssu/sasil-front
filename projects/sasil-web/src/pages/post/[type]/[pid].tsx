@@ -14,7 +14,7 @@ import {
   PostDetailType,
   RelativePostType,
 } from '@sasil/common';
-import { getAccessTokenAtom } from '@/logics/store/actions';
+import { getUserInfoAtom } from '@/logics/store/actions';
 
 // Toast Viewer를 사용하기 위한 ssr 해제
 const PostDetailTemplate = dynamic(
@@ -27,7 +27,7 @@ const PostDetail: NextPage = () => {
 
   const postType = router.query.type as 'experiment' | 'request';
   const postId = Number(router.query.pid);
-  const [accessToken] = useAtom(getAccessTokenAtom);
+  const [userInfo] = useAtom(getUserInfoAtom);
 
   const [realPost, setRealPost] = useState<PostDetailType | undefined>(
     undefined,
@@ -50,7 +50,7 @@ const PostDetail: NextPage = () => {
     const getInitialData = async () => {
       // content
       const postDetailResult = await getPostDetailAsync(
-        accessToken ?? '', // Access Token이 없어도 정상 동작
+        userInfo?.token ?? '', // Access Token이 없어도 정상 동작
         postType,
         postId,
       );
@@ -87,17 +87,17 @@ const PostDetail: NextPage = () => {
     };
 
     getInitialData();
-  }, [accessToken, postId, postType]);
+  }, [userInfo, postId, postType]);
 
   const handleLike = useCallback(async () => {
-    if (!accessToken) {
+    if (!userInfo?.token) {
       router.push('/login');
       return;
     }
 
     const result = likeInfo.isLike
-      ? await deleteLikeAsync(accessToken, postType, postId)
-      : await addLikeAsync(accessToken, postType, postId);
+      ? await deleteLikeAsync(userInfo.token, postType, postId)
+      : await addLikeAsync(userInfo.token, postType, postId);
 
     if (result.isSuccess) {
       setLike((prev) => ({
@@ -106,16 +106,16 @@ const PostDetail: NextPage = () => {
         isLike: !prev.isLike,
       }));
     }
-  }, [accessToken, likeInfo.isLike, postId, postType, router]);
+  }, [userInfo, likeInfo.isLike, postId, postType, router]);
 
   const handleBookmark = useCallback(async () => {
-    if (!accessToken) {
+    if (!userInfo?.token) {
       router.push('/login');
       return;
     }
     const result = bookmarkInfo.isBookmark
-      ? await deleteBookmarkAsync(accessToken, postType, postId)
-      : await addBookmarkAsync(accessToken, postType, postId);
+      ? await deleteBookmarkAsync(userInfo.token, postType, postId)
+      : await addBookmarkAsync(userInfo.token, postType, postId);
 
     if (result.isSuccess) {
       setBookmark((prev) => ({
@@ -126,7 +126,7 @@ const PostDetail: NextPage = () => {
         isBookmark: !prev.isBookmark,
       }));
     }
-  }, [accessToken, bookmarkInfo.isBookmark, postId, postType, router]);
+  }, [userInfo, bookmarkInfo.isBookmark, postId, postType, router]);
 
   if (realPost === undefined || relativePosts === undefined) {
     return <>로딩중 </>;

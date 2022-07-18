@@ -3,5 +3,5 @@ export interface UserType {
   createdAt: string;
   updatedAt: string;
   nickname: string;
-  profile?: string;
+  profileImg: string | null;
 }

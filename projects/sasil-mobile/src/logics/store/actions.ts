@@ -3,11 +3,12 @@ import { userInfoAtom, UserInfoType } from './atoms';
 
 export const createUserInfoAtom = atom(
   (get) => get(userInfoAtom),
-  (get, set, userObj: any) => {
+  (get, set, userData: any) => {
     const newUserInfo: UserInfoType = {
-      id: userObj.id,
-      profile: userObj.profile,
-      nickname: userObj.nickname,
+      id: userData.id,
+      profileImg: userData.profileImg,
+      nickname: userData.nickname,
+      token: userData.token,
     };
     set(userInfoAtom, newUserInfo);
   },

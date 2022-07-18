@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 
 import { getCommentListAsync, addCommentAsync } from '@sasil/common';
 import useInifiniteScroll from '@/logics/hooks/useInfiniteScroll';
-import { getAccessTokenAtom } from '@/logics/store/actions';
+import { getUserInfoAtom } from '@/logics/store/actions';
 import CommentsArea from './CommentsArea';
 
 const CommentsAreaWrapped = () => {
@@ -15,7 +15,7 @@ const CommentsAreaWrapped = () => {
   const postId = Number(router.query.pid);
   const display = 10;
 
-  const [accessToken] = useAtom(getAccessTokenAtom);
+  const [userInfo] = useAtom(getUserInfoAtom);
 
   const commentsRef = useRef(null);
 
@@ -56,19 +56,19 @@ const CommentsAreaWrapped = () => {
 
   const addComment = useCallback(async () => {
     if (commentValue.length > 0) {
-      if (!accessToken) {
+      if (!userInfo?.token) {
         router.push('/login');
         return;
       }
 
-      await addCommentAsync(accessToken, postType, postId, commentValue);
+      await addCommentAsync(userInfo.token, postType, postId, commentValue);
 
       onCommentTextChange('');
 
       await refetch();
     }
   }, [
-    accessToken,
+    userInfo,
     commentValue,
     onCommentTextChange,
     postId,

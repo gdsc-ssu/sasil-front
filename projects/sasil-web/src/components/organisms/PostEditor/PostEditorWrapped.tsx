@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { Editor as EditorType } from '@toast-ui/react-editor';
 import { HookCallback } from '@/components/molelcules/Editor/Editor';
 import { useAtom } from 'jotai';
-import { getAccessTokenAtom } from '@/logics/store/actions';
+import { getUserInfoAtom } from '@/logics/store/actions';
 import PostEditor from './PostEditor';
 
 type WriteDataType = {
@@ -24,7 +24,7 @@ const PostEditorWrapped = ({ type }: PostEditorWrappedProps) => {
 
   const router = useRouter();
   const { reqId } = router.query;
-  const [accessToken] = useAtom(getAccessTokenAtom);
+  const [userInfo] = useAtom(getUserInfoAtom);
 
   const [writeData, setWriteData] = useState<WriteDataType>({
     title: '',
@@ -58,10 +58,10 @@ const PostEditorWrapped = ({ type }: PostEditorWrappedProps) => {
 
   // 이미지 업로드 함수
   const onUploadImage = async (blob: Blob | File, callback: HookCallback) => {
-    if (!accessToken) {
+    if (!userInfo?.token) {
       return;
     }
-    const res = await getImgUploadURLAsync(accessToken);
+    const res = await getImgUploadURLAsync(userInfo.token);
     if (res.isSuccess) {
       const formData = new FormData();
       formData.append('file', blob, 'test');
@@ -96,13 +96,13 @@ const PostEditorWrapped = ({ type }: PostEditorWrappedProps) => {
     const uniqueCgInputSet = [...new Set(writeData.cgInputList)]; // 카테고리 리스트 중복 제거
 
     if (mdText) {
-      if (!accessToken) {
+      if (!userInfo?.token) {
         router.push('/login');
         return;
       }
 
       const res = await addPostAsync(
-        accessToken,
+        userInfo.token,
         type as 'request' | 'experiment',
         writeData.title,
         mdText,
