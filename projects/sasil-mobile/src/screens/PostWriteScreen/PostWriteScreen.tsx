@@ -4,26 +4,29 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { COLORS } from '@sasil/common';
 import { useAtom } from 'jotai';
-import { tokenAtom } from '@/logics/store/atoms';
+import { userInfoAtom } from '@/logics/store/atoms';
 import TopBar from '@/components/molecule/TopBar';
 import * as styles from './PostWriteScreen.style';
 
 const PostWriteScreen = () => {
-  const [token] = useAtom(tokenAtom);
+  const [userInfo] = useAtom(userInfoAtom);
   const route = useRoute();
   const navigation = useNavigation();
   const { bottom } = useSafeAreaInsets();
 
+  // TODO: 테스트 필요
   const tokenJs = useMemo(
     () =>
       `(function(){
-        let token = window.localStorage.getItem('accessToken');
-        if(!token || (token && token != '"${token}"')) {
-          window.localStorage.setItem('accessToken', '"${token}"');
+        const savedData = window.localStorage.getItem('userInfo');
+        let userInfo = JSON.parse(savedData)
+        if(!userInfo || (userInfo.token && userInfo.token != '${userInfo.token}')) {
+          const toJson = JSON.stringify(${userInfo});
+          window.localStorage.setItem('userInfo', toJson);
           window.location.reload();
         }
       })();`,
-    [token],
+    [userInfo],
   );
 
   return (

@@ -4,7 +4,7 @@ import { useAtom } from 'jotai';
 
 import styled from '@emotion/styled';
 import SocialLoginBox from '@/components/organisms/login/SocialLoginBox';
-import { getAccessTokenAtom } from '@/logics/store/actions';
+import { getUserInfoAtom } from '@/logics/store/actions';
 
 const Container = styled.div({
   height: '100vh',
@@ -16,9 +16,9 @@ const Container = styled.div({
 const LoginPage = () => {
   const router = useRouter();
 
-  const [accessToken] = useAtom(getAccessTokenAtom);
+  const [userInfo] = useAtom(getUserInfoAtom);
 
-  if (accessToken) {
+  if (userInfo?.token) {
     router.back();
   }
 

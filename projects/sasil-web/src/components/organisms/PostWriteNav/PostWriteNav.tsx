@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { COLORS } from '@sasil/common';
-import { getAccessTokenAtom } from '@/logics/store/actions';
+import { getUserInfoAtom } from '@/logics/store/actions';
 import { useAtom } from 'jotai';
 import StyledText from '@/components/atoms/StyledText';
 
@@ -39,7 +39,7 @@ const PostWriteNav = () => {
   const router = useRouter();
   const [listOpened, setListOpened] = useState(false);
   const handleListOpen = () => setListOpened(!listOpened);
-  const [accessToken] = useAtom(getAccessTokenAtom);
+  const [userInfo] = useAtom(getUserInfoAtom);
 
   return (
     <styles.Wrap>
@@ -48,13 +48,13 @@ const PostWriteNav = () => {
           <ListItem
             type="request"
             onClick={() =>
-              router.push(accessToken ? '/write/request' : '/login')
+              router.push(userInfo?.token ? '/write/request' : '/login')
             }
           />
           <ListItem
             type="experiment"
             onClick={() =>
-              router.push(accessToken ? '/write/experiment' : '/login')
+              router.push(userInfo?.token ? '/write/experiment' : '/login')
             }
           />
         </styles.ListWrap>
