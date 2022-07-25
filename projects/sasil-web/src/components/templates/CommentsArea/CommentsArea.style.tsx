@@ -34,3 +34,20 @@ export const CommentsWrap = styled.div({
     padding: '0px 20px',
   },
 });
+
+export const MenuItem = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+  margin: '3px 0px',
+  '.menu-text': {
+    marginLeft: '7px',
+  },
+  color: COLORS.grayscale.gray7,
+  '&:hover': {
+    color: COLORS.primary.normal,
+    '.menu-text': {
+      color: COLORS.primary.normal,
+    },
+  },
+});
