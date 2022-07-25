@@ -82,6 +82,38 @@ const CommentsAreaWrapped = () => {
     [commentValue.length],
   );
 
+  const [menuDisplayInfo, setMenuDisplayInfo] = useState({
+    display: false,
+    top: 0,
+    left: 0,
+  });
+
+  const onMenuDisplayChange = (top?: number, left?: number) => {
+    setMenuDisplayInfo({
+      display: !menuDisplayInfo.display,
+      top: top ?? 0,
+      left: left ?? 0,
+    });
+  };
+
+  const onDeleteComment = () => {
+    // TODO 댓글 삭제
+    console.log('삭제');
+    setMenuDisplayInfo({
+      ...menuDisplayInfo,
+      display: !menuDisplayInfo.display,
+    });
+  };
+
+  const onReportComment = () => {
+    // TODO 댓글 신고
+    console.log('신고');
+    setMenuDisplayInfo({
+      ...menuDisplayInfo,
+      display: !menuDisplayInfo.display,
+    });
+  };
+
   return (
     <CommentsArea
       comments={comments}
@@ -90,6 +122,10 @@ const CommentsAreaWrapped = () => {
       addComment={addComment}
       canWrite={canWrite}
       ref={commentsRef}
+      menuDisplayInfo={menuDisplayInfo}
+      onMenuDisplayChange={onMenuDisplayChange}
+      onDeleteComment={onDeleteComment}
+      onReportComment={onReportComment}
     />
   );
 };
