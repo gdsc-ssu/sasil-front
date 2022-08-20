@@ -10,7 +10,15 @@ export default {
 
 const Template: ComponentStory<typeof PostContent> = ({
   post,
-}: PostContentProps) => <PostContent post={post} />;
+  menuDisplayInfo,
+  onMenuDisplayToggle,
+}: PostContentProps) => (
+  <PostContent
+    post={post}
+    menuDisplayInfo={menuDisplayInfo}
+    onMenuDisplayToggle={onMenuDisplayToggle}
+  />
+);
 
 export const Detail = Template.bind({});
 Detail.args = {

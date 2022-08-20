@@ -21,6 +21,8 @@ const Template: ComponentStory<typeof PostDetailTemplate> = ({
   relativePosts,
   likeInfo,
   bookmarkInfo,
+  menuDisplayInfo,
+  onMenuDisplayToggle,
 }: PostDetailTemplateProps) => (
   <PostDetailTemplate
     type={type}
@@ -28,6 +30,8 @@ const Template: ComponentStory<typeof PostDetailTemplate> = ({
     relativePosts={relativePosts}
     likeInfo={likeInfo}
     bookmarkInfo={bookmarkInfo}
+    menuDisplayInfo={menuDisplayInfo}
+    onMenuDisplayToggle={onMenuDisplayToggle}
   />
 );
 

@@ -10,8 +10,14 @@ export default {
 const Template: ComponentStory<typeof DropdownMenu> = ({
   menuDisplayInfo,
   children,
+  onMenuDisplayToggle,
 }: DropdownMenuProps) => (
-  <DropdownMenu menuDisplayInfo={menuDisplayInfo}>{children}</DropdownMenu>
+  <DropdownMenu
+    menuDisplayInfo={menuDisplayInfo}
+    onMenuDisplayToggle={onMenuDisplayToggle}
+  >
+    {children}
+  </DropdownMenu>
 );
 
 export const Default = Template.bind({});
@@ -19,7 +25,7 @@ Default.args = {
   menuDisplayInfo: {
     display: true,
     top: 100,
-    left: 100,
   },
+  onMenuDisplayToggle: () => {},
   children: <div>Menu</div>,
 };

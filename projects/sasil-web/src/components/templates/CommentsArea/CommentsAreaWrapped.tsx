@@ -85,34 +85,30 @@ const CommentsAreaWrapped = () => {
   const [menuDisplayInfo, setMenuDisplayInfo] = useState({
     display: false,
     top: 0,
-    left: 0,
   });
 
-  const onMenuDisplayChange = (top?: number, left?: number) => {
-    setMenuDisplayInfo({
-      display: !menuDisplayInfo.display,
+  const onMenuDisplayToggle = useCallback((top?: number) => {
+    setMenuDisplayInfo((prev) => ({
+      display: !prev.display,
       top: top ?? 0,
-      left: left ?? 0,
-    });
-  };
+    }));
+  }, []);
 
-  const onDeleteComment = () => {
+  const onDeleteComment = useCallback(() => {
     // TODO 댓글 삭제
-    console.log('삭제');
-    setMenuDisplayInfo({
-      ...menuDisplayInfo,
-      display: !menuDisplayInfo.display,
-    });
-  };
+    setMenuDisplayInfo((prev) => ({
+      ...prev,
+      display: !prev.display,
+    }));
+  }, []);
 
-  const onReportComment = () => {
+  const onReportComment = useCallback(() => {
     // TODO 댓글 신고
-    console.log('신고');
-    setMenuDisplayInfo({
-      ...menuDisplayInfo,
-      display: !menuDisplayInfo.display,
-    });
-  };
+    setMenuDisplayInfo((prev) => ({
+      ...prev,
+      display: !prev.display,
+    }));
+  }, []);
 
   return (
     <CommentsArea
@@ -123,7 +119,7 @@ const CommentsAreaWrapped = () => {
       canWrite={canWrite}
       ref={commentsRef}
       menuDisplayInfo={menuDisplayInfo}
-      onMenuDisplayChange={onMenuDisplayChange}
+      onMenuDisplayToggle={onMenuDisplayToggle}
       onDeleteComment={onDeleteComment}
       onReportComment={onReportComment}
     />

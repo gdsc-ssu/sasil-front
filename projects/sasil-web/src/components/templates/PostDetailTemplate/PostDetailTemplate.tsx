@@ -1,5 +1,5 @@
 /* eslint-disable react/self-closing-comp */
-import React from 'react';
+import React, { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { COLORS, RelativePostType } from '@sasil/common';
 import PostContent from '@/components/organisms/PostContent';
@@ -13,7 +13,13 @@ import InterestsWrap, {
   BookmarkInfoType,
 } from '@/components/organisms/InterestsWrap';
 import LeftIcon from '@/assets/icons/Left.svg';
+import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
+import DeleteIcon from '@/assets/icons/Delete.svg';
+import ReportIcon from '@/assets/icons/Danger.svg';
 import * as Post from '@/components/organisms/post';
+import DropdownMenu, {
+  DropdownMenuItem,
+} from '@/components/molelcules/DropdownMenu';
 import * as styles from './PostDetailTemplate.style';
 import { PostSummaryProps } from '../PostSummary/PostSummary';
 
@@ -23,6 +29,13 @@ export interface PostDetailTemplateProps extends PostSummaryProps {
   bookmarkInfo: BookmarkInfoType;
   handleLike?: () => void;
   handleBookmark?: () => void;
+  /** 게시글 메뉴 노출 정보 객체  */
+  menuDisplayInfo: {
+    display: boolean;
+    top: number;
+  };
+  /** 게시글 메뉴 노출 컨트롤 함수 */
+  onMenuDisplayToggle: (top?: number) => void;
 }
 
 /** 게시물 상세 페이지를 위한 템플릿 컴포넌트  */
@@ -34,6 +47,8 @@ const PostDetailTemplate = ({
   bookmarkInfo,
   handleLike,
   handleBookmark,
+  menuDisplayInfo,
+  onMenuDisplayToggle,
 }: PostDetailTemplateProps) => {
   const router = useRouter();
   const goBack = () => router.back();
@@ -42,24 +57,56 @@ const PostDetailTemplate = ({
   const isExp = type === 'experiment';
   const relPostType = isExp ? 'request' : 'experiment';
 
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
   return (
     <styles.Wrap>
       <NavBar focusType="main" className="post-navbar">
-        <styles.MobileNavBar isExp={isExp}>
-          <styles.IconWrap onClick={goBack}>
+        <styles.MobileNavBar isExp={isExp} ref={mobileMenuRef}>
+          <styles.LeftIconWrap onClick={goBack}>
             <LeftIcon
               color={isExp ? COLORS.grayscale.white : COLORS.grayscale.black}
             />
-          </styles.IconWrap>
-          {!isExp && (
-            <StyledButton
-              isMini
-              text="실험하기"
-              textStyleName="button2B"
-              className="exp-btn"
-              onClick={goExpWrite}
+          </styles.LeftIconWrap>
+          <styles.MenuWrap>
+            {!isExp && (
+              <StyledButton
+                isMini
+                text="실험하기"
+                textStyleName="button2B"
+                className="exp-btn"
+                onClick={goExpWrite}
+              />
+            )}
+            <styles.MenuIconWrap
+              onClick={() =>
+                onMenuDisplayToggle?.(
+                  (mobileMenuRef?.current?.offsetTop ?? 0) + 42,
+                )
+              }
+            >
+              <MenuCircleIcon
+                color={isExp ? COLORS.grayscale.white : COLORS.grayscale.black}
+              />
+            </styles.MenuIconWrap>
+          </styles.MenuWrap>
+
+          <DropdownMenu
+            menuDisplayInfo={menuDisplayInfo}
+            onMenuDisplayToggle={onMenuDisplayToggle}
+            className="mobile-post-menu"
+          >
+            <DropdownMenuItem
+              icon={<DeleteIcon width={19} />}
+              text="삭제"
+              onMenuClick={() => {}}
             />
-          )}
+            <DropdownMenuItem
+              icon={<ReportIcon width={19} />}
+              text="신고"
+              onMenuClick={() => {}}
+            />
+          </DropdownMenu>
         </styles.MobileNavBar>
         {isExp && (
           <styles.ExperimentThumbnail
@@ -76,7 +123,11 @@ const PostDetailTemplate = ({
           </styles.SummaryWrap>
           <styles.MainContentWrap>
             <styles.Top>
-              <PostContent post={post} />
+              <PostContent
+                post={post}
+                menuDisplayInfo={menuDisplayInfo}
+                onMenuDisplayToggle={onMenuDisplayToggle}
+              />
               <styles.InterestBoxWrap>
                 <InterestsWrap
                   likeInfo={likeInfo}

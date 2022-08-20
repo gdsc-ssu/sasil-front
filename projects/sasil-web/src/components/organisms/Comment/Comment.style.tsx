@@ -16,4 +16,6 @@ export const Top = styled.div({
   paddingBottom: '7px',
 });
 
-export const MenuIcon = styled.div({});
+export const MenuIcon = styled.div({
+  cursor: 'pointer',
+});

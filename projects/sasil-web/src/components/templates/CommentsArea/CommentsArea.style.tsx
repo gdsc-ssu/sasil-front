@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { COLORS } from '@sasil/common';
 
 export const Wrap = styled.div({
+  position: 'relative',
   '.mobile-label': {
     display: 'none',
   },
@@ -10,6 +11,9 @@ export const Wrap = styled.div({
     '.mobile-label': {
       display: 'block',
       padding: '20px 20px 0px',
+    },
+    '.comment-menu > .menu': {
+      backgroundColor: COLORS.grayscale.white,
     },
   },
 });

@@ -19,6 +19,7 @@ export const MobileNavBar = styled.div(({ isExp }: { isExp: boolean }) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '20px',
+    width: '100%',
     height: '70px',
     backgroundColor: isExp ? 'transparent' : COLORS.grayscale.white,
     position: isExp ? 'absolute' : 'static',
@@ -27,9 +28,18 @@ export const MobileNavBar = styled.div(({ isExp }: { isExp: boolean }) => ({
   },
 }));
 
-export const IconWrap = styled.div({
-  width: '24px',
-  height: '24px',
+export const LeftIconWrap = styled.div({
+  cursor: 'pointer',
+});
+
+export const MenuWrap = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+export const MenuIconWrap = styled.div({
+  cursor: 'pointer',
+  marginLeft: '10px',
 });
 
 export const ExperimentThumbnail = styled.div(

@@ -1,14 +1,12 @@
 import styled from '@emotion/styled';
 import { COLORS } from '@sasil/common';
 
-export const MenuWrap = styled.div(
-  ({ top, left }: { top: number; left: number }) => ({
-    position: 'absolute',
-    top,
-    left,
-    zIndex: 1,
-  }),
-);
+export const MenuWrap = styled.div(({ top }: { top: number }) => ({
+  position: 'absolute',
+  top,
+  right: 10,
+  zIndex: 10,
+}));
 
 export const Menu = styled.div({
   background: COLORS.grayscale.gray1,

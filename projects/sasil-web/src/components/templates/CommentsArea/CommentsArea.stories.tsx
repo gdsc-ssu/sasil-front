@@ -14,6 +14,7 @@ const Template: ComponentStory<typeof CommentsArea> = ({
   canWrite,
   menuDisplayInfo,
   onCommentTextChange,
+  onMenuDisplayToggle,
 }: CommentsAreaProps) => (
   <CommentsArea
     comments={comments}
@@ -21,6 +22,7 @@ const Template: ComponentStory<typeof CommentsArea> = ({
     canWrite={canWrite}
     menuDisplayInfo={menuDisplayInfo}
     onCommentTextChange={onCommentTextChange}
+    onMenuDisplayToggle={onMenuDisplayToggle}
   />
 );
 
@@ -32,6 +34,5 @@ Default.args = {
   menuDisplayInfo: {
     display: true,
     top: 500,
-    left: 500,
   },
 };
