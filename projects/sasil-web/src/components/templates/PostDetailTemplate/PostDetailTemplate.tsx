@@ -16,6 +16,7 @@ import LeftIcon from '@/assets/icons/Left.svg';
 import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
 import DeleteIcon from '@/assets/icons/Delete.svg';
 import ReportIcon from '@/assets/icons/Danger.svg';
+import EditIcon from '@/assets/icons/Edit.svg';
 import * as Post from '@/components/organisms/post';
 import DropdownMenu, {
   DropdownMenuItem,
@@ -36,6 +37,8 @@ export interface PostDetailTemplateProps extends PostSummaryProps {
   };
   /** 게시글 메뉴 노출 컨트롤 함수 */
   onMenuDisplayToggle: (top?: number) => void;
+  /** 게시물 작성자 여부 */
+  isWriter: boolean;
 }
 
 /** 게시물 상세 페이지를 위한 템플릿 컴포넌트  */
@@ -49,6 +52,7 @@ const PostDetailTemplate = ({
   handleBookmark,
   menuDisplayInfo,
   onMenuDisplayToggle,
+  isWriter,
 }: PostDetailTemplateProps) => {
   const router = useRouter();
   const goBack = () => router.back();
@@ -96,11 +100,20 @@ const PostDetailTemplate = ({
             onMenuDisplayToggle={onMenuDisplayToggle}
             className="mobile-post-menu"
           >
-            <DropdownMenuItem
-              icon={<DeleteIcon width={19} />}
-              text="삭제"
-              onMenuClick={() => {}}
-            />
+            {isWriter && (
+              <>
+                <DropdownMenuItem
+                  icon={<EditIcon width={19} />}
+                  text="수정"
+                  onMenuClick={() => {}}
+                />
+                <DropdownMenuItem
+                  icon={<DeleteIcon width={19} />}
+                  text="삭제"
+                  onMenuClick={() => {}}
+                />
+              </>
+            )}
             <DropdownMenuItem
               icon={<ReportIcon width={19} />}
               text="신고"
@@ -127,6 +140,7 @@ const PostDetailTemplate = ({
                 post={post}
                 menuDisplayInfo={menuDisplayInfo}
                 onMenuDisplayToggle={onMenuDisplayToggle}
+                isWriter={isWriter}
               />
               <styles.InterestBoxWrap>
                 <InterestsWrap

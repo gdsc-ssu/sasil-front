@@ -23,6 +23,7 @@ const Template: ComponentStory<typeof PostDetailTemplate> = ({
   bookmarkInfo,
   menuDisplayInfo,
   onMenuDisplayToggle,
+  isWriter,
 }: PostDetailTemplateProps) => (
   <PostDetailTemplate
     type={type}
@@ -32,6 +33,7 @@ const Template: ComponentStory<typeof PostDetailTemplate> = ({
     bookmarkInfo={bookmarkInfo}
     menuDisplayInfo={menuDisplayInfo}
     onMenuDisplayToggle={onMenuDisplayToggle}
+    isWriter={isWriter}
   />
 );
 
@@ -40,6 +42,7 @@ RequestPostDetail.args = {
   type: 'request',
   post: reqPostDetail,
   relativePosts: reqAnswerPosts,
+  isWriter: true,
 };
 
 export const ExperimentPostDetail = Template.bind({});
@@ -49,4 +52,5 @@ ExperimentPostDetail.args = {
   relativePosts: expRequestPost,
   likeInfo: interestsInfo.likeInfo,
   bookmarkInfo: interestsInfo.bookmarkInfo,
+  isWriter: false,
 };

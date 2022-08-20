@@ -110,6 +110,11 @@ const CommentsAreaWrapped = () => {
     }));
   }, []);
 
+  // 댓글 작성자인지에 대한 여부
+  const [isWriter, setIsWriter] = useState(false);
+  const checkIsWriter = (commentWriterId?: number) =>
+    setIsWriter(userInfo?.id === commentWriterId);
+
   return (
     <CommentsArea
       comments={comments}
@@ -122,6 +127,8 @@ const CommentsAreaWrapped = () => {
       onMenuDisplayToggle={onMenuDisplayToggle}
       onDeleteComment={onDeleteComment}
       onReportComment={onReportComment}
+      isWriter={isWriter}
+      checkIsWriter={checkIsWriter}
     />
   );
 };
