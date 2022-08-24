@@ -41,10 +41,11 @@ const PostContent = ({
         <PostDetailIcon />
         <styles.MenuIconWrap
           onClick={() =>
-            onMenuDisplayToggle?.((menuRef?.current?.offsetTop ?? 0) + 30)
+            onMenuDisplayToggle?.((menuRef?.current?.offsetTop ?? 0) + 20)
           }
+          ref={menuRef}
         >
-          <MenuCircleIcon ref={menuRef} />
+          <MenuCircleIcon />
         </styles.MenuIconWrap>
       </styles.IconWrap>
       <styles.CreateInfoWrap>
