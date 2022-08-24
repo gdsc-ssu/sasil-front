@@ -12,15 +12,18 @@ const Template: ComponentStory<typeof PostContent> = ({
   post,
   menuDisplayInfo,
   onMenuDisplayToggle,
+  isWriter,
 }: PostContentProps) => (
   <PostContent
     post={post}
     menuDisplayInfo={menuDisplayInfo}
     onMenuDisplayToggle={onMenuDisplayToggle}
+    isWriter={isWriter}
   />
 );
 
 export const Detail = Template.bind({});
 Detail.args = {
   post: reqPostDetail,
+  isWriter: true,
 };

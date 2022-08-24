@@ -145,6 +145,9 @@ const PostDetail: NextPage = () => {
     return <>로딩중 </>;
   }
 
+  // 게시물 작성자 여부
+  const isWriter = userInfo?.id === realPost.user?.id;
+
   return (
     <PostDetailTemplate
       type={postType}
@@ -156,6 +159,7 @@ const PostDetail: NextPage = () => {
       handleBookmark={handleBookmark}
       menuDisplayInfo={menuDisplayInfo}
       onMenuDisplayToggle={onMenuDisplayToggle}
+      isWriter={isWriter}
     />
   );
 };

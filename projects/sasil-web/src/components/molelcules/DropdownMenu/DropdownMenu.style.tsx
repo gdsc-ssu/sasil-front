@@ -27,3 +27,20 @@ export const FixedBackground = styled.div({
   zIndex: -10,
   backgroundColor: 'transparent',
 });
+
+export const MenuItem = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+  margin: '4px 0px',
+  '.menu-text': {
+    marginLeft: '7px',
+  },
+  color: COLORS.grayscale.gray7,
+  '&:hover': {
+    color: COLORS.primary.normal,
+    '.menu-text': {
+      color: COLORS.primary.normal,
+    },
+  },
+});

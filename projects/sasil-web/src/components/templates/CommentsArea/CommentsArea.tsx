@@ -1,11 +1,11 @@
-import React, { forwardRef, RefObject } from 'react';
-import { COLORS, CommentType, TEXT_STYLE_NAME } from '@sasil/common';
+import React, { forwardRef } from 'react';
+import { CommentType } from '@sasil/common';
 import StyledText from '@/components/atoms/StyledText';
-// import DropdownMenu from '@/components/molelcules/DropdownMenu';
 import CommentInput from '@/components/molelcules/CommentInput';
 import Comment from '@/components/organisms/Comment';
 import DeleteIcon from '@/assets/icons/Delete.svg';
 import ReportIcon from '@/assets/icons/Danger.svg';
+import EditIcon from '@/assets/icons/Edit.svg';
 import DropdownMenu, {
   DropdownMenuItem,
 } from '@/components/molelcules/DropdownMenu';
@@ -33,6 +33,9 @@ export interface CommentsAreaProps {
   onDeleteComment?: () => void;
   /** 댓글 신고 함수 */
   onReportComment?: () => void;
+  /** 댓글 작성자 여부 */
+  isWriter: boolean;
+  checkIsWriter: (id?: number) => void;
 }
 
 /** 댓글바와 해당 게시물에 달린 댓글들을 보여주는 컴포넌트 */
@@ -48,6 +51,8 @@ const CommentsArea = forwardRef<HTMLDivElement, CommentsAreaProps>(
       onMenuDisplayToggle,
       onDeleteComment,
       onReportComment,
+      isWriter,
+      checkIsWriter,
     },
     ref,
   ) => (
@@ -70,6 +75,7 @@ const CommentsArea = forwardRef<HTMLDivElement, CommentsAreaProps>(
             writerObj={comment.user}
             content={comment.content}
             onMenuDisplayToggle={onMenuDisplayToggle}
+            checkIsWriter={checkIsWriter}
           />
         ))}
       </styles.CommentsWrap>
@@ -78,11 +84,21 @@ const CommentsArea = forwardRef<HTMLDivElement, CommentsAreaProps>(
         onMenuDisplayToggle={onMenuDisplayToggle}
         className="comment-menu"
       >
-        <DropdownMenuItem
-          icon={<DeleteIcon width={19} />}
-          text="삭제"
-          onMenuClick={onDeleteComment}
-        />
+        {isWriter && (
+          <>
+            <DropdownMenuItem
+              icon={<EditIcon width={19} />}
+              text="수정"
+              onMenuClick={() => {}}
+            />
+            <DropdownMenuItem
+              icon={<DeleteIcon width={19} />}
+              text="삭제"
+              onMenuClick={() => {}}
+            />
+          </>
+        )}
+
         <DropdownMenuItem
           icon={<ReportIcon width={19} />}
           text="신고"

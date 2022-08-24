@@ -3,6 +3,7 @@ import PostDetailIcon from '@/assets/icons/PostDetail.svg';
 import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
 import DeleteIcon from '@/assets/icons/Delete.svg';
 import ReportIcon from '@/assets/icons/Danger.svg';
+import EditIcon from '@/assets/icons/Edit.svg';
 import StyledText from '@/components/atoms/StyledText';
 import CategoryBox from '@/components/molelcules/CategoryBox';
 import WriterInfo from '@/components/molelcules/WriterInfo';
@@ -21,6 +22,8 @@ export interface PostContentProps {
   };
   /** 게시글 메뉴 노출 컨트롤 함수 */
   onMenuDisplayToggle: (top?: number) => void;
+  /** 게시물 작성자 여부 */
+  isWriter: boolean;
 }
 
 /** 게시물 상세 페이지에서 게시물 제목, 카테고리, 내용을 보여주는 컴포넌트 (모바일에서는 게시물 작성자 정보 포함) */
@@ -28,6 +31,7 @@ const PostContent = ({
   post,
   menuDisplayInfo,
   onMenuDisplayToggle,
+  isWriter,
 }: PostContentProps) => {
   const viewerRef: LegacyRef<Viewer> = useRef<Viewer>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -81,11 +85,20 @@ const PostContent = ({
         onMenuDisplayToggle={onMenuDisplayToggle}
         className="post-menu"
       >
-        <DropdownMenuItem
-          icon={<DeleteIcon width={19} />}
-          text="삭제"
-          onMenuClick={() => {}}
-        />
+        {isWriter && (
+          <>
+            <DropdownMenuItem
+              icon={<EditIcon width={19} />}
+              text="수정"
+              onMenuClick={() => {}}
+            />
+            <DropdownMenuItem
+              icon={<DeleteIcon width={19} />}
+              text="삭제"
+              onMenuClick={() => {}}
+            />
+          </>
+        )}
         <DropdownMenuItem
           icon={<ReportIcon width={19} />}
           text="신고"

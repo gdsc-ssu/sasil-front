@@ -11,11 +11,13 @@ const Template: ComponentStory<typeof Comment> = ({
   writerObj,
   content,
   onMenuDisplayToggle,
+  checkIsWriter,
 }: CommentProps) => (
   <Comment
     writerObj={writerObj}
     content={content}
     onMenuDisplayToggle={onMenuDisplayToggle}
+    checkIsWriter={checkIsWriter}
   />
 );
 

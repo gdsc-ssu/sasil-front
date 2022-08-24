@@ -1,24 +1,7 @@
 import React from 'react';
 import StyledText from '@/components/atoms/StyledText';
-import styled from '@emotion/styled';
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
-
-const MenuItem = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  cursor: 'pointer',
-  margin: '3px 0px',
-  '.menu-text': {
-    marginLeft: '7px',
-  },
-  color: COLORS.grayscale.gray7,
-  '&:hover': {
-    color: COLORS.primary.normal,
-    '.menu-text': {
-      color: COLORS.primary.normal,
-    },
-  },
-});
+import * as styles from './DropdownMenu.style';
 
 export interface DropdownMenuProps {
   icon: any;
@@ -28,7 +11,7 @@ export interface DropdownMenuProps {
 
 /** 드롭다운 메뉴를 만들어주는 컴포넌트 */
 const DropdownMenu = ({ icon, text, onMenuClick }: DropdownMenuProps) => (
-  <MenuItem onClick={onMenuClick}>
+  <styles.MenuItem onClick={onMenuClick}>
     {icon}
     <StyledText
       color={COLORS.grayscale.gray7}
@@ -37,7 +20,7 @@ const DropdownMenu = ({ icon, text, onMenuClick }: DropdownMenuProps) => (
     >
       {text}
     </StyledText>
-  </MenuItem>
+  </styles.MenuItem>
 );
 
 export default DropdownMenu;
