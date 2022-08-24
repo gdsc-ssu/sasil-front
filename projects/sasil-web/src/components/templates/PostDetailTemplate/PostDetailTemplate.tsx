@@ -16,7 +16,6 @@ import LeftIcon from '@/assets/icons/Left.svg';
 import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
 import DeleteIcon from '@/assets/icons/Delete.svg';
 import ReportIcon from '@/assets/icons/Danger.svg';
-import EditIcon from '@/assets/icons/Edit.svg';
 import * as Post from '@/components/organisms/post';
 import DropdownMenu, {
   DropdownMenuItem,
@@ -101,18 +100,11 @@ const PostDetailTemplate = ({
             className="mobile-post-menu"
           >
             {isWriter && (
-              <>
-                <DropdownMenuItem
-                  icon={<EditIcon width={19} />}
-                  text="수정"
-                  onMenuClick={() => {}}
-                />
-                <DropdownMenuItem
-                  icon={<DeleteIcon width={19} />}
-                  text="삭제"
-                  onMenuClick={() => {}}
-                />
-              </>
+              <DropdownMenuItem
+                icon={<DeleteIcon width={19} />}
+                text="삭제"
+                onMenuClick={() => {}}
+              />
             )}
             <DropdownMenuItem
               icon={<ReportIcon width={19} />}

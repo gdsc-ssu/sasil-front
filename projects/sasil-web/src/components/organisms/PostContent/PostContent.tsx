@@ -1,9 +1,8 @@
-import { useEffect, useRef, LegacyRef, RefObject } from 'react';
+import { useEffect, useRef, LegacyRef } from 'react';
 import PostDetailIcon from '@/assets/icons/PostDetail.svg';
 import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
 import DeleteIcon from '@/assets/icons/Delete.svg';
 import ReportIcon from '@/assets/icons/Danger.svg';
-import EditIcon from '@/assets/icons/Edit.svg';
 import StyledText from '@/components/atoms/StyledText';
 import CategoryBox from '@/components/molelcules/CategoryBox';
 import WriterInfo from '@/components/molelcules/WriterInfo';
@@ -86,18 +85,11 @@ const PostContent = ({
         className="post-menu"
       >
         {isWriter && (
-          <>
-            <DropdownMenuItem
-              icon={<EditIcon width={19} />}
-              text="수정"
-              onMenuClick={() => {}}
-            />
-            <DropdownMenuItem
-              icon={<DeleteIcon width={19} />}
-              text="삭제"
-              onMenuClick={() => {}}
-            />
-          </>
+          <DropdownMenuItem
+            icon={<DeleteIcon width={19} />}
+            text="삭제"
+            onMenuClick={() => {}}
+          />
         )}
         <DropdownMenuItem
           icon={<ReportIcon width={19} />}
