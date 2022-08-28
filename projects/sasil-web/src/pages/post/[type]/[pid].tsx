@@ -42,6 +42,19 @@ const PostDetail: NextPage = () => {
     bookmarkCount: 9,
   });
 
+  // 드롭다운 메뉴 관련
+  const [menuDisplayInfo, setMenuDisplayInfo] = useState({
+    display: false,
+    top: 0,
+  });
+
+  const onMenuDisplayToggle = useCallback((top?: number) => {
+    setMenuDisplayInfo((prev) => ({
+      display: !prev.display,
+      top: top ?? 0,
+    }));
+  }, []);
+
   useEffect(() => {
     if (!postType || !postId) {
       return;
@@ -132,6 +145,9 @@ const PostDetail: NextPage = () => {
     return <>로딩중 </>;
   }
 
+  // 게시물 작성자 여부
+  const isWriter = userInfo?.id === realPost.user?.id;
+
   return (
     <PostDetailTemplate
       type={postType}
@@ -141,6 +157,9 @@ const PostDetail: NextPage = () => {
       bookmarkInfo={bookmarkInfo}
       handleLike={handleLike}
       handleBookmark={handleBookmark}
+      menuDisplayInfo={menuDisplayInfo}
+      onMenuDisplayToggle={onMenuDisplayToggle}
+      isWriter={isWriter}
     />
   );
 };

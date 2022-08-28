@@ -82,6 +82,39 @@ const CommentsAreaWrapped = () => {
     [commentValue.length],
   );
 
+  const [menuDisplayInfo, setMenuDisplayInfo] = useState({
+    display: false,
+    top: 0,
+  });
+
+  const onMenuDisplayToggle = useCallback((top?: number) => {
+    setMenuDisplayInfo((prev) => ({
+      display: !prev.display,
+      top: top ?? 0,
+    }));
+  }, []);
+
+  const onDeleteComment = useCallback(() => {
+    // TODO 댓글 삭제
+    setMenuDisplayInfo((prev) => ({
+      ...prev,
+      display: !prev.display,
+    }));
+  }, []);
+
+  const onReportComment = useCallback(() => {
+    // TODO 댓글 신고
+    setMenuDisplayInfo((prev) => ({
+      ...prev,
+      display: !prev.display,
+    }));
+  }, []);
+
+  // 댓글 작성자인지에 대한 여부
+  const [isWriter, setIsWriter] = useState(false);
+  const checkIsWriter = (commentWriterId?: number) =>
+    setIsWriter(userInfo?.id === commentWriterId);
+
   return (
     <CommentsArea
       comments={comments}
@@ -90,6 +123,12 @@ const CommentsAreaWrapped = () => {
       addComment={addComment}
       canWrite={canWrite}
       ref={commentsRef}
+      menuDisplayInfo={menuDisplayInfo}
+      onMenuDisplayToggle={onMenuDisplayToggle}
+      onDeleteComment={onDeleteComment}
+      onReportComment={onReportComment}
+      isWriter={isWriter}
+      checkIsWriter={checkIsWriter}
     />
   );
 };
