@@ -15,3 +15,7 @@ export const Top = styled.div({
   justifyContent: 'space-between',
   paddingBottom: '7px',
 });
+
+export const MenuIcon = styled.div({
+  cursor: 'pointer',
+});

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { COLORS } from '@sasil/common';
 
 export const Wrap = styled.div({
+  position: 'relative',
   '.mobile-label': {
     display: 'none',
   },
@@ -10,6 +11,9 @@ export const Wrap = styled.div({
     '.mobile-label': {
       display: 'block',
       padding: '20px 20px 0px',
+    },
+    '.comment-menu > .menu': {
+      backgroundColor: COLORS.grayscale.white,
     },
   },
 });
@@ -32,5 +36,22 @@ export const CommentsWrap = styled.div({
     marginTop: '10px',
     marginBottom: '70px',
     padding: '0px 20px',
+  },
+});
+
+export const MenuItem = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+  margin: '3px 0px',
+  '.menu-text': {
+    marginLeft: '7px',
+  },
+  color: COLORS.grayscale.gray7,
+  '&:hover': {
+    color: COLORS.primary.normal,
+    '.menu-text': {
+      color: COLORS.primary.normal,
+    },
   },
 });

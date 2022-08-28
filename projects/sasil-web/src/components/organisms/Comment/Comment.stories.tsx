@@ -10,7 +10,16 @@ export default {
 const Template: ComponentStory<typeof Comment> = ({
   writerObj,
   content,
-}: CommentProps) => <Comment writerObj={writerObj} content={content} />;
+  onMenuDisplayToggle,
+  checkIsWriter,
+}: CommentProps) => (
+  <Comment
+    writerObj={writerObj}
+    content={content}
+    onMenuDisplayToggle={onMenuDisplayToggle}
+    checkIsWriter={checkIsWriter}
+  />
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -20,4 +29,5 @@ Default.args = {
     profileImg: null,
   },
   content: '댓글댓글',
+  onMenuDisplayToggle: () => {},
 };

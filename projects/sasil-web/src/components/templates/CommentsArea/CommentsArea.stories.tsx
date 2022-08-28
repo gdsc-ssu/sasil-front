@@ -12,13 +12,21 @@ export default {
 const Template: ComponentStory<typeof CommentsArea> = ({
   inputValue,
   canWrite,
+  menuDisplayInfo,
   onCommentTextChange,
+  onMenuDisplayToggle,
+  isWriter,
+  checkIsWriter,
 }: CommentsAreaProps) => (
   <CommentsArea
     comments={comments}
     inputValue={inputValue}
     canWrite={canWrite}
+    menuDisplayInfo={menuDisplayInfo}
     onCommentTextChange={onCommentTextChange}
+    onMenuDisplayToggle={onMenuDisplayToggle}
+    isWriter={isWriter}
+    checkIsWriter={checkIsWriter}
   />
 );
 
@@ -27,4 +35,8 @@ Default.args = {
   comments,
   canWrite: false,
   inputValue: 'input value임',
+  menuDisplayInfo: {
+    display: true,
+    top: 500,
+  },
 };
