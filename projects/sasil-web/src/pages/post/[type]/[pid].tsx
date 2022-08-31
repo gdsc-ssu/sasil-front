@@ -11,6 +11,7 @@ import {
   deleteLikeAsync,
   getPostDetailAsync,
   getRelativePosts,
+  deletePostAsync,
   PostDetailType,
   RelativePostType,
 } from '@sasil/common';
@@ -141,12 +142,28 @@ const PostDetail: NextPage = () => {
     }
   }, [userInfo, bookmarkInfo.isBookmark, postId, postType, router]);
 
+  // 게시물 작성자 여부
+  const isWriter = userInfo?.id === realPost?.user?.id;
+
+  const deletePost = useCallback(async () => {
+    console.log('test');
+    if (!isWriter) {
+      return;
+    }
+
+    if (!userInfo?.token) {
+      router.push('/login');
+      return;
+    }
+
+    await deletePostAsync(userInfo.token, postType, postId);
+
+    router.push('/');
+  }, [isWriter, postId, postType, router, userInfo]);
+
   if (realPost === undefined || relativePosts === undefined) {
     return <>로딩중 </>;
   }
-
-  // 게시물 작성자 여부
-  const isWriter = userInfo?.id === realPost.user?.id;
 
   return (
     <PostDetailTemplate
@@ -157,6 +174,7 @@ const PostDetail: NextPage = () => {
       bookmarkInfo={bookmarkInfo}
       handleLike={handleLike}
       handleBookmark={handleBookmark}
+      deletePost={deletePost}
       menuDisplayInfo={menuDisplayInfo}
       onMenuDisplayToggle={onMenuDisplayToggle}
       isWriter={isWriter}
