@@ -8,16 +8,18 @@ export default {
 } as ComponentMeta<typeof Comment>;
 
 const Template: ComponentStory<typeof Comment> = ({
+  commId,
   writerObj,
   content,
   onMenuDisplayToggle,
-  checkIsWriter,
+  updateCommInfo,
 }: CommentProps) => (
   <Comment
+    commId={commId}
     writerObj={writerObj}
     content={content}
     onMenuDisplayToggle={onMenuDisplayToggle}
-    checkIsWriter={checkIsWriter}
+    updateCommInfo={updateCommInfo}
   />
 );
 
