@@ -3,7 +3,11 @@ import { useRouter } from 'next/router';
 import { useInfiniteQuery } from 'react-query';
 import { useAtom } from 'jotai';
 
-import { getCommentListAsync, addCommentAsync } from '@sasil/common';
+import {
+  getCommentListAsync,
+  addCommentAsync,
+  deleteCommentAsync,
+} from '@sasil/common';
 import useInifiniteScroll from '@/logics/hooks/useInfiniteScroll';
 import { getUserInfoAtom } from '@/logics/store/actions';
 import CommentsArea from './CommentsArea';
@@ -94,13 +98,30 @@ const CommentsAreaWrapped = () => {
     }));
   }, []);
 
-  const onDeleteComment = useCallback(() => {
-    // TODO 댓글 삭제
+  const [commInfo, setCommInfo] = useState({
+    commId: 0,
+    writerId: 0,
+  });
+
+  const updateCommInfo = useCallback((commId, writerId) => {
+    setCommInfo({ commId, writerId });
+  }, []);
+
+  const onDeleteComment = useCallback(async () => {
     setMenuDisplayInfo((prev) => ({
       ...prev,
       display: !prev.display,
     }));
-  }, []);
+
+    if (!userInfo?.token) {
+      router.push('/login');
+      return;
+    }
+
+    await deleteCommentAsync(userInfo.token, postType, postId, commInfo.commId);
+
+    await refetch();
+  }, [commInfo.commId, postId, postType, refetch, router, userInfo]);
 
   const onReportComment = useCallback(() => {
     // TODO 댓글 신고
@@ -109,11 +130,6 @@ const CommentsAreaWrapped = () => {
       display: !prev.display,
     }));
   }, []);
-
-  // 댓글 작성자인지에 대한 여부
-  const [isWriter, setIsWriter] = useState(false);
-  const checkIsWriter = (commentWriterId?: number) =>
-    setIsWriter(userInfo?.id === commentWriterId);
 
   return (
     <CommentsArea
@@ -127,8 +143,8 @@ const CommentsAreaWrapped = () => {
       onMenuDisplayToggle={onMenuDisplayToggle}
       onDeleteComment={onDeleteComment}
       onReportComment={onReportComment}
-      isWriter={isWriter}
-      checkIsWriter={checkIsWriter}
+      isWriter={userInfo?.id === commInfo.writerId}
+      updateCommInfo={updateCommInfo}
     />
   );
 };

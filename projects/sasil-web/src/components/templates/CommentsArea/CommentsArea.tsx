@@ -29,12 +29,13 @@ export interface CommentsAreaProps {
   /** 게시글 메뉴 노출 컨트롤 함수 */
   onMenuDisplayToggle: (top?: number) => void;
   /** 댓글 삭제 함수 */
-  onDeleteComment?: () => void;
+  onDeleteComment?: (commId?: number) => void;
   /** 댓글 신고 함수 */
   onReportComment?: () => void;
   /** 댓글 작성자 여부 */
   isWriter: boolean;
-  checkIsWriter: (id?: number) => void;
+  /** 댓글 정보 업데이트 */
+  updateCommInfo: (commId?: number, writerId?: number) => void;
 }
 
 /** 댓글바와 해당 게시물에 달린 댓글들을 보여주는 컴포넌트 */
@@ -51,7 +52,7 @@ const CommentsArea = forwardRef<HTMLDivElement, CommentsAreaProps>(
       onDeleteComment,
       onReportComment,
       isWriter,
-      checkIsWriter,
+      updateCommInfo,
     },
     ref,
   ) => (
@@ -71,10 +72,11 @@ const CommentsArea = forwardRef<HTMLDivElement, CommentsAreaProps>(
         {comments?.map((comment: CommentType) => (
           <Comment
             key={comment.id}
+            commId={comment.id}
             writerObj={comment.user}
             content={comment.content}
             onMenuDisplayToggle={onMenuDisplayToggle}
-            checkIsWriter={checkIsWriter}
+            updateCommInfo={updateCommInfo}
           />
         ))}
       </styles.CommentsWrap>
@@ -87,7 +89,7 @@ const CommentsArea = forwardRef<HTMLDivElement, CommentsAreaProps>(
           <DropdownMenuItem
             icon={<DeleteIcon width={19} />}
             text="삭제"
-            onMenuClick={() => {}}
+            onMenuClick={onDeleteComment}
           />
         )}
 
