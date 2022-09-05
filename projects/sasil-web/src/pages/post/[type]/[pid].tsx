@@ -146,7 +146,6 @@ const PostDetail: NextPage = () => {
   const isWriter = userInfo?.id === realPost?.user?.id;
 
   const deletePost = useCallback(async () => {
-    console.log('test');
     if (!isWriter) {
       return;
     }
