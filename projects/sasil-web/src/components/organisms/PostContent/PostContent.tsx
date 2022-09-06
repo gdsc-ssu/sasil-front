@@ -20,6 +20,7 @@ export interface PostContentProps {
     display: boolean;
     top: number;
   };
+  deletePost?: () => void;
   /** 게시글 메뉴 노출 컨트롤 함수 */
   onMenuDisplayToggle: (top?: number) => void;
   /** 게시물 작성자 여부 */
@@ -32,6 +33,7 @@ const PostContent = ({
   menuDisplayInfo,
   onMenuDisplayToggle,
   isWriter,
+  deletePost,
 }: PostContentProps) => {
   const viewerRef: LegacyRef<Viewer> = useRef<Viewer>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -95,7 +97,7 @@ const PostContent = ({
             <DropdownMenuItem
               icon={<DeleteIcon width={19} />}
               text="삭제"
-              onMenuClick={() => {}}
+              onMenuClick={deletePost}
             />
           </>
         )}

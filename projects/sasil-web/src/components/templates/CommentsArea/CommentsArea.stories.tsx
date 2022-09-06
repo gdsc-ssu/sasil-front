@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof CommentsArea> = ({
   onCommentTextChange,
   onMenuDisplayToggle,
   isWriter,
-  checkIsWriter,
+  updateCommInfo,
 }: CommentsAreaProps) => (
   <CommentsArea
     comments={comments}
@@ -26,7 +26,7 @@ const Template: ComponentStory<typeof CommentsArea> = ({
     onCommentTextChange={onCommentTextChange}
     onMenuDisplayToggle={onMenuDisplayToggle}
     isWriter={isWriter}
-    checkIsWriter={checkIsWriter}
+    updateCommInfo={updateCommInfo}
   />
 );
 

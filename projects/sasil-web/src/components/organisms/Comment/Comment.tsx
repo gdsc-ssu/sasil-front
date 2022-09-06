@@ -6,22 +6,24 @@ import MenuCircleIcon from '@/assets/icons/MenuCircle.svg';
 import * as styles from './Comment.style';
 
 export interface CommentProps {
+  commId: number;
   writerObj?: WriterType;
   content: string;
   onMenuDisplayToggle: (top?: number) => void;
-  checkIsWriter: (id?: number) => void;
+  updateCommInfo: (commId?: number, writerId?: number) => void;
 }
 
 /** 게시물에 달린 댓글을 나타내는 컴포넌트 */
 const Comment = ({
+  commId,
   writerObj,
   content,
   onMenuDisplayToggle,
-  checkIsWriter,
+  updateCommInfo,
 }: CommentProps) => {
   const commentMenuRef = useRef<HTMLDivElement>(null);
   const onMenuClick = () => {
-    checkIsWriter(writerObj?.id);
+    updateCommInfo(commId, writerObj?.id);
     onMenuDisplayToggle?.((commentMenuRef?.current?.offsetTop ?? 0) + 30);
   };
   return (
