@@ -30,6 +30,7 @@ export interface PostDetailTemplateProps extends PostSummaryProps {
   bookmarkInfo: BookmarkInfoType;
   handleLike?: () => void;
   handleBookmark?: () => void;
+  deletePost?: () => void;
   /** 게시글 메뉴 노출 정보 객체  */
   menuDisplayInfo: {
     display: boolean;
@@ -50,6 +51,7 @@ const PostDetailTemplate = ({
   bookmarkInfo,
   handleLike,
   handleBookmark,
+  deletePost,
   menuDisplayInfo,
   onMenuDisplayToggle,
   isWriter,
@@ -110,7 +112,7 @@ const PostDetailTemplate = ({
                 <DropdownMenuItem
                   icon={<DeleteIcon width={19} />}
                   text="삭제"
-                  onMenuClick={() => {}}
+                  onMenuClick={deletePost}
                 />
               </>
             )}
@@ -141,6 +143,7 @@ const PostDetailTemplate = ({
                 menuDisplayInfo={menuDisplayInfo}
                 onMenuDisplayToggle={onMenuDisplayToggle}
                 isWriter={isWriter}
+                deletePost={deletePost}
               />
               <styles.InterestBoxWrap>
                 <InterestsWrap
