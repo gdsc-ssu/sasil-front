@@ -10,9 +10,9 @@ export default {
 } as ComponentMeta<typeof Posts>;
 
 const Template: ComponentStory<typeof Posts> = ({
-  type,
+  postType,
   posts,
-}: PostsWrapProps) => <Posts posts={posts} type={type} />;
+}: PostsWrapProps) => <Posts posts={posts} postType={postType} />;
 
 export const Request = Template.bind({});
 Request.args = { posts: reqPosts };

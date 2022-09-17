@@ -12,7 +12,7 @@ import CategoryBox from '@/components/molelcules/CategoryBox';
 import * as styles from './PageHeader.style';
 
 export interface PageHeaderProps {
-  type: 'request' | 'experiment';
+  postType: 'request' | 'experiment';
   sortType: 'recent' | 'popular';
   categories: CategoryType[];
 }
@@ -38,9 +38,9 @@ const HEADER_ICON = {
 };
 
 // TODO: 검색 버튼 동작, ProfileImg 클릭 동작
-const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
+const PageHeader = ({ postType, sortType, categories }: PageHeaderProps) => {
   const router = useRouter();
-  const goWrite = () => router.push(`/write/${type}`);
+  const goWrite = () => router.push(`/write/${postType}`);
 
   const [recentBtnColor, popularBtnColor] =
     sortType === 'recent'
@@ -51,7 +51,7 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
     <styles.StyledPageHeader>
       <styles.ContentWrapper>
         <styles.TopWrapper>
-          <styles.WebLogoWrapper>{HEADER_ICON[type]}</styles.WebLogoWrapper>
+          <styles.WebLogoWrapper>{HEADER_ICON[postType]}</styles.WebLogoWrapper>
           <styles.MobileLogoWrapper>
             {HEADER_ICON.mobile}
           </styles.MobileLogoWrapper>
@@ -67,7 +67,7 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
             textStyleName={TEXT_STYLE_NAME.title}
             className="fixed-text-style"
           >
-            {BTN_LABEL[type].recent}
+            {BTN_LABEL[postType].recent}
           </StyledLink>
           <StyledLink
             url={{ query: { sort: 'popular' } }}
@@ -75,7 +75,7 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
             textStyleName={TEXT_STYLE_NAME.title}
             className="fixed-text-style"
           >
-            {BTN_LABEL[type].popular}
+            {BTN_LABEL[postType].popular}
           </StyledLink>
         </styles.TitleWrapper>
         <styles.CategoryWrapper>
@@ -89,7 +89,7 @@ const PageHeader = ({ type, sortType, categories }: PageHeaderProps) => {
         </styles.CategoryWrapper>
         <styles.WriteButtonWrap>
           <StyledButton
-            text={BTN_LABEL[type].write}
+            text={BTN_LABEL[postType].write}
             textStyleName={TEXT_STYLE_NAME.button2B}
             onClick={goWrite}
           />
