@@ -5,3 +5,5 @@ export interface UserType {
   nickname: string;
   profileImg: string | null;
 }
+
+export type PostType = 'experiment' | 'request';

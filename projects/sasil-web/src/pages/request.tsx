@@ -20,11 +20,16 @@ const RequestPage: NextPage = () => {
 
   const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
     ['posts', { pageType, sortType }],
-    ({ pageParam = 1 }) =>
-      getPostsAsync(pageType, pageParam, display, sortType, stateType),
+    ({ pageParam = 1 }) => {
+      if (!router.isReady) {
+        return undefined;
+      }
+
+      return getPostsAsync(pageType, pageParam, display, sortType, stateType);
+    },
     {
       getNextPageParam: (lastPage) => {
-        if (!lastPage.isSuccess || lastPage.result.isLast) {
+        if (!lastPage || !lastPage.isSuccess || lastPage.result.isLast) {
           return undefined;
         }
 
@@ -43,13 +48,13 @@ const RequestPage: NextPage = () => {
   useInifiniteScroll(postsRef, getReqPosts);
 
   const postsData = data?.pages
-    .map((res) => (res.isSuccess ? res.result.list : []))
+    .map((res) => (res?.isSuccess ? res.result.list : []))
     .flat();
 
   return (
     <ReqExpTemplate
       postsRef={postsRef}
-      type={pageType}
+      postType={pageType}
       sortType={sortType}
       posts={postsData}
       categories={categories}

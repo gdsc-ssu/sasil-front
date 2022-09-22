@@ -10,22 +10,22 @@ export default {
 } as ComponentMeta<typeof PageHeader>;
 
 const Template: ComponentStory<typeof PageHeader> = ({
-  type,
+  postType,
   sortType,
 }: PageHeaderProps) => (
-  <PageHeader type={type} sortType={sortType} categories={categories} />
+  <PageHeader postType={postType} sortType={sortType} categories={categories} />
 );
 
 export const ExperimentPageHeader = Template.bind({});
 ExperimentPageHeader.args = {
-  type: 'experiment',
+  postType: 'experiment',
   sortType: 'recent',
   categories,
 };
 
 export const RequestPageHeader = Template.bind({});
 RequestPageHeader.args = {
-  type: 'request',
+  postType: 'request',
   sortType: 'popular',
   categories,
 };
