@@ -5,16 +5,16 @@ import { PostListType } from '@sasil/common';
 import * as styles from './PostsWrap.style';
 
 export interface PostsWrapProps {
-  type: 'request' | 'experiment';
+  postType: 'request' | 'experiment';
   posts: PostListType[] | undefined;
 }
 
 const PostsWrap = forwardRef<HTMLDivElement, PostsWrapProps>(
-  ({ type, posts }, ref) => (
+  ({ postType, posts }, ref) => (
     <styles.Container ref={ref}>
       {posts?.map((post: PostListType) => (
         <Card
-          postUrl={`/post/${type}/${post.id}`}
+          postUrl={`/post/${postType}/${post.id}`}
           key={post.id}
           title={post.title}
           likeCount={post.likeCount}

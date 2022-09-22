@@ -12,11 +12,15 @@ export const users = [
     nickname: 'user1',
     profileImg:
       'https://images.pexels.com/photos/9485465/pexels-photo-9485465.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
   },
   {
     id: 2,
     nickname: 'user2',
     profileImg: null,
+    createdAt: '2022-05-19T14:53:43.044Z',
+    updatedAt: '2022-05-19T14:53:43.044Z',
   },
 ];
 

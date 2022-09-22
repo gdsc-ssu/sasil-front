@@ -57,7 +57,7 @@ const PostDetail: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    if (!postType || !postId) {
+    if (!postType || !postId || !router.isReady) {
       return;
     }
 
@@ -101,7 +101,7 @@ const PostDetail: NextPage = () => {
     };
 
     getInitialData();
-  }, [userInfo, postId, postType]);
+  }, [userInfo, postId, postType, router.isReady]);
 
   const handleLike = useCallback(async () => {
     if (!userInfo?.token) {

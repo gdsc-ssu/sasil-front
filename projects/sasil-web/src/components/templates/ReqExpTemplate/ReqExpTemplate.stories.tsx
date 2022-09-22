@@ -11,13 +11,13 @@ export default {
 
 const Template: ComponentStory<typeof ReqExpTemplate> = ({
   postsRef,
-  type,
+  postType,
   sortType,
   posts,
 }: ReqExpTemplateProps) => (
   <ReqExpTemplate
     postsRef={postsRef}
-    type={type}
+    postType={postType}
     sortType={sortType}
     categories={categories}
     posts={posts}
@@ -26,14 +26,14 @@ const Template: ComponentStory<typeof ReqExpTemplate> = ({
 
 export const ExperimentPageTemplate = Template.bind({});
 ExperimentPageTemplate.args = {
-  type: 'experiment',
+  postType: 'experiment',
   categories,
   posts: expPosts,
 };
 
 export const RequestPageTemplate = Template.bind({});
 RequestPageTemplate.args = {
-  type: 'request',
+  postType: 'request',
   categories,
   posts: reqPosts,
 };

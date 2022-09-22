@@ -55,6 +55,14 @@ interface AddPostAsyncInput {
   reqId?: number;
 }
 
+interface EditPostAsyncInput {
+  title: string;
+  content: string;
+  thumbnail?: string;
+  newCategories: string[];
+  delCategories: string[];
+}
+
 /**
  * 게시물 정보 조회 (로그인 [선택])
  * @param token 소셜 로그인으로 받은 토큰
@@ -161,6 +169,46 @@ export const deletePostAsync = async (
 ): ApiResult<undefined> => {
   const result = await deleteAsync<undefined, any>(
     `/post/${postType}/${postId}`,
+    {
+      headers: {
+        Authorization: token,
+      },
+    },
+  );
+
+  return result;
+};
+
+/**
+ * 게시물 수정
+ * @param token 소셜 로그인으로 받은 토큰
+ * @param postType 게시물 타입
+ * @param postId 게시물 id값
+ * @param title 게시물 제목
+ * @param content 게시물 내용
+ * @param newCategories 추가된 카테고리 목록
+ * @param delCategories 삭제된 카테고리 목록
+ * @param thumbnail 게시물 썸네일
+ */
+export const editPostAsync = async (
+  token: string,
+  postType: 'experiment' | 'request',
+  postId: number,
+  title: string,
+  content: string,
+  newCategories: string[],
+  delCategories: string[],
+  thumbnail?: string,
+): ApiResult<undefined> => {
+  const result = await postAsync<undefined, EditPostAsyncInput>(
+    `/post/${postType}/${postId}`,
+    {
+      title,
+      content,
+      newCategories,
+      delCategories,
+      thumbnail,
+    },
     {
       headers: {
         Authorization: token,
