@@ -12,7 +12,6 @@ export interface SearchBarWrappedProps {
  */
 const SearchBarWrapped = ({ className }: SearchBarWrappedProps) => {
   const router = useRouter();
-
   const [value, setValue] = useState('');
 
   const handleSearch = useCallback(
@@ -20,7 +19,16 @@ const SearchBarWrapped = ({ className }: SearchBarWrappedProps) => {
       e.preventDefault();
 
       if (value.trim().length > 0) {
-        router.push(`/search/${value}`); // TODO: 검색 결과 URL
+        const searchType = value.indexOf('#') !== -1 ? 'tag' : 'query';
+        const keyword = value.replace('#', '');
+
+        router.push(
+          {
+            pathname: `/search/${keyword}`,
+            query: { searchType },
+          },
+          `/search/${keyword}`,
+        );
       }
     },
     [router, value],
