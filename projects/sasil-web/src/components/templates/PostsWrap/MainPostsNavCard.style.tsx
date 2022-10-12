@@ -39,4 +39,5 @@ export const Title = styled.div(({ alignLeft }: TitleProps) => ({
 export const Icon = styled.div({
   width: 24,
   height: 24,
+  cursor: 'pointer',
 });
