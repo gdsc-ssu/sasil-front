@@ -19,16 +19,13 @@ const SearchBarWrapped = ({ className }: SearchBarWrappedProps) => {
       e.preventDefault();
 
       if (value.trim().length > 0) {
-        const searchType = value.indexOf('#') !== -1 ? 'tag' : 'query';
         const keyword = value.replace('#', '');
+        const searchType = value.indexOf('#') !== -1 ? 'tag' : 'query';
 
-        router.push(
-          {
-            pathname: `/search/${keyword}`,
-            query: { searchType },
-          },
-          `/search/${keyword}`,
-        );
+        router.push({
+          pathname: `/search`,
+          query: { keyword, stype: searchType },
+        });
       }
     },
     [router, value],

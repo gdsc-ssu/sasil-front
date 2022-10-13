@@ -12,10 +12,10 @@ export type SearchType = 'tag' | 'query';
 export interface SearchTemplateProps {
   /** 검색할 단어 혹은 해시태그 */
   keyword?: string;
+  /** 검색 타입 (키워드(query) or 태그) */
+  stype: SearchType;
   /** 검색 결과로 보여줄 게시물 타입 */
-  postType?: PostType;
-  /** 검색 타입 (키워드(query) or) */
-  searchType: SearchType;
+  ptype?: PostType;
   /** 검색 결과 실험 게시물 */
   expResPost: PostListType[];
   /** 검색 결과 의뢰 게시물 */
@@ -24,16 +24,16 @@ export interface SearchTemplateProps {
 
 const SearchTemplate = ({
   keyword,
-  searchType,
-  postType = 'request',
+  stype,
+  ptype = 'request',
   expResPost,
   reqResPost,
 }: SearchTemplateProps) => {
-  const isTag = searchType === 'tag';
-  const postData = postType === 'request' ? reqResPost : expResPost;
+  const isTag = stype === 'tag';
+  const postData = ptype === 'request' ? reqResPost : expResPost;
 
   const [reqBtnColor, expBtnColor] =
-    postType === 'request'
+    ptype === 'request'
       ? [COLORS.grayscale.gray8, COLORS.grayscale.gray5]
       : [COLORS.grayscale.gray5, COLORS.grayscale.gray8];
 
@@ -56,7 +56,7 @@ const SearchTemplate = ({
               </StyledText>
               <styles.ToggleWrap>
                 <StyledLink
-                  url={{ query: { postType: 'request', searchType, keyword } }}
+                  url={{ query: { keyword, stype, ptype: 'request' } }}
                   textStyleName={TEXT_STYLE_NAME.subtitle1}
                   color={reqBtnColor}
                 >
@@ -64,7 +64,7 @@ const SearchTemplate = ({
                 </StyledLink>
                 <StyledLink
                   url={{
-                    query: { postType: 'experiment', searchType, keyword },
+                    query: { keyword, stype, ptype: 'experiment' },
                   }}
                   textStyleName={TEXT_STYLE_NAME.subtitle1}
                   color={expBtnColor}
@@ -72,7 +72,7 @@ const SearchTemplate = ({
                   실험
                 </StyledLink>
               </styles.ToggleWrap>
-              <PostsWrap type={postType} posts={postData} />
+              <PostsWrap type={ptype} posts={postData} />
             </styles.ContentWrap>
           ) : (
             <StyledText

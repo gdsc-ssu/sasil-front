@@ -8,13 +8,13 @@ import { expPosts, reqPosts } from 'src/dummyData';
 
 const Search: NextPage = () => {
   const router = useRouter();
-  const { keyword, searchType, postType } = router.query;
+  const { keyword, stype, ptype } = router.query;
 
   return (
     <SearchTemplate
       keyword={keyword as string | undefined}
-      searchType={searchType as SearchType}
-      postType={postType as PostType}
+      stype={stype as SearchType}
+      ptype={ptype as PostType}
       expResPost={expPosts}
       reqResPost={reqPosts}
     />
