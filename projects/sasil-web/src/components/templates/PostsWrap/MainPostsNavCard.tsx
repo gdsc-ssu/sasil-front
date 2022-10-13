@@ -57,7 +57,7 @@ const MainPostsNavCard = ({ type }: MainPostsNavCardProps) => {
   };
   const alignLeft = type === 'popExperiment';
   return (
-    <styles.Title alignLeft={alignLeft}>
+    <styles.Card alignLeft={alignLeft} onClick={handleRouter}>
       {POSTS_INFO[type].icon}
       <StyledText
         textStyleName={TEXT_STYLE_NAME.subtitle2B}
@@ -65,10 +65,8 @@ const MainPostsNavCard = ({ type }: MainPostsNavCardProps) => {
       >
         {POSTS_INFO[type].title}
       </StyledText>
-      <styles.Icon onClick={handleRouter}>
-        <CircleRight />
-      </styles.Icon>
-    </styles.Title>
+      <CircleRight width="24" height="24" />
+    </styles.Card>
   );
 };
 
