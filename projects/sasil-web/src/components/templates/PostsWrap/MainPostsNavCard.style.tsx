@@ -1,13 +1,12 @@
 import styled from '@emotion/styled';
 import { TEXT_STYLES_MOBILE, TEXT_STYLE_NAME } from '@sasil/common';
 import { MEDIA_QUERIES } from '@/constants/styles';
-import { m } from 'framer-motion';
 
-interface TitleProps {
+interface CardProps {
   alignLeft: Boolean;
 }
 
-export const Title = styled.div(({ alignLeft }: TitleProps) => ({
+export const Card = styled.div(({ alignLeft }: CardProps) => ({
   width: '200px',
   height: '120px',
   margin: '7px',
@@ -16,6 +15,7 @@ export const Title = styled.div(({ alignLeft }: TitleProps) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
   alignItems: alignLeft ? 'flex-start' : 'flex-end',
+  cursor: 'pointer',
 
   '>.title-text': {
     textAlign: 'right',
@@ -25,7 +25,6 @@ export const Title = styled.div(({ alignLeft }: TitleProps) => ({
     width: '140px',
     height: '100px',
     margin: '4px',
-    // TODO StyledText 반응형 적용시 삭제 바람!
     '& > .title-text': {
       fontSize: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.subtitle2B].fontSize,
       fontWeight: TEXT_STYLES_MOBILE[TEXT_STYLE_NAME.subtitle2B].fontWeight,
@@ -35,9 +34,3 @@ export const Title = styled.div(({ alignLeft }: TitleProps) => ({
     },
   },
 }));
-
-export const Icon = styled.div({
-  width: 24,
-  height: 24,
-  cursor: 'pointer',
-});
