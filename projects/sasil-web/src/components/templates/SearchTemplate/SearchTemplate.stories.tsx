@@ -10,15 +10,15 @@ export default {
 
 const Template: ComponentStory<typeof SearchTemplate> = ({
   keyword,
-  searchType,
-  postType,
+  stype,
+  ptype,
   expResPost,
   reqResPost,
 }: SearchTemplateProps) => (
   <SearchTemplate
     keyword={keyword}
-    searchType={searchType}
-    postType={postType}
+    stype={stype}
+    ptype={ptype}
     expResPost={expResPost}
     reqResPost={reqResPost}
   />
@@ -27,8 +27,8 @@ const Template: ComponentStory<typeof SearchTemplate> = ({
 export const TagSearchTemplate = Template.bind({});
 TagSearchTemplate.args = {
   keyword: '태그',
-  searchType: 'tag',
-  postType: 'experiment',
+  stype: 'tag',
+  ptype: 'experiment',
   expResPost: expPosts,
   reqResPost: reqPosts,
 };
@@ -36,8 +36,8 @@ TagSearchTemplate.args = {
 export const wordSearchTemplate = Template.bind({});
 wordSearchTemplate.args = {
   keyword: '키워드',
-  searchType: 'query',
-  postType: 'request',
+  stype: 'query',
+  ptype: 'request',
   expResPost: expPosts,
   reqResPost: reqPosts,
 };
