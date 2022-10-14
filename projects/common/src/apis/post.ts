@@ -1,3 +1,4 @@
+import { PostType } from 'src/constants';
 import { getAsync, postAsync, deleteAsync, ApiResult } from './apiUtils';
 
 export type StateType = 'all' | 'wait' | 'answered';
@@ -71,7 +72,7 @@ interface EditPostAsyncInput {
  */
 export const getPostDetailAsync = async (
   token: string,
-  postType: 'experiment' | 'request',
+  postType: PostType,
   postId: number,
 ): ApiResult<PostDetailType> => {
   const result = await getAsync<PostDetailType, any>(
@@ -92,7 +93,7 @@ export const getPostDetailAsync = async (
  * @param postId 게시물의 id값
  */
 export const getRelativePosts = async (
-  postType: 'request' | 'experiment',
+  postType: PostType,
   postId: number,
 ): ApiResult<RelativePostType[]> => {
   const result = await getAsync<RelativePostType[], any>(
@@ -114,7 +115,7 @@ export const getRelativePosts = async (
  */
 export const addPostAsync = async (
   token: string,
-  postType: 'experiment' | 'request',
+  postType: PostType,
   title: string,
   content: string,
   categories: string[],
@@ -164,7 +165,7 @@ export const getImgUploadURLAsync = async (
  */
 export const deletePostAsync = async (
   token: string,
-  postType: 'request' | 'experiment',
+  postType: PostType,
   postId: number,
 ): ApiResult<undefined> => {
   const result = await deleteAsync<undefined, any>(
@@ -192,7 +193,7 @@ export const deletePostAsync = async (
  */
 export const editPostAsync = async (
   token: string,
-  postType: 'experiment' | 'request',
+  postType: PostType,
   postId: number,
   title: string,
   content: string,
