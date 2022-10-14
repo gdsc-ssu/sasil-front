@@ -22,10 +22,14 @@ const SearchBarWrapped = ({ className }: SearchBarWrappedProps) => {
         const keyword = value.replace('#', '');
         const searchType = value.indexOf('#') !== -1 ? 'tag' : 'query';
 
-        router.push({
-          pathname: `/search`,
-          query: { keyword, stype: searchType },
-        });
+        router.push(
+          {
+            pathname: `/search`,
+            query: { keyword, stype: searchType },
+          },
+          undefined,
+          { scroll: false },
+        );
       }
 
       setValue('');
