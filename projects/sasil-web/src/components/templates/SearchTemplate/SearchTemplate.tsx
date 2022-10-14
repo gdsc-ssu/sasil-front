@@ -13,27 +13,23 @@ export interface SearchTemplateProps {
   /** 검색할 단어 혹은 해시태그 */
   keyword?: string;
   /** 검색 타입 (키워드(query) or 태그) */
-  stype: SearchType;
+  searchType: SearchType;
   /** 검색 결과로 보여줄 게시물 타입 */
-  ptype?: PostType;
-  /** 검색 결과 실험 게시물 */
-  expResPost: PostListType[];
-  /** 검색 결과 의뢰 게시물 */
-  reqResPost: PostListType[];
+  postType: PostType;
+  /** 검색 결과 목록 */
+  posts: PostListType[];
 }
 
 const SearchTemplate = ({
   keyword,
-  stype,
-  ptype = 'request',
-  expResPost,
-  reqResPost,
+  searchType,
+  postType,
+  posts,
 }: SearchTemplateProps) => {
-  const isTag = stype === 'tag';
-  const postData = ptype === 'request' ? reqResPost : expResPost;
+  const isTag = searchType === 'tag';
 
   const [reqBtnColor, expBtnColor] =
-    ptype === 'request'
+    postType === 'request'
       ? [COLORS.grayscale.gray8, COLORS.grayscale.gray5]
       : [COLORS.grayscale.gray5, COLORS.grayscale.gray8];
 
@@ -56,7 +52,9 @@ const SearchTemplate = ({
               </StyledText>
               <styles.ToggleWrap>
                 <StyledLink
-                  url={{ query: { keyword, stype, ptype: 'request' } }}
+                  url={{
+                    query: { keyword, stype: searchType, ptype: 'request' },
+                  }}
                   textStyleName={TEXT_STYLE_NAME.subtitle1}
                   color={reqBtnColor}
                 >
@@ -64,7 +62,7 @@ const SearchTemplate = ({
                 </StyledLink>
                 <StyledLink
                   url={{
-                    query: { keyword, stype, ptype: 'experiment' },
+                    query: { keyword, stype: searchType, ptype: 'experiment' },
                   }}
                   textStyleName={TEXT_STYLE_NAME.subtitle1}
                   color={expBtnColor}
@@ -72,7 +70,7 @@ const SearchTemplate = ({
                   실험
                 </StyledLink>
               </styles.ToggleWrap>
-              <PostsWrap type={ptype} posts={postData} />
+              <PostsWrap postType={postType} posts={posts} />
             </styles.ContentWrap>
           ) : (
             <StyledText
