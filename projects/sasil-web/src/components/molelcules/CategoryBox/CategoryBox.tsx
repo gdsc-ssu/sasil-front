@@ -1,5 +1,6 @@
 import { COLORS, TEXT_STYLE_NAME } from '@sasil/common';
 import StyledLink from '@/components/atoms/StyledLink';
+import { URL_INFO } from '@/constants/urlInfo';
 import * as styles from './CategoryBox.style';
 
 export interface CategoryBoxProps {
@@ -29,7 +30,10 @@ const CategoryBox = ({
       className={className}
     >
       <StyledLink
-        url={{ query: { category: name } }} // TODO: 정책에 따른 변경 필요
+        url={{
+          pathname: URL_INFO.search,
+          query: { keyword: name, stype: 'tag' },
+        }}
         color={color}
         textStyleName={TEXT_STYLE_NAME.body2R}
         ellipsis
