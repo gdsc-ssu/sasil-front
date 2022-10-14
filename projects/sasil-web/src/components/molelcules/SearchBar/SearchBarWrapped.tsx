@@ -27,6 +27,8 @@ const SearchBarWrapped = ({ className }: SearchBarWrappedProps) => {
           query: { keyword, stype: searchType },
         });
       }
+
+      setValue('');
     },
     [router, value],
   );
