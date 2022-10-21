@@ -10,7 +10,7 @@ import {
   SortType,
 } from '@sasil/common';
 import SearchTemplate from '@/components/templates/SearchTemplate';
-import useInifiniteScroll from '@/logics/hooks/useInfiniteScroll';
+import useInfiniteScroll from '@/logics/hooks/useInfiniteScroll';
 
 const Search: NextPage = () => {
   const router = useRouter();
@@ -57,7 +57,7 @@ const Search: NextPage = () => {
     }
   };
 
-  useInifiniteScroll(postsRef, getSearchPosts);
+  useInfiniteScroll(postsRef, getSearchPosts);
 
   const postsData = data?.pages
     .map((res) => (res?.isSuccess ? res.result.list : []))
