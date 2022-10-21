@@ -1,4 +1,4 @@
-import { PostType } from 'src/constants';
+import { PostType } from '../constants';
 import { getAsync, postAsync, deleteAsync, ApiResult } from './apiUtils';
 
 export type StateType = 'all' | 'wait' | 'answered';

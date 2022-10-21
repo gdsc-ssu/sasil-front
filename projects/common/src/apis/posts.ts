@@ -1,4 +1,4 @@
-import { PostType } from 'src/constants';
+import { PostType } from '../constants';
 import { getAsync, ApiResult } from './apiUtils';
 import { StateType, PostListType } from './post';
 
