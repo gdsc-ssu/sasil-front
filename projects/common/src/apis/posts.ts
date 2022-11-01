@@ -1,3 +1,4 @@
+import { PostType } from '../constants';
 import { getAsync, ApiResult } from './apiUtils';
 import { StateType, PostListType } from './post';
 
@@ -19,7 +20,7 @@ export type InfResultType<T> = {
  * @param state 의뢰에 대한 응답 상태에 따른 의뢰 게시물의 구분 (all | wait | answered)
  */
 export const getPostsAsync = async (
-  type: 'experiment' | 'request',
+  type: PostType,
   page: number,
   display: number,
   sort: SortType,

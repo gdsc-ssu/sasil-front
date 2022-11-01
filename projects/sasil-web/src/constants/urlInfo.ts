@@ -4,6 +4,7 @@ export const URL_INFO = {
   request: '/request',
   experiment: '/experiment',
   user: '/user',
+  search: '/search',
 } as const;
 
 export type UrlNameType = typeof URL_INFO[keyof typeof URL_INFO];
