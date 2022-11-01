@@ -45,9 +45,15 @@ export const PagesWrapper = styled.div({
 });
 
 export const ContentWrap = styled.div({
+  width: '100%',
+  maxWidth: '1400px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
+
+  '.no-result-text': {
+    paddingLeft: '10px',
+  },
 });
 
 export const KeyWordWrap = styled.span(({ isTag }: { isTag: boolean }) => ({
@@ -58,14 +64,15 @@ export const KeyWordWrap = styled.span(({ isTag }: { isTag: boolean }) => ({
   backgroundColor: isTag ? COLORS.primary.alpha10 : 'transparent',
 }));
 
-export const ToggleWrap = styled.div({
-  display: 'flex',
+export const SwitchButtonArea = styled.div({
   width: '110px',
+  display: 'flex',
   justifyContent: 'space-between',
-  margin: '0px 0px 40px 10px',
+  marginBottom: '40px',
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
-    width: '85px',
-    marginBottom: '15px',
+    width: '100%',
+    justifyContent: 'center',
+    marginBottom: '20px',
   },
 });

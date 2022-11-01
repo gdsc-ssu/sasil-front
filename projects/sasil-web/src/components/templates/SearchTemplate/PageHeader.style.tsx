@@ -34,7 +34,7 @@ export const MobileHeader = styled.div({
 
 export const WebHeader = styled.div({
   width: '100%',
-  maxWidth: '1390px',
+  maxWidth: '1400px',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',

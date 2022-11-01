@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useInfiniteQuery } from 'react-query';
@@ -57,6 +57,36 @@ const Search: NextPage = () => {
     }
   };
 
+  const onLeftMove = useCallback(() => {
+    router.push(
+      {
+        pathname: `/search`,
+        query: {
+          keyword,
+          stype: searchType,
+          ptype: 'request',
+        },
+      },
+      undefined,
+      { scroll: false },
+    );
+  }, [router, searchType, keyword]);
+
+  const onRightMove = useCallback(() => {
+    router.push(
+      {
+        pathname: `/search`,
+        query: {
+          keyword,
+          stype: searchType,
+          ptype: 'experiment',
+        },
+      },
+      undefined,
+      { scroll: false },
+    );
+  }, [router, searchType, keyword]);
+
   useInfiniteScroll(postsRef, getSearchPosts);
 
   const postsData = data?.pages
@@ -70,6 +100,8 @@ const Search: NextPage = () => {
       searchType={searchType}
       postType={postType}
       posts={postsData}
+      onLeftMove={onLeftMove}
+      onRightMove={onRightMove}
     />
   );
 };

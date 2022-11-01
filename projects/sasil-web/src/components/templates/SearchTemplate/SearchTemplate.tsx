@@ -8,9 +8,9 @@ import {
   SearchType,
 } from '@sasil/common';
 import StyledText from '@/components/atoms/StyledText';
-import StyledLink from '@/components/atoms/StyledLink';
 import NavBar from '@/components/templates/NavBar';
 import PostsWrap from '@/components/templates/PostsWrap';
+import SwitchButton from '@/components/molelcules/SwitchButton';
 import PageHeader from './PageHeader';
 import * as styles from './SearchTemplate.style';
 
@@ -24,6 +24,8 @@ export interface SearchTemplateProps {
   /** 검색 결과 목록 */
   posts?: PostListType[];
   postsRef?: React.RefObject<HTMLDivElement>;
+  onLeftMove?: () => void;
+  onRightMove?: () => void;
 }
 
 const SearchTemplate = ({
@@ -32,14 +34,10 @@ const SearchTemplate = ({
   postType,
   posts,
   postsRef,
+  onLeftMove,
+  onRightMove,
 }: SearchTemplateProps) => {
   const isTag = searchType === 'tag';
-
-  const [reqBtnColor, expBtnColor] =
-    postType === 'request'
-      ? [COLORS.grayscale.gray8, COLORS.grayscale.gray5]
-      : [COLORS.grayscale.gray5, COLORS.grayscale.gray8];
-
   return (
     <NavBar focusType="main">
       <styles.Container>
@@ -57,27 +55,26 @@ const SearchTemplate = ({
                 </styles.KeyWordWrap>
                 검색결과
               </StyledText>
-              <styles.ToggleWrap>
-                <StyledLink
-                  url={{
-                    query: { keyword, stype: searchType, ptype: 'request' },
-                  }}
-                  textStyleName={TEXT_STYLE_NAME.subtitle1}
-                  color={reqBtnColor}
+              <styles.SwitchButtonArea>
+                <SwitchButton
+                  leftLabel="의뢰"
+                  rightLabel="실험"
+                  initRight={postType === 'experiment'}
+                  onLeftMove={onLeftMove}
+                  onRightMove={onRightMove}
+                />
+              </styles.SwitchButtonArea>
+              {posts?.length ? (
+                <PostsWrap postType={postType} posts={posts} ref={postsRef} />
+              ) : (
+                <StyledText
+                  textStyleName={TEXT_STYLE_NAME.subtitle2R}
+                  color={COLORS.grayscale.gray6}
+                  className="no-result-text"
                 >
-                  의뢰
-                </StyledLink>
-                <StyledLink
-                  url={{
-                    query: { keyword, stype: searchType, ptype: 'experiment' },
-                  }}
-                  textStyleName={TEXT_STYLE_NAME.subtitle1}
-                  color={expBtnColor}
-                >
-                  실험
-                </StyledLink>
-              </styles.ToggleWrap>
-              <PostsWrap postType={postType} posts={posts} ref={postsRef} />
+                  검색 결과가 없습니다
+                </StyledText>
+              )}
             </styles.ContentWrap>
           ) : (
             <StyledText
