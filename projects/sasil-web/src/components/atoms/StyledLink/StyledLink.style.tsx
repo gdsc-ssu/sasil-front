@@ -10,14 +10,14 @@ import { MEDIA_QUERIES } from '@/constants/styles';
 
 interface WrapProps {
   color?: string;
-  textStyleName: TextStyleName;
+  textStyleName?: TextStyleName;
 }
 
 export const Wrap = styled.a(({ color, textStyleName }: WrapProps) => ({
   color: color ?? COLORS.grayscale.black,
-  fontSize: TEXT_STYLES_PC[textStyleName].fontSize,
-  fontWeight: TEXT_STYLES_PC[textStyleName].fontWeight,
-  lineHeight: `${TEXT_STYLES_PC[textStyleName].lineHeight}px`,
+  fontSize: textStyleName && TEXT_STYLES_PC[textStyleName].fontSize,
+  fontWeight: textStyleName && TEXT_STYLES_PC[textStyleName].fontWeight,
+  lineHeight: textStyleName && `${TEXT_STYLES_PC[textStyleName].lineHeight}px`,
   textDecoration: 'none',
 
   ':visited': {
@@ -25,8 +25,9 @@ export const Wrap = styled.a(({ color, textStyleName }: WrapProps) => ({
   },
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
-    fontSize: TEXT_STYLES_MOBILE[textStyleName].fontSize,
-    fontWeight: TEXT_STYLES_MOBILE[textStyleName].fontWeight,
-    lineHeight: `${TEXT_STYLES_MOBILE[textStyleName].lineHeight}px`,
+    fontSize: textStyleName && TEXT_STYLES_MOBILE[textStyleName].fontSize,
+    fontWeight: textStyleName && TEXT_STYLES_MOBILE[textStyleName].fontWeight,
+    lineHeight:
+      textStyleName && `${TEXT_STYLES_MOBILE[textStyleName].lineHeight}px`,
   },
 }));

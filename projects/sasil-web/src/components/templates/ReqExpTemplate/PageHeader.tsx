@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { COLORS, TEXT_STYLE_NAME, CategoryType } from '@sasil/common';
+import { URL_INFO } from '@/constants/urlInfo';
 import RequestIcon from '@/assets/icons/Request.svg';
 import ExperimentIcon from '@/assets/icons/Experiment.svg';
 import SasilLogoIcon from '@/assets/icons/SasilLogo.svg';
@@ -37,7 +38,7 @@ const HEADER_ICON = {
   mobile: <SasilLogoIcon width="64" height="64" />,
 };
 
-// TODO: 검색 버튼 동작, ProfileImg 클릭 동작
+// TODO: ProfileImg 클릭 동작
 const PageHeader = ({ postType, sortType, categories }: PageHeaderProps) => {
   const router = useRouter();
   const goWrite = () => router.push(`/write/${postType}`);
@@ -56,7 +57,9 @@ const PageHeader = ({ postType, sortType, categories }: PageHeaderProps) => {
             {HEADER_ICON.mobile}
           </styles.MobileLogoWrapper>
           <styles.IconsWrapper>
-            <SearchIcon width="28" height="28" />
+            <StyledLink url={URL_INFO.search}>
+              <SearchIcon width="28" height="28" />
+            </StyledLink>
             <ProfileImage size={32} />
           </styles.IconsWrapper>
         </styles.TopWrapper>
