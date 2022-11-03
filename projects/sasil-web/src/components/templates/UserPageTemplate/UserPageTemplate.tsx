@@ -35,7 +35,12 @@ const UserPageTemplate = ({
             onRightMove={onRightMove}
           />
         </styles.SwitchButtonArea>
-        <PostsWrap postType={postType} posts={posts} ref={postsRef} />
+        <PostsWrap
+          postType={postType}
+          posts={posts}
+          ref={postsRef}
+          emptyNotice="게시물이 없습니다"
+        />
       </styles.BodyWrapper>
     </styles.Container>
   </NavBar>

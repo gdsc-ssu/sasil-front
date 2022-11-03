@@ -64,17 +64,12 @@ const SearchTemplate = ({
                   onRightMove={onRightMove}
                 />
               </styles.SwitchButtonArea>
-              {posts?.length ? (
-                <PostsWrap postType={postType} posts={posts} ref={postsRef} />
-              ) : (
-                <StyledText
-                  textStyleName={TEXT_STYLE_NAME.subtitle2R}
-                  color={COLORS.grayscale.gray6}
-                  className="no-result-text"
-                >
-                  검색 결과가 없습니다
-                </StyledText>
-              )}
+              <PostsWrap
+                postType={postType}
+                posts={posts}
+                ref={postsRef}
+                emptyNotice="검색 결과가 없습니다"
+              />
             </styles.ContentWrap>
           ) : (
             <StyledText
