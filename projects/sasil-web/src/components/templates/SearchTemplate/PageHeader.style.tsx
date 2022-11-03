@@ -8,7 +8,7 @@ export const HeaderWrap = styled.div({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'flex-end',
-  padding: '30px 30px 52px 30px',
+  padding: '30px 20px 52px',
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
     height: '114px',
@@ -34,7 +34,7 @@ export const MobileHeader = styled.div({
 
 export const WebHeader = styled.div({
   width: '100%',
-  maxWidth: '1390px',
+  maxWidth: '1400px',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
