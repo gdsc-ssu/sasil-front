@@ -9,7 +9,7 @@ export const Container = styled.section({
   justifyContent: 'flex-start',
   flexWrap: 'wrap',
 
-  '.empty-notice': {
+  '.placeholder': {
     paddingLeft: '10px',
   },
 });

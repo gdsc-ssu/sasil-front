@@ -68,7 +68,7 @@ const SearchTemplate = ({
                 postType={postType}
                 posts={posts}
                 ref={postsRef}
-                emptyNotice="검색 결과가 없습니다"
+                placeholder="검색 결과가 없습니다"
               />
             </styles.ContentWrap>
           ) : (

@@ -10,11 +10,11 @@ export interface PostsWrapProps {
   /** 게시물 리스트 */
   posts: PostListType[] | undefined;
   /** 보여줄 게시물이 없을 때 노출할 문구 */
-  emptyNotice?: string;
+  placeholder?: string;
 }
 
 const PostsWrap = forwardRef<HTMLDivElement, PostsWrapProps>(
-  ({ postType, posts, emptyNotice = '게시물이 없습니다' }, ref) => (
+  ({ postType, posts, placeholder = '게시물이 없습니다' }, ref) => (
     <styles.Container ref={ref}>
       {posts?.length ? (
         posts.map((post: PostListType) => (
@@ -31,9 +31,9 @@ const PostsWrap = forwardRef<HTMLDivElement, PostsWrapProps>(
         <StyledText
           textStyleName={TEXT_STYLE_NAME.subtitle2R}
           color={COLORS.grayscale.gray6}
-          className="empty-notice"
+          className="placeholder"
         >
-          {emptyNotice}
+          {placeholder}
         </StyledText>
       )}
     </styles.Container>
