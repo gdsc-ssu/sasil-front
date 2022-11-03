@@ -26,7 +26,7 @@ export const Container = styled.div({
 
 export const PagesWrapper = styled.div({
   width: '100%',
-  padding: '42px 30px 80px',
+  padding: '55px 20px 80px',
   flex: 1,
   display: 'flex',
   justifyContent: 'center',
@@ -50,10 +50,6 @@ export const ContentWrap = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-
-  '.no-result-text': {
-    paddingLeft: '10px',
-  },
 });
 
 export const KeyWordWrap = styled.span(({ isTag }: { isTag: boolean }) => ({
