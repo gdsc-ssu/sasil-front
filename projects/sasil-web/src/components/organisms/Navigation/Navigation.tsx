@@ -4,14 +4,14 @@ import NavItem from './NavItem';
 import * as styles from './Navigation.style';
 
 export interface NavigationProps {
-  focusType: NavItemKey;
+  focusType?: NavItemKey;
+  userId?: number | null;
 }
 
-// TODO: focusType을 Template 단에서 props drilling으로 받아오는데, Navigation에서 router.pathname 이용해서 사용하는 방식은 어떤지?
 /**
  * 페이지 이동을 위한 네비게이션을 생성하는 컴포넌트 (반응형)
  */
-const Navigation = ({ focusType }: NavigationProps) => {
+const Navigation = ({ focusType, userId }: NavigationProps) => {
   const navList = Object.keys(NAV_INFO) as [NavItemKey];
 
   return (
@@ -19,11 +19,16 @@ const Navigation = ({ focusType }: NavigationProps) => {
       {navList.map((navType) => {
         const isFocused = focusType === navType;
 
+        const myPageURL = userId
+          ? `${URL_INFO[navType]}/${userId}`
+          : URL_INFO.login;
+        const targetURL = navType === 'user' ? myPageURL : URL_INFO[navType];
+
         return (
           <NavItem
             type={navType}
             name={NAV_INFO[navType].name_kr}
-            targetURL={URL_INFO[navType]}
+            targetURL={targetURL}
             isFocused={isFocused}
             key={navType}
           />
