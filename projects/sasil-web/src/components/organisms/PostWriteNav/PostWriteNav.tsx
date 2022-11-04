@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { COLORS } from '@sasil/common';
-import { getUserInfoAtom } from '@/logics/store/actions';
 import { useAtom } from 'jotai';
-import StyledText from '@/components/atoms/StyledText';
 
+import { COLORS } from '@sasil/common';
+import { URL_INFO } from '@/constants/urlInfo';
+import { getUserInfoAtom } from '@/logics/store/actions';
 import Plus from '@/assets/icons/Plus.svg';
 import Request from '@/assets/icons/Request.svg';
 import Experiment from '@/assets/icons/Experiment.svg';
+import StyledText from '@/components/atoms/StyledText';
 import * as styles from './PostWriteNav.style';
 
 interface ListItemProps {
@@ -48,13 +49,15 @@ const PostWriteNav = () => {
           <ListItem
             type="request"
             onClick={() =>
-              router.push(userInfo?.token ? '/write/request' : '/login')
+              router.push(userInfo?.token ? '/write/request' : URL_INFO.login)
             }
           />
           <ListItem
             type="experiment"
             onClick={() =>
-              router.push(userInfo?.token ? '/write/experiment' : '/login')
+              router.push(
+                userInfo?.token ? '/write/experiment' : URL_INFO.login,
+              )
             }
           />
         </styles.ListWrap>

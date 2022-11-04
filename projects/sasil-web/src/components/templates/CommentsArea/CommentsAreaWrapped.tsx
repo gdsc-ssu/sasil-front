@@ -8,6 +8,7 @@ import {
   addCommentAsync,
   deleteCommentAsync,
 } from '@sasil/common';
+import { URL_INFO } from '@/constants/urlInfo';
 import useInifiniteScroll from '@/logics/hooks/useInfiniteScroll';
 import { getUserInfoAtom } from '@/logics/store/actions';
 import CommentsArea from './CommentsArea';
@@ -61,7 +62,7 @@ const CommentsAreaWrapped = () => {
   const addComment = useCallback(async () => {
     if (commentValue.length > 0) {
       if (!userInfo?.token) {
-        router.push('/login');
+        router.push(URL_INFO.login);
         return;
       }
 
@@ -114,7 +115,7 @@ const CommentsAreaWrapped = () => {
     }));
 
     if (!userInfo?.token) {
-      router.push('/login');
+      router.push(URL_INFO.login);
       return;
     }
 
