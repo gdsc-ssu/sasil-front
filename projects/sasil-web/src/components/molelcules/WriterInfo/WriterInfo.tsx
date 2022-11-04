@@ -1,5 +1,5 @@
-import ProfileImage from '@/components/atoms/ProfileImage';
-import StyledText from '@/components/atoms/StyledText';
+import { useRouter } from 'next/router';
+
 import {
   COLORS,
   TextStyleName,
@@ -7,6 +7,10 @@ import {
   WriterType,
   DELETED_USER_NICKNAME,
 } from '@sasil/common';
+import { URL_INFO } from '@/constants/urlInfo';
+import ProfileImage from '@/components/atoms/ProfileImage';
+import StyledText from '@/components/atoms/StyledText';
+import { useCallback } from 'react';
 import * as styles from './WriterInfo.style';
 
 const formatDate = (date: string) => {
@@ -42,26 +46,34 @@ const WriterInfo = ({
   textColor,
   profileSize,
   writeDate,
-}: WriterInfoProps) => (
-  <styles.WriterWrap>
-    <ProfileImage src={writerObj?.profileImg} size={profileSize} />
-    <StyledText
-      color={textColor}
-      textStyleName={textStyleName}
-      className="writer-info"
-    >
-      {writerObj?.nickname ?? DELETED_USER_NICKNAME}
-    </StyledText>
-    {writeDate && (
+}: WriterInfoProps) => {
+  const router = useRouter();
+
+  const onClick = useCallback(() => {
+    router.push(`${URL_INFO.user}/${writerObj?.id}`);
+  }, [router, writerObj?.id]);
+
+  return (
+    <styles.WriterWrap onClick={onClick}>
+      <ProfileImage src={writerObj?.profileImg} size={profileSize} />
       <StyledText
-        color={COLORS.grayscale.gray5}
-        textStyleName={TEXT_STYLE_NAME.body3}
-        className="create-date"
+        color={textColor}
+        textStyleName={textStyleName}
+        className="writer-info"
       >
-        {formatDate(writeDate)}
+        {writerObj?.nickname ?? DELETED_USER_NICKNAME}
       </StyledText>
-    )}
-  </styles.WriterWrap>
-);
+      {writeDate && (
+        <StyledText
+          color={COLORS.grayscale.gray5}
+          textStyleName={TEXT_STYLE_NAME.body3}
+          className="create-date"
+        >
+          {formatDate(writeDate)}
+        </StyledText>
+      )}
+    </styles.WriterWrap>
+  );
+};
 
 export default WriterInfo;

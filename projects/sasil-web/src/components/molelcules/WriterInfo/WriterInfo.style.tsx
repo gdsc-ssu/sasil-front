@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const WriterWrap = styled.div({
   display: 'flex',
   alignItems: 'center',
+  cursor: 'pointer',
 
   '.writer-info': {
     marginLeft: 6,
