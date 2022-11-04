@@ -14,6 +14,7 @@ const Template: ComponentStory<typeof UserPageTemplate> = ({
   tabType,
   postType,
   posts,
+  isMyPage,
   postsRef,
 }: UserPageTemplateProps) => (
   <UserPageTemplate
@@ -22,6 +23,7 @@ const Template: ComponentStory<typeof UserPageTemplate> = ({
     postType={postType}
     posts={posts}
     postsRef={postsRef}
+    isMyPage={isMyPage}
   />
 );
 
@@ -31,4 +33,5 @@ Default.args = {
   tabType: 'userPosts',
   postType: 'experiment',
   posts: expPosts,
+  isMyPage: true,
 };
