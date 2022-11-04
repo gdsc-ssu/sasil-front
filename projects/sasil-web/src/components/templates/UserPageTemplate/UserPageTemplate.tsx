@@ -8,11 +8,11 @@ import * as styles from './UserPageTemplate.style';
 
 export interface UserPageTemplateProps extends PostsWrapProps, PageHeaderProps {
   postsRef?: React.RefObject<HTMLDivElement>;
+  isMyPage: boolean;
   onLeftMove?: () => void;
   onRightMove?: () => void;
 }
 
-// TODO: PostType을 선택하는 컴포넌트 구현
 const UserPageTemplate = ({
   userInfo,
   tabType,
@@ -21,8 +21,9 @@ const UserPageTemplate = ({
   postsRef,
   onLeftMove,
   onRightMove,
+  isMyPage,
 }: UserPageTemplateProps) => (
-  <NavBar focusType="user">
+  <NavBar focusType={isMyPage ? 'user' : undefined}>
     <styles.Container>
       <PageHeader tabType={tabType} userInfo={userInfo} />
       <styles.BodyWrapper>
