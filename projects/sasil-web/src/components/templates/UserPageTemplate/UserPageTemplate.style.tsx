@@ -24,7 +24,7 @@ export const BodyWrapper = styled.div({
   alignItems: 'center',
   minHeight: '100%',
   width: '100%',
-  padding: '57px 0',
+  padding: '55px 20px',
   backgroundColor: COLORS.background,
 
   [`@media ${MEDIA_QUERIES.mobile}`]: {
