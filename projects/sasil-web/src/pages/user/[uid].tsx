@@ -111,6 +111,8 @@ const UserPage: NextPage = () => {
     .map((res) => (res && res.isSuccess ? res.result.list : []))
     .flat();
 
+  const isMyPage = myInfo?.id === userInfo.id;
+
   return (
     <UserPageTemplate
       userInfo={userInfo}
@@ -120,6 +122,7 @@ const UserPage: NextPage = () => {
       postsRef={postsRef}
       onLeftMove={onLeftMove}
       onRightMove={onRightMove}
+      isMyPage={isMyPage}
     />
   );
 };

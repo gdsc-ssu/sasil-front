@@ -15,6 +15,7 @@ import {
   PostDetailType,
   RelativePostType,
 } from '@sasil/common';
+import { URL_INFO } from '@/constants/urlInfo';
 import { getUserInfoAtom } from '@/logics/store/actions';
 
 // Toast Viewer를 사용하기 위한 ssr 해제
@@ -105,7 +106,7 @@ const PostDetail: NextPage = () => {
 
   const handleLike = useCallback(async () => {
     if (!userInfo?.token) {
-      router.push('/login');
+      router.push(URL_INFO.login);
       return;
     }
 
@@ -124,7 +125,7 @@ const PostDetail: NextPage = () => {
 
   const handleBookmark = useCallback(async () => {
     if (!userInfo?.token) {
-      router.push('/login');
+      router.push(URL_INFO.login);
       return;
     }
     const result = bookmarkInfo.isBookmark
@@ -151,7 +152,7 @@ const PostDetail: NextPage = () => {
     }
 
     if (!userInfo?.token) {
-      router.push('/login');
+      router.push(URL_INFO.login);
       return;
     }
 

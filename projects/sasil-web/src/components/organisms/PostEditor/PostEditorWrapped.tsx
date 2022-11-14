@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
-import { addPostAsync, getImgUploadURLAsync } from '@sasil/common';
-import { postAsync } from '@sasil/common/dist/apis/apiUtils';
 import { useRouter } from 'next/router';
 import { Editor as EditorType } from '@toast-ui/react-editor';
-import { HookCallback } from '@/components/molelcules/Editor/Editor';
 import { useAtom } from 'jotai';
+
+import { addPostAsync, getImgUploadURLAsync } from '@sasil/common';
+import { postAsync } from '@sasil/common/dist/apis/apiUtils';
+import { URL_INFO } from '@/constants/urlInfo';
+import { HookCallback } from '@/components/molelcules/Editor/Editor';
 import { getUserInfoAtom } from '@/logics/store/actions';
 import PostEditor from './PostEditor';
 
@@ -97,7 +99,7 @@ const PostEditorWrapped = ({ type }: PostEditorWrappedProps) => {
 
     if (mdText) {
       if (!userInfo?.token) {
-        router.push('/login');
+        router.push(URL_INFO.login);
         return;
       }
 
